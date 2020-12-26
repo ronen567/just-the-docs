@@ -1,2 +1,13 @@
+---
+layout: default
+title: Customization
+page.usemathjax
+nav_order: 6
+---
+
+
 ## THIS is a test
 [Link to another page111](configuration.md).
+
+
+$$y_i$$
