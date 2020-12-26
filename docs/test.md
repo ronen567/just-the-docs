@@ -1,2 +1,2 @@
 ## THIS is a test
-[linkk] [docs/configuation.md]
+[Link to another page](another-page).
