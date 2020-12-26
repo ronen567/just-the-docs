@@ -1,2 +1,2 @@
 ## THIS is a test
-[Link to another page](configuration).
+[Link to another page](configuration.md).
