@@ -10,4 +10,4 @@ nav_order: 6
 [Link to another page111](configuration.md).
 
 
-$$y_i$$
+$$ y_i $$
