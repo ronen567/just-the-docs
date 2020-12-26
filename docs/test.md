@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Customization
-page.usemathjax
 nav_order: 6
 ---
 
