@@ -1,3 +1,5 @@
+
+#This is my first 
 This is my first post on machine learning and deep learning. After this intro post, more posts are planned which will talk about both theory and implementation issues. Should I start by defining machine learning? Maybe define deep learning too?  So, I’ll take the risk and sum it in a single short sentence,  machine learning, (or I’d better say machine learning algorithms), are computer algorithms which improve automatically through reference from data.
 
 Let me give an example, that might better explain what are machine learning algorithms, and the difference from conventional computer algorithm concepts:
