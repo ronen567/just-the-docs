@@ -1,6 +1,6 @@
 ## MLinear Regression and Gradient Descent
 
-![Alt text](IMG_20200924_204859.jpg)
+![Alt text](../IMG_20200924_204859.jpg)
 
 So, here’s the problem:
 Context is supervised learning. In the  training phase, we use a set of labeled input data samples,  build a model function h(x), which should be used to predict the output based on features i.e.
