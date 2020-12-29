@@ -145,7 +145,7 @@ Plotting Eq 6, will result in a surface, such as  illustrated in figure 7:
 
 Figure 7:  Plot illustration of  \[J(b,w)\]::\[J(b,w)\]::
 
-![Figure 7](assets/images/linear_prediction_approximation_surface.png)
+![Alt text](assets/images/linear_prediction_approximation_surface.png?raw=true)
 
 
 So we are looking for (b, w1) which minimizes the cost function. If you studied calculus sometimes in your life, you probably know that the minima of J(b, w1) is the point were the partial derivatives  wrt b and w1 are 0. And if you don’t know that, never mind, you may just believe it’s so.
