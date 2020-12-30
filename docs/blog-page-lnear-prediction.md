@@ -1,6 +1,5 @@
 ## MLinear Regression and Gradient Descent
 
-![Alt text](../IMG_20200924_204859.jpg)
 
 So, here’s the problem:
 Context is supervised learning. In the  training phase, we use a set of labeled input data samples,  build a model function h(x), which should be used to predict the output based on features i.e.
@@ -146,7 +145,8 @@ Plotting Eq 6, will result in a surface, such as  illustrated in figure 7:
 
 Figure 7:  Plot illustration of  \[J(b,w)\]::\[J(b,w)\]::
 
-![Alt text](../assets/images/linear_prediction_approximation_surface.png)
+![Alt text](../assets/images/Calssification%20Machine%20Learning%20Model.jpg)
+
 
 
 So we are looking for (b, w1) which minimizes the cost function. If you studied calculus sometimes in your life, you probably know that the minima of J(b, w1) is the point were the partial derivatives  wrt b and w1 are 0. And if you don’t know that, never mind, you may just believe it’s so.
