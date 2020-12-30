@@ -1,4 +1,4 @@
-## MLinear Regression and Gradient Descent
+## Linear Regression and Gradient Descent
 
 
 So, here’s the problem:
@@ -13,65 +13,29 @@ Table 1 lists 3 features according to which house prices should be predicted. (N
 
 
 
-Table 3:  House price prediction - Labeled data
+Table 1:  House price prediction - Labeled data
 
-\[x1\]
-Number of bedrooms
-$$x_{2}$$
-Zip code
-$$x_{3}$$
-floor
-$$y$$
-Price $
-4
-32321
-2
-17900
-2
-54322
-3
-21000
-2$$x_{1}$$
-43243
-4
-25000
-3
-63422
-1
-26000
+
+| x1 -Number of bedrooms| x3 - Zip code     | x3 -Floor| y - Price|
+|:----------------------|:------------------|:---------|:---------|
+| 4                     |32321              | 2        | 179000   |
+| 2                     |54322              | 3        | 210000   |
+| 2                     |43243              | 4        | 250000   |
+| 3                     |63422              | 1        | 260000   |
+
 
 
 Following, is table 2, which consists of regular data, for which the price should be estimated, based on features.
 
 
-Table 4: How Price Prediction - Regular Data
+Table 2: How Price Prediction - Regular Data
 
-
-\[x1\]
-Number of bedrooms
-$$x_{2}$$
-Zip code
-$$x_{3}$$
-floor
-$$y$$
-Price $
-3
-34321
-3
-?
-5
-64322
-5
-?
-1$$x_{1}$$
-23241
-4
-?
-4
-83422
-2
-?
-
+| x1 -Number of bedrooms| x3 - Zip code     | x3 -Floor| y - Price|
+|:----------------------|:------------------|:---------|:---------|
+| 3                     |34321              | 3        |  ?       |
+| 5                     |64322              | 5        |  ?       |
+| 1                     |23241              | 4        |  ?       |
+| 4                     |83422              | 2        |  ?       |
 
 
 So, our challenge is to do the following:
