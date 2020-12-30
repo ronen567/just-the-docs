@@ -16,8 +16,8 @@ Table 1 lists 3 features according to which house prices should be predicted. (N
 Table 1:  House price prediction - Labeled data
 
 
-| x1 -Number of bedrooms| x3 - Zip code     | x3 -Floor| y - Price|
-|:----------------------|:------------------|:---------|:---------|
+|`x1`-Number of bedrooms|`x3`- Zip code    |`x3`-Floor|`y`- Price|
+|:----------------------|:------------------|:----------|:---------|
 | 4                     |32321              | 2        | 179000   |
 | 2                     |54322              | 3        | 210000   |
 | 2                     |43243              | 4        | 250000   |
