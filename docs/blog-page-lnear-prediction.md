@@ -145,7 +145,7 @@ Plotting Eq 6, will result in a surface, such as  illustrated in figure 7:
 
 Figure 7:  Plot illustration of  \[J(b,w)\]::\[J(b,w)\]::
 
-![Alt text](../assets/images/Calssification%20Machine%20Learning%20Model.jpg)
+![Approximation Surface](../assets/images/linearPredictionApproximationSurfaceMarked.jpg)
 
 
 
