@@ -39,8 +39,8 @@ Table 2: How Price Prediction - Regular Data
 
 
 So, our challenge is to do the following:
-Determine a prediction model
-Train the model with the labeled set of samples, so that it can later can estimate tabel 4’s data set.
+1. Determine a prediction model
+2. Train the model with the labeled set of samples, so that it can later can estimate tabel 4’s data set.
 
 
 Let’s start with the first challenge, and determine the model. In this post, for the sake of simplicity, we chose the Linear Regression model. Note that the most common prediction model used is current algorithms is the Logistic Regression. We will get to it in  later posts. But Linear Regression is a good point to start with in order to get a  foundation for the other algorithms. Still, you may skip this post and jump directly to Logistic Regression.
@@ -83,6 +83,7 @@ Figure 1 presents a line approximation to scattered points
 
 Figure: Line Approximation 
 
+![Linear Approximation](../assets/images/linearApproximation.jpg)
 
 
 
