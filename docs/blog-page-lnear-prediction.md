@@ -1,14 +1,20 @@
 ## Linear Regression and Gradient Descent
 
 
-So, here’s the problem:
-Context is supervised learning. In the  training phase, we use a set of labeled input data samples,  build a model function h(x), which should be used to predict the output based on features i.e.
+So, the context is supervised learning. During the training phase, a set of labeled input data samples is used to calculate a ptrdictor ehich should be used later in the testing and data phase - (Figure 1 is posted here again as a memory refresher to the supervised learning process):
 
-\[\hat{y}=h(x)\]
+![Approximation Surface](../assets/images/supervised%20learning.svg)
 
-Where \[\hat{y}, x\] are the estimated value of y and the feature data respectively.
 
-Let’s illustrate that in an example:
+
+That predictor, denoted by h(x), should predict the output $$y$$, based on input . $$x@@:
+
+$$\hat{y}=h(x)$$
+
+Where $$\hat{y}, x$$ are the estimated value of y and the feature data respectively.
+
+Let’s illustrate a prediction scenario example, at which it is required to predict price of a house, based on 3 features such as: 
+
 Table 1 lists 3 features according to which house prices should be predicted. (Note - obviously those 3 features are not enough to predict a house prices, but let’s keep it like so for the sake of example’s simplicity).  The training set consists of 4 examples, each  labeled with the known corresponding price
 
 
