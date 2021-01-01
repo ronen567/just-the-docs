@@ -3,7 +3,7 @@
 
 So, the context is supervised learning. During the training phase, a set of labeled input data samples is used to calculate a ptrdictor ehich should be used later in the testing and data phase - (Figure 1 is posted here again as a memory refresher to the supervised learning process):
 
-![Approximation Surface](../assets/images/supervised%20learning.svg)
+![Approximation Surface](../assets/images/supervised/supervised%20learning.svg)
 
 
 
