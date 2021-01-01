@@ -7,7 +7,48 @@ Should I start with a definition of 'Machine Learning'? Maybe define how 'Deep L
 To better explain the meaning of that, and emphasize the difference between Machine Learning Algorithms and conventional algorithms, let me show an example:
 Let’s consider a typical image recognition problem: 
 we need to recognize whether a picture is of a cat or not.
-A conventional, non machine learning algorithm solution, would use dedicated and complicated computer vision algorithms, which would optionally try to parse the body parts in the image, in the effort to extract cat characterizing features from then. With those collected features, the ‘cat’ or ‘not a cat’ decision would be taken.  As for performance in terms of false detections and miss detections - performance of such algorithms were much poorer than the results of current machine learning algorithms.
+A conventional, non-machine learning algorithm solution, would use dedicated and complicated computer vision algorithms, which would optionally try to parse the body parts detected the image, in the effort to extract cat characterizing features from then. 
+
+Figure 1: This is a cat!
+![Approximation Surface](../assets/images/pictures/this-is-a-cat.jpg)
+
+
+Looking at that cat, the algorithm needs to detect charectarizing features such as the ears, eyes, whiskers, etc. Not an easy job at all! It requires complicated parsing and detection algorithms, which can do the detection for so many potential poses, colors, scales, and just name it... Now, suppose the algorithm can look at a cat and determine it is. What about a not a cat, but close to - take a look at this puppy!
+
+![Approximation Surface](../assets/images/pictures/not-a-cat.jpg)
+
+
+
+
+When it comes to such tasks, the performance of conventional computer vision algorithms, in terms of false detections and miss detections were not found to be satisfactory.
+
+On the other hand, Machine Learning algorithms, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithm, the machine learning way to determine whether a picture is of a cat or not, is sketched in the 2 figures below.
+
+The first, presents the system model, which is common to that type of machine learning, i.e. 'supervised'. (we'll review the various types later on)
+Figure 1: Supervised Machine Learning Model
+
+![Approximation Surface](../assets/images/supervised/Outlines of Machine Learning System Model.svg)
+
+The idea is to have 2 stages of operations:
+1. Training
+2. Noraml Data
+
+Dueing the Training stage, the input data consists of 'labled data'. That means, each element of the data set is labeled with the expected output. For example, in the cat detection algorithm, the training data set would consist of many pictures, each labeld as 'Cat' or 'No Cat.
+Accordingly, during that stage, the system will model a prediction function $$h(x)$$, which 
+
+TILL HERE RONEN!!!!
+
+
+
+
+model presents 2 sources of data: Training Data and Normal Data. The process starts with the training data, which is a set of labeled data, where the label determines the expected output (or decision in the cat/no cat example).
+
+
+
+
+
+
+much poorer to the - performance of such algorithms were much poorer than the results of current machine learning algorithms.
 
 On the other hand, a machine learning algorithm model which fit this problem, would be executed in 2 phases:
 Training phase - at this stage, the algorithm calculates a set of weight coefficients w, which maximize the likelihood of a stochastic predictor: $$p_{w}(y|x)$$
