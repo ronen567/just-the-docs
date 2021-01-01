@@ -1,10 +1,12 @@
 ## This is my first 
 
 #This is my first 
-This is my first post on machine learning and deep learning. After this intro post, more posts are planned which will talk about both theory and implementation issues. Should I start by defining machine learning? Maybe define deep learning too?  So, I’ll take the risk and sum it in a single short sentence,  machine learning, (or I’d better say machine learning algorithms), are computer algorithms which improve automatically through reference from data.
+This is my first post on machine learning and deep learning., which can be considered an intro, and will be followed by posts which will consist of both theory and implementation topics. 
+Should I start with a definition of 'Machine Learning'? Maybe define how 'Deep Learning' is defined with regard to it? I'll take the risk and sum it in a single short sentence:  Machine Learning, (or I’d prefer to speak of Machine Learning Algorithms), are computer algorithms which improve automatically through reference from data.
 
-Let me give an example, that might better explain what are machine learning algorithms, and the difference from conventional computer algorithm concepts:
-Let’s take the typical image recognition problem: we need to recognize whether a picture is of a cat or not.
+To better explain the meaning of that, and emphasize the difference between Machine Learning Algorithms and conventional algorithms, let me show an example:
+Let’s consider a typical image recognition problem: 
+we need to recognize whether a picture is of a cat or not.
 A conventional, non machine learning algorithm solution, would use dedicated and complicated computer vision algorithms, which would optionally try to parse the body parts in the image, in the effort to extract cat characterizing features from then. With those collected features, the ‘cat’ or ‘not a cat’ decision would be taken.  As for performance in terms of false detections and miss detections - performance of such algorithms were much poorer than the results of current machine learning algorithms.
 
 On the other hand, a machine learning algorithm model which fit this problem, would be executed in 2 phases:
@@ -21,11 +23,11 @@ More details on the prediction method, how it is calculated, how it works, the 3
 
 
 Figure 1: Machine learning algorithm 
-
+![Approximation Surface](../assets/images/supervised/Outlines%20of%20%20Machine%20Learning%20System%20Model.svg)
 
 
 Figure 2: 3 phases of Machine learning algorithm
-
+![Approximation Surface](../assets/images/supervised/supervised%20learning.svg)
 
 
 So far we tried we illustrated a machine learning algorithm with the cat image recognition task. That task belongs to one category of ML, named Supervised learning. 
