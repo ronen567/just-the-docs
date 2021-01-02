@@ -23,10 +23,9 @@ Figure 2: Not a cat!
 
 When it comes to such tasks, the performance of conventional computer vision algorithms, in terms of false detections and miss detections were not found to be satisfactory.
 
-On the other hand, Machine Learning algorithms, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithm, the machine learning way to determine whether a picture is of a cat or not, is sketched in the 2 figures below.
+On the other hand, Machine Learning algorithms, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithms, the machine learning way to determine whether a picture is of a cat or not, is sketched in the 2 figures below.
 
-The first, presents the system model, which is common to that type of machine learning, i.e. 'supervised'. (we'll review the various types later on)
-Figure 1: Supervised Machine Learning Model
+Figure 1: Machine Learning Model
 
 Figure 3: Machine Learning system's outlines
 
@@ -39,7 +38,9 @@ The idea is to have 2 phases of operations:
 During the Training phase, the input data set consists of 'labled data'. That means, each element of the data set is labeled with the expected output. For example, in the cat detection algorithm, the training data set would consist of many pictures, each labeld as 'Cat' or 'Not a Cat".
 Accordingly, Traning phase goal is to determine the coefficients for the selected prediction model function:
 $$h(x)$$. 
-To do that, it normally needs a large training set, where each element of that dataset is a labeled input data. At this point, it may all sound vage: How does that "magic" prediction function look like? what coefficients are we tailking about? We'll get to the details in posts which follow. This is an introductory post.
+To do that, it normally needs a large training set, where each element of that dataset is a labeled input data. At this point, it may all sound vage: How does that "magic" prediction function look like? what coefficients are we tailking about? In a nutshell, the predictor out put is $$\hat{y}$$, which estimates $${y}$$. To illustrate that with an example, then $$\hat{y}$$ is the 'a cat' or 'not a cat' decision made bythe predictor, which tryies to predict $${y}$$, which is the correct "cat", "no cat" decision.
+We'll delve to the details in posts which follow. This is an introductory post.
+
 Having the predictor, we can move to the normal data phase, at which the system is ready to predict the expected output for unlabeled input data:
 $$\hat{y}=h(x))$$
 
@@ -49,6 +50,17 @@ We'll ofcourse review the various performance criteria, and how should that be d
 Figure 4: Machine Learning - The 3 phases
 
 ![supervised learning](../assets/images/supervised/supervised%20learning.svg)
+
+
+
+Now with the ML concept presented, still vagely though, before concluding the intro, we should crystalizee it a bit more:
+The 3 phase model presented, relates to one type MAchine Learning algorithms, named "Supervised Learning". Supervised Learning is currently considered the mostly implemented ML algorithm type. 
+The 3 types of ML algorithms currently considered are:
+1. Supervised Learning
+2. Unsupervised Learning
+3. Reinforcement Learning
+
+TILL HERE!!!
 
 
 
