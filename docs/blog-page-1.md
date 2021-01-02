@@ -6,24 +6,28 @@ Should I start with a definition of 'Machine Learning'? Maybe define how 'Deep L
 
 To better explain the meaning of that, and emphasize the difference between Machine Learning Algorithms and conventional algorithms, let me show an example:
 Let’s consider a typical image recognition problem: 
-we need to recognize whether a picture is of a cat or not.
-A conventional, non-machine learning algorithm solution, would use dedicated and complicated computer vision algorithms, which would optionally try to parse the body parts detected the image, in the effort to extract cat characterizing features from then. 
+we need to classify a picture to one of the 2 classes: "cat" or "not a cat".
+To solve such a problem, using a conventional, non-machine learning algorithm solution, one would probably implement dedicated and complicated computer vision algorithms, which would try to parse the body parts, in the effort to extract cat characterizing features within. 
 
 Figure 1: This is a cat!
+
 ![This is a cat](../assets/images/pictures/definitely-a-cat.jpg)
 
 
-Looking at that cat, the algorithm needs to detect charectarizing features such as the ears, eyes, whiskers, etc. Not an easy job at all! It requires complicated parsing and detection algorithms, which can do the detection for so many potential poses, colors, scales, and just name it... Now, suppose the algorithm can look at a cat and determine it is. What about a not a cat, but close to - take a look at this puppy!
+Take a look at that cute cat: the algorithm needs to detect charectarizing features such as the ears, eyes, whiskers, etc. Not an easy job at all! It requires complicated parsing and detection algorithms, support so many potential perspectives, poses, colors, scales, and just name it... Now, let's suppose the algorithm is able determine a cat, when he sees one. But, what about a picture of 'not a cat', but certain features are so close - take a look at this puppy!
 
 Figure 2: Not a cat!
+
 ![Not a cat](../assets/images/pictures/not-a-cat.jpg)
 
 
 
 
-When it comes to such tasks, the performance of conventional computer vision algorithms, in terms of false detections and miss detections were not found to be satisfactory.
+Indeed complicated, and indeed the performance of conventional computer vision algorithms for such tasks, in terms of false detections and miss detections, were not considered satisfactory enough. 
 
-On the other hand, Machine Learning algorithms, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithms, the machine learning way to determine whether a picture is of a cat or not, is sketched in the 2 figures below.
+Machine Learning algorithms on the other hand, led to a breakthrough in such detection, recognition and generally speaking classification tasks, and in plenty othere problems, just ot list some: text recognition, voice recognition, customers targeting, chess playing, etc.
+
+ Machine Learning algorithms, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithms, the machine learning way to determine whether a picture is of a cat or not, is sketched in the 2 figures below.
 
 Figure 1: Machine Learning Model
 
@@ -55,10 +59,57 @@ Figure 4: Machine Learning - The 3 phases
 
 Now with the ML concept presented, still vagely though, before concluding the intro, we should crystalizee it a bit more:
 The 3 phase model presented, relates to one type MAchine Learning algorithms, named "Supervised Learning". Supervised Learning is currently considered the mostly implemented ML algorithm type. 
+
 The 3 types of ML algorithms currently considered are:
 1. Supervised Learning
 2. Unsupervised Learning
 3. Reinforcement Learning
+
+Here's an introductory to each of the 3 types.
+
+Supervised Learning - This is the type presented by Figures 1 and 2, also used as an example to ML with the 'cat' 'no cat' classification problem. As noted above, it is currently the most common and practically used ML type. Named 'Supervised', it requires a supervision intervention to prepare the training labeled data. Data labeling can be a tedious task in the better case, or an impossible mission when a large scale of data is needed for the training. BTW, how can we tell if a larger set of data is required? We'll cover that one later.
+Anyway, the 2 common Supervised Learning types of problem are:
+1. Classification
+2. Regression
+
+In Classification problems, according to input, the problem is to decide which of the output classes should be selected between a descret (=finite) set of classes, e.g. "cat" or "not a cat", which is a binary classification problem, or a multi classification problem e.g. 'cat', 'dog', 'wolf' or 'elephant'.
+In Regression problems, according to input, the problem is to determine the output value, which now is not descrete but continous. e.g., based on various features, such as address, floor, area, and number of bedrooms, predict the price of a flat.
+
+Unsupervised Learning
+Unsupervised learning is mostly about finding hidden information inside the data. Point is,in contrust to Supervised Learning, the data is not labeled so the type of "hidden information" sought after, is not apriori known, but discovered from the data . Common Unsupervised Learning applications are:
+Clustering - grouping the input in clusters according to common charectaristics found, e.g. color, shape, biochemical structure, probabily distribution, etc, as illustrated in Figure 4. Note that clusters presented in Figure 4 are of 2 dimensions, because it is preactically easier to present graphically, (can present 3 dimensions at the most), though in many cases clusters will have  more dimentsions. (Was asked about the meanings of probabily distribution, so here's an example: Task is signal-noise decomposition, where signal is a sinusoid and noise has white spectral probability density. Clustering will decompose the noise-signal).
+
+
+Figure 4: Clusters (2D)
+
+![clusters](../assets/images/unsupervised/clusters.png)
+
+Reinforcement Learning - Unblike Supervised learning, which is based on labeled data, or unsupervsed learning, which is finds hidden data patterens,RL is based on a markovian process
+tries to maximaize a reward rather than find hidden patterns or structures in the data
+
+he algorithm.
+
+
+
+(From RL book 1.1)
+
+
+
+unsupervised learning which typically is about finding structure hidden in collections of unlabeled data. Though RL too does not rely on examples of correct behavior, RL tries to maximaize a reward rather than find hidden patterns or structures in the data)
+
+
+
+
+
+
+
+
+
+
+
+
+it is required to relate the data to one element in a closed set of decisionsthe required decision is to 
+
 
 TILL HERE!!!
 
