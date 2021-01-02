@@ -10,12 +10,12 @@ we need to recognize whether a picture is of a cat or not.
 A conventional, non-machine learning algorithm solution, would use dedicated and complicated computer vision algorithms, which would optionally try to parse the body parts detected the image, in the effort to extract cat characterizing features from then. 
 
 Figure 1: This is a cat!
-![Approximation Surface](../assets/images/pictures/this-is-a-cat.jpg)
+![This is a cat](../assets/images/pictures/definitely-a-cat.jpg)
 
 
 Looking at that cat, the algorithm needs to detect charectarizing features such as the ears, eyes, whiskers, etc. Not an easy job at all! It requires complicated parsing and detection algorithms, which can do the detection for so many potential poses, colors, scales, and just name it... Now, suppose the algorithm can look at a cat and determine it is. What about a not a cat, but close to - take a look at this puppy!
 
-![Approximation Surface](../assets/images/pictures/not-a-cat.jpg)
+![Not a cat](../assets/images/pictures/not-a-cat.jpg)
 
 
 
@@ -27,7 +27,7 @@ On the other hand, Machine Learning algorithms, tackels this problems with a tot
 The first, presents the system model, which is common to that type of machine learning, i.e. 'supervised'. (we'll review the various types later on)
 Figure 1: Supervised Machine Learning Model
 
-![Approximation Surface](../assets/images/supervised/Outlines of Machine Learning System Model.svg)
+![Supervised learning outlines](../assets/images/supervised/Outlines of Machine Learning System Model.svg)
 
 The idea is to have 2 stages of operations:
 1. Training
@@ -64,11 +64,11 @@ More details on the prediction method, how it is calculated, how it works, the 3
 
 
 Figure 1: Machine learning algorithm 
-![Approximation Surface](../assets/images/supervised/Outlines%20of%20%20Machine%20Learning%20System%20Model.svg)
+![Machine learning algorithm](../assets/images/supervised/Outlines%20of%20%20Machine%20Learning%20System%20Model.svg)
 
 
 Figure 2: 3 phases of Machine learning algorithm
-![Approximation Surface](../assets/images/supervised/supervised%20learning.svg)
+![supervised learning](../assets/images/supervised/supervised%20learning.svg)
 
 
 So far we tried we illustrated a machine learning algorithm with the cat image recognition task. That task belongs to one category of ML, named Supervised learning. 
