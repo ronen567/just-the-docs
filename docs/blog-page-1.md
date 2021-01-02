@@ -27,17 +27,18 @@ Indeed complicated, and indeed the performance of conventional computer vision a
 
 Machine Learning algorithms on the other hand, led to a breakthrough in such detection, recognition and generally speaking classification tasks, and in plenty othere problems, just ot list some: text recognition, voice recognition, customers targeting, chess playing, etc.
 
- Machine Learning algorithms, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithms, the machine learning way to determine whether a picture is of a cat or not, is sketched in the 2 figures below.
+Machine Learning algorithms, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithms, the machine learning way to determine whether a picture is of a cat or not, it by determining a maximum likelihood parametric model, which can predict the expected output based on the given input. Such a system is sketched in Figure 3. The idea presented in that sketch is of a 2 phase operation:
+1. Training
+2. Noraml Data
 
-Figure 1: Machine Learning Model
+
+
 
 Figure 3: Machine Learning system's outlines
 
 ![Supervised learning outlines](../assets/images/supervised/Outlines of Machine Learning System Model.svg)
 
-The idea is to have 2 phases of operations:
-1. Training
-2. Noraml Data
+
 
 During the Training phase, the input data set consists of 'labled data'. That means, each element of the data set is labeled with the expected output. For example, in the cat detection algorithm, the training data set would consist of many pictures, each labeld as 'Cat' or 'Not a Cat".
 Accordingly, Traning phase goal is to determine the coefficients for the selected prediction model function:
@@ -84,7 +85,39 @@ Figure 4: Clusters (2D)
 
 ![clusters](../assets/images/unsupervised/clusters.png)
 
-Reinforcement Learning - Unblike Supervised learning, which is based on labeled data, or unsupervsed learning, which is finds hidden data patterens,RL is based on a markovian process
+Reinforcement Learning (RL) - Unlike Supervised learning, which is based on labeled data, or unsupervsed learning, which finds hidden data patterens,RL suits interactive processes, and is modeled as a markovian process, aka Markov Decision Process (MDP). 
+The RL model is skethed on Figure 5.
+
+Figure 5: Reinforcement Learning Model
+
+![reinforced](../assets/images/reinforcement/reinforced.png)
+
+Reinforcement learning is a closed loop problem at which the action influences its next input. The reward attribute is a numerical value which is 
+
+The action does not influence only the next reward, but also the next state, which again, in a closed loop form, influences on the next action.
+
+The reward is a numerical value, a scalar, 
+Given those, the question is: which actions should a software agent take. The agent’s goal should be to get a maximal amount of rewards, without being told which action to take.  Unlike supervised learning which learns from a training set of labeled examples, each identify an hypothesis to which the situation belongs, in RL, the agent reacts to situations which don't belong to a training set, which is  impractical to obtain for all interactive situations which agent has to act. RL is also different from unsupervised learning which typically is about finding structure hidden in collections of unlabeled data. Though RL too does not rely on examples of correct behavior, RL tries to maximaize a reward rather than find hidden patterns or structures in the data)
+
+
+( the best action to take given the current state. )
+
+
+
+Here are examples:
+
+(from book: A mobile robot decides whether it should enter a new room in search of trash to collect, or start his way back to its charging station. Decision is based on current charge level and of how quickly could it find the charger in the padt
+
+
+ whenin some senses similar to supervised classification, but decisions are made sequentially.
+
+-----------------------------
+
+
+
+
+
+
 tries to maximaize a reward rather than find hidden patterns or structures in the data
 
 he algorithm.
