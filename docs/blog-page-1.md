@@ -15,6 +15,7 @@ Figure 1: This is a cat!
 
 Looking at that cat, the algorithm needs to detect charectarizing features such as the ears, eyes, whiskers, etc. Not an easy job at all! It requires complicated parsing and detection algorithms, which can do the detection for so many potential poses, colors, scales, and just name it... Now, suppose the algorithm can look at a cat and determine it is. What about a not a cat, but close to - take a look at this puppy!
 
+Figure 2: Not a cat!
 ![Not a cat](../assets/images/pictures/not-a-cat.jpg)
 
 
@@ -27,14 +28,32 @@ On the other hand, Machine Learning algorithms, tackels this problems with a tot
 The first, presents the system model, which is common to that type of machine learning, i.e. 'supervised'. (we'll review the various types later on)
 Figure 1: Supervised Machine Learning Model
 
+Figure 3: Machine Learning system's outlines
+
 ![Supervised learning outlines](../assets/images/supervised/Outlines of Machine Learning System Model.svg)
 
-The idea is to have 2 stages of operations:
+The idea is to have 2 phases of operations:
 1. Training
 2. Noraml Data
 
-Dueing the Training stage, the input data consists of 'labled data'. That means, each element of the data set is labeled with the expected output. For example, in the cat detection algorithm, the training data set would consist of many pictures, each labeld as 'Cat' or 'No Cat.
-Accordingly, during that stage, the system will model a prediction function $$h(x)$$, which 
+During the Training phase, the input data set consists of 'labled data'. That means, each element of the data set is labeled with the expected output. For example, in the cat detection algorithm, the training data set would consist of many pictures, each labeld as 'Cat' or 'Not a Cat".
+Accordingly, Traning phase goal is to determine the coefficients for the selected prediction model function:
+$$h(x)$$. 
+To do that, it normally needs a large training set, where each element of that dataset is a labeled input data. At this point, it may all sound vage: How does that "magic" prediction function look like? what coefficients are we tailking about? We'll get to the details in posts which follow. This is an introductory post.
+Having the predictor, we can move to the normal data phase, at which the system is ready to predict the expected output for unlabeled input data:
+$$\hat{y}=h(x))$$
+
+And here's another 'technical detail': between the "Training" phase and the "Normal Data" phase, there's the "Testing" phase, at which the system performance is evaluated, and accordingly, it should be decided if it is acceptable or requires more training or any type of a modification.  See Figure 4.
+We'll ofcourse review the various performance criteria, and how should that be done.
+
+Figure 4: Machine Learning - The 3 phases
+
+![supervised learning](../assets/images/supervised/supervised%20learning.svg)
+
+
+
+
+
 
 TILL HERE RONEN!!!!
 
