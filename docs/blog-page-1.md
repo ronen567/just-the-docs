@@ -1,20 +1,21 @@
-## This is my first 
+## Introduction
 
-#This is my first 
-This is my first post on machine learning and deep learning., which can be considered an intro, and will be followed by posts which will consist of both theory and implementation topics. 
-Should I start with a definition of 'Machine Learning'? Maybe define how 'Deep Learning' is defined with regard to it? I'll take the risk and sum it in a single short sentence:  Machine Learning, (or I’d prefer to speak of Machine Learning Algorithms), are computer algorithms which improve automatically through reference from data.
 
-To better explain the meaning of that, and emphasize the difference between Machine Learning Algorithms and conventional algorithms, let me show an example:
-Let’s consider a typical image recognition problem: 
-we need to classify a picture to one of the 2 classes: "cat" or "not a cat".
-To solve such a problem, using a conventional, non-machine learning algorithm solution, one would probably implement dedicated and complicated computer vision algorithms, which would try to parse the body parts, in the effort to extract cat characterizing features within. 
+Here's is my first post on machine learning and deep learning, which will be followed by posts both on theory and implementation topics. So this is an intro.
+I should start with a brief definitoion of 'Machine Learning', sum it in a single sentence:  Machine Learning, (or I’d prefer to speak of Machine Learning Algorithms), are computer algorithms which improve automatically through reference from data.
+
+I'll explain the meaning of that, and emphasize the difference between Machine Learning Algorithms and conventional algorithms, using an example.
+
+### Problem: Classify pictures to one of the 2 classes: "cat" or "not a cat".
+So, here's a picture of a such...
 
 Figure 1: This is a cat!
 
 ![This is a cat](../assets/images/pictures/definitely-a-cat.jpg)
 
+Let's put Machine Learning aside, and solve this classification problem, using a conventional, non-machine learning algorithm solution. A conventional solution would probably be implemented using dedicated (and complicated) computer vision algorithms, which would try to detect a cat-like object in the picture, by  extraction of cat characterizing features within the picture. 
 
-Take a look at that cute cat: the algorithm needs to detect charectarizing features such as the ears, eyes, whiskers, etc. Not an easy job at all! It requires complicated parsing and detection algorithms, support so many potential perspectives, poses, colors, scales, and just name it... Now, let's suppose the algorithm is able determine a cat, when he sees one. But, what about a picture of 'not a cat', but certain features are so close - take a look at this puppy!
+Take a look at that cute cat up here: the algorithm needs to detect charectarizing features such as the ears, eyes, whiskers, etc. Not an easy job at all! It requires complicated parsing and detection algorithms, and be indifferent to so many potential camera perspectives, poses, colors, scales, and just name it... And..suppose the algorithm can make it, and is able to determine a cat, when he sees one. But, what about a picture of 'not a cat',  with certain cat-like features - take a look at this puppy!
 
 Figure 2: Not a cat!
 
@@ -22,12 +23,27 @@ Figure 2: Not a cat!
 
 
 
+Indeed complicated, and indeed the performance of conventional computer vision algorithms for such tasks, in terms of false detections and miss detections, were in many cases not satisfactory enough. 
 
-Indeed complicated, and indeed the performance of conventional computer vision algorithms for such tasks, in terms of false detections and miss detections, were not considered satisfactory enough. 
 
-Machine Learning algorithms on the other hand, led to a breakthrough in such detection, recognition and generally speaking classification tasks, and in plenty othere problems, just ot list some: text recognition, voice recognition, customers targeting, chess playing, etc.
+A Machine Learning algorithm, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithms, the machine learning way to determine whether a picture is of a cat or not, it by determining a maximum likelihood parametric predictor model, which can predict the expected output, based on the given input. 
+What do mean by by "maximum likelihood parametric predictor model"? Equation 1 shows such a model:
 
-Machine Learning algorithms, tackels this problems with a totally different approach. Rather than using sophisticated computer vision specific algorithms, the machine learning way to determine whether a picture is of a cat or not, it by determining a maximum likelihood parametric model, which can predict the expected output based on the given input. Such a system is sketched in Figure 3. The idea presented in that sketch is of a 2 phase operation:
+Equation 1: Parametric predictor model
+$$/hat{y} = h(x) =b+\sum_{i=1}^{n}w_i*x_i$$
+
+Where:
+$$/hat{y}$$ is the predicted result
+$$h(x)$$ is the predictor, which is a function of input's features $$x_i$$ 
+$$x_i$$ are the input features. (What are the $$x_i$$ in the cat image? We'll see that in a coming CNN post)
+$${b, w_i}&& are the parameters, calculated according to maximum likelihood optimization.
+
+Throughout next posts we will delve into Equation 1 and it's solutions.
+
+The important detail here, not to say amazing, is that the same parametric equation concept, with similar solutions, solves so many problems in so many different topics.
+
+
+Such a ML system, which calculates the parametric model and then uses it as a data predictor, is sketched in Figure 3. The idea presented in that sketch is of a 2 phase operation:
 1. Training
 2. Noraml Data
 
@@ -39,10 +55,12 @@ Figure 3: Machine Learning system's outlines
 ![Supervised learning outlines](../assets/images/supervised/Outlines of Machine Learning System Model.svg)
 
 
+During the Training phase, the system run swith input data set consists of 'labled data': the data is labeled with the expected output. For example, in the cat classification problem, the training data set would consist of pictures, each labeld as either 'a cat' or 'not a Cat".
+Goal of traning phase, is to determine the coefficients for the selected prediction model function:
+$$h(x)$$ - see Equatio 1. 
 
-During the Training phase, the input data set consists of 'labled data'. That means, each element of the data set is labeled with the expected output. For example, in the cat detection algorithm, the training data set would consist of many pictures, each labeld as 'Cat' or 'Not a Cat".
-Accordingly, Traning phase goal is to determine the coefficients for the selected prediction model function:
-$$h(x)$$. 
+===reviewed till here=====
+
 To do that, it normally needs a large training set, where each element of that dataset is a labeled input data. At this point, it may all sound vage: How does that "magic" prediction function look like? what coefficients are we tailking about? In a nutshell, the predictor out put is $$\hat{y}$$, which estimates $${y}$$. To illustrate that with an example, then $$\hat{y}$$ is the 'a cat' or 'not a cat' decision made bythe predictor, which tryies to predict $${y}$$, which is the correct "cat", "no cat" decision.
 We'll delve to the details in posts which follow. This is an introductory post.
 
