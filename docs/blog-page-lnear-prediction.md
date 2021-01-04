@@ -1,21 +1,18 @@
-## Finding ML Predictor Parameters by Linear Regression and Gradient Descent
+## Supervised Learning, Linear Regression and Gradient Descent
 
 
-The context is supervised learning. During the training phase, a set of labeled input data samples is used to calculate a ptrdictor ehich should be used later in the testing and data phase - (Figure 1 is posted here again as a memory refresher to the supervised learning process):
-
-![Approximation Surface](../assets/images/supervised/supervised%20learning.svg)
+In this post we'll present a simple supervised learning problem example. Following that, we'll present a simple solution for the calculation of the Machine Learning's predictor's coeficients.
 
 
+Let’s begin with an example problem: It is required make a Machine Learning Predictor which determines house pricing, based on 3 features:
+1. Number of bedrooms
+2. Zip code
+3. Floor
+as listed in Table 1. 
 
-That predictor, denoted by h(x), should predict the output $$y$$, based on input . $$x@@:
+Note - obviously those 3 features are not enough to predict houses prices, but for the sake of simplicity, let's assume they are.
 
-$$\hat{y}=h(x)$$
-
-Where $$\hat{y}, x$$ are the estimated value of y and the feature data respectively.
-
-Let’s illustrate a prediction scenario example, at which it is required to predict price of a house, based on 3 features such as: 
-
-Table 1 lists 3 features according to which house prices should be predicted. (Note - obviously those 3 features are not enough to predict a house prices, but let’s keep it like so for the sake of example’s simplicity).  The training set consists of 4 examples, each  labeled with the known corresponding price
+Table 1, consists of 4 training labeled data entries, aka examples, each labeled with the known corresponding price.
 
 
 
@@ -31,10 +28,10 @@ Table 1:  House price prediction - Labeled data
 
 
 
-Following, is table 2, which consists of regular data, for which the price should be estimated, based on features.
+Following now, is table 2, which consists of regular features data- 4 entries. The house price should be estimated for those, based on data features.
 
 
-Table 2: How Price Prediction - Regular Data
+Table 2: House Price Prediction - Regular Data
 
 | x1 -Number of bedrooms| x3 - Zip code     | x3 -Floor| y - Price|
 |:----------------------|:------------------|:---------|:---------|
@@ -44,18 +41,19 @@ Table 2: How Price Prediction - Regular Data
 | 4                     |83422              | 2        |  ?       |
 
 
-So, our challenge is to do the following:
-1. Determine a prediction model
-2. Train the model with the labeled set of samples, so that it can later can estimate tabel 4’s data set.
+Our challenge is the following:
 
+1. Select a prediction model
+2. Train the model with the labeled examples, (table 1), so that this model will later be able to estimate normal data t(Table 2).
 
-Let’s start with the first challenge, and determine the model. In this post, for the sake of simplicity, we chose the Linear Regression model. Note that the most common prediction model used is current algorithms is the Logistic Regression. We will get to it in  later posts. But Linear Regression is a good point to start with in order to get a  foundation for the other algorithms. Still, you may skip this post and jump directly to Logistic Regression.
+### Select a prediction model
+Let’s start with the first challenge, and determine the model. In this post, for the sake of simplicity, we chose the "Linear Regression model". Note that the most common prediction model used currently "Logistic Regression", which we will get to it in later posts. However, Linear Regression is a good point to start with, as a simple foundation for the other more complicated algorithms. Still, you may skip this post and jump directly to Logistic Regression.
 
 So, Linear Regression is a model which approximates y, as a linear function of the input x, as expressed in Eq 1.
 
 Eq. 1: Linear Prediction 
 
-\[\hat{y}=b+\sum_{j=1}^{n}w_jx_j\]
+$$\hat{y}=b+\sum_{j=1}^{n}w_jx_j$$
 
 
 Now when the model is selected, the challenge is to train it. The goal of the training is to determine the set of predictor's coefficients \[b, w_j, j=1:n\], where in our example n=3.
