@@ -34,7 +34,7 @@ Equation 1: Parametric predictor model
 
 $$/hat{y} = h(x) =b+\sum_{i=1}^{n}w_i*x_i$$
 
-Equation 1, presents a parametric model, where parameters are $${b, w_i}$$ , which predicts the value of $$y$$, marked here $$/hat{y]$$, according to the system's input $${x_i}$$.
+Equation 1, presents a parametric model, where parameters are $${b, w_i}$$, which predicts the value of $$y$$, marked here $$/hat{y]$$, according to the system's input $${x_i}$$.
 
 
 Throughout next posts we will delve into Equation 1 and show methods to find the model's parameters  $${b, w_i}$$ .
@@ -55,7 +55,8 @@ Figure 3: Machine Learning system's outlines
 ![Supervised learning outlines](../assets/images/supervised/Outlines of Machine Learning System Model.svg)
 
 
-During the Training phase, the system runs with 'labeled data' input, which set consists of 'labled data': the data is labeled with the expected output. For example, in the cat classification problem, the training data set would consist of pictures, each labeld as either 'a cat' or 'not a Cat".
+During the Training phase, the system runs with 'labeled data' input, i.e. each entry of the input data is labeled with its expected output. For example, in the above cat classification example problem, the labeled data set would consist of pictures, each with either 'a cat' label or 'not a cat" label.
+
 Goal of traning phase, is to determine the coefficients for the selected prediction model function:
 $$h(x)$$ - see Equatio 1. 
 
