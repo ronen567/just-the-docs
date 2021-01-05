@@ -44,56 +44,54 @@ Table 2: House Price Prediction - Regular Data
 Our challenge is the following:
 
 1. Select a prediction model
-2. Train the model with the labeled examples, (table 1), so that this model will later be able to estimate normal data t(Table 2).
+2. Train the model with the labeled examples, (table 1), so that this model will later be able to estimate normal data (Table 2).
 
 ### Select a prediction model
-Let’s start with the first challenge, and determine the model. In this post, for the sake of simplicity, we chose the "Linear Regression model". Note that the most common prediction model used currently "Logistic Regression", which we will get to it in later posts. However, Linear Regression is a good point to start with, as a simple foundation for the other more complicated algorithms. Still, you may skip this post and jump directly to Logistic Regression.
+Let’s start with the first challenge, and determine the model. 
+In this post, for the sake of simplicity, we chose the "Linear Regression" model. Note that however the currently most common prediction model used is "Logistic Regression", examining the simpler "Linear Regression" first, will be a foundation for the other more complicated algorithms. Still, you may skip this post and jump directly to "Logistic Regression" which will be presented in the post which follows.
 
-So, Linear Regression is a model which approximates y, as a linear function of the input x, as expressed in Eq 1.
+With that said, let's start!
+
+Linear Regression is a model which approximates y by $$/hat(y}$$, which is a linear function of the input x,  as expressed in Eq 1.
 
 Eq. 1: Linear Prediction 
 
-$$\hat{y}=b+\sum_{j=1}^{n}w_jx_j$$
+$$y\approx \hat{y}=b+\sum_{j=1}^{n}w_jx_j$$
+
+Where:
+$${x_j}$$ are the input's features, e.g. columns of tables 1 and 2.
+$$n$$ is the dimension of the input features.
+$$ b and {w_j}$$ are the estimator coefficients.
 
 
-Now when the model is selected, the challenge is to train it. The goal of the training is to determine the set of predictor's coefficients \[b, w_j, j=1:n\], where in our example n=3.
-Note that I deliberately keep the notation {b}, rather then {w_0} for the bias coefficient, i.e the coefficient which does not multiply a feature sample. I plan to keep that notation from now on, as it is common in many papers and books.
-Rest of this post is presents the mathematical development of the predictor’s coefficients formula.
+Now having the Linear Regression selected, the challenge is find the coefficients' values. This should be done during the Trainingphase.
 
-
-
-
-
-
-
-
-
-
-
-
-
+Note that I deliberately keep the notation of the free coefficient, (aka bias), as {b}, rather then {w_0}. Reason - this is a common notation in many papers and books.
+Rest of this post presents the mathematical development, which leads to finding formula for the predictor's coeficients values.
 
 
 
 Eq 1 expresses  an n dimensional input model. A multi dimensional problem is hard to sketch graphically, not to say impossible. For the sake of simplicity, and without losing generality, let’s reduce the dimensionality of features to 1. Now it will be easier to sketch and illustrate the problem and the solution.
 
+For the sake of simplicity, let's reduce the dimension $$n$$ of the predictor's Eq. 1 to $$n=1$$, making it a 2 dimensional problem. Results would be valid to any n, but with 2-3 dimensions, we can presnt the data graphically.
 
-So now, Eq. 1 reduces to a 1D linear prediction:
+So Eq. 1 reduces to Eq. 2.  
 
-$$ \hat{y}^i ={ b^i}+w_1{x^i}$$
+Eq. 2: Line Approximation
 
-Figure 1 presents a line approximation to scattered points
+$$ \hat{y} ={ b}+w_1{x}$$
 
+Figure 1, illustrates the line approximity: We are looking for the line offset $$b$$ and slope $$w_1$$ which optimize the approximation of the line to the dara point. To make that optimization, we will define a cost function which expresses the distance between the model and the points it aims to model, and chose the coefficients which minimize that cost.
 
-Figure: Line Approximation 
+Figure 1: Line Approximation 
 
 ![Linear Approximation](../assets/images/linearApproximation.jpg)
 
 
 
-Now we need to find the predictor’s coefficients \[b, w_1\] which minimize the cost function:
+The cost, denoted by $$J(w,b)$$ is presented in Eq. 3, where the cost function is chosen to be the some of squared distances between the line and data points, aka squared errors. 
 
-The cost function is chosen to be the some of the squared errors:
+Eq. 3: Cost function -Squared Errors
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
 
@@ -129,6 +127,7 @@ So we are looking for (b, w1) which minimizes the cost function. If you studied 
 
 
 So let’s derivate:
+
 $$\frac{\partial J(b,w)}{\partial  b}=\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  b}$$
 
 $$=\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  b}$$
