@@ -80,7 +80,7 @@ Eq 1 expresses  an n dimensional input model. A multi dimensional problem is har
 
 So now, Eq. 1 reduces to a 1D linear prediction:
 
-\[ \hat{y}^i ={ b^i}+w_1{x^i}\]
+$$ \hat{y}^i ={ b^i}+w_1{x^i}$$
 
 Figure 1 presents a line approximation to scattered points
 
@@ -95,11 +95,11 @@ Now we need to find the predictor’s coefficients \[b, w_1\] which minimize the
 
 The cost function is chosen to be the some of the squared errors:
 
-\[J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2\]
+$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
 
 BTW, optionally other cost functions could be chosen, e.g.
 
-\[J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |\]
+$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |$$
 
 But by summing the quadric errors, the cost  increases more, the larger error is.
 
@@ -107,7 +107,7 @@ But by summing the quadric errors, the cost  increases more, the larger error is
 In  our reduced dimensions case, the is as a quadratic equation with 2 unknown parameters: \[b\] and \[Jw_1\]:
 
 Eq. 6:
-\[J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2\]
+$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2$$
 
 
 Plotting Eq 6, will result in a surface, such as  illustrated in figure 7:
@@ -129,24 +129,24 @@ So we are looking for (b, w1) which minimizes the cost function. If you studied 
 
 
 So let’s derivate:
-\[\frac{\partial J(b,w)}{\partial  b}=\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  b}\]
+$$\frac{\partial J(b,w)}{\partial  b}=\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  b}$$
 
-\[=\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  b}\]
-\[= \frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)\]
-
-
-\[\frac{\partial J(b,w)}{\partial  w1}=\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  w1}\]
-
-\[=\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  w1}\]
-\[= \frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i\]
+$$=\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  b}$$
+$$= \frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
 
 
+$$\frac{\partial J(b,w)}{\partial  w1}=\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  w1}$$
+
+$$=\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  w1}$$
+$$= \frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i$$
 
 
 
 
 
-the point where \[J(b,w)\] is minimal
+
+
+the point where $$J(b,w)$$ is minimal
 To find the cTo minima of the cost function, is the point where derivative of order one is zero. 
 
 
@@ -187,7 +187,7 @@ The line equation is $$^{\hat{y}}=wx+b$$, so now we need to calculate w and b th
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
 
 Aim is to find w and b, such that minimize the cost function:
-\\ \min_{w,b}J(w,b)
+$$$$\\ \min_{w,b}J(w,b)$$
 
 $$J(w,b)$$ is a 2 quadric function of 2 parameters. The 2D Graph below illustrates the surface defined by an equation of this type:
 
