@@ -83,7 +83,7 @@ $$ \hat{y} ={ b}+w_1{x}$$
 
 Figure 1, illustrates the line approximity: We are looking for the line offset $$b$$ and slope $$w_1$$ which optimize the approximation of the line to the dara point. To make that optimization, we will define a cost function which expresses the distance between the model and the points it aims to model, and chose the coefficients which minimize that cost.
 
-Figure 1: Line Approximation 
+Figure 3: Line Approximation 
 
 ![Linear Approximation](../assets/images/linearApproximation.jpg)
 
@@ -91,18 +91,19 @@ Figure 1: Line Approximation
 
 The cost, denoted by $$J(w,b)$$ is presented in Eq. 3, where the cost function is chosen to be the some of squared distances between the line and data points, aka squared errors. 
 
-Eq. 3: Cost function -Squared Errors
+Eq. 4: Cost function -Squared Errors
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
 
 BTW, optionally other cost functions could be chosen, e.g.
 
+Eq. 5: Cost function -Abs Errors
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |$$
 
-But by summing the quadric errors, the cost  increases more, the larger error is.
+But by summing the quadric errors, the cost increases more, the larger error is.
 
 
-In  our reduced dimensions case, the is as a quadratic equation with 2 unknown parameters: \[b\] and \[Jw_1\]:
+Let's substutute  \hat{y}^i by b^i+w_1x^i in Eq. 4, and get Eq. 6:
 
 Eq. 6:
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2$$
@@ -110,24 +111,17 @@ $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2$$
 
 Plotting Eq 6, will result in a surface, such as  illustrated in figure 7:
 
-Figure 7:  Plot illustration of  \[J(b,w)\]::\[J(b,w)\]::
+Figure 7:  Plot illustration of  $$J(b,w)$$:
 
 ![Approximation Surface](../assets/images/approximationSurface.jpg)
 
 
 
-So we are looking for (b, w1) which minimizes the cost function. If you studied calculus sometimes in your life, you probably know that the minima of J(b, w1) is the point were the partial derivatives  wrt b and w1 are 0. And if you don’t know that, never mind, you may just believe it’s so.
+So we are looking for (b, w1) which minimizes the cost function. You probably know (calculus), that the minima of J(b, w1) is the point were the partial derivatives wrt b and w1 are 0. And if you don’t know that, never mind, you may just believe it.
 
 
-
-
-
-
-
-
-
-So let’s derivate:
-
+So let’s derivate Eq. 6:
+Eq. 7: 
 $$\frac{\partial J(b,w)}{\partial  b}=\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  b}$$
 
 $$=\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  b}$$
