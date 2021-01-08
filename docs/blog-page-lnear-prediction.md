@@ -16,7 +16,7 @@ Table 1, consists of 4 training labeled data entries, aka examples, each labeled
 
 
 
-Table 1:  House price prediction - Labeled data
+#### Table 1:  House price prediction - Labeled data
 
 
 |`x1`-Number of bedrooms|`x3`- Zip code    |`x3`-Floor|`y`- Price|
@@ -31,7 +31,7 @@ Table 1:  House price prediction - Labeled data
 Following now, is table 2, which consists of regular features data- 4 entries. The house price should be estimated for those, based on data features.
 
 
-Table 2: House Price Prediction - Regular Data
+#### Table 2: House Price Prediction - Regular Data
 
 | x1 -Number of bedrooms| x3 - Zip code     | x3 -Floor| y - Price|
 |:----------------------|:------------------|:---------|:---------|
@@ -54,7 +54,7 @@ With that said, let's start!
 
 Linear Regression is a model which approximates y by $$/hat(y}$$, which is a linear function of the input x,  as expressed in Eq 1.
 
-Eq. 1: Linear Prediction 
+#### Eq. 1: Linear Prediction 
 
 $$y\approx \hat{y}=b+\sum_{j=1}^{n}w_jx_j$$
 
@@ -77,13 +77,13 @@ For the sake of simplicity, let's reduce the dimension $$n$$ of the predictor's 
 
 So Eq. 1 reduces to Eq. 2.  
 
-Eq. 2: Line Approximation
+#### Eq. 2: Line Approximation
 
 $$ \hat{y} ={ b}+w_1{x}$$
 
 Figure 1, illustrates the line approximity: We are looking for the line offset $$b$$ and slope $$w_1$$ which optimize the approximation of the line to the dara point. To make that optimization, we will define a cost function which expresses the distance between the model and the points it aims to model, and chose the coefficients which minimize that cost.
 
-Figure 3: Line Approximation 
+#### Figure 3: Line Approximation 
 
 ![Linear Approximation](../assets/images/linearApproximation.jpg)
 
@@ -91,20 +91,20 @@ Figure 3: Line Approximation
 
 The cost, denoted by $$J(w,b)$$ is presented in Eq. 3, where the cost function is chosen to be the sum of squared euclidiean distances between the line and data points, aka squared errors. 
 
-Eq. 4: Cost function -Squared Errors
+#### Eq. 4: Cost function -Squared Errors
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
 
 Figure 4 illustrates graphically the euclidiean distance between approximate and actual value $$d=\hat{y}-y$$.
 
-Figure 5: Approximation Distance
+#### Figure 5: Approximation Distance
 ![Approximation Distance](../assets/images/approximation/point_to_aprox_line_dist.png)
 
 
 
 BTW, optionally other cost functions could be chosen, e.g.minimizing the absolute difference between coordinates, see Eq. 5.
 
-Eq. 5: Cost function using absolute coordinates differences
+#### Eq. 5: Cost function using absolute coordinates differences
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |$$
 
@@ -114,14 +114,14 @@ Cost expression as in Eq. 5, is dependent on squared distances, thus increases m
 
 Let's substutute  \hat{y}^i by b^i+w_1x^i in Eq. 4, and get Eq. 6:
 
-Eq. 6: Cost function for line approximation
+#### Eq. 6: Cost function for line approximation
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2$$
 
 
 Plotting Eq 6, which is a quadric equation, will result in a surface, such as  illustrated in figure 7:
 
-Figure 7:  Plot illustration of  $$J(b,w)$$:
+#### Figure 7:  Plot illustration of  $$J(b,w)$$:
 
 
 ![Approximation Surface](../assets/images/approximationSurface.jpg)
@@ -132,29 +132,64 @@ Figure 7:  Plot illustration of  $$J(b,w)$$:
 Which are the coefficients {b, w1} which minimize Eq.6? 
 #### Answer: 
 Take a look at Figure 7! The cost function minimum is at the bottom of the curve. We need {b, w1} which correspond to this point.
-#### Question: 
-How should this point be found?
-#### Answer: 
-We'll calculate the partial derivatives of $$J(b,w)$$ as expressed in Eq. 6, set derivatives to 0.  and solve for b and w1.
+
+
+and solve for b and w1.
 
 Here:
 
 
-Eq. 7 Cost function derivative wrt b: 
+Eq. 7: Cost function derivative wrt b
 
 $$\\\frac{\partial J(b,w)}{\partial  b}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial b}=$$
 
 $$\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial b}=$$
 
-$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \\\frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
+$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)}$$
 
-Eq. 8 Cost function derivative wrt w1: 
+Eq. 8:  Cost function derivative wrt w1
 
 $$\\\frac{\partial J(b,w)}{\partial w1}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  w1}=$$
 
 $$\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  w1}=$$
 
-$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i=\\\frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i$$
+$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i=\\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i}$$
+
+
+As mentioned before, we are interested in the minima where derivatives are 0s. Here are our 2 equations:
+
+Eq. 9:  Cost Function Partial Derivatives
+
+a:
+
+$$0 = \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
+
+a:
+
+$$0 = \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i$$
+
+
+For line approxiamtion let's substitute $$y^i$$ by the line formula:
+
+Eq. 10:  Cost Function Partial Derivatives for Line Approximation
+
+a:
+
+$$0 = \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-(b+w_ix))$$
+
+b:
+
+$$0 = \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-(b+w_ix))*x^i$$
+
+
+#### Question: 
+How should Eq 9 and in our specific case , Eq. 10 should be solved for b and w1?
+#### Answer: 
+We can consider of 2 optional solutions:
+1. Analytical Solution
+2. An iterative numerical solution - Gradient Decent
+
+The analytical solution is strait forward in our example of line approximation. Look at Eq 10
 
 
 
