@@ -89,18 +89,25 @@ Figure 3: Line Approximation
 
 
 
-The cost, denoted by $$J(w,b)$$ is presented in Eq. 3, where the cost function is chosen to be the some of squared distances between the line and data points, aka squared errors. 
+The cost, denoted by $$J(w,b)$$ is presented in Eq. 3, where the cost function is chosen to be the sum of squared euclidiean distances between the line and data points, aka squared errors. 
 
 Eq. 4: Cost function -Squared Errors
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
 
-BTW, optionally other cost functions could be chosen, e.g.
+Figure 4 illustrates graphically the euclidiean distance between approximate and actual value $$d=\hat{y}-y$$.
 
-Eq. 5: Cost function -Abs Errors
+Figure 5: Approximation Distance
+![Approximation Distance](../assets/images/approximation/point_to_aprox_line_dist.png)
+
+
+
+BTW, optionally other cost functions could be chosen, e.g.minimizing the absolute difference between coordinates, see Eq. 5.
+
+Eq. 5: Cost function using absolute coordinates differences
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |$$
 
-But by summing the quadric errors, the cost increases more, the larger error is.
+Cost expression as in Eq. 5, is dependent on squared distances, thus increases more as error grows, and is commonly used.
 
 
 Let's substutute  \hat{y}^i by b^i+w_1x^i in Eq. 4, and get Eq. 6:
@@ -117,24 +124,23 @@ Figure 7:  Plot illustration of  $$J(b,w)$$:
 
 
 
-So we are looking for (b, w1) which minimizes the cost function. You probably know (calculus), that the minima of J(b, w1) is the point were the partial derivatives wrt b and w1 are 0. And if you don’t know that, never mind, you may just believe it.
+Which are the coefficients {b, w1} which minimize Eq.. 6? That's basis calculus - at the minima, the partial derivatives 0, And if you don’t know that, never mind, you may just believe it.
 
 
-So let’s derivate Eq. 6:
-Eq. 7: 
-$$\frac{\partial J(b,w)}{\partial  b}=\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  b}$$
+So let’s find the partial derivates Eq. 6 wrt b and w1. After that we'll find b and w1 at the the derivative equal 0 pont:
 
-$$=\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  b}$$
-$$= \frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
+Eq. 7 Cost function derivative wrt b: 
+$$\frac{\partial J(b,w)}{\partial  b}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  b}$$
 
+$$=\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  b}$$
+$$=\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
 
-$$\frac{\partial J(b,w)}{\partial  w1}=\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  w1}$$
+Eq. 8 Cost function derivative wrt w1: 
 
-$$=\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  w1}$$
-$$= \frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i$$
+$$\frac{\partial J(b,w)}{\partial  w1}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  w1}$$
 
-
-
+$$=\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  w1}$$
+$$=\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i=\\\frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i$$
 
 
 
