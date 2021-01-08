@@ -135,7 +135,7 @@ Take a look at Figure 7! The cost function minimum is at the bottom of the curve
 #### Question: 
 How should this point be found?
 #### Answer: 
-We'll calculate the partial derivatives of $$J(b,w)$$ as expressed in Eq. 6, set derivatives to 0, and solve for b and w1.
+We'll calculate the partial derivatives of $$J(b,w)$$ as expressed in Eq. 6, set derivatives to 0.  and solve for b and w1.
 
 Here:
 
@@ -146,7 +146,7 @@ $$\\\frac{\partial J(b,w)}{\partial  b}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^
 
 $$\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial b}=$$
 
-$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
+$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \\\frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
 
 Eq. 8 Cost function derivative wrt w1: 
 
