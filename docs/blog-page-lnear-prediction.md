@@ -139,47 +139,35 @@ and solve for b and w1.
 Here:
 
 
-Eq. 7: Cost function derivative wrt b
+#### Eq. 7: Cost function derivative wrt b
 
 $$\\\frac{\partial J(b,w)}{\partial  b}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial b}=$$
 
 $$\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial b}=$$
 
-$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)}$$
+$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(/hat(y^i)-y^i)}$$
 
-Eq. 8:  Cost function derivative wrt w1
+#### Eq. 8:  Cost function derivative wrt w1
 
 $$\\\frac{\partial J(b,w)}{\partial w1}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  w1}=$$
 
 $$\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  w1}=$$
 
-$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i=\\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i}$$
+$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i=\\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(/hat(y^i)-y^i)*x^i}$$
 
 
 As mentioned before, we are interested in the minima where derivatives are 0s. Here are our 2 equations:
 
-Eq. 9:  Cost Function Partial Derivatives
+#### Eq. 9:  Cost Function Partial Derivatives
 
 a:
 
-$$0 = \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
-
-a:
-
-$$0 = \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)*x^i$$
-
-
-For line approxiamtion let's substitute $$y^i$$ by the line formula:
-
-Eq. 10:  Cost Function Partial Derivatives for Line Approximation
-
-a:
-
-$$0 = \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-(b+w_ix))$$
+$$0 = \frac{1}{m}\sum_{i=1}^{m}(/hat(y^i)-y^i)$$
 
 b:
 
-$$0 = \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-(b+w_ix))*x^i$$
+$$0 = \frac{1}{m}\sum_{i=1}^{m}(/hat(y^i)-y^i)*x^i$$
+
 
 
 #### Question: 
@@ -189,7 +177,106 @@ We can consider of 2 optional solutions:
 1. Analytical Solution
 2. An iterative numerical solution - Gradient Decent
 
-The analytical solution is strait forward in our example of line approximation. Look at Eq 10
+#### Analytical Solution 
+The analytical solution is straightforward solution: It is required to solve n+1 linear equations for n+1 unknown parameters. 
+Let's demonstrate the the sIn our example where n=1, we have 2 equations, Eq. 10 a and b, with 2 unknown parameters to find: $$b$$ and $$w_1$$.
+
+Let's demonstrate the solution  for n=1:
+We take Eq. 9a, subsitute the line equation. Consider that $$x^i$$ and $$y^i$$ are constants - $$x^i$$ is ith training input data, while $$y^i$$ is the correspondig label.
+So Eq. 9a, after rearranging the constants reduces to:
+
+#### Eq. 10a:
+$$\\A*b + B*w_1 = C$$
+Where A and B are known constants.
+Similariliy Eq. 9b can be reduced to:
+#### Eq. 10b:
+$$\\D*b + E*w_1 = E$$
+
+Let's rewrite it in a matrix format:
+
+#### Eq. 11:
+$$\\\begin{bmatrix}
+\mathbf{} A& B\\ 
+D & E
+\end{bmatrix}\begin{bmatrix}
+b\\w_1 
+\end{bmatrix}=\begin{bmatrix}
+C\\E
+\end{bmatrix}$$
+
+
+Let's solve this. For convinience let's denote:
+#### Eq. 12:
+
+$$M=\begin{bmatrix}
+\mathbf{} A& B\\ 
+D & E
+\end{bmatrix}$$
+
+Substitute Eq. 12 into Eq. 13:
+
+$$M\begin{bmatrix}
+b\\w_1 
+\end=\begin{bmatrix}
+C\\E
+\end{bmatrix}$$
+
+Solve it for $$\begin{bmatrix}
+b\\w_1 
+\end$$:
+
+$$\\\begin{bmatrix}
+b\\w_1 
+\end=(M^TM)^-1M^T\begin{bmatrix}
+C\\E
+\end{bmatrix}$$
+
+Still for simplicity, denote:
+
+$$(M^TM)^=N$$
+
+So we have:
+$$\begin{bmatrix}
+b\\w_1 
+\end=N^-1$$*\begin{bmatrix}
+C\\E
+\end{bmatrix}$$
+
+And that's it, quite a simple solution. We needed to inverse a 2*2 matrix for solution, which is not much. Why only 2*2? Because number of features where n=1. But what if we had much more features, say n=1000, or more? In that case inverse could be too complicated.
+That's where the other solution comes in - the Gradient Decent solution.
+
+
+#### Analytical Solution 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a  where it is needed to solve  in our example of line approximation. Look at Eq 10
 
 
 
