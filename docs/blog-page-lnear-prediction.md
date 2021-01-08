@@ -105,35 +105,41 @@ Figure 5: Approximation Distance
 BTW, optionally other cost functions could be chosen, e.g.minimizing the absolute difference between coordinates, see Eq. 5.
 
 Eq. 5: Cost function using absolute coordinates differences
+
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |$$
+
 
 Cost expression as in Eq. 5, is dependent on squared distances, thus increases more as error grows, and is commonly used.
 
 
 Let's substutute  \hat{y}^i by b^i+w_1x^i in Eq. 4, and get Eq. 6:
 
-Eq. 6:
+Eq. 6: Cost function for line approximation
+
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2$$
 
 
-Plotting Eq 6, will result in a surface, such as  illustrated in figure 7:
+Plotting Eq 6, which is a quadric equation, will result in a surface, such as  illustrated in figure 7:
 
 Figure 7:  Plot illustration of  $$J(b,w)$$:
+
 
 ![Approximation Surface](../assets/images/approximationSurface.jpg)
 
 
 
-Which are the coefficients {b, w1} which minimize Eq.. 6? That's basis calculus - at the minima, the partial derivatives 0, And if you don’t know that, never mind, you may just believe it.
+####Question####: Which are the coefficients {b, w1} which minimize Eq.6? 
+####Answer####: Take a look at Figure 7! The cost function minimum is at the bottom of the curve. We need {b, w1} which correspond to this point.
+####Question####: How should this point be found?
+####Answer####: We'll calculate the partial derivatives of $$J(b,w)$$ as expressed in Eq. 6, set derivatives to 0, and solve for b and w1.
+Here:
 
-
-So let’s find the partial derivates Eq. 6 wrt b and w1. After that we'll find b and w1 at the the derivative equal 0 pont:
 
 Eq. 7 Cost function derivative wrt b: 
-$$\frac{\partial J(b,w)}{\partial  b}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial  b}$$
+$$\\\frac{\partial J(b,w)}{\partial  b}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^{m}(b+w_1x^i-y^i)^2)}{\partial b}=$$
 
-$$=\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  b}$$
-$$=\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
+$$\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial b}=$$
+$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \frac{1}{m}\sum_{i=1}^{m}(h(x^i)-y^i)$$
 
 Eq. 8 Cost function derivative wrt w1: 
 
