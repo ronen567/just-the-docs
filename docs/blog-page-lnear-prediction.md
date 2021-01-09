@@ -304,8 +304,10 @@ Figre 9: Gradient Descent Oscilation
 
 Conclusion - step size should be carefully selected, and may be needed to tune during caluclations.
 
-We have reviwed the 2 methods to solve for the estimator's coefficients: 
+We have reviwed the 2 methods to solve for the estimator's coefficients: The Analytic Solution method and Gradient Descent.The Analytic Solutoin involves inverting a matrix of size n+1*n+1 where n equal number of features. The Gradient Descent requires selection of step size $$//alpha$$, and migh, in some cases, converge to a local minima, rather to the global.
 
+So, we're done with this post, which discussed Linear Regression, from problem (house prices) to solution. 
+Next we'll discuss Logistic Regression, which is the currently most popular predictionmodel used.
 
 
 
@@ -347,6 +349,9 @@ To find the cTo minima of the cost function, is the point where derivative of or
 
 dimensions, the cost function equals to the sum of squared distances between the example points labels, aka training data points, to the approximated values  $$en the example points labels, aka training data points, to the approximated values  $$$$ the example points labels, aka training data points, to the approximated values  $$values  $$$$lues  $$\hat{y^i}.$$
 
+
+So, we're done with this post, which discussed Linear Regression, from problem (house prices) to solution. 
+Next we'll discuss Logistic Regression, which is the currently most popular predictionmodel used.
 ================================
 
 This can be plot using a 2 dimensions lgraph. Here’s such a graph:
@@ -419,7 +424,7 @@ Gradient Descent is a very common algorithm used, low computation complication o
 
 
 So, we're done with this post, which discussed Linear Regression, from problem (house prices) to solution. 
-Nect we'll discuss Logistic Regression, which is the currently most popular predictionmodel used.
+Next we'll discuss Logistic Regression, which is the currently most popular predictionmodel used.
 
 
 
