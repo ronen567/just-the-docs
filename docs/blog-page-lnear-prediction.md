@@ -175,7 +175,7 @@ How should Eq 9 and in our specific case , Eq. 10 should be solved for b and w1?
 #### Answer: 
 We can consider of 2 optional solutions:
 1. Analytical Solution
-2. An iterative numerical solution - Gradient Decent
+2. An iterative numerical solution - Gradient Descent
 
 #### Analytical Solution 
 The analytical solution is straightforward solution: It is required to solve n+1 linear equations for n+1 unknown parameters. 
@@ -243,10 +243,69 @@ C\\E
 \end{bmatrix}$$
 
 And that's it, quite a simple solution. We needed to inverse a 2*2 matrix for solution, which is not much. Why only 2*2? Because number of features where n=1. But what if we had much more features, say n=1000, or more? In that case inverse could be too complicated.
-That's where the other solution comes in - the Gradient Decent solution.
+That's where the other solution comes in - the Gradient Descent solution.
 
 
-#### Analytical Solution 
+#### Gradient Descent Solution
+
+Gradient Descent is an iterative algorithm for finding a local minimum. Eq. 13 presents the Gradient Descent formula for our example's cost function J(b, w1)
+
+
+#### Eq. 13: Gradient Descent
+a:  Gradient Descent with gradient to the {w_2} direction:
+$$\\w_1:=w_1-\alpha \frac{\partial J(b,w_1) }{\partial w_1}$$
+
+b. Gradient Descent with gradient to the {b} direction:
+$$\\b:=b-\alpha \frac{\partial J(b,w_1) }{\partial b}$$
+
+
+#### How is Eq 13 calculated?
+Here are the algorithm's cooking recipe: 
+1. Select arbitrary initial values for the calculated values. Here let's say: w_1=TEMP_W, b=TEMP_b.
+2. Substiture TEMP_W and TEMP_b in 13 a and b. Now new w_1 and b are calculated. Iteration 1 done!
+3. Substitute new values in Eq. 13, and repeat to produce new {b} and {w_1}
+4. Repeat step 3 until convergence, i.e. whenn iteration result wrt to previous iteration is below threshold: if $$abs(w_1[k]-w_1[k-]) < \Delta, stop$$
+
+The algorithm steps in the opposite direction of the gradient until convergence, as the gradient, multiplied by a constant $$\alpha$$ is decremented from previous value.
+The algorithm converges at the minima, where all partial derivatives are 0.
+
+
+Let's illustrate the algorithm to make it intuitively clear:
+
+Figure 8 illustrates the iterative process and its convergence: 
+Figure 8.a shows the first iteration, which starts with an aribtrary selected value of $$w_1$$ , $w_1[0]=1 in our example. The gradient is quite steep here.
+Figure 8.b shows 4 iterations, still far from convergence, but gradient are less steep.
+Figure 8.c shows 14 iterations, which converge as expected at $$\alpha \frac{\partial J(b,w1) }{\partial b}=0$$.
+
+#### Figure 8: Gradient Descent: Gradient of a single parameter
+
+a. After One Iteration
+
+![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_1_iteration.png)
+
+b. After Four Iterations
+
+![gradient_descent_4_iterations](../assets/images/gradient_descent/gradient_descent_4_iterations.png)
+
+
+c. After Fourteen Iterationss
+
+![gradient_descent_14_iteration](../assets/images/gradient_descent/gradient_descent_14_iteration.png)
+
+
+Let's talk about $$/alpha$$, the step size.
+
+Looking at Figure 8, it looks like the smaller the step size $$/alpha$$ is, the slower convergence goes. And also vice versa - one might assume that the larger $$/alpha$$ is, the fastest it will converge. Wrong assumption!
+A too large step-size may result with oscilations. Look at Figure 9.
+
+Figre 9: Gradient Descent Oscilation
+![gradient_descent_14_iteration](../assets/images/gradient_descent/gradient_descent_oscilations.png)
+
+
+Conclusion - step size should be carefully selected, and may be needed to tune during caluclations.
+
+We have reviwed the 2 methods to solve for the estimator's coefficients: 
+
 
 
 
@@ -355,7 +414,12 @@ Figure 2: Supervised Learning - 3 stages
 
 
 
-Here we will delve to the calculation of predictor’s coefficient.
+Here we will delve to the calculation of predictor’s coefficient. The analytical solution is straight forward and easy, but with a large number of features, it may be computationally too heavy to inverse huge matrixes.
+Gradient Descent is a very common algorithm used, low computation complication on one hand, but sensitive to selection of $$/alpha$$ and may have issues such as local minima convergence on the other hand.
+
+
+So, we're done with this post, which discussed Linear Regression, from problem (house prices) to solution. 
+Nect we'll discuss Logistic Regression, which is the currently most popular predictionmodel used.
 
 
 
