@@ -1,13 +1,14 @@
 ## Introduction
 
 
-Here's is my first post on machine learning and deep learning, which will be followed by posts both on theory and implementation topics. So this is an intro.
-I should start with a brief definitoion of 'What Machine Learning is', in the effort to sum it in a single sentence:  Machine Learning, (or I’d prefer to speak of Machine Learning Algorithms), are computer algorithms which improve automatically through reference from data.
+Here's is my first post on machine learning and deep learning. It will be followed by posts both on theory and implementation topics. So, this is a kind of an intro.
+If so, I should start with a definitoion of 'What Machine Learning is'. Here's the definition:  Machine Learning, (or I’d prefer to speak of Machine Learning Algorithms), are computer algorithms which improve automatically through reference from data.
 
 I'll explain the meaning of "improve automatically through reference from data", and emphasize the difference between Machine Learning Algorithms and conventional algorithms, using an example problem.
 
 ### Example Problem: Classify pictures to one of the 2 classes: "cat" or "not a cat".
-So, here's a picture of a such...
+So here's the classical problem: We need an algorithm which can classify pictures into 2 classes: "cat" if it shows a cat, or "not a cat" otherwise. Figure 1 would belong to the "cat" class. Figure 2 would not.
+So, how shoild be problem be solved?
 
 Figure 1: This is a cat!
 
