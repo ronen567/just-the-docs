@@ -53,7 +53,7 @@ The idea presented in that sketch, is of the 2 phase Machine Learning system ope
 
 Figure 3: Machine Learning system's outlines
 
-![Supervised learning outlines](../assets/images/supervised/Outlines of Machine Learning System Model.jpg)
+![Supervised learning outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
 
 
 During the Training phase, the system runs with 'labeled data' input, i.e. each entry of the input data is labeled with its expected output. For example, in the above cat classification example problem, the labeled data set would consist of pictures, each with either 'a cat' label or 'not a cat" label.
@@ -74,7 +74,7 @@ We'll ofcourse review the various performance criteria, and how should that be d
 
 Figure 4: Machine Learning - The 3 phases
 
-![supervised learning](../assets/images/supervised/supervised%20learning.png)
+![supervised learning](../assets/images/supervised/supervised-learning.svg)
 
 
 
