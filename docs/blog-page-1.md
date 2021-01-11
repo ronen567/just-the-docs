@@ -110,7 +110,7 @@ The RL model is skethed on Figure 5.
 
 Figure 5: Reinforcement Learning Model
 
-![reinforced](../assets/images/reinforcement/reinforced.png)
+![reinforced](../assets/images/reinforcement/reinforced.jpg)
 
 Fitted to interactive processes, Reinforcement Learning is a closed loop model at which the action influences its next input - as shown by Figure 5.
 The model presents 2 attributes: Agent and Environment.
