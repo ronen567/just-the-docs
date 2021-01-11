@@ -52,7 +52,7 @@ The idea presented in that sketch, is of the 2 phase Machine Learning system ope
 
 Figure 3: Machine Learning system's outlines
 
-![Supervised learning outlines](../assets/images/supervised/Outlines of Machine Learning System Model.svg)
+![Supervised learning outlines](../assets/images/supervised/Outlines of Machine Learning System Model.png)
 
 
 During the Training phase, the system runs with 'labeled data' input, i.e. each entry of the input data is labeled with its expected output. For example, in the above cat classification example problem, the labeled data set would consist of pictures, each with either 'a cat' label or 'not a cat" label.
@@ -73,7 +73,7 @@ We'll ofcourse review the various performance criteria, and how should that be d
 
 Figure 4: Machine Learning - The 3 phases
 
-![supervised learning](../assets/images/supervised/supervised%20learning.svg)
+![supervised learning](../assets/images/supervised/supervised%20learning.png)
 
 
 
@@ -209,11 +209,11 @@ More details on the prediction method, how it is calculated, how it works, the 3
 
 
 Figure 1: Machine learning algorithm 
-![Machine learning algorithm](../assets/images/supervised/Outlines%20of%20%20Machine%20Learning%20System%20Model.svg)
+![Machine learning algorithm](../assets/images/supervised/Outlines%20of%20%20Machine%20Learning%20System%20Model.png)
 
 
 Figure 2: 3 phases of Machine learning algorithm
-![supervised learning](../assets/images/supervised/supervised%20learning.svg)
+![supervised learning](../assets/images/supervised/supervised%20learning.png)
 
 
 So far we tried we illustrated a machine learning algorithm with the cat image recognition task. That task belongs to one category of ML, named Supervised learning. 
