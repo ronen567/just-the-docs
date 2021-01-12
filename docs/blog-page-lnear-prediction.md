@@ -1,7 +1,7 @@
-## Supervised Learning, Linear Regression and Gradient Descent
+## An Intro to Supervised Learning, Linear Regression and Gradient Descent
 
 
-In this post we'll present a simple supervised learning problem example. Following that, we'll present a simple solution for the calculation of the Machine Learning's predictor's coeficients.
+Here's an intro which follows the intro to machine learning. This one starts with a simple Supervised Machine Learning Regression example, continues to the presentation of the Linear Regression predictor, and then show how to solve for the predictor's coefficients with Gradient Descent algorithm.
 
 
 Let’s begin with an example problem: It is required make a Machine Learning Predictor which determines house pricing, based on 3 features:
