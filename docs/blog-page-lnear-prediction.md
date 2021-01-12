@@ -299,6 +299,7 @@ Looking at Figure 8, it looks like the smaller the step size $$/alpha$$ is, the 
 A too large step-size may result with oscilations. Look at Figure 9.
 
 Figre 9: Gradient Descent Oscilation
+
 ![gradient_descent_14_iteration](../assets/images/gradient_descent/gradient_descent_oscilations.png)
 
 
