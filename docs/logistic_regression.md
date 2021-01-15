@@ -10,20 +10,16 @@ In any case, to start with, I posted here again the Supervised Machine Learning 
 
 As Figure 1 shows, the predictor sits in the heart of the system. It is calculated during the Training phase, an then does the prediction during the Testing and Normal Data phases.
 
-Let's walk top to bottom - we'll start with a classification problem, see how it is handled by the Logistic Regression predictor, and eventually we'll show we'll show how to solve for the Logostic Regression coefficient with the good-old Descent Regression algorithm.
+Let's walk top to bottom - we'll start with a classification problem, see how it is handled by the Logistic Regression predictor, and eventually we'll see how to solve for the Logostic Regression coefficient with the good-old Descent Regression algorithm.
 
 
-
-In the heart 
-This post is about Logistic Regression, which is currently the most commom prediction model used by Machine Learning algorithms for binary classification. 
-Have you read my previous post on Linear Regression before? I recommend, as it details the basic terms and concepts of predictors and the calculation of their parameter.
-
-Anyway, 
-
-So, suppose our system needs to decide whether an input picture x is of a male or of a female.
+Here's a single feature binary classification example problem we'll take: Predict if a tumor is benign or maligent, based on its size. 
 
 
 
 
-Let's start with a simple binary classification example problem, and illustrate the need for the Logistic Regression model.
+
+
+we need to predict if a customer will buy Iphone as his next phone, based on the next smartphone of a customer , which already owns a smatphone,  will buy another iphone after 2 years, based on whether he owned an iphone before or not. We'll see that normally a 
+. This example is not realy realistic, but we'll use it to start with binary prediction based on a single feature. So, suppose we need to predict if a customer, which already owns a smatphone,  will buy an iphoe, based on whether he owned an iphone before or not. Suppose  that if he owned one 
 
