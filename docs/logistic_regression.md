@@ -1,6 +1,6 @@
 # Logistic Regression
 
-Logostic Regression is currently the most commom prediction model algorithm used by Machine Learning algorithms for binary classification. In case you're not familiar prediction models, and how to solve for their coefficients, I suggest you read my post on that before. Not mandatory though. If the term "Binary Classification" needs clarifications, I'd start with my Intro to Machine Learning. Not mandatory though.
+Logostic Regression is currently one of the most commom prediction model algorithm used by Machine Learning algorithms for binary classification. In case you're not familiar prediction models, and how to solve for their coefficients, I suggest you read my post on that before. Not mandatory though. If the term "Binary Classification" needs clarifications, I'd start with my Intro to Machine Learning. Not mandatory though.
 
 In any case, to start with, I posted here again the Supervised Machine Learning blog diagram.
 
@@ -13,10 +13,10 @@ As Figure 1 shows, the predictor sits in the heart of the system. It is calculat
 Let's walk top to bottom - we'll start with a classification problem, see how it is handled by the Logistic Regression predictor, and eventually we'll see how to solve for the Logostic Regression coefficient with the good-old Descent Regression algorithm.
 
 
-Here's a single feature binary classification example problem we'll take: Predict if a tumor is benign or maligent, based on its size. 
+Here's the commonly used example single forbinary classification: Predict if a tumor is benign or maligent, based on its size. 
 
 
-
+multi class
 
 
 
