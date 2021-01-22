@@ -17,14 +17,14 @@ Now let's consider the classification sceanrio of whether a customer will or wil
 So take a look at Figure 2:
 Figure 2:  Binary Classification - Purchace as a function of income
 
-![Supervised  outlines](my-ai/blob/gh-pages/assets/images/logistuc_regression/purchase_func_of_income.png)
+![Supervised  outlines](../assets/images/logistuc_regression/purchase_func_of_income.png)
 
 
 Can linear Prediction model this data? Look at Figure 3.
 
 Figure 3: Linear Prediction for Binary Classification
 
-![Linear Prediction for Binary Classification](my-ai/assets/images/logistic-regression/purchace--vs-income-binary-classification-points.png)
+![Linear Prediction for Binary Classification](../assets/images/logistic-regression/purchace--vs-income-binary-classification-points.png)
 
 
 
