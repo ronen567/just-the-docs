@@ -1,4 +1,30 @@
-# Logistic Regression
+# Classification and Logistic Regression
+
+This post is about Supervised Classification problems, at which it is needed to predict a descret value, e.g. predict if a customer will buy the product or not, or predict whether a tumor is benign or maligen. This is unlike Supervised Regression estimation problem we've seen before, such as the prediction of a house price, which is a continouse value.
+
+So, let's see simplified 2D graphical presentations of both prediction types:
+
+Supervised Regression estimation, was presented before. LEt's recall the Line Estimator for such a continous problem:
+
+Figure 1: Line Estimator:
+
+![Supervised learning outlines](../assets/images/linearApproximation.jpg)
+
+
+Now let's consider the estimation of whether a customer will buy a product based on his income. Y=0 denotes the negative state, i.e. customer will not buy, while Y=1 denotes the positive state. Note that the assignment of Y=0 and Y=1 could be vise versa, but still it is more perceptually convinient this way.
+
+
+So tale a look at Figure 1.
+
+
+
+
+
+
+
+
+
+
 
 Logostic Regression is currently one of the most commom prediction model algorithm used by Machine Learning algorithms for binary classification. In case you're not familiar with prediction models, and how to solve for their coefficients, or even in case you have no clue about what prediction am I talking, I suggest you read my post on that before. Not mandatory though. If the term "Binary Classification" needs clarifications, I'd start with my Intro to Machine Learning. Not mandatory though.
 
@@ -13,7 +39,9 @@ As Figure 1 shows, the predictor sits in the heart of the system. The perdictor'
 This post explains the Logistic Regression model, and the developemnt of the model's parameters' solution. We'll walk top to bottom - begin with an illustration of a classification problem, then present the Logistic Regression predictor model, and eventually show how to find its coefficients, with the good-old Descent Regression algorithm.
 
 
-Here's the commonly used example single for binary classification: It is needed to predict whether a tumor is benign or maligent, based on its size. 
+Here's the (commonly used) binary classification example: It is needed to predict whether a tumor is benign or maligent, based on its size. 
+
+
 
 
 multi class
