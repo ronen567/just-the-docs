@@ -11,10 +11,25 @@ Figure 1: Line Estimator:
 ![Supervised learning outlines](../assets/images/linearApproximation.jpg)
 
 
-Now let's consider the estimation of whether a customer will buy a product based on his income. Y=0 denotes the negative state, i.e. customer will not buy, while Y=1 denotes the positive state. Note that the assignment of Y=0 and Y=1 could be vise versa, but still it is more perceptually convinient this way.
+Now let's consider the classification sceanrio of whether a customer will or will not buy a product, based on his income. Here Y=0 denotes the negative state, i.e. customer will not buy, while Y=1 denotes the positive state. Note that the assignment of Y=0 and Y=1 could be vise versa, but still it is more perceptually convinient this way.
 
 
-So tale a look at Figure 1.
+So take a look at Figure 2:
+Figure 2:  Binary Classification - Purchace as a function of income
+
+![Supervised  outlines](my-ai/assets/images/logistic-regression/purchace--vs-income-binary-classification-points.png)
+
+
+Can linear Prediction model this data? Look at Figure 3.
+
+Figure 3: Linear Prediction for Binary Classification
+
+![Linear Prediction for Binary Classification](my-ai/assets/images/logistic-regression/purchace--vs-income-binary-classification-points.png)
+
+
+
+Figure 3 illustrates linear prediction for binary classification. Obviously, a linear line can't predict those [0,1] points. So another prediction model is needed.
+
 
 
 
