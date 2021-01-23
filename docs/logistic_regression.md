@@ -1,20 +1,11 @@
-# Classification and Logistic Regression
+# Binary Classification and Logistic Regression
 
-This post is about Supervised Classification problems, at which it is needed to predict a descret value, e.g. predict if a customer will buy the product or not, or predict whether a tumor is benign or maligen. This is unlike Supervised Regression estimation problem we've seen before, such as the prediction of a house price, which is a continouse value.
-
-So, let's see simplified 2D graphical presentations of both prediction types:
-
-Supervised Regression estimation, was presented before. LEt's recall the Line Estimator for such a continous problem:
-
-Figure 1: Line Estimator:
-
-![Supervised learning outlines](../assets/images/linearApproximation.jpg)
+This post is about Supervised Classification problems, at which it is needed to predict a descret value, e.g. predict if a customer will buy the product or not, or predict whether a tumor is benign or malignant. 
+We denote the value y of the binary classes as 0 and 1, so we assine the value y=0 to denote the case at which the customer does not purchase, or the tumor is benign, and accordingly y=1 for the case customer does purchase or tumor is malignant.
 
 
-Now let's consider the classification sceanrio of whether a customer will or will not buy a product, based on his income. Here Y=0 denotes the negative state, i.e. customer will not buy, while Y=1 denotes the positive state. Note that the assignment of Y=0 and Y=1 could be vise versa, but still it is more perceptually convinient this way.
+So let's follow our example of predicting customers' purchases based on their income. (This is a simplified for the sake of the example, even if technically the income feature is clearly not sufficient to predict a purchase).
 
-
-So take a look at Figure 2:
 Figure 2:  Binary Classification - Purchace as a function of income
 
 
@@ -26,21 +17,30 @@ Can linear Prediction model this data? Look at Figure 3.
 Figure 3: Linear Prediction for Binary Classification
 
 
-![Linear Prediction for Binary Classification](assets/images/logistic-regression/linear-prediction-binary-classification.png)
+![Linear Prediction for Binary Classification](../assets/images/logistic-regression/linear-prediction-binary-classification.png)
+
+
+Looking at Figure 3, one might tend to think that linear prediction might work for binary classification also. Look at figure 4: the threshold is at 0.5, and anything to its right is indeed 1. 
+
+Figure 4: Linear Prediction for Binary Classification with thresholds
+
+![Linear Prediction for Binary Classification THresholds](../assets/images/logistic-regression/linear-prediction-binary-classification_thresholds.png)
+
+
+But the above graphical presentaions are missleading. Just have more points, and the linear prediction now changes, as presented by Figure 5.
+
+Figure 5: Linear Prediction for Binary Classification with thresholds - Problem!
+
+![Linear Prediction for Binary Classification Thresholds Problem](../assets/images/logistic-regression/linear-prediction-binary-classification_thresholds_problem.png)
 
 
 
-Figure 3 illustrates linear prediction for binary classification. Obviously, a linear line can't predict those [0,1] points. So another prediction model is needed.
+
+Figur 5 obviously shows that a linear predictor can't be used for binary classifcation. So another different prediction model is needed.
 
 
 
 
-
-
-
-
-
-j
 
 
 Logostic Regression is currently one of the most commom prediction model algorithm used by Machine Learning algorithms for binary classification. In case you're not familiar with prediction models, and how to solve for their coefficients, or even in case you have no clue about what prediction am I talking, I suggest you read my post on that before. Not mandatory though. If the term "Binary Classification" needs clarifications, I'd start with my Intro to Machine Learning. Not mandatory though.
