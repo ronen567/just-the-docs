@@ -65,7 +65,7 @@ $$h(b+w^Tx)=\frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 Let's clarify an important aspect of the estimated value: Unlike the Supervised Regression prediction, the interpretation of $$h(b+w^Tx)$$ is not an estimation of $$y$$, denoted by $$/hat(y)$$ as before, but the probability of the y=1 hypothesis, which can be represented by $$p(y=1|x,b,w). The probability is > 0.5 for z>0,  and naturally < 0.5 for z < 0. So, for input value x, if p(y=1|x,b,w) = h(|x,b,w) > 0.5, the classiication decision that should be taken is 1, with a probability p(y=1|x,b,w). This probability tends ro 1, as z >> 0, and tends to 0, as z << 0.
 
 
-Logistic Regression Cost Function
+## Logistic Regression Cost Function
 Eq. 2 determines the prediction function. It's a function of the input features x, and coefficients b and w.
 So, in order to be able to estimate the probability of y=1 for a given input x, as expressed by Eq. 2, we need to calculate the coefficients {b, w} as expressed in Eq. 3
 
@@ -74,6 +74,12 @@ Eq. 3: Logistic Regrerssion Coefficients
 $$ z = b + w_1x_1+w_2x_2+....w_nx_n $$
 
 So which is the best set of parameters {b, w}? Or in other words, which {b, w} make the best predictor? To determine this, we need to detemine the best predictor's characterizations. Let's do it, by determining a cost function, which expresses the diffeerence between predicted values and actual values, and find the coefficinets which minimize this difference.
+But wow should that be done? Reminder: (As done in Supervised Regression): During the Training phase, we take m examples, each of a labeld data: $$(x^i, y^i)$$. 
+If we would take the same costfumction as in Supervised Regression, then it would be this:
+
+Eq 3: Proposed Cost function - Euclidean Distance:
+
+J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
 
 
