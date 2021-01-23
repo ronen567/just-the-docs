@@ -75,16 +75,31 @@ $$ z = b + w_1x_1+w_2x_2+....w_nx_n $$
 
 So which is the best set of parameters {b, w}? Or in other words, which {b, w} make the best predictor? To determine this, we need to detemine the best predictor's characterizations. Let's do it, by determining a cost function, which expresses the diffeerence between predicted values and actual values, and find the coefficinets which minimize this difference.
 But wow should that be done? Reminder: (As done in Supervised Regression): During the Training phase, we take m examples, each of a labeld data: $$(x^i, y^i)$$. 
-If we would take the same costfumction as in Supervised Regression, then it would be this:
+If we would take the same cost function as in Supervised Regression, then it would be this:
 
-Eq 3: Proposed Cost function - Euclidean Distance:
+Eq 4: Proposed Cost function - Euclidean Distance:
 
 J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
+And now, we need to find {b, w} at the minimum. Problem is - this function s not convex, as shown in Figure 6, i.e. it has many local minimas. When using Gradient Descent to find the minima of such a function, it may find a local minima but not the global one. So, we need a convex cost function. Is is given in Eq. 5.
+
+Figure 6: Non Convex Cost Function
 
 
 
-Having the predictionfunction, we need to calculate its coefficients. 
+
+![Non Convex Cost Function](../assets/images/logistic-regression/non-convex-function.png)
+
+
+
+
+
+
+to find a minima with Gradient Descent, 
+
+
+
+Having the prediction function, we need to calculate its coefficients. 
 
 Similarily to Linear Regression, we will determine a cost function, whi
 
