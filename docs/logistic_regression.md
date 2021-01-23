@@ -65,7 +65,7 @@ $$h(b+w^Tx)=\frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 Let's clarify an important aspect of the estimated value: Unlike the Supervised Regression prediction, the interpretation of $$h(b+w^Tx)$$ is not an estimation of $$y$$, denoted by $$/hat(y)$$ as before, but the probability of the y=1 hypothesis, which can be represented by $$p(y=1|x,b,w). The probability is > 0.5 for z>0,  and naturally < 0.5 for z < 0. So, for input value x, if p(y=1|x,b,w) = h(|x,b,w) > 0.5, the classiication decision that should be taken is 1, with a probability p(y=1|x,b,w). This probability tends ro 1, as z >> 0, and tends to 0, as z << 0.
 
 
-## Logistic Regression Cost Function
+#### Logistic Regression Cost Function
 Eq. 2 determines the prediction function. It's a function of the input features x, and coefficients b and w.
 So, in order to be able to estimate the probability of y=1 for a given input x, as expressed by Eq. 2, we need to calculate the coefficients {b, w} as expressed in Eq. 3
 
@@ -101,7 +101,7 @@ Figure 6: A Convex  Function
 Eq. 5 presents the cost function used for Logistic Regression
 
 
-## Eq. 5: Cost function used for Logistic Regression
+#### Eq. 5: Cost function used for Logistic Regression
 
 $$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
 -log (h_{b,w}(x^i,y^i)) \; if\; y=1\\
@@ -109,7 +109,59 @@ $$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
 \end{matrix}\right.
 $$
 
+The index $$i$$ relates to the $$i^{th}$$ example out of m training examples.
+Let's examine the cost function: 
+For  unsuccessful predictions:
 
+If candidate hypothesis is y=1 and prediction probability for y=1 is 1, then the cost is 0. ($$log(1)=0$$).
+If candidate hypothesis is y=0 and prediction probability for y=1 is 0,ithen the cost is 0. ($$log(0)=1$$).
+
+And for the unsuccessful predictions:
+
+If candidate hypothesis is y=1 and prediction probability for y=1 is 0, then the cost is $$\infty $$. ($$-log(0)=\infty $$).
+If candidate hypothesis is y=0 and prediction probability for y=1 is 1,ithen the cost is $$\infty $$. ($$log(0)=1$$).
+
+The cost at the extreme points indeed makes sense. To clarify more, let's plot the cost function.
+
+
+
+Figure 7: Logistic Regression Cost Function
+
+
+![Convex  Function](../assets/images/logistic-regression/logistic-regression-cost-function.png)
+
+
+The overall cost function is the sum the m training examples cost functions:
+
+#### Eq. 6: Logistic Regression overall Cost Function
+
+$$
+J(b,w)=\frac{1}{m}\sum_{i=1}^{m}Cost(h_{b,w}(x^i), y^i)=\\
+-\frac{1}{m}\sum_{i=1}^{m}[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]
+$$
+
+Where
+
+$$h_{(b,w)}=\frac{1}{1+e^{-(b+w^Tx)}}$$
+
+
+With the cost function at hand, we need to find the set of coefficients {b,w) which minimizes the cost, or in other words, maximaizes the probability likelihood.
+
+In the linear prediction example, we considered 2 solutions:
+1. The "Analytic Solution" at which the cost we took partial derivatives of the Lossfunction per each of the n+1 coefficients. Each derivative was set to 0, so we had n+1 normal equations which could be analytically soved.
+
+2. Gradient Descent
+
+
+Here solving the normal equations is by far more complex, still, we can use Gradient Descent.
+
+
+So here's the Gradient Descent formula:
+
+$$
+
+
+og the .
 Cost(
 
 Is is given in Eq. 5.
