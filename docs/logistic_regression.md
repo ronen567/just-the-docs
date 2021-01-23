@@ -1,7 +1,7 @@
 # Binary Classification and Logistic Regression
 
 This post is about Supervised Classification problems, at which it is needed to predict a descret value, e.g. predict if a customer will buy the product or not, or predict whether a tumor is benign or malignant. 
-We denote the value y of the binary classes as 0 and 1, so we assine the value y=0 to denote the case at which the customer does not purchase, or the tumor is benign, and accordingly y=1 for the case customer does purchase or tumor is malignant.
+We denote the value y of the binary classes as 0 and 1, so we asign the value y=0 to denote the 'customer does not purchase', or the 'tumor is benign; hypothesis , and accordingly, y=1 to denote 'customer does purchase' or 'tumor is malignant' hypothesis.
 
 
 So let's follow our example of predicting customers' purchases based on their income. (This is a simplified for the sake of the example, even if technically the income feature is clearly not sufficient to predict a purchase).
@@ -27,7 +27,7 @@ Figure 4: Linear Prediction for Binary Classification with thresholds
 ![Linear Prediction for Binary Classification THresholds](../assets/images/logistic-regression/linear-prediction-binary-classification_thresholds.png)
 
 
-But the above graphical presentaions are missleading. Just have more points, and the linear prediction now changes, as presented by Figure 5.
+But the above graphical presentaions may be missleading. If we had more points, as presented by Figure 5, then we could realize that now the line predicts values < 0.5 for points which value 1s 1.
 
 Figure 5: Linear Prediction for Binary Classification with thresholds - Problem!
 
@@ -35,8 +35,34 @@ Figure 5: Linear Prediction for Binary Classification with thresholds - Problem!
 
 
 
+Obviously, the classification is not a linear function, another different prediction model is needed - The Logistic Regression Model.
 
-Figur 5 obviously shows that a linear predictor can't be used for binary classifcation. So another different prediction model is needed.
+
+## Logistic Regression Model
+
+The Logistic Regression is currently the most common predictor model used for binary classification. The model is based on the sigmoid function presented in Eq. 1. 
+
+Eq. 1: Sigmoid Function
+
+$$g(z)=\frac{1}{1+e^{^{-z}}}$$
+
+
+The sigmoid function's values are in the range [0,1], as shown in Figure 5
+
+Figure 5: Sigmoid Function
+
+![Sigmoid Function](../assets/images/logistic-regression/sigmoid-function.png)
+
+
+The Logistic Regression predictor is based on Eq. 1, substiuted z by $$b+wx$$, swhere $$x$$ is the system's input AKA features, and {b,w} are the predictor's coefficients.
+
+
+Eq. 2: Logistic Regression Formula
+
+$$h(b+w^Tx)=\frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+
+
+Let's clarify an important aspect of the estimated value: Unlike the Supervised Regression prediction, the interpretation of $$h(b+w^Tx)$$ is not an estimation of $$y$$, denoted by $$/hat(y)$$ as before, but the probability of the y=1 hypothesis, which can be represented by $$p(y=1|x,b,w). The probability is > 0.5 for z>0,  and naturally < 0.5 for z < 0. So, for input value x, if p(y=1|x,b,w) = h(|x,b,w) > 0.5, the classiication decision that should be taken is 1, with a probability p(y=1|x,b,w). This probability tends ro 1, as z >> 0, and tends to 0, as z << 0.
 
 
 
