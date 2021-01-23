@@ -81,7 +81,7 @@ Eq 4: Proposed Cost function - Euclidean Distance:
 
 J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
-And now, we need to find {b, w} at the minimum. Problem is - this function s not convex, as shown in Figure 6, i.e. it has many local minimas. When using Gradient Descent to find the minima of such a function, it may find a local minima but not the global one. So, we need a convex cost function. Is is given in Eq. 5.
+And now, we need to find {b, w} at the minimum. Problem is - this function s not convex, as shown in Figure 6, i.e. it has many local minimas. When using Gradient Descent to find the minima of such a function, it may find a local minima but not the global one. So, we need a convex cost function. 
 
 Figure 6: Non Convex Cost Function
 
@@ -91,8 +91,28 @@ Figure 6: Non Convex Cost Function
 ![Non Convex Cost Function](../assets/images/logistic-regression/non-convex-function.png)
 
 
+Figure 6: A Convex  Function
 
 
+![Convex  Function](../assets/images/logistic-regression/convex-function.png)
+
+
+
+Eq. 5 presents the cost function used for Logistic Regression
+
+
+## Eq. 5: Cost function used for Logistic Regression
+
+$$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
+-log (h_{b,w}(x^i,y^i)) \; if\; y=1\\
+-log (1-h_{b,w}(x^i,y^i))\; if \;y=0
+\end{matrix}\right.
+$$
+
+
+Cost(
+
+Is is given in Eq. 5.
 
 
 to find a minima with Gradient Descent, 
