@@ -158,6 +158,23 @@ Here solving the normal equations is by far more complex, still, we can use Grad
 
 So here's the Gradient Descent formula:
 
+#### Eq. 7: Gradient Descent For J(w,b)
+Repeat till convergence:
+
+$$b:=b-\alpha \frac{\partial J(b,w)}{\partial b}$$
+
+For all {b}, {w_j} j=1...n calculate:
+
+$$w_j:=w_j-\alpha \frac{\partial J(b,w)}{\partial w_j}$$
+
+
+Let's calculate the partial derivative $$\frac{\partial J(b,w)}{\partial b}$$:
+
+
+
+
+
+
 $$
 
 
