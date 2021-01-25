@@ -1,6 +1,8 @@
+---
 layout: default
-title: Customization
-nav_order: 4
+title: Search
+nav_order: 1
+---
 
 # Binary Classification and Logistic Regression
 
