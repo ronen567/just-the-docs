@@ -13,6 +13,18 @@ Just note that the focus now is on a Binary Classification, but based on that, i
 
 So to recap, we talk about Machine Learning Supervised Learning. Figure 1 presents the block diagram which describe such a system - (re-posting the same diagram for convinience):
 
+Figure 1: Supervise Learning Outlines
+
+![Supervise Learning Outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
+
+
+We are now concentrating on setting a Prediction Model, which coefficients are calculated during the Training phase, an later, during the normal data phase, can determing a decision by making a prediction based on the input data.
+
+So this post deals about the following questions:
+1. Which model can fit the binary classification scenario?
+2. How should this model's coefficients be calculated
+
+
 
 
 So let's follow our example of predicting customers' purchases based on their income. (This is a simplified for the sake of the example, even if technically the income feature is clearly not sufficient to predict a purchase).
