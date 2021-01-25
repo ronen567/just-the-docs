@@ -1,13 +1,18 @@
 ---
 layout: default
 nav_order: 1
-title: RRR
+title: Binary Classification and Logistic Regression
 ---
 
 # Binary Classification and Logistic Regression
 
-This post is about Supervised Classification problems, at which it is needed to predict a descret value, e.g. predict if a customer will buy the product or not, or predict whether a tumor is benign or malignant. 
-We denote the value y of the binary classes as 0 and 1, so we asign the value y=0 to denote the 'customer does not purchase', or the 'tumor is benign; hypothesis , and accordingly, y=1 to denote 'customer does purchase' or 'tumor is malignant' hypothesis.
+This post is about Binary Classification Supervised Learning. At such classification scenarios, the machine needs to determine which classification hypothesis should be selected for a certain set of input features. For example: Will a customer will buy the product or not, based on some charectaristics, or whether a tumor is benign or malignant. 
+So decision can be denoted as either 1 or 0, where basically the assignment of the 2 hypothesis to either 1 or 0 has no real significance, except it normally makes sense to set the positive decision e.g. 'customer does not purchase' or 'tumor is benign to 1, and the negative to 0. This selection has technically no significance whatssoever.
+
+Just note that the focus now is on a Binary Classification, but based on that, in a post which follows, we will extend the number of classes to multi classes.
+
+So to recap, we talk about Machine Learning Supervised Learning. Figure 1 presents the block diagram which describe such a system - (re-posting the same diagram for convinience):
+
 
 
 So let's follow our example of predicting customers' purchases based on their income. (This is a simplified for the sake of the example, even if technically the income feature is clearly not sufficient to predict a purchase).
