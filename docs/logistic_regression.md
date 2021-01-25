@@ -1,3 +1,7 @@
+layout: default
+title: Customization
+nav_order: 4
+
 # Binary Classification and Logistic Regression
 
 This post is about Supervised Classification problems, at which it is needed to predict a descret value, e.g. predict if a customer will buy the product or not, or predict whether a tumor is benign or malignant. 
