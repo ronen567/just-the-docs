@@ -1,6 +1,7 @@
 ---
 layout: default
 nav_order: 1
+title: RRR
 ---
 
 # Binary Classification and Logistic Regression
