@@ -52,20 +52,18 @@ Figure 4: Linear Prediction for Binary Classification with thresholds
 ![Linear Prediction for Binary Classification THresholds](../assets/images/logistic-regression/linear-prediction-binary-classification_thresholds.png)
 
 
-But the above graphical presentaions may be missleading. If we had more points, as presented by Figure 5, then we could realize that now the line predicts values < 0.5 for points which value 1s 1.
-
 Figure 5: Linear Prediction for Binary Classification with thresholds - Problem!
 
 ![Linear Prediction for Binary Classification Thresholds Problem](../assets/images/logistic-regression/linear-prediction-binary-classification_thresholds_problem.png)
 
 
 
-Obviously, the classification is not a linear function, another different prediction model is needed - The Logistic Regression Model.
+Obviously, linear prediction doesn't work for Binary Classification. Another different prediction model is needed. Let me present the Logistic Regression Model.
 
 
 ## Logistic Regression Model
 
-The Logistic Regression is currently the most common predictor model used for binary classification. The model is based on the sigmoid function presented in Eq. 1. 
+The Logistic Regression is currently the most common predictor model used for binary classification. The model is based on the sigmoid function presented in Eq. 1.
 
 Eq. 1: Sigmoid Function
 
@@ -79,7 +77,11 @@ Figure 5: Sigmoid Function
 ![Sigmoid Function](../assets/images/logistic-regression/sigmoid-function.png)
 
 
-The Logistic Regression predictor is based on Eq. 1, substiuted z by $$b+wx$$, swhere $$x$$ is the system's input AKA features, and {b,w} are the predictor's coefficients.
+The Logistic Regression predictor is based on Eq. 1, substiuted z by $$b+wx$$, where $$x=\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4 \\..\\x_n 
+\end{bmatrix}$$ is the system's input data set AKA features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and w=\begin{bmatrix}
+w_1 \\ w_2 \\ w_3 \\ w_4 \\..\\w_n 
+\end{bmatrix} is the vector of coeffcients. Pluging $$b+wx$$ into Eq. 1 gives:
 
 
 Eq. 2: Logistic Regression Formula
@@ -87,9 +89,16 @@ Eq. 2: Logistic Regression Formula
 $$h(b+w^Tx)=\frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 
-Let's clarify an important aspect of the estimated value: Unlike the Supervised Regression prediction, the interpretation of $$h(b+w^Tx)$$ is not an estimation of $$y$$, denoted by $$/hat(y)$$ as before, but the probability of the y=1 hypothesis, which can be represented by $$p(y=1|x,b,w). The probability is > 0.5 for z>0,  and naturally < 0.5 for z < 0. So, for input value x, if p(y=1|x,b,w) = h(|x,b,w) > 0.5, the classiication decision that should be taken is 1, with a probability p(y=1|x,b,w). This probability tends ro 1, as z >> 0, and tends to 0, as z << 0.
+So now, if we had the values of b and w (we will show how to calculate those soon), and the input features set x, we could calulate the predicted value $$h(b+w^Tx)$$
+
+As shown by Figure 5, $$h(b+w^Tx)$$ is bounded in the range [0,1], so our predicted value will be in that range. So, we will not predict just the neares hypothesis, but the probabilty of the hypothesis y=1, i.e. we will calculate $$p(y=1, x)$$, which means: the probability that y=1, given the input x. It can be easily seen that  $$p(y=1, x)$$ tends to 1, as $$x \to \infty $$, and $$p(y=1, x)$$ tends to 0, as $$x \to 0 $$. The point z=0 om Figure 5, would be classified to x=1 with probability of 50%. z=2.5 would be classified to 0.1ת i.e. probability of 10% to be 1, which is equivalent to probability of 90% to be 0.
+
+Having selected the prediction model, to calculate the predictions with Eq. 2, we need to have the coefficents. What is the criteria for the selection of the coefficients' values? Answer is trivial - we will take the coefficients that make the model predict values which are the closest to the actual values. (This is done in the Traingning phase, of course, with labeled data).
+
+To find the closest prediction, we will define a cost function which expresses the error between the labeled points actual values, and their values predicted by the model. We will select the coefficients which minimize this cost. So here we go.
 
 
+##### TILL HERE!!! 27/1
 #### Logistic Regression Cost Function
 Eq. 2 determines the prediction function. It's a function of the input features x, and coefficients b and w.
 So, in order to be able to estimate the probability of y=1 for a given input x, as expressed by Eq. 2, we need to calculate the coefficients {b, w} as expressed in Eq. 3
