@@ -6,44 +6,46 @@ title: Binary Classification and Logistic Regression
 
 # Binary Classification and Logistic Regression
 
-This post is about Binary Classification Supervised Learning. At such classification scenarios, the machine needs to determine which classification hypothesis should be selected for a certain set of input features. For example: Will a customer will buy the product or not, based on some charectaristics, or whether a tumor is benign or malignant. 
-So decision can be denoted as either 1 or 0, where basically the assignment of the 2 hypothesis to either 1 or 0 has no real significance, except it normally makes sense to set the positive decision e.g. 'customer does not purchase' or 'tumor is benign to 1, and the negative to 0. This selection has technically no significance whatssoever.
+This post is about Binary Classification in the context of Supervised Machine Learning Algorithms. In Binary classification, the algorithm needs to select between 2 hypothesis, for a given set of input features. For example: Will a customer will buy the product or not, based on a set of input features which consists of his income, address, occupaition, previous purchaces and so on. So the 2 classes here are: Will purcease and Will not purchace. In the formulas that follow, those 2 classes are denoted as 1 and 0. Which of the 2 classes should take the 1 and which the 0? Bassically, it doesn't matter, but the convention is to assign the 1 to the 'positive' hypothesis and the 0 to the negative hypothesis.
 
-Just note that the focus now is on a Binary Classification, but based on that, in a post which follows, we will extend the number of classes to multi classes.
+Just note that the focus now is on a Binary Classification, but based on that, we will extend to multi classes. In a post which follows.
 
-So to recap, we talk about Machine Learning Supervised Learning. Figure 1 presents the block diagram which describe such a system - (re-posting the same diagram for convinience):
+So, Question: how will the algorithm work? Answer: It works according to the Supervised Learning algorithm. Let's recap briefly: Figure 1 presents the block diagram of  describe such a system - (re-posting the same diagram for convinience):
 
 Figure 1: Supervise Learning Outlines
 
 ![Supervise Learning Outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
 
 
-We are now concentrating on setting a Prediction Model, which coefficients are calculated during the Training phase, an later, during the normal data phase, can determing a decision by making a prediction based on the input data.
+Following Figure 1, we are now concentrating on setting a Prediction Model, which makes the classification decision for the inpuut features X. The model's coefficients are calculated during the Training phase, and later, during the normal data phase, do the classification.
 
-So this post deals about the following questions:
-1. Which model can fit the binary classification scenario?
-2. How should this model's coefficients be calculated
-
-
+Done with the introduction, the rest of the post will present the following:
+1. Present the selection of Logistic Regression as the predictor for Binary Classification.
+2. Present the usage of Gradient Decent to find the Logistic Regression coefficients
 
 
-So let's follow our example of predicting customers' purchases based on their income. (This is a simplified for the sake of the example, even if technically the income feature is clearly not sufficient to predict a purchase).
+To start with, we will use a reduced features order Binary Classification sceanrio, i.e.: Predict if a customer will buy a new product based on his income. Such a prediction maybe does not make sense practicdally, but the reduced features dimensions to 1, makes it easier to present it graphically.
+So now, Figure 2 presents the purchase perdiction based on income only.
 
-Figure 2:  Binary Classification - Purchace as a function of income
+
+
+Figure 2:  Binary Classification - Purchace prediction based on income
 
 
 ![Supervised  outlines](../assets/images/logistic-regression/binary-classification-points.png)
 
 
-Can linear Prediction model this data? Look at Figure 3.
+The data set presented in Figure 2, hold the labeled training data, i.e. the each income feature point is labeled with its related purchase decisoin taken. We would need a prediction model that can fir these points. According to our paradigm, after fitting the model to the training data, it should fir the normal unlabeled data that comes after. (Though after training, the model's performance should be tested before accepted to be used for real data).
 
-Figure 3: Linear Prediction for Binary Classification
+So which model can we take? We previously reviewed the linear prediction model, used for predicting Regression data. Will it fit here too?  Let's see. Figure 3 
+
+examines Linear Prediction for Binary Classification.
 
 
 ![Linear Prediction for Binary Classification](../assets/images/logistic-regression/linear-prediction-binary-classification.png)
 
 
-Looking at Figure 3, one might tend to think that linear prediction might work for binary classification also. Look at figure 4: the threshold is at 0.5, and anything to its right is indeed 1. 
+Figure 3 presents a line which is assumed to model the data points. Examine the model: According to it, a income of 3000, which was labeld with a 0, will now be mapped to ~0.4. and the income of 3500 now maps to 0.5. Can this model create valid predictions? Figure 4 presnets the decision boundary - any point on the line, from 0.5 and up will be classified as 1, and the rest as 0. One might tend to think that this model is valid - but that is not correct. Justtake another set of training points, as presented by Figure 5, keep the thershold on 0.5, and now, only income from 5000 and up is mapped to 1. And if we had taken more points, obviously the treshhold would move more. 
 
 Figure 4: Linear Prediction for Binary Classification with thresholds
 
