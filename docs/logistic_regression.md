@@ -98,24 +98,26 @@ Having selected the prediction model, to calculate the predictions with Eq. 2, w
 To find the closest prediction, we will define a cost function which expresses the error between the labeled points actual values, and their values predicted by the model. We will select the coefficients which minimize this cost. So here we go.
 
 
-##### TILL HERE!!! 27/1
 #### Logistic Regression Cost Function
+
 Eq. 2 determines the prediction function. It's a function of the input features x, and coefficients b and w.
-So, in order to be able to estimate the probability of y=1 for a given input x, as expressed by Eq. 2, we need to calculate the coefficients {b, w} as expressed in Eq. 3
+So, in order to be able to estimate the probability of y=1 for a given input x, as expressed by Eq. 2, we need to calculate the coefficients {b, w} as expressed in Eq. 3. It shows the n dimension vector prodcut expression that should be plugged into Eq. 2.
 
-Eq. 3: Logistic Regrerssion Coefficients
 
-$$ z = b + w_1x_1+w_2x_2+....w_nx_n $$
+Eq. 3: Logistic Regrerssion n dimensional coefficients
 
-So which is the best set of parameters {b, w}? Or in other words, which {b, w} make the best predictor? To determine this, we need to detemine the best predictor's characterizations. Let's do it, by determining a cost function, which expresses the diffeerence between predicted values and actual values, and find the coefficinets which minimize this difference.
-But wow should that be done? Reminder: (As done in Supervised Regression): During the Training phase, we take m examples, each of a labeld data: $$(x^i, y^i)$$. 
-If we would take the same cost function as in Supervised Regression, then it would be this:
+$$ b+wx = b + w_1x_1+w_2x_2+....w_nx_n $$
 
-Eq 4: Proposed Cost function - Euclidean Distance:
+So, how should the values of parameters {b, w} be determined? Or in other words, which {b, w} make the best predictor? To answer this, we need to define the predictor's required charectaristics. Let's do it: We need to define a cost function, which expresses the diffeerence between the algorithm's predicted values $$\hat{y})$$ and the actual $${y}$$ values. Having such a cost function, we will find the set of coefficients which minimizes that cost function.
+
+Reminder: For Supervised Regression, we presented the Linear Regression predictor. The predictor is trained with labeld data during the Training phase, using a set of m labeled data points. The cost function used there, was the Euclidean distance between the data points' real value (the labels), and the model's predicted points, as expressed by Rq. 4.
+
+Eq 4: Cost function - Euclidean Distance:
 
 J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
-And now, we need to find {b, w} at the minimum. Problem is - this function s not convex, as shown in Figure 6, i.e. it has many local minimas. When using Gradient Descent to find the minima of such a function, it may find a local minima but not the global one. So, we need a convex cost function. 
+
+Having Eq. 4, we showed 2 optional solutio: The question now is - can the cost function expressed in Eq.4 be used for Logistic Regression predictor as well.  now, we need to find {b, w} at the minimum. Problem is - this function s not convex, as shown in Figure 6, i.e. it has many local minimas. When using Gradient Descent to find the minima of such a function, it may find a local minima but not the global one. So, we need a convex cost function. 
 
 Figure 6: Non Convex Cost Function
 
