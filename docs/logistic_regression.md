@@ -117,7 +117,7 @@ Eq 4: Cost function - Euclidean Distance:
 J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
 
-Having Eq. 4, we showed 2 optional solutio: The question now is - can the cost function expressed in Eq.4 be used for Logistic Regression predictor as well.  now, we need to find {b, w} at the minimum. Problem is - this function s not convex, as shown in Figure 6, i.e. it has many local minimas. When using Gradient Descent to find the minima of such a function, it may find a local minima but not the global one. So, we need a convex cost function. 
+Having Eq. 4, we showed 2 optional solutio: The analytic solutiuon and the Gradient Descent solution. question now is - can the cost function expressed in Eq.4 be used for Logistic Regression predictor as well? Answer is no. Reason: The analtical solution is too complex, and the Gradient descent may not converge, as this cost function (Eq. 4), when Gradient Descent is plugged in, is not convex - see Figure 6, i.e. it has many local minimas. When using Gradient Descent to find the minima of such a function, it may find a local minima but not the global one. So, we need a convex cost function. 
 
 Figure 6: Non Convex Cost Function
 
@@ -146,18 +146,16 @@ $$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
 $$
 
 The index $$i$$ relates to the $$i^{th}$$ example out of m training examples.
-Let's examine the cost function: 
-For  unsuccessful predictions:
+Let's examine the cost function optinal outputs, at the 4 'extreme' points:
 
-If candidate hypothesis is y=1 and prediction probability for y=1 is 1, then the cost is 0. ($$log(1)=0$$).
-If candidate hypothesis is y=0 and prediction probability for y=1 is 0,ithen the cost is 0. ($$log(0)=1$$).
+If hypothesis is y=1 and also predicted probability p(y=1|x) is 1 (i.e. the probability of y=1 given x is 1), then the cost is 0. ($$Note that log(1)=0$$).
+If hypothesis is y=0 and also predicted probability p(y=1|x) is 0,ithen the cost is 0. ($$log(0)=1$$).
 
-And for the unsuccessful predictions:
 
-If candidate hypothesis is y=1 and prediction probability for y=1 is 0, then the cost is $$\infty $$. ($$-log(0)=\infty $$).
-If candidate hypothesis is y=0 and prediction probability for y=1 is 1,ithen the cost is $$\infty $$. ($$log(0)=1$$).
+If candidate hypothesis is y=1 but prediction probability p(y=1|x) is 0, then the cost is $$\infty $$. ($$-log(0)=\infty $$).
+If candidate hypothesis is y=0 and prediction probability p(y=1|x) is 1, then the cost is $$\infty $$. ($$log(0)=1$$).
 
-The cost at the extreme points indeed makes sense. To clarify more, let's plot the cost function.
+So far, the cost function behavior does make sense. Let's plot the cost function, and gain some visibility on it.
 
 
 
@@ -181,7 +179,7 @@ Where
 $$h_{(b,w)}=\frac{1}{1+e^{-(b+w^Tx)}}$$
 
 
-With the cost function at hand, we need to find the set of coefficients {b,w) which minimizes the cost, or in other words, maximaizes the probability likelihood.
+With the cost function at hand, we need to find the set of coefficients {b,w) which minimizes the cost.
 
 In the linear prediction example, we considered 2 solutions:
 1. The "Analytic Solution" at which the cost we took partial derivatives of the Lossfunction per each of the n+1 coefficients. Each derivative was set to 0, so we had n+1 normal equations which could be analytically soved.
