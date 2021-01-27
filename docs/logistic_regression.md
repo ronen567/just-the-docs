@@ -138,12 +138,18 @@ Eq. 5 presents the cost function used for Logistic Regression
 
 
 #### Eq. 5: Cost function used for Logistic Regression
+5.a
 
 $$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
 -log (h_{b,w}(x^i,y^i)) \; if\; y=1\\
 -log (1-h_{b,w}(x^i,y^i))\; if \;y=0
 \end{matrix}\right.
 $$
+
+Or expressing it in a single equation:
+
+4.b
+$$Cost(h_{b,w}(x^i), y^i)=[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]$$
 
 The index $$i$$ relates to the $$i^{th}$$ example out of m training examples.
 Let's examine the cost function optinal outputs, at the 4 'extreme' points:
@@ -194,16 +200,33 @@ So here's the Gradient Descent formula:
 
 #### Eq. 7: Gradient Descent For J(w,b)
 Repeat till convergence:
+#### Eq. 7a:
 
 $$b:=b-\alpha \frac{\partial J(b,w)}{\partial b}$$
 
+#### Eq. 7b:
 For all {b}, {w_j} j=1...n calculate:
 
 $$w_j:=w_j-\alpha \frac{\partial J(b,w)}{\partial w_j}$$
 
+Explaination for the Gradient Decent Process :
+n the Gradient Descent solution, Eq. 7a and 7b should be repeatedly computed, where at each iteration a new set of {b,w} parameters are computed. The iterative process should contiue until b and w converge, i.e. the partial derivatives are 0. As we know, the derivatives are 0 at the minima. So the computed (b,w) are the parameters that minimize the cost function, as required.
+
 
 Let's calculate the partial derivative $$\frac{\partial J(b,w)}{\partial b}$$:
 
+RONEN TILL HERE!!!!!!!!!!
+
+To simplify the derivation, we'll base on the derivatives chain rule. Before getting to that, let's prepare arrange the cost function:
+
+
+We denote:
+x=b+wx
+and h
+
+Eq. 8:
+
+$$\frac{\partial f(y)}{\partial x}=\frac{\partial f(y)}{\partial y}\frac{\partial y}{\partial x}$$
 
 
 
