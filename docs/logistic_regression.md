@@ -79,9 +79,9 @@ Figure 5: Sigmoid Function
 
 The Logistic Regression predictor is based on Eq. 1, but with pluging $$z=b+wx$$ in, where $$x=\begin{bmatrix}
 x_1 \\ x_2 \\ x_3 \\ x_4 \\..\\x_n 
-\end{bmatrix}$$, an n dimensional vector, is an input data set, AKA input features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and w=\begin{bmatrix}
+\end{bmatrix}$$, an n dimensional vector, is an input data set, AKA input features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and $$w=\begin{bmatrix}
 w_1 \\ w_2 \\ w_3 \\ w_4 \\..\\w_n 
-\end{bmatrix} is the vector of coeffcients. Pluging $$b+wx$$ into Eq. 1 gives:
+\end{bmatrix}$$ is the vector of coeffcients.
 
 Plugin $$b+$wx$$ into Eq 1 gives Eq. 2.
 
