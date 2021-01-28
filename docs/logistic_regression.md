@@ -77,19 +77,20 @@ Figure 5: Sigmoid Function
 ![Sigmoid Function](../assets/images/logistic-regression/sigmoid-function.png)
 
 
-The Logistic Regression predictor is based on Eq. 1, substiuted z by $$b+wx$$, where $$x=\begin{bmatrix}
+The Logistic Regression predictor is based on Eq. 1, but with pluging $$z=b+wx$$ in, where $$x=\begin{bmatrix}
 x_1 \\ x_2 \\ x_3 \\ x_4 \\..\\x_n 
-\end{bmatrix}$$ is the system's input data set AKA features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and w=\begin{bmatrix}
+\end{bmatrix}$$, an n dimensional vector, is an input data set, AKA input features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and w=\begin{bmatrix}
 w_1 \\ w_2 \\ w_3 \\ w_4 \\..\\w_n 
 \end{bmatrix} is the vector of coeffcients. Pluging $$b+wx$$ into Eq. 1 gives:
 
+Plugin $$b+$wx$$ into Eq 1 gives Eq. 2.
 
 Eq. 2: Logistic Regression Formula
 
 $$h(b+w^Tx)=\frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 
-So now, if we had the values of b and w (we will show how to calculate those soon), and the input features set x, we could calulate the predicted value $$h(b+w^Tx)$$
+Now, if we had the values of b and w (we will show how to calculate those soon), and the input features set x, we could calulate the predicted value $$h(b+w^Tx)$$
 
 As shown by Figure 5, $$h(b+w^Tx)$$ is bounded in the range [0,1], so our predicted value will be in that range. So, we will not predict just the neares hypothesis, but the probabilty of the hypothesis y=1, i.e. we will calculate $$p(y=1, x)$$, which means: the probability that y=1, given the input x. It can be easily seen that  $$p(y=1, x)$$ tends to 1, as $$x \to \infty $$, and $$p(y=1, x)$$ tends to 0, as $$x \to 0 $$. The point z=0 om Figure 5, would be classified to x=1 with probability of 50%. z=2.5 would be classified to 0.1ת i.e. probability of 10% to be 1, which is equivalent to probability of 90% to be 0.
 
