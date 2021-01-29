@@ -63,27 +63,28 @@ Obviously, linear prediction doesn't work for Binary Classification. Another dif
 
 ## Logistic Regression Model
 
-The Logistic Regression is currently the most common predictor model used for binary classification. The model is based on the sigmoid function presented in Eq. 1.
+The Logistic Regression is a model which predicts the probability of hypothesis given the data input, in a binary classification. The model is based on the sigmoid function presented in Eq. 1. 
 
 Eq. 1: Sigmoid Function
 
 $$g(z)=\frac{1}{1+e^{^{-z}}}$$
 
+The sigmoid function's values are in the range [0,1], as shown in Figure 5. Note that the model is not used to predict the hypothesis value y, which is either 0 or 1 by definition, but it predicts p(y=1| x, b,w), i.e. the probability, given the input data, that the result will be 1,e.g. the probabilit that the customer will make a purchace. 
+To illustrate what predict the  probaility means, let's follow Figure 5.e $$p(y=1|x)$$, which means: the probability that y=1, given the input x. It can be easily seen that  $$p(y=1| x)$$ tends to 1, as $$x \to \infty $$, and $$p(y=1| x)$$ tends to 0, as $$x \to 0 $$. The point z=0 om Figure 5, would be classified to x=1 with probability of 50%. z=2.5 would be classified to 0.1ת i.e. probability of 10% to be 1, which is equivalent to probability of 90% to be 0.
 
-The sigmoid function's values are in the range [0,1], as shown in Figure 5
 
 Figure 5: Sigmoid Function
 
 ![Sigmoid Function](../assets/images/logistic-regression/sigmoid-function.png)
 
 
-The Logistic Regression predictor is based on Eq. 1, but with pluging $$z=b+wx$$ in, where $$x=\begin{bmatrix}
+The Logistic Regression predictor is based on Eq. 1, but z is replaces by a linear function of the input dataset x: $$z=b+wx$$ in, where $$x=\begin{bmatrix}
 x_1 \\ x_2 \\ x_3 \\ x_4 \\..\\x_n 
-\end{bmatrix}$$, an n dimensional vector, is an input data set, AKA input features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and $$w=\begin{bmatrix}
+\end{bmatrix}$$, an n dimensional vector, is the input data set, AKA input features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and $$w=\begin{bmatrix}
 w_1 \\ w_2 \\ w_3 \\ w_4 \\..\\w_n 
 \end{bmatrix}$$ is the vector of coeffcients.
 
-Plugin $$b+$wx$$ into Eq 1 gives Eq. 2.
+So we now plug $$b+$wx$$ into Eq, as Eq. 2. show.
 
 Eq. 2: Logistic Regression Formula
 
