@@ -70,7 +70,7 @@ Eq. 1: Sigmoid Function
 $$\sigma(z)=\frac{1}{1+e^{^{-z}}}$$
 
 
-The sigmoid function's values are in the range [0,1], as shown in Figure 5. 
+The sigmoid function maps the z values to values the range [0,1]. $$/sigmaz(z)\rightarrow0$$ as $$z\rightarrow \infty$$ as shown in Figure 5. 
 
 Note that the model is not used to predict the hypothesis value y, which is either 0 or 1 by definition, but it predicts p(y=1| x, b,w), i.e. the probability, given the input data, that the result will be 1,e.g. the probabilit that the customer will make a purchace. 
 To illustrate what predict the  probaility means, let's follow Figure 5.e $$p(y=1|x)$$, which means: the probability that y=1, given the input x. It can be easily seen that  $$p(y=1| x)$$ tends to 1, as $$x \to \infty $$, and $$p(y=1| x)$$ tends to 0, as $$x \to 0 $$. The point z=0 om Figure 5, would be classified to x=1 with probability of 50%. z=2.5 would be classified to 0.1ת i.e. probability of 10% to be 1, which is equivalent to probability of 90% to be 0.
