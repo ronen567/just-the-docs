@@ -202,6 +202,40 @@ $$h_{(b,w)}=\frac{1}{1+e^{-(b+w^Tx)}}$$
 Next chapter details the development of Eq. 5. Surely recommended, but can be skipped. Chapter which follow it, presents the Gradient Descent solution for Logistic Regression.
 
 
+### Mathematical Development of Cost Function
+
+Here we develope the Logistic Regression cost function - see listed above.
+
+For convinience, let's re-write the Logistic Regression formulas for 
+
+#### Eq. 6: Logistic Regression Formula
+6. a Logistic Regression Formula for y=1
+
+$$p(y=1| x, w,b) = h(b+w^Tx)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+
+6. b Logistic Regression Formula for y=0
+
+
+$$p(y=0| x, w,b) = 1 - p(y=1| x, w,b) = 1- h(b+w^Tx)=$$
+
+
+Consequently, we can combine 6a and 6b to have an expression for $$y\varepsilon [0,1]:
+
+#### Eq. 7: Combined Logistic Regression Formula
+
+$$p(y|x.b,w) =  h(b+w^Tx)^y(1- h(b+w^Tx))^{y-1}$$
+
+
+Now we take Eq 7, to find the likelihhod of Y, the output of m training example. It equeals to the multiplication of probabilities of all i, i=1:m:
+
+#### Eq. 8: Likelihood of Y
+$$p(Y| X, w,b) = 
+\prod_{i=1}^{m}p(y_i|x_i, b,w)= h(b+w^Tx_i\zeta )^{y_i}(1- h(b+w^Tx_i))^{y_i-1}$$
+
+
+
+
+
 
 ### Gradient Descent
 
