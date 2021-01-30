@@ -226,22 +226,53 @@ Consequently, we can combine 6a and 6b to have an expression for $$y\varepsilon 
 $$p(y|x.b,w) =  h(b+w^Tx)^y(1- h(b+w^Tx))^{y-1}$$
 
 
-Now we take Eq 7, to find the likelihhod of Y, the output of m training example. It equeals to the multiplication of probabilities of all i, i=1:m:
+Now we take Eq 7, to find the likelihhod of, the output of m training example. It equeals to the multiplication of probabilities $$p(y_i|b,w,x_i) $$of all i, i=1:m. The Likelihhod is a function of the parameters b,w, for a given outcome y and the input variable x.
 
-#### Eq. 8: Likelihood of Y
-$$p(Y| X, w,b) = 
+#### Eq. 8: Likelihood Function
+$$L(b, w| y, x) = (p(Y| X, w,b) = 
 \prod_{i=1}^{m}p(y_i|x_i, b,w)= h(b+w^Tx_i\zeta )^{y_i}(1- h(b+w^Tx_i))^{y_i-1}$$
 
+Eq. 8 is not concave, i.e. not convex. Note that the non-concave charectaristic is common to the exponential family, which are only logarithmically concave. 
+With that in mind, and considering that logarithms are strictly increasing functions, maximizing the log of the likelihood is equivalent to maximizing the likelihood. Not only that, but taking the log makes things much more covinient, as the multiplication are converted to a sum. So Here we take the log of Eq. 8 likelihood equation.
+
+#### Eq. 9: Log Likelihood Function
+
+logL(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)
+
+Pluging Eq. 7 into Eq 9 + following the common convention of denoting the log-likelihood with a lowercase l, we get: 
+
+#### Eq. 10: Log Likelihood Function
+
+l(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})
 
 
+Consider the Logarithm power rule:
+#### Eq. 11: Logarithm power rule:
 
+$$log(x^ y) = y log(x)$$
+
+
+Plug Eq. 11 into Eq 10 and get:
+#### Eq. 12: Log Likelihood Function - Simplified
+
+
+l(b,w|y,x)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})=\sum_{i=1}^{m}y_ilogh_{b,w}(x_i)+(y_i-1)log(1-h_{b,w}(x_i))
+
+
+Eq. 12 is the Likelihhod Function, according wich we can find the maximun likelihood, in the effort to find optimal set of coefficients. BUT - instead of maximizing the likelihhod, to we can speak of minimozing the cost, where the cost is the likelihhod's negative:
+
+
+#### Eq. 13: Cost Function
+
+Cost(b,w,x) = -l(b,w|y,x)=\sum_{i=1}^{m}-ylogh_{b,w}(x_i)+(1-y)log(1-h_{b,w}(x^i))
+
+Q.E.D.
 
 
 ### Gradient Descent
 
 
-Here solving the normal equations is by far more complex, still, we can use Gradient Descent.
-
+Here solving the normal equations is by far more complex, still, we can use Gradient Descent
 
 So here's the Gradient Descent formula:
 
