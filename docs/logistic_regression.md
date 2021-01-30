@@ -291,7 +291,7 @@ Explaination for the Gradient Decent Process :
 The above equations should be repeated iteratively, calculating a new set of {b,w_j} at each iteration. This iterative process should contiue until all {b} and {w_j} converge. The convergence point, is the point where all derivatives are 0, i.e. the minima point. 
 
 
-Let's calculate the partial derivative $$\frac{\partial J(b,w)}{\partial w_i}$$, relying on the derivatives chain rule, reconstructing the cost function into 3 equations:
+Let's calculate the partial derivative $$\frac{\partial Cost(b,w)}{\partial w_i}$$, relying on the derivatives chain rule, reconstructing the cost function into 3 equations:
 #### Eq. 15: Decomposing Cost Function Before Chain Rule Derivation
 ##### Eq. 15 a
 
@@ -300,18 +300,18 @@ $$z=b+w^Tx$$
 ##### Eq. 15 b
 
 
-$$h(z)=\sigma(z)=\frac{1}{1+e^{-z}}
+$$h(z)=\sigma(z)=\frac{1}{1+e^{-z}}$$
 
 ##### Eq. 15 c
 
-$$J(z)= \sum_{i=1}^{m}-ylogh_{z}(x_i)+(1-y)log(1-h_{z}(x^i))$$
+$$Cost(h(z))= $$-ylogh_{z}(x_i)+(1-y)log(1-h_{z}(x^i))$$
 
 
 Accoringly:
 
 #### Eq. 16: Cost Function Chain Derivatives
 
-\frac{\partial }{\partial w_i}J(b,w)=\frac{\partial }{\partial h(z)}J(z)\cdot\frac{\partial }  {\partial z}h(z)\cdot\frac{\partial }  {\partial w_i}z
+\frac{\partial }{\partial w_i}Cost(h(z))=\frac{\partial }{\partial h(z)}Cost(h(z))\cdot\frac{\partial }  {\partial z}h(z)\cdot\frac{\partial }  {\partial w_i}z
 
 
 Now we can compute each of Eq 16's parts.
@@ -331,16 +331,16 @@ Plug that into the first partial derivative element of Eq 16:
 
 ##### Eq 18: First part of the derivative chain
 
-\frac{\partial }{\partial h(z)}J(z)=\frac{\partial }{\partial h(z)}\sum_{i=1}^{m}-y_ilogh_{z}(x_i)+(1-y_i)log(1-h_{z}(x_i))=\sum_{i=1}^{m}-\frac{y_i}{h_z(x)}+\frac{1-y_i}{1-h_{z}(x_i)}
+$$\frac{\partial }{\partial h(z)}Cost(h(z))=\frac{\partial }{\partial h(z)}-y_ilogh_{z}(x_i)+(1-y_i)log(1-h_{z}(x_i))=-\frac{y_i}{h_z(x)}+\frac{1-y_i}{1-h_{z})$$
 
 
-Dor the 2nd part of the derivative chain we'll use the reciprocal derivative rule:
+For the 2nd part of the derivative chain we'll use the reciprocal derivative rule:
 
 ##### Eq 19: The reciprocal derivative rule
 
 $$h(x)=\frac{1}{f(x)}$$
 
-$$h'(x)=\frac{f'(x)}{f^2(x)}$$
+$$h'(x)=-\frac{f'(x)}{f^2(x)}$$
 
 
 Accordingly:
@@ -350,14 +350,31 @@ Accordingly:
 ##### Eq 19: Second part of the derivative chain
 
 
-\frac{\partial }  {\partial z}h(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
+$$\frac{\partial }  {\partial z}h(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
 \
-\frac{-e^{-z}}{(1+e^{-z})^2}=\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=h(z)^2-h(z)
+-\frac{-e^{-z}}{(1+e^{-z})^2}=-\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=-h(z)^2+h(z)==h(z)(1-h(z))$$
 
 ##### Eq 20: Third part of the derivative chain
 
 $$\frac{\partial }  {\partial w_i}=x_i$$
 
+
+
+re-Combining the 3 parts of the chain we get:
+
+##### Eq 21:  Recombining 3 chained derivatives:
+
+$$-\frac{y_i}{h_z(x)}+\frac{1-y_i}{1-h_{z}} \cdot h(z)(1-h(z)) \cdot x_i=
+\\
+-\frac{y_i}{h_z(x)}+\frac{1-y_i}{1-h_{z}} \cdot h(z)^2-h(z) \cdot  x_i 
+\\=(-y_i(1-h(z))+(1-y_i)h(z)x_i = (h(z)-y_i)x_i$$
+
+
+##### Eq 22: Resultant Cost derivative:
+$$\frac{\partial }  {\partial w_i}Cost(b,w)=(h(z)-y_i)x_i$$
+
+
+Summing the cost for all m examples we haveL
 
 
 
