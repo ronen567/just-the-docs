@@ -67,7 +67,7 @@ The Logistic Regression is a model which predicts the ####probability#### of hyp
 
 Eq. 1: Sigmoid Function
 
-$$\sigma(z)=\frac{1}{1+e^{^{-z}}}$$
+$$\sigma(z)=\frac{1}{1+e^{-z}}$$
 
 
 The sigmoid function maps the z values to values the range [0,1]. $$\sigmaz(z)\rightarrow0$$ as $$z\rightarrow -\infty$$, $$\sigmaz(z)\rightarrow1$$ as $$z\rightarrow \infty$$. and  $$\sigmaz(z) = 0.5$$ for $$z=0$$ as shown in Figure 5. 
@@ -233,7 +233,7 @@ $$L(b, w| y, x) = (p(Y| X, w,b) =
 \prod_{i=1}^{m}p(y_i|x_i, b,w)= h(b+w^Tx_i\zeta )^{y_i}(1- h(b+w^Tx_i))^{y_i-1}$$
 
 Eq. 8 is not concave, i.e. not convex. Note that the non-concave charectaristic is common to the exponential family, which are only logarithmically concave. 
-With that in mind, and considering that logarithms are strictly increasing functions, maximizing the log of the likelihood is equivalent to maximizing the likelihood. Not only that, but taking the log makes things much more covinient, as the multiplication are converted to a sum. So Here we take the log of Eq. 8 likelihood equation.
+With that in mind, and considering that logarithms are strictly increasing functions, maximizing the log of the likelihood is equivalent to maximizing the likelihood. Not only that, but taking the log makes things much more covinient, as the multiplication are converted to a sum. So Here we take the natural log of Eq. 8 likelihood equation.
 
 #### Eq. 9: Log Likelihood Function
 
@@ -264,7 +264,7 @@ Eq. 12 is the Likelihhod Function, according wich we can find the maximun likeli
 
 #### Eq. 13: Cost Function
 
-Cost(b,w,x) = -l(b,w|y,x)=\sum_{i=1}^{m}-ylogh_{b,w}(x_i)+(1-y)log(1-h_{b,w}(x^i))
+J(b,w) = -l(b,w)=\sum_{i=1}^{m}-y_ilogh_{b,w}(x_i)+(1-y_i)log(1-h_{b,w}(x_i))
 
 Q.E.D.
 
@@ -272,26 +272,106 @@ Q.E.D.
 ### Gradient Descent
 
 
-Here solving the normal equations is by far more complex, still, we can use Gradient Descent
+Eq. 14 shows Gradient Descent operator set on cost function J(b,w), solving for the free coeffcient {b} and the other linear coefficients {w_j}
 
-So here's the Gradient Descent formula:
+#### Eq. 14: Gradient Descent For J(w,b)
 
-#### Eq. 7: Gradient Descent For J(w,b)
 Repeat till convergence:
-#### Eq. 7a:
+
+#### Eq. 14a:
 
 $$b:=b-\alpha \frac{\partial J(b,w)}{\partial b}$$
 
-#### Eq. 7b:
+#### Eq. 14b:
 For all {b}, {w_j} j=1...n calculate:
 
 $$w_j:=w_j-\alpha \frac{\partial J(b,w)}{\partial w_j}$$
 
 Explaination for the Gradient Decent Process :
-n the Gradient Descent solution, Eq. 7a and 7b should be repeatedly computed, where at each iteration a new set of {b,w} parameters are computed. The iterative process should contiue until b and w converge, i.e. the partial derivatives are 0. As we know, the derivatives are 0 at the minima. So the computed (b,w) are the parameters that minimize the cost function, as required.
+The above equations should be repeated iteratively, calculating a new set of {b,w_j} at each iteration. This iterative process should contiue until all {b} and {w_j} converge. The convergence point, is the point where all derivatives are 0, i.e. the minima point. 
 
 
-Let's calculate the partial derivative $$\frac{\partial J(b,w)}{\partial b}$$:
+Let's calculate the partial derivative $$\frac{\partial J(b,w)}{\partial w_i}$$, relying on the derivatives chain rule, reconstructing the cost function into 3 equations:
+#### Eq. 15: Decomposing Cost Function Before Chain Rule Derivation
+##### Eq. 15 a
+
+$$z=b+w^Tx$$
+
+##### Eq. 15 b
+
+
+$$h(z)=\sigma(z)=\frac{1}{1+e^{-z}}
+
+##### Eq. 15 c
+
+$$J(z)= \sum_{i=1}^{m}-ylogh_{z}(x_i)+(1-y)log(1-h_{z}(x^i))$$
+
+
+Accoringly:
+
+#### Eq. 16: Cost Function Chain Derivatives
+
+\frac{\partial }{\partial w_i}J(b,w)=\frac{\partial }{\partial h(z)}J(z)\cdot\frac{\partial }  {\partial z}h(z)\cdot\frac{\partial }  {\partial w_i}z
+
+
+Now we can compute each of Eq 16's parts.
+
+Use the natural log well known derivative:
+
+#### Eq 16: Well Known Natural Log Derivative
+
+##### Eq 17 a:
+$$y  = log x$$
+
+##### Eq 17 b:
+$$\frac{\partial}{\partial x}log x=\frac{1}{x}$$
+
+
+Plug that into the first partial derivative element of Eq 16:
+
+##### Eq 18: First part of the derivative chain
+
+\frac{\partial }{\partial h(z)}J(z)=\frac{\partial }{\partial h(z)}\sum_{i=1}^{m}-y_ilogh_{z}(x_i)+(1-y_i)log(1-h_{z}(x_i))=\sum_{i=1}^{m}-\frac{y_i}{h_z(x)}+\frac{1-y_i}{1-h_{z}(x_i)}
+
+
+Dor the 2nd part of the derivative chain we'll use the reciprocal derivative rule:
+
+##### Eq 19: The reciprocal derivative rule
+
+$$h(x)=\frac{1}{f(x)}$$
+
+$$h'(x)=\frac{f'(x)}{f^2(x)}$$
+
+
+Accordingly:
+
+
+
+##### Eq 19: Second part of the derivative chain
+
+
+\frac{\partial }  {\partial z}h(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
+\
+\frac{-e^{-z}}{(1+e^{-z})^2}=\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=h(z)^2-h(z)
+
+##### Eq 20: Third part of the derivative chain
+
+$$\frac{\partial }  {\partial w_i}=x_i$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 RONEN TILL HERE!!!!!!!!!!
 
