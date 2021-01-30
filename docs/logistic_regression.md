@@ -63,7 +63,7 @@ Obviously, linear prediction doesn't work for Binary Classification. Another dif
 
 ## Logistic Regression Model
 
-The Logistic Regression is a model which predicts the probability of hypothesis given the data input, in a binary classification. The model is based on the sigmoid function presented in Eq. 1. 
+The Logistic Regression is a model which predicts the ####probability#### of hypothesis given the data input, in a binary classification. The model is based on the sigmoid function presented in Eq. 1. 
 
 Eq. 1: Sigmoid Function
 
@@ -72,66 +72,72 @@ $$\sigma(z)=\frac{1}{1+e^{^{-z}}}$$
 
 The sigmoid function maps the z values to values the range [0,1]. $$\sigmaz(z)\rightarrow0$$ as $$z\rightarrow -\infty$$, $$\sigmaz(z)\rightarrow1$$ as $$z\rightarrow \infty$$. and  $$\sigmaz(z) = 0.5$$ for $$z=0$$ as shown in Figure 5. 
 
-The interpretation of those is: 
-The predicted probabilty of y=1 for large negative z values, i.e.  p(y=1| $$z\rightarrow -\infty$$), tends 0.
-The predicted probabilty of y=1 for large positive z values, i.e.  p(y=1| $$z\rightarrow \infty$$), tends 1.
-The predicted probabilty for y=1 for z=0 is 1.
-
-0$$\sigmaz(z)\rightarrow0$$
-
-Note that the model is not used to predict the hypothesis value y, which is either 0 or 1 by definition, but it predicts p(y=1| x, b,w), i.e. the probability, given the input data, that the result will be 1,e.g. the probabilit that the customer will make a purchace. 
-To illustrate what predict the  probaility means, let's follow Figure 5.e $$p(y=1|x)$$, which means: the probability that y=1, given the input x. It can be easily seen that  $$p(y=1| x)$$ tends to 1, as $$x \to \infty $$, and $$p(y=1| x)$$ tends to 0, as $$x \to 0 $$. The point z=0 om Figure 5, would be classified to x=1 with probability of 50%. z=2.5 would be classified to 0.1ת i.e. probability of 10% to be 1, which is equivalent to probability of 90% to be 0.
-
 
 Figure 5: Sigmoid Function
 
 ![Sigmoid Function](../assets/images/logistic-regression/sigmoid-function.png)
 
 
-The Logistic Regression predictor is based on Eq. 1, but z is replaces by a linear function of the input dataset x: $$z=b+wx$$ in, where $$x=\begin{bmatrix}
+For Logistic Regression predictor, the z argument is replaces by a linear function of the input dataset x: $$z=b+wx$$ in, where $$x=\begin{bmatrix}
 x_1 \\ x_2 \\ x_3 \\ x_4 \\..\\x_n 
 \end{bmatrix}$$, an n dimensional vector, is the input data set, AKA input features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and $$w=\begin{bmatrix}
 w_1 \\ w_2 \\ w_3 \\ w_4 \\..\\w_n 
 \end{bmatrix}$$ is the vector of coeffcients.
 
-So we now plug $$b+$wx$$ into Eq, as Eq. 2. show.
+So we now plug $$z=b+wx = b + w_1x_1+w_2x_2+....w_nx_n $$ into Eq 1, as shown in Eq. 2.
 
 Eq. 2: Logistic Regression Formula
 
-$$h(b+w^Tx)=\frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+$$p(y=1| x, w,b) = h(b+w^Tx)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 
-Now, if we had the values of b and w (we will show how to calculate those soon), and the input features set x, we could calulate the predicted value $$h(b+w^Tx)$$
+Looking at Figure 5, the interpretation Eq. 2 is: 
+The predicted probabilty of y=1 for large negative $$b+w^Tx$$ values, i.e.  p(y=1| $$b+w^Tx\rightarrow -\infty$$), tends to 0.
+The predicted probabilty of y=1 for large positive $$b+w^Tx$$ values, i.e.  p(y=1| $$b+w^Tx\rightarrow \infty$$), tends to 1.
+The predicted probabilty for y=1 for $$b+w^Tx$$=0 is 0.5. That means, y=1 with probability 0.5.
+ 
+Now, if we had the values of b and w, we could calulate the predicted probability of y=1 for a given features set x.
+Obviously, the probability for y=0, for a given set of coefficients {b,w} and input set x, is the 1s complement of p(y=1), as expressed in Eq. 3
 
-As shown by Figure 5, $$h(b+w^Tx)$$ is bounded in the range [0,1], so our predicted value will be in that range. So, we will not predict just the neares hypothesis, but the probabilty of the hypothesis y=1, i.e. we will calculate $$p(y=1, x)$$, which means: the probability that y=1, given the input x. It can be easily seen that  $$p(y=1, x)$$ tends to 1, as $$x \to \infty $$, and $$p(y=1, x)$$ tends to 0, as $$x \to 0 $$. The point z=0 om Figure 5, would be classified to x=1 with probability of 50%. z=2.5 would be classified to 0.1ת i.e. probability of 10% to be 1, which is equivalent to probability of 90% to be 0.
 
-Having selected the prediction model, to calculate the predictions with Eq. 2, we need to have the coefficents. What is the criteria for the selection of the coefficients' values? Answer is trivial - we will take the coefficients that make the model predict values which are the closest to the actual values. (This is done in the Traingning phase, of course, with labeled data).
+Eq. 3: Probability for y=0 
 
-To find the closest prediction, we will define a cost function which expresses the error between the labeled points actual values, and their values predicted by the model. We will select the coefficients which minimize this cost. So here we go.
+$$p(y=0| x, w,b) = 1- p(y=1| x, w,b)$$
+
+And, obviously....:
+The predicted probabilty of y=0 for large negative $$b+w^Tx$$ values, i.e.  p(y=0| $$b+w^Tx\rightarrow -\infty$$), tends to 1.
+The predicted probabilty of y=0 for large positive $$b+w^Tx$$ values, i.e.  p(y=0| $$b+w^Tx\rightarrow \infty$$), tends to 0.
+The predicted probabilty for y=0 for $$b+w^Tx$$=0 is 0.5. That means, y=0 with probability 0.5.
+ 
+Next paragraphs we will show how to calculate the coefficients $${w,b}$$.
+
 
 
 #### Logistic Regression Cost Function
 
-Eq. 2 determines the prediction function. It's a function of the input features x, and coefficients b and w.
-So, in order to be able to estimate the probability of y=1 for a given input x, as expressed by Eq. 2, we need to calculate the coefficients {b, w} as expressed in Eq. 3. It shows the n dimension vector prodcut expression that should be plugged into Eq. 2.
+Same as with all Suprevised Learning predictors, the Logistic Regression coefficients are calculated during the Training phase. 
+Question: What would be the criteria for the selection of the coefficients' values? 
+Answer: This is trivial - we search for the coefficients which lead to the best prediction results, unders a cost function condition we should define.
+The cost function normally expresses the difference (sometimes called error), between the labeled points actual values $$y$$, and their values predicted by the model. The Logistic Regression cost function is determined by th Most LikeLihood predictin, as detailed next.
 
-
-Eq. 3: Logistic Regrerssion n dimensional coefficients
-
-$$ b+wx = b + w_1x_1+w_2x_2+....w_nx_n $$
-
-So, how should the values of parameters {b, w} be determined? Or in other words, which {b, w} make the best predictor? To answer this, we need to define the predictor's required charectaristics. Let's do it: We need to define a cost function, which expresses the diffeerence between the algorithm's predicted values $$\hat{y})$$ and the actual $${y}$$ values. Having such a cost function, we will find the set of coefficients which minimizes that cost function.
-
-Reminder: For Supervised Regression, we presented the Linear Regression predictor. The predictor is trained with labeld data during the Training phase, using a set of m labeled data points. The cost function used there, was the Euclidean distance between the data points' real value (the labels), and the model's predicted points, as expressed by Rq. 4.
+Rembember the Cost function assigned for tLinear Prediction? Remninder - It was based on minimizing the error between the real values and the pmodel's redicted values, where the error was taken as the Euacliden distance, as shown in Eq. 4.
 
 Eq 4: Cost function - Euclidean Distance:
 
 J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
 
-Having Eq. 4, we showed 2 optional solutio: The analytic solutiuon and the Gradient Descent solution. question now is - can the cost function expressed in Eq.4 be used for Logistic Regression predictor as well? Answer is no. Reason: The analtical solution is too complex, and the Gradient descent may not converge, as this cost function (Eq. 4), when Gradient Descent is plugged in, is not convex - see Figure 6, i.e. it has many local minimas. When using Gradient Descent to find the minima of such a function, it may find a local minima but not the global one. So, we need a convex cost function. 
+Still ccontinueing with the reminder - in the effort of finding the best coefficients, we had to find the minima of the cost function, and calculate the coefficents at that point. 
+Q: How should the cost function be found?
+A: It's the point were the first derivative equals 0.
 
-Figure 6: Non Convex Cost Function
+And one more reminder - With Linear Prediction 2 solutions were presented: the analytical solutiuon and the Gradient Descent solution. Actuallym the analytical solution, involved with inverting matrixes, fits well, unless number of input features is huge.
+
+Solution for Logistic Regression is different, from some reasons, e.g. the analytical solution is way up complicated, and Eq. 4 would not be convex - see Figure 6 , so the solution may converge to a local minima instead of the global minima. We need a convex cost function. 
+
+
+
+Figure 6 a: Non Convex Cost Function
 
 
 
@@ -139,14 +145,13 @@ Figure 6: Non Convex Cost Function
 ![Non Convex Cost Function](../assets/images/logistic-regression/non-convex-function.png)
 
 
-Figure 6: A Convex  Function
+Figure 6 b: A Convex  Function
 
 
 ![Convex  Function](../assets/images/logistic-regression/convex-function.png)
 
 
-
-Eq. 5 presents the cost function used for Logistic Regression
+Jumping to the end of this chapter, Eq. 5 presents the cost function used for Logistic Regression. Let's examine its charectaristics. Next chapter details the derivation ofEq. 5.
 
 
 #### Eq. 5: Cost function used for Logistic Regression
@@ -160,7 +165,7 @@ $$
 
 Or expressing it in a single equation:
 
-4.b
+5.b
 $$Cost(h_{b,w}(x^i), y^i)=[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]$$
 
 The index $$i$$ relates to the $$i^{th}$$ example out of m training examples.
@@ -172,9 +177,6 @@ If hypothesis is y=0 and also predicted probability p(y=1|x) is 0,ithen the cost
 
 If candidate hypothesis is y=1 but prediction probability p(y=1|x) is 0, then the cost is $$\infty $$. ($$-log(0)=\infty $$).
 If candidate hypothesis is y=0 and prediction probability p(y=1|x) is 1, then the cost is $$\infty $$. ($$log(0)=1$$).
-
-So far, the cost function behavior does make sense. Let's plot the cost function, and gain some visibility on it.
-
 
 
 Figure 7: Logistic Regression Cost Function
@@ -197,12 +199,11 @@ Where
 $$h_{(b,w)}=\frac{1}{1+e^{-(b+w^Tx)}}$$
 
 
-With the cost function at hand, we need to find the set of coefficients {b,w) which minimizes the cost.
+Next chapter details the development of Eq. 5. Surely recommended, but can be skipped. Chapter which follow it, presents the Gradient Descent solution for Logistic Regression.
 
-In the linear prediction example, we considered 2 solutions:
-1. The "Analytic Solution" at which the cost we took partial derivatives of the Lossfunction per each of the n+1 coefficients. Each derivative was set to 0, so we had n+1 normal equations which could be analytically soved.
 
-2. Gradient Descent
+
+### Gradient Descent
 
 
 Here solving the normal equations is by far more complex, still, we can use Gradient Descent.
