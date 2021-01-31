@@ -362,7 +362,7 @@ $$\frac{\partial }  {\partial w_i}=x_i$$
 
 re-Combining the 3 parts of the chain we get the Loss function for a single example:
 
-### Eq 21:  Recombining 3 chained derivatives:
+### Eq 21:  Recombining the 3 chained derivatives:
 
 $$\frac{\partial }{\partial w_i}L(\hat{y}^{(i)},y^{(i)})=(-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}) \cdot \sigma(z)(1-\sigma(z)) \cdot x^{(i)}=(\sigma(z)-y^{(i)})x^{(i)}$$
 
@@ -371,7 +371,7 @@ $$\frac{\partial }{\partial w_i}L(\hat{y}^{(i)},y^{(i)})=(-\frac{y^{(i)}}{\sigma
 Summing the Loss for all m examples, to get the Cost function derivatives:
 
 ##### Eq 23: Partial Derivative of Sum All Examples Losses:
-\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}$$
 
 
 
