@@ -219,14 +219,14 @@ $$p(y=1| x, w,b) = \hat(y)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 $$p(y=0| x, w,b) = 1 - p(y=1| x, w,b) = 1-\hat{y}$$
 
 
-Consequently, we can combine 6a and 6b to have an expression for $$y\varepsilon [0,1]:
+Consequently, we can combine 6a and 6b to have an expression for $$y\varepsilon [0,1]$$:
 
 #### Eq. 7: Combined Logistic Regression Formula
 
 $$p(y|x.b,w) =  \hat{y}^y(1- \hat{y})^{y-1}$$
 
 
-Now we take Eq 7, to find the likelihhod of, the output of m training example. It equeals to the multiplication of probabilities $$p(y_i|b,w,x_i) $$of all i, i=1:m. The Likelihhod is a function of the parameters b,w, for a given outcome y and the input variable x.
+Now we take Eq 7, to find the likelihhod of, the output of m training example. It equeals to the multiplication of probabilities $$p(y_i|b,w,x_i)$$ of all i, i=1:m. The Likelihhod is a function of the parameters b,w, for a given outcome y and the input variable x.
 
 #### Eq. 8: Likelihood Function
 $$L(b, w| y, x) = (p(Y| X, w,b) = 
