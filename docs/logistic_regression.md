@@ -88,7 +88,7 @@ So we now plug $$z=b+wx = b + w_1x_1+w_2x_2+....w_nx_n $$ into Eq 1, as shown in
 
 Eq. 2: Logistic Regression Formula
 
-$$p(y=1| x, w,b) = h(b+w^Tx)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+$$p(y=1| x, w,b) = \sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 
 Looking at Figure 5, the interpretation Eq. 2 is: 
@@ -190,60 +190,61 @@ The overall cost function is the sum the m training examples cost functions:
 #### Eq. 6: Logistic Regression overall Cost Function
 
 $$
-J(b,w)=\frac{1}{m}\sum_{i=1}^{m}Cost(h_{b,w}(x^i), y^i)=\\
--\frac{1}{m}\sum_{i=1}^{m}[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]
-$$
+J(b,w)=\frac{1}{m}\sum_{i=1}^{m}L(\hat{y}^{(i)}, y^{(i)})=\\
+-\frac{1}{m}\sum_{i=1}^{m}[y^ilog(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]$$
 
-Where
+Where L(x) denotes the Loss function of a single example.
 
-$$h_{(b,w)}=\frac{1}{1+e^{-(b+w^Tx)}}$$
 
 
 Next chapter details the development of Eq. 5. Surely recommended, but can be skipped. Chapter which follow it, presents the Gradient Descent solution for Logistic Regression.
 
 
-### Mathematical Development of Cost Function
+## Mathematical Development of Cost Function
 
-Here we develope the Logistic Regression cost function - see listed above.
+
+This section presents the mathematical development the Logistic Regression cost function formula.
 
 For convinience, let's re-write the Logistic Regression formulas for 
 
-#### Eq. 6: Logistic Regression Formula
-6. a Logistic Regression Formula for y=1
+### Eq. 6: Logistic Regression Formula
 
-$$p(y=1| x, w,b) = h(b+w^Tx)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+#### 6a Logistic Regression Formula for y=1
 
-6. b Logistic Regression Formula for y=0
+$$p(y=1| x, w,b) = \hat(y)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+
+#### 6b Logistic Regression Formula for y=0
 
 
-$$p(y=0| x, w,b) = 1 - p(y=1| x, w,b) = 1- h(b+w^Tx)=$$
+$$p(y=0| x, w,b) = 1 - p(y=1| x, w,b) = 1-\hat{y}$$
 
 
 Consequently, we can combine 6a and 6b to have an expression for $$y\varepsilon [0,1]:
 
 #### Eq. 7: Combined Logistic Regression Formula
 
-$$p(y|x.b,w) =  h(b+w^Tx)^y(1- h(b+w^Tx))^{y-1}$$
+$$p(y|x.b,w) =  \hat{y}^y(1- \hat{y})^{y-1}$$
 
 
 Now we take Eq 7, to find the likelihhod of, the output of m training example. It equeals to the multiplication of probabilities $$p(y_i|b,w,x_i) $$of all i, i=1:m. The Likelihhod is a function of the parameters b,w, for a given outcome y and the input variable x.
 
 #### Eq. 8: Likelihood Function
 $$L(b, w| y, x) = (p(Y| X, w,b) = 
-\prod_{i=1}^{m}p(y_i|x_i, b,w)= h(b+w^Tx_i\zeta )^{y_i}(1- h(b+w^Tx_i))^{y_i-1}$$
+\prod_{i=1}^{m}p(y_i|x_i, b,w)= 
+\prod_{i=1}^{m}(\hat{y}^{(i)})^{y^{(i)}}(1-\hat{y}^{(i)})^{1-y^{(i)}}$$
 
 Eq. 8 is not concave, i.e. not convex. Note that the non-concave charectaristic is common to the exponential family, which are only logarithmically concave. 
 With that in mind, and considering that logarithms are strictly increasing functions, maximizing the log of the likelihood is equivalent to maximizing the likelihood. Not only that, but taking the log makes things much more covinient, as the multiplication are converted to a sum. So Here we take the natural log of Eq. 8 likelihood equation.
 
 #### Eq. 9: Log Likelihood Function
 
-logL(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)
+$$logL(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)$$
 
 Pluging Eq. 7 into Eq 9 + following the common convention of denoting the log-likelihood with a lowercase l, we get: 
 
 #### Eq. 10: Log Likelihood Function
 
-l(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})
+$$l(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})$$
 
 
 Consider the Logarithm power rule:
@@ -256,7 +257,7 @@ Plug Eq. 11 into Eq 10 and get:
 #### Eq. 12: Log Likelihood Function - Simplified
 
 
-l(b,w|y,x)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})=\sum_{i=1}^{m}y_ilogh_{b,w}(x_i)+(y_i-1)log(1-h_{b,w}(x_i))
+$$l(b,w|y,x)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})=\sum_{i=1}^{m}y_ilogh_{b,w}(x_i)+(y_i-1)log(1-h_{b,w}(x_i))$$
 
 
 Eq. 12 is the Likelihhod Function, according wich we can find the maximun likelihood, in the effort to find optimal set of coefficients. BUT - instead of maximizing the likelihhod, to we can speak of minimozing the cost, where the cost is the likelihhod's negative:
@@ -300,30 +301,29 @@ $$z=b+w^Tx$$
 ##### Eq. 15 b
 
 
-$$h(z)=\sigma(z)=\frac{1}{1+e^{-z}}$$
+$$\sigma(z)=\frac{1}{1+e^{-z}}$$
 
 ##### Eq. 15 c
 
-$$Cost(h(z))= $$-ylogh_{z}(x_i)+(1-y)log(1-h_{z}(x^i))$$
+$$L(z)= -ylog \sigma(z) + (1-y)log(1- \sigma(z))
+$$
 
 
 Accoringly:
 
 #### Eq. 16: Cost Function Chain Derivatives
 
-\frac{\partial }{\partial w_i}Cost(h(z))=\frac{\partial }{\partial h(z)}Cost(h(z))\cdot\frac{\partial }  {\partial z}h(z)\cdot\frac{\partial }  {\partial w_i}z
+$$\frac{\partial }{\partial w_i}L(z)=\frac{\partial }{\partial \sigma(z)}L(z)\cdot\frac{\partial }  {\partial z}\sigma(z)\cdot\frac{\partial }  {\partial w_i}z
+$$
 
 
 Now we can compute each of Eq 16's parts.
 
-Use the natural log well known derivative:
+To dericate the first derivative in chain, $$\frac{\partial }{\partial \sigma(z)}L(z) $$, remember the natural log derivative:
 
-#### Eq 16: Well Known Natural Log Derivative
+#### Eq 17: Well Known Natural Log Derivative
 
-##### Eq 17 a:
-$$y  = log x$$
 
-##### Eq 17 b:
 $$\frac{\partial}{\partial x}log x=\frac{1}{x}$$
 
 
@@ -331,16 +331,17 @@ Plug that into the first partial derivative element of Eq 16:
 
 ##### Eq 18: First part of the derivative chain
 
-$$\frac{\partial }{\partial h(z)}Cost(h(z))=\frac{\partial }{\partial h(z)}-y_ilogh_{z}(x_i)+(1-y_i)log(1-h_{z}(x_i))=-\frac{y_i}{h_z(x)}+\frac{1-y_i}{1-h_{z})$$
+$$\frac{\partial }{\partial \sigma(z)}L(z)=\frac{\partial }{\partial \sigma(z)}(-y^{(i)}log(\sigma(z)+(1-y^{(i)})log(1-\sigma(z))
+=-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}$$
 
 
 For the 2nd part of the derivative chain we'll use the reciprocal derivative rule:
 
-##### Eq 19: The reciprocal derivative rule
+### Eq 19: The reciprocal derivative rule
 
-$$h(x)=\frac{1}{f(x)}$$
+$$(\frac{1}{f(x)})'=-\frac{f'(x)}{f^2(x)}
+$$
 
-$$h'(x)=-\frac{f'(x)}{f^2(x)}$$
 
 
 Accordingly:
@@ -350,31 +351,29 @@ Accordingly:
 ##### Eq 19: Second part of the derivative chain
 
 
-$$\frac{\partial }  {\partial z}h(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
-\
--\frac{-e^{-z}}{(1+e^{-z})^2}=-\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=-h(z)^2+h(z)==h(z)(1-h(z))$$
+$$\frac{\partial }  {\partial z}\sigma(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
+-\frac{-e^{-z}}{(1+e^{-z})^2}=-\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=-\sigma(z)^2+\sigma(z)=\sigma(z)(1-\sigma(z))$$
 
-##### Eq 20: Third part of the derivative chain
+### Eq 20: Third part of the derivative chain
 
 $$\frac{\partial }  {\partial w_i}=x_i$$
 
 
 
-re-Combining the 3 parts of the chain we get:
+re-Combining the 3 parts of the chain we get the Loss function for a single example:
 
-##### Eq 21:  Recombining 3 chained derivatives:
+### Eq 21:  Recombining 3 chained derivatives:
 
-$$-\frac{y_i}{h_z(x)}+\frac{1-y_i}{1-h_{z}} \cdot h(z)(1-h(z)) \cdot x_i=
-\\
--\frac{y_i}{h_z(x)}+\frac{1-y_i}{1-h_{z}} \cdot h(z)^2-h(z) \cdot  x_i 
-\\=(-y_i(1-h(z))+(1-y_i)h(z)x_i = (h(z)-y_i)x_i$$
+$$\frac{\partial }{\partial w_i}L(\hat{y}^{(i)},y^{(i)})=(-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}) \cdot \sigma(z)(1-\sigma(z)) \cdot x^{(i)}=(\sigma(z)-y^{(i)})x^{(i)}$$
 
 
-##### Eq 22: Resultant Cost derivative:
-$$\frac{\partial }  {\partial w_i}Cost(b,w)=(h(z)-y_i)x_i$$
+
+Summing the Loss for all m examples, to get the Cost function derivatives:
+
+##### Eq 23: Partial Derivative of Sum All Examples Losses:
+\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}
 
 
-Summing the cost for all m examples we haveL
 
 
 
