@@ -65,7 +65,7 @@ Obviously, linear prediction doesn't work for Binary Classification. Another dif
 
 The Logistic Regression is a model which predicts the ####probability#### of hypothesis given the data input, in a binary classification. The model is based on the sigmoid function presented in Eq. 1. 
 
-Eq. 1: Sigmoid Function
+### Eq. 1: Sigmoid Function
 
 $$\sigma(z)=\frac{1}{1+e^{-z}}$$
 
@@ -86,7 +86,7 @@ w_1 \\ w_2 \\ w_3 \\ w_4 \\..\\w_n
 
 So we now plug $$z=b+wx = b + w_1x_1+w_2x_2+....w_nx_n $$ into Eq 1, as shown in Eq. 2.
 
-Eq. 2: Logistic Regression Formula
+### Eq. 2: Logistic Regression Formula
 
 $$p(y=1| x, w,b) = \sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
@@ -100,7 +100,7 @@ Now, if we had the values of b and w, we could calulate the predicted probabilit
 Obviously, the probability for y=0, for a given set of coefficients {b,w} and input set x, is the 1s complement of p(y=1), as expressed in Eq. 3
 
 
-Eq. 3: Probability for y=0 
+### Eq. 3: Probability for y=0 
 
 $$p(y=0| x, w,b) = 1- p(y=1| x, w,b)$$
 
@@ -122,7 +122,7 @@ The cost function normally expresses the difference (sometimes called error), be
 
 Rembember the Cost function assigned for tLinear Prediction? Remninder - It was based on minimizing the error between the real values and the pmodel's redicted values, where the error was taken as the Euacliden distance, as shown in Eq. 4.
 
-Eq 4: Cost function - Euclidean Distance:
+### Eq 4: Cost function - Euclidean Distance:
 
 J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
@@ -154,8 +154,8 @@ Figure 6 b: A Convex  Function
 Jumping to the end of this chapter, Eq. 5 presents the cost function used for Logistic Regression. Let's examine its charectaristics. Next chapter details the derivation ofEq. 5.
 
 
-#### Eq. 5: Cost function used for Logistic Regression
-5.a
+### Eq. 5: Cost function used for Logistic Regression
+#### 5a
 
 $$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
 -log (h_{b,w}(x^i,y^i)) \; if\; y=1\\
@@ -165,7 +165,7 @@ $$
 
 Or expressing it in a single equation:
 
-5.b
+####5b
 $$Cost(h_{b,w}(x^i), y^i)=[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]$$
 
 The index $$i$$ relates to the $$i^{th}$$ example out of m training examples.
@@ -187,7 +187,7 @@ Figure 7: Logistic Regression Cost Function
 
 The overall cost function is the sum the m training examples cost functions:
 
-#### Eq. 6: Logistic Regression overall Cost Function
+### Eq. 6: Logistic Regression overall Cost Function
 
 $$
 J(b,w)=\frac{1}{m}\sum_{i=1}^{m}L(\hat{y}^{(i)}, y^{(i)})=\\
@@ -221,14 +221,14 @@ $$p(y=0| x, w,b) = 1 - p(y=1| x, w,b) = 1-\hat{y}$$
 
 Consequently, we can combine 6a and 6b to have an expression for $$y\varepsilon [0,1]$$:
 
-#### Eq. 7: Combined Logistic Regression Formula
+### Eq. 7: Combined Logistic Regression Formula
 
 $$p(y|x.b,w) =  \hat{y}^y(1- \hat{y})^{y-1}$$
 
 
 Now we take Eq 7, to find the likelihhod of, the output of m training example. It equeals to the multiplication of probabilities $$p(y_i|b,w,x_i)$$ of all i, i=1:m. The Likelihhod is a function of the parameters b,w, for a given outcome y and the input variable x.
 
-#### Eq. 8: Likelihood Function
+### Eq. 8: Likelihood Function
 $$L(b, w| y, x) = (p(Y| X, w,b) = 
 \prod_{i=1}^{m}p(y_i|x_i, b,w)= 
 \prod_{i=1}^{m}(\hat{y}^{(i)})^{y^{(i)}}(1-\hat{y}^{(i)})^{1-y^{(i)}}$$
@@ -236,25 +236,25 @@ $$L(b, w| y, x) = (p(Y| X, w,b) =
 Eq. 8 is not concave, i.e. not convex. Note that the non-concave charectaristic is common to the exponential family, which are only logarithmically concave. 
 With that in mind, and considering that logarithms are strictly increasing functions, maximizing the log of the likelihood is equivalent to maximizing the likelihood. Not only that, but taking the log makes things much more covinient, as the multiplication are converted to a sum. So Here we take the natural log of Eq. 8 likelihood equation.
 
-#### Eq. 9: Log Likelihood Function
+### Eq. 9: Log Likelihood Function
 
 $$logL(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)$$
 
 Pluging Eq. 7 into Eq 9 + following the common convention of denoting the log-likelihood with a lowercase l, we get: 
 
-#### Eq. 10: Log Likelihood Function
+### Eq. 10: Log Likelihood Function
 
 $$l(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})$$
 
 
 Consider the Logarithm power rule:
-#### Eq. 11: Logarithm power rule:
+### Eq. 11: Logarithm power rule:
 
 $$log(x^ y) = y log(x)$$
 
 
 Plug Eq. 11 into Eq 10 and get:
-#### Eq. 12: Log Likelihood Function - Simplified
+### Eq. 12: Log Likelihood Function - Simplified
 
 
 $$l(b,w|y,x)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})=\sum_{i=1}^{m}y_ilogh_{b,w}(x_i)+(y_i-1)log(1-h_{b,w}(x_i))$$
@@ -263,7 +263,7 @@ $$l(b,w|y,x)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})=\sum_
 Eq. 12 is the Likelihhod Function, according wich we can find the maximun likelihood, in the effort to find optimal set of coefficients. BUT - instead of maximizing the likelihhod, to we can speak of minimozing the cost, where the cost is the likelihhod's negative:
 
 
-#### Eq. 13: Cost Function
+### Eq. 13: Cost Function
 
 J(b,w) = -l(b,w)=\sum_{i=1}^{m}-y_ilogh_{b,w}(x_i)+(1-y_i)log(1-h_{b,w}(x_i))
 
@@ -275,7 +275,7 @@ Q.E.D.
 
 Eq. 14 shows Gradient Descent operator set on cost function J(b,w), solving for the free coeffcient {b} and the other linear coefficients {w_j}
 
-#### Eq. 14: Gradient Descent For J(w,b)
+### Eq. 14: Gradient Descent For J(w,b)
 
 Repeat till convergence:
 
@@ -293,17 +293,17 @@ The above equations should be repeated iteratively, calculating a new set of {b,
 
 
 Let's calculate the partial derivative $$\frac{\partial Cost(b,w)}{\partial w_i}$$, relying on the derivatives chain rule, reconstructing the cost function into 3 equations:
-#### Eq. 15: Decomposing Cost Function Before Chain Rule Derivation
-##### Eq. 15 a
+### Eq. 15: Decomposing Cost Function Before Chain Rule Derivation
+##### Eq. 15a
 
 $$z=b+w^Tx$$
 
-##### Eq. 15 b
+##### Eq. 15b
 
 
 $$\sigma(z)=\frac{1}{1+e^{-z}}$$
 
-##### Eq. 15 c
+### Eq. 15 c
 
 $$L(z)= -ylog \sigma(z) + (1-y)log(1- \sigma(z))
 $$
@@ -321,7 +321,7 @@ Now we can compute each of Eq 16's parts.
 
 To dericate the first derivative in chain, $$\frac{\partial }{\partial \sigma(z)}L(z) $$, remember the natural log derivative:
 
-#### Eq 17: Well Known Natural Log Derivative
+### Eq 17: Well Known Natural Log Derivative
 
 
 $$\frac{\partial}{\partial x}log x=\frac{1}{x}$$
@@ -329,7 +329,7 @@ $$\frac{\partial}{\partial x}log x=\frac{1}{x}$$
 
 Plug that into the first partial derivative element of Eq 16:
 
-##### Eq 18: First part of the derivative chain
+### Eq 18: First part of the derivative chain
 
 $$\frac{\partial }{\partial \sigma(z)}L(z)=\frac{\partial }{\partial \sigma(z)}(-y^{(i)}log(\sigma(z)+(1-y^{(i)})log(1-\sigma(z))
 =-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}$$
@@ -348,7 +348,7 @@ Accordingly:
 
 
 
-##### Eq 19: Second part of the derivative chain
+### Eq 19: Second part of the derivative chain
 
 
 $$\frac{\partial }  {\partial z}\sigma(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
@@ -370,7 +370,7 @@ $$\frac{\partial }{\partial w_i}L(\hat{y}^{(i)},y^{(i)})=(-\frac{y^{(i)}}{\sigma
 
 Summing the Loss for all m examples, to get the Cost function derivatives:
 
-##### Eq 23: Partial Derivative of Sum All Examples Losses:
+### Eq 23: Partial Derivative of Sum All Examples Losses:
 $$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}$$
 
 
