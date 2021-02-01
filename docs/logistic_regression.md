@@ -369,8 +369,35 @@ $$\frac{\partial }{\partial w_i}L(\hat{y}^{(i)},y^{(i)})=(-\frac{y^{(i)}}{\sigma
 
 Summing the Loss for all m examples, to get the Cost function derivatives:
 
-### Eq 23: Partial Derivative of Sum All Examples Losses:
+### Eq 23 a: Partial Derivative of Sum All Examples Losses:
 $$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}$$
+
+Pluging $$\hat{y}^{(i)}=\sigma(b+w^Tx^{(i)})$$ into Eq. 23, gives:
+
+
+### Eq 23 b: Partial Derivative of Sum All Examples Losses:
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
+
+
+Now we are ready to the itterative calculation of $$w_i, i=1-n$$ and $$b$$ with Gradient Descent.
+
+
+Here's the Gradient algorithm procedure:
+
+
+1. Initialize all n unknow coefficients with an arbitrary value. Let's set it to 0: 
+$$w_i_{i=1-n}=0, b=0$$
+  do ntill converged: 
+   \\ $$b = b - \alpha \frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})$$
+   \\ $$for i=1 to n:$$
+   \\ $w_i = w_i-\alpha \frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
+  
+   
+  
+  
+
+;
+
 
 
 
