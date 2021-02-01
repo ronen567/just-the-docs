@@ -145,7 +145,7 @@ $$\\\frac{\partial J(b,w)}{\partial  b}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^
 
 $$\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial b}=$$
 
-$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(/hat(y^i)-y^i)}$$
+$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)= \\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(\hat(y^i)-y^i)}$$
 
 #### Eq. 8:  Cost function derivative wrt w1
 
@@ -153,7 +153,7 @@ $$\\\frac{\partial J(b,w)}{\partial w1}=\\\frac{\partial(\frac{1}{2m}\sum_{i=1}^
 
 $$\\\frac{1}{2m}*\sum_{i=1}^{m}\frac{\partial(b+w_1x^i-y^i)^2}{\partial  w1}=$$
 
-$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i=\\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(/hat(y^i)-y^i)*x^i}$$
+$$\\\frac{1}{m}\sum_{i=1}^{m}(b+w_1x^i-y^i)*x^i=\\\mathbf{\frac{1}{m}\sum_{i=1}^{m}(\hat(y^i)-y^i)*x^i}$$
 
 
 As mentioned before, we are interested in the minima where derivatives are 0s. Here are our 2 equations:
@@ -162,11 +162,11 @@ As mentioned before, we are interested in the minima where derivatives are 0s. H
 
 a:
 
-$$0 = \frac{1}{m}\sum_{i=1}^{m}(/hat(y^i)-y^i)$$
+$$0 = \frac{1}{m}\sum_{i=1}^{m}(\hat(y^i)-y^i)$$
 
 b:
 
-$$0 = \frac{1}{m}\sum_{i=1}^{m}(/hat(y^i)-y^i)*x^i$$
+$$0 = \frac{1}{m}\sum_{i=1}^{m}(\hat(y^i)-y^i)*x^i$$
 
 
 
@@ -218,7 +218,7 @@ Substitute Eq. 12 into Eq. 11:
 
 #### Eq. 13:
 
-$$MM\begin{bmatrix}
+$$M\begin{bmatrix}
 b\\w_1 
 \end{bmatrix}=\begin{bmatrix}
 C\\ E
@@ -234,16 +234,7 @@ b\\w_1
 C\\E
 \end{bmatrix}$$
 
-Still for simplicity, denote:
 
-$$(M^TM)^^{-1}=N$$
-
-So we have:
-$$\begin{bmatrix}
-b\\w_1 
-\end=N^-1$$*\begin{bmatrix}
-C\\E
-\end{bmatrix}$$
 
 And that's it, quite a simple solution. We needed to inverse a 2*2 matrix for solution, which is not much. Why only 2*2? Because number of features where n=1. But what if we had much more features, say n=1000, or more? In that case inverse could be too complicated.
 That's where the other solution comes in - the Gradient Descent solution.
