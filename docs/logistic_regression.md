@@ -331,11 +331,7 @@ Plug that into the first partial derivative element of Eq 16:
 
 ### Eq 18: First part of the derivative chain
 
-$$\frac{\partial }{\partial \sigma(z)}L(z)=$$
-
-$$\frac{\partial }{\partial \sigma(z)}(-y^{(i)}log(\sigma(z)+(1-y^{(i)})log(1-\sigma(z))=$$
-
-$$-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}$$
+$$\frac{\partial }{\partial \sigma(z)}L(z)=\frac{\partial }{\partial \sigma(z)}(-y^{(i)}log(\sigma(z)+(1-y^{(i)})log(1-\sigma(z))=-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}$$
 
 
 For the 2nd part of the derivative chain we'll use the reciprocal derivative rule:
