@@ -52,7 +52,7 @@ In this post, for the sake of simplicity, we chose the "Linear Regression" model
 
 With that said, let's start!
 
-Linear Regression is a model which approximates y by $$/hat(y}$$, which is a linear function of the input x,  as expressed in Eq 1.
+Linear Regression is a model which approximates y by $$\hat(y}$$, which is a linear function of the input x,  as expressed in Eq 1.
 
 #### Eq. 1: Linear Prediction 
 
@@ -213,27 +213,30 @@ $$M=\begin{bmatrix}
 D & E
 \end{bmatrix}$$
 
-Substitute Eq. 12 into Eq. 13:
+Substitute Eq. 12 into Eq. 11:
 
-$$M\begin{bmatrix}
+
+#### Eq. 13:
+
+$$MM\begin{bmatrix}
 b\\w_1 
-\end=\begin{bmatrix}
-C\\E
+\end{bmatrix}=\begin{bmatrix}
+C\\ E
 \end{bmatrix}$$
 
 Solve it for $$\begin{bmatrix}
 b\\w_1 
-\end$$:
+\end{bmatrix}$$:
 
-$$\\\begin{bmatrix}
+$$\begin{bmatrix}
 b\\w_1 
-\end=(M^TM)^-1M^T\begin{bmatrix}
+\end{bmatrix}=(M^TM)^{-1}M^T\begin{bmatrix}
 C\\E
 \end{bmatrix}$$
 
 Still for simplicity, denote:
 
-$$(M^TM)^=N$$
+$$(M^TM)^^{-1}=N$$
 
 So we have:
 $$\begin{bmatrix}
