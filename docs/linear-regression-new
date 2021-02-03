@@ -1,5 +1,19 @@
 ## An Intro to Supervised Learning, Linear Regression and Gradient Descent
 
+The essence machine learning is the predictor functionality, with which the predictions or decisions are made based om the data. This post presents one type of a predictor,  the **Linear Predicor**. The context is of Supervised Learning, and Linear Predictor is not one of popular predictors used. In a next post we will present the Logistic Regression predictor, a commonly used predictor. Still, the idea behind this post was to present a simple prediction model, such as the Linear Predictor, which hopefully give a good background for before getting to Logistic Regression. 
+
+
+
+
+will demonstrate the predictor concept and how the predictor is taylored to an application. 
+The scenario this post considers, it of a Spervised Learning, at which the predictor is calculated during the Training Phase. 
+So here we go.
+
+To demonstrate the assignment of a predictor, let's sketch a problem which should be solved with a Supervised Machine Learning. ?Just to note -the problem is very much simplified, for the sake of 
+Note that the context thIn this post, we intriduce the Linear Predictor, 
+When speking of Machine Learning, then
+
+
 
 Here's an intro which with a simple Supervised Machine Learning Regression example, continues to the presentation of the Linear Regression predictor, and then show how to solve for the predictor's coefficients with Gradient Descent algorithm. It folows the intro to Machine Learnng.
 
