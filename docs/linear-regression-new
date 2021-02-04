@@ -6,9 +6,7 @@ title: inear Regression NEW!!
 
 ## An Intro to Supervised Learning, Linear Regression and Gradient Descent
 
-The essence machine learning is the predictor functionality, with which the predictions or decisions are made based om the data. This post presents one type of a predictor,  the **Linear Predicor**. The context is of Supervised Learning, and Linear Predictor is not one of popular predictors used. In a next post we will present the Logistic Regression predictor, a commonly used predictor. Still, the idea behind this post was to present a simple prediction model, such as the Linear Predictor, which hopefully give a good background for before getting to Logistic Regression. 
-
-
+The essence of machine learning is the predictor functionality, which the predictions or decisions are based om the data. This post is about **Linear Predicor**. The **Linear Predicor** is certainly not considered currently as the most efficient or popular predictor in machine learning. We will present **Logistic Regression**, which is a coommonly used predictor in Supervised Learning systems, in a following post. Still, it's a simple prediction model, which may be good to start with, and understand the basic prinicples.
 
 
 will demonstrate the predictor concept and how the predictor is taylored to an application. 
