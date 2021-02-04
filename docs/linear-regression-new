@@ -6,10 +6,15 @@ title: inear Regression NEW!!
 
 ## An Intro to Supervised Learning, Linear Regression and Gradient Descent
 
-The essence of machine learning is the predictor functionality, which the predictions or decisions are based om the data. This post is about **Linear Predicor**. The **Linear Predicor** is certainly not considered currently as the most efficient or popular predictor in machine learning. We will present **Logistic Regression**, which is a coommonly used predictor in Supervised Learning systems, in a following post. Still, it's a simple prediction model, which may be good to start with, and understand the basic prinicples.
+The essence of machine learning is the predictor. When speaking of predictor, the first question should normally be - which type of predicors to use. The curenntly used predictort of Supervised Learning is **Logistic Regression**. It will be presented with details on a post which follows. Still this post is about the **Linear Predictor**, though not commonly used for Supervised Learning, but considered relatively a simple model, might be a good point to start with, and gain familiarity with some of the predictor's principles.
+
+Next question to be asked here is, how should the predictor's coefficients be caluclated. Goal of this post is to show the matematical development leading to finding the predictor's coeffcients..
+
+Before we delve into the develpoment of the mathematical formulas, let's start with illustrating the context which the prediction operation relates to.
 
 
-will demonstrate the predictor concept and how the predictor is taylored to an application. 
+
+
 The scenario this post considers, it of a Spervised Learning, at which the predictor is calculated during the Training Phase. 
 So here we go.
 
