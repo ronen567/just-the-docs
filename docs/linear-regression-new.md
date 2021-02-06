@@ -6,7 +6,12 @@ title: inear Regression NEW!!
 
 ## An Intro to Supervised Learning, Linear Regression and Gradient Descent
 
-The essence of machine learning is the predictor. When speaking of predictor, the first question should normally be - which type of predicors to use. The curenntly used predictort of Supervised Learning is **Logistic Regression**. It will be presented with details on a post which follows. Still this post is about the **Linear Predictor**, though not commonly used for Supervised Learning, but considered relatively a simple model, might be a good point to start with, and gain familiarity with some of the predictor's principles.
+The essence of machine learning is the predictor. When speaking of predictors, the first question should normally be - which type of predicors to use. The curenntly commonly used predictort of Supervised Learning is **Logistic Regression**. Logistic Regression will be presented with details on a post which follows. Still this post is about the **Linear Predictor**. Though not commonly used for Supervised Learning, it is a relatively simple model, might be a good point to start with, and gain familiarity with some of the predictors' principles.
+
+
+
+
+
 
 Next question to be asked here is, how should the predictor's coefficients be caluclated. Goal of this post is to show the matematical development leading to finding the predictor's coeffcients..
 
@@ -42,13 +47,13 @@ Table 1, consists of 4 training labeled data entries, aka examples, each labeled
 #### Table 1:  House price prediction - Labeled data
 
 
-|`x1`-Number of bedrooms|`x3`- Zip code    |`x3`-Floor|`y`- Price|
+|`x1`-Number of bedrooms|`x3`-Floor|`y`- Price|
 |:----------------------|:------------------|:----------|:---------|
-| 4                     |32321              | 2        | 179000   |
-| 2                     |54322              | 3        | 210000   |
-| 2                     |43243              | 4        | 250000   |
-| 3                     |63422              | 1        | 260000   |
-
+| 3                     |0        | 179000   |
+| 5                     |1        | 210000   |
+| 7                     |2        | 250000   |
+| 8                     |3        | 260000   |
+| 9                   
 
 
 Following now, is table 2, which consists of regular features data- 4 entries. The house price should be estimated for those, based on data features.
