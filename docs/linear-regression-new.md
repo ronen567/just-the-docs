@@ -4,10 +4,87 @@ nav_order: 1
 title: inear Regression NEW!!
 ---
 
-## An Intro to Supervised Learning, Linear Regression and Gradient Descent
+# An Intro to Supervised Learning, Linear Regression and Gradient Descent
 
-The essence of machine learning is the predictor. When speaking of predictors, the first question should normally be - which type of predicors to use. The curenntly commonly used predictort of Supervised Learning is **Logistic Regression**. Logistic Regression will be presented with details on a post which follows. Still this post is about the **Linear Predictor**. Though not commonly used for Supervised Learning, it is a relatively simple model, might be a good point to start with, and gain familiarity with some of the predictors' principles.
+The essence of machine learning is the predictor. When speaking of predictors, the first question should normally be - which type of predicors to use. The curenntly commonly used predictort of Supervised Learning is **Logistic Regression**. Logistic Regression will be presented with details on a post which follows. Still this post is about the **Linear Predictor**. Though not commonly used for Supervised Learning, being a relatively simple model, it might be a good point to start with, and gain familiarity with some of the predictors' principles.
 
+Eq. 1 presnets the Linear Prediction formula.
+
+### Eq. 1: Linear Prediction 
+
+$$y\approx \hat{y}=b+\sum_{j=1}^{n}w_jx_j$$
+
+
+Eq.1 presents $$\hat{y}$$ which estimates y, by a linear combination of the input set (AKA input features ),$$X={x_i}$S i= 1 to n, where b and  {w_i}, i=1:n are the predictor's coeffcients.
+
+
+Let's illustrate a linear prediction scenario. We start with a simple case, where n=1. 
+
+
+### Table 1:  Apartments price prediction - single feature
+
+
+|``x`-Floor |`y`- Price (M $)|
+|:----------|:---------------|
+|0          | 0.4            |
+|1          | 0.7            |
+|2          | 1.1            |
+|3          | 1.4            |
+|4          | 1.65           |        
+
+Floor number by itself is not sufficient for apartment price prediction, still we use it just as illustration. for the is ofcoursenot 
+
+With n=1 Eq.1 reduces to:
+
+### Eq. 2: Linear Prediction, n=1 
+
+$$y\approx \hat{y}=b+w_1x_1$$
+
+Let's see the graphical presentation of this 1D linear predictor.
+
+
+
+### Figure 1: Linear Prediction - 1D
+
+![Linear Predictiopn 1d](../assets/images/linear-regression/linear_1d_prediction.png)
+
+
+
+Figure 1 illustrates a linear model for the appartment prices. According to the graph, the  model indeed fits the data points, though to prove model's validity,  much more than 5 example datapoints are needed. Here we use less points. for the sake of simplicity. Later on, we will increase the number of points, AKA examples.
+
+
+Now let's increase the predictor's dimenssions to 2. Now we'll have 2 features which determine the apartments' prices: Floor and Number of rooms, as listed in Table 2.
+
+
+### Table 2:  Apartments price prediction - 2 feature
+
+|`x1`-Number of bedrooms|`x2`-Floor|`y`- Price (M $)|
+|:----------------------|:---------|:---------------|
+| 5                     | 0        | 1.5            |
+| 4                     | 1        | 0.5            |
+| 5                     | 2        | 1              |
+| 6                     | 3        | 1.2            |
+| 6                     | 4        | 1.5            |
+
+Needless to note again that these 2 features are not enought to predict apartments pricess, but we still use a simplified example, as an illustration example.
+
+
+Now let's see the graphical presentation of this 2 features setup.
+linear predictor.
+
+
+### Figure 2: Linear Prediction - 2D
+
+![Linear Predictiopn 2d](../assets/images/linear-regression/predicted_prices_2d_gif)
+
+
+
+
+
+
+
+
+The Linear Model, as expressed by Eq. 2, is charactarized by the parameters b and w_1, where b is the offset of the line at $$\hat(y)=0$$, and w_1 is the line's slope.
 
 
 
