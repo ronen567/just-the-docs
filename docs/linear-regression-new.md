@@ -75,7 +75,7 @@ linear predictor.
 
 ### Figure 2: Linear Prediction - 2D
 
-![Linear Predictiopn 2d](../assets/mages/linear-regression/predicted_prices_2d_gif)
+![Linear Predictiopn 2d](../assets/images/linear-regression/predicted_prices_2d_gif.gif)
 
 
 
