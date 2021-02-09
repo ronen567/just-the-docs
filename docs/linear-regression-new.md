@@ -15,32 +15,35 @@ Eq. 1 presnets the Linear Prediction formula.
 $$y\approx \hat{y}=b+\sum_{j=1}^{n}w_jx_j$$
 
 
-Eq.1 presents \\(\\hat{y}\\) which estimates y, by a linear combination of the input set (AKA input features ),$$X={x_i}$S i= 1 to n, where b and  {w_i}, i=1:n are the predictor's coeffcients.
+Eq.1 presents \\(\\hat{y}\\) which estimates y, by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients.
 
 
-Let's illustrate a linear prediction scenario. We start with a simple case, where n=1. 
+Now let's present 2 example prediction scenario, and illustrate the Linear Predictior on each. The first example will present a first order Linear Predictor and the second, a second order linear predictor.
+
+Let's start:
+Table 1 presents a set of example data points: Each datapoint represents an example of an appartment located at floor x, 'labeled' with its price. Based on this, we should set a model which can predict an apartment price, based on its floor. (Obviously Floor number by itself is not sufficient for apartment price prediction, so are 6 examples anyway, but still this example meant to ilustrate a first order predictor).
 
 
 ### Table 1:  Apartments price prediction - single feature
 
 
-|``x`-Floor |`y`- Price (M $)|
-|:----------|:---------------|
-|0          | 0.4            |
-|1          | 0.7            |
-|2          | 1.1            |
-|3          | 1.4            |
-|4          | 1.65           |        
+| x-Floor |y- Price (M $)|
+|:--------|:---------------|
+|0        | 0.4            |
+|1        | 0.7            |
+|2        | 1.1            |
+|3        | 1.4            |
+|4        | 1.65           |        
 
-Floor number by itself is not sufficient for apartment price prediction, still we use it just as illustration. for the is ofcoursenot 
 
-With n=1 Eq.1 reduces to:
+With n=1 Eq.1, number of coeffcients reduces to 2, as presented by Eq. 2.
 
-### Eq. 2: Linear Prediction, n=1 
+### Eq. 2: Linear Prediction with n=1 
 
 $$y\approx \hat{y}=b+w_1x_1$$
 
-Let's see the graphical presentation of this 1D linear predictor.
+
+Figure 1 presents graphically a 1D linear predictor for the above data.
 
 
 
@@ -49,11 +52,10 @@ Let's see the graphical presentation of this 1D linear predictor.
 ![Linear Predictiopn 1d](../assets/images/linear-regression/linear_1d_prediction.png)
 
 
+According to the graph sketched in Figure 1, the linear model indeed fits the data points. To prove a validitiy of a model though,  much more than 5 example data points are needed. Here we use less points, for the sake of simplicity. Later on, we will increase the number of points, AKA examples.
 
-Figure 1 illustrates a linear model for the appartment prices. According to the graph, the  model indeed fits the data points, though to prove model's validity,  much more than 5 example datapoints are needed. Here we use less points. for the sake of simplicity. Later on, we will increase the number of points, AKA examples.
 
-
-Now let's increase the predictor's dimenssions to 2. Now we'll have 2 features which determine the apartments' prices: Floor and Number of rooms, as listed in Table 2.
+Now let's increase the predictor's dimenssions to 2. The 2 features which determine the apartments' prices are now Floor and Number of rooms, as listed in Table 2.
 
 
 ### Table 2:  Apartments price prediction - 2 feature
