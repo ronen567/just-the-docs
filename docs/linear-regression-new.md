@@ -6,16 +6,16 @@ title: inear Regression NEW!!
 
 # An Intro to Supervised Learning, Linear Regression and Gradient Descent
 
-The essence of machine learning is the predictor. When speaking of predictors, the first question should normally be - which type of predicors to use. The curenntly commonly used predictort of Supervised Learning is **Logistic Regression**. Logistic Regression will be presented with details on a post which follows. Still this post is about the **Linear Predictor**. Though not commonly used for Supervised Learning, being a relatively simple model, it might be a good point to start with, and gain familiarity with some of the predictors' principles.
+The essence of machine learning is the predictor. The curenntly commonly used predictort of Supervised Learning is **Logistic Regression**. Logistic Regression will be presented with details on a post which follows. Still, this post is about another predictor model, the **Linear Predictor** aka **Linear Regression**. Though not commonly used for Supervised Learning, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
 
 Eq. 1 presnets the Linear Prediction formula.
 
-### Eq. 1: Linear Prediction 
+#### Eq. 1: Linear Prediction 
 
 $$y\approx \hat{y}=b+\sum_{j=1}^{n}w_jx_j$$
 
 
-Eq.1 presents $$\hat{y}$$ which estimates y, by a linear combination of the input set (AKA input features ),$$X={x_i}$S i= 1 to n, where b and  {w_i}, i=1:n are the predictor's coeffcients.
+Eq.1 presents \\(\\hat{y}\\) which estimates y, by a linear combination of the input set (AKA input features ),$$X={x_i}$S i= 1 to n, where b and  {w_i}, i=1:n are the predictor's coeffcients.
 
 
 Let's illustrate a linear prediction scenario. We start with a simple case, where n=1. 
