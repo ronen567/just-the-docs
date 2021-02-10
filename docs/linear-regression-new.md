@@ -75,7 +75,7 @@ Now let's increase the predictor's dimenssions to 2. The 2 features which determ
 | 10  | 5       | 1.3        |
 
 
-Needless to note again that these 2 features are not enough to predict apartments pricess. It will not be possible to graphically display the datapoints for n>2.
+Needless to note again that these 2 features are not enough to predict apartments pricess, nor is the number of the example points. But that doesn't matter at this point, while it will not be possible to graphically display the datapoints for n>2.
 
 
 Let's look at the graphical presentation of table 2's graphical presentation. Figure 2 presents the above dataset examples, along with the Linear Predictor's calculated data points.
