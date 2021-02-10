@@ -27,13 +27,13 @@ Table 1 presents a set of example data points: Each datapoint represents an exam
 ### Table 1:  Apartments price prediction - single feature
 
 
-|Floor    |Price (M $)     |
-|:--------|:---------------|
-|0        | 0.4            |
-|1        | 0.7            |
-|2        | 1.1            |
-|3        | 1.4            |
-|4        | 1.65           |        
+|Floor    |Price (M $)|
+|:-       |:-         |
+|0        | 0.4       |
+|1        | 0.7       |
+|2        | 1.1       |
+|3        | 1.4       |
+|4        | 1.65      |        
 
 
 With n=1 Eq.1, number of coeffcients reduces to 2, as presented by Eq. 2.
