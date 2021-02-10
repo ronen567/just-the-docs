@@ -60,7 +60,7 @@ Now let's increase the predictor's dimenssions to 2. The 2 features which determ
 
 ### Table 2:  Apartments price prediction, with n=2
 
-|Floor|Bedrooms |`Price (M $)|
+|Floor|Bedrooms | Price (M $)|
 |:----|:--------|:-----------|
 | 0   | 5       | 1.5        |
 | 1   | 4       | 0.5        |
