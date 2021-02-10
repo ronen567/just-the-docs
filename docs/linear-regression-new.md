@@ -27,7 +27,7 @@ Table 1 presents a set of example data points: Each datapoint represents an exam
 ### Table 1:  Apartments price prediction - single feature
 
 
-| x-Floor |y- Price (M $)|
+|Floor    |Price (M $)     |
 |:--------|:---------------|
 |0        | 0.4            |
 |1        | 0.7            |
@@ -60,7 +60,7 @@ Now let's increase the predictor's dimenssions to 2. The 2 features which determ
 
 ### Table 2:  Apartments price prediction, with n=2
 
-|Floor |Bedrooms|`Price (M $)|
+|Floor|Bedrooms |`Price (M $)|
 |:----|:--------|:-----------|
 | 0   | 5       | 1.5        |
 | 1   | 4       | 0.5        |
