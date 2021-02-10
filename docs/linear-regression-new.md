@@ -58,21 +58,28 @@ According to the graph sketched in Figure 1, the linear model indeed fits the da
 Now let's increase the predictor's dimenssions to 2. The 2 features which determine the apartments' prices are now Floor and Number of rooms, as listed in Table 2.
 
 
-### Table 2:  Apartments price prediction - 2 feature
+### Table 2:  Apartments price prediction, with n=2
 
-|`x1`-Number of bedrooms|`x2`-Floor|`y`- Price (M $)|
-|:----------------------|:---------|:---------------|
-| 5                     | 0        | 1.5            |
-| 4                     | 1        | 0.5            |
-| 5                     | 2        | 1              |
-| 6                     | 3        | 1.2            |
-| 6                     | 4        | 1.5            |
+|Floor |Bedrooms|`Price (M $)|
+|:----|:--------|:-----------|
+| 0   | 5       | 1.5        |
+| 1   | 4       | 0.5        |
+| 2   | 5       | 1          |
+| 3   | 6       | 1.2        |
+| 4   | 6       | 1.5        |
+| 5   | 4       | 0.5        |
+| 6   | 5       | 0.6        |
+| 7   | 3       | 0.9        |
+| 8   | 4       | 0.7        |
+| 9   | 3       | 0.7        |
+| 10  | 5       | 1.3        |
 
-Needless to note again that these 2 features are not enought to predict apartments pricess, but we still use a simplified example, as an illustration example.
+
+Needless to note again that these 2 features are not enough to predict apartments pricess. It will not be possible to graphically display the datapoints for n>2.
 
 
-Now let's see the graphical presentation of this 2 features setup.
-linear predictor.
+Let's look at the graphical presentation of table 2's graphical presentation. Figure 2 presents the above dataset examples, along with the Linear Predictor's calculated data points.
+
 
 
 ### Figure 2: Linear Prediction - 2D
