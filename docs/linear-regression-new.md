@@ -78,7 +78,15 @@ Now let's increase the predictor's dimenssions to 2. The 2 features which determ
 Needless to note again that these 2 features are not enough to predict apartments pricess, nor is the number of the example points. But that doesn't matter at this point, while it will not be possible to graphically display the datapoints for n>2.
 
 
-Let's look at the graphical presentation of table 2's graphical presentation. Figure 2 presents the above dataset examples, along with the Linear Predictor's calculated data points.
+Let's look at the graphical presentation of table 2's graphical presentation. Figure 2 presents the above dataset examples - those points have the x marker. Based on those points, a linear predictor was calculated, as epressed by Eq. 3 - same like Eq. 1, but with n=2:
+
+
+Eq. 3:
+
+$$y\approx \hat{y^i}=b+\sum_{j=1}^{2}w_j{x}^i_j$$
+
+
+Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalculated \hat{y^i} are located on the painted surface  of Fig 2.
 
 
 
@@ -87,15 +95,20 @@ Let's look at the graphical presentation of table 2's graphical presentation. Fi
 ![Linear Predictiopn 2d](../assets/images/linear-regression/predicted_prices_2d_gif.gif)
 
 
+## Calculation of Predictor's Coeffcients
+
+Now that we've seen 2 linear prediction examples, with n=1 and n=2, we can continue to the next step: Calculate the predictors coefficients. We will start with presenting the analytical solution, which works find for Linear Predictors. Optionally Gradient Descent solution could also be implemented here, but Gradient Descent will be presented in a post which follows, while illustrating the solution for Logistic Regression predictor. 
+
+TIL HERE!!!
+### Analytical Solution for Linear Predictor Coefficents
+
+Given Eq. 1 we aim to find the predictor's coefficents \\b, (w_i)\\,  j=1:n which will lead to the best predictor \\\hat(y)\\ for y.
+
+For our calculation, we need a set of labeled examples \\((x_1...x_n) , y)\\, were the example set is  \\((x_1...x_n))\\ and the label is the corresponding output.
 
 
 
-
-
-
-The Linear Model, as expressed by Eq. 2, is charactarized by the parameters b and w_1, where b is the offset of the line at $$\hat(y)=0$$, and w_1 is the line's slope.
-
-
+the prediction of y Eq. 1 presents a single example which consists of the input dataset  \\(x_j)\\ and its related output {y}To that that, we need to find 
 
 
 
