@@ -12,7 +12,7 @@ Eq. 1 presnets the Linear Prediction formula.
 
 #### Eq. 1: Linear Prediction 
 
-$$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
+$$\\y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
 
 
 Eq.1 presents \\(\\hat{y}\\) which estimates y, by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e.
@@ -36,11 +36,35 @@ Table 1 presents a set of example data points: Each datapoint represents an exam
 |4        | 1.65      |        
 
 
-With n=1 Eq.1, number of coeffcients reduces to 2, as presented by Eq. 2.
+Plugginh n=1 to Eq.1 results in Eq.2.
 
-### Eq. 2: Linear Prediction with n=1 
+### Eq. 2a: Linear Prediction with n=1 
 
-$$y = y\approx \hat{y} + e=b+w_1x_1 + e$$
+$$\\y = y\approx \hat{y} + e=b+w_1x_1 + e$$
+
+
+Inserting table 1's data to Eq. 2a gives the following set of equations:
+
+### Eq. 2b:
+$$
+\\
+b+w_1*0+\epsilon^{(1)}=0.4
+\\
+b+w_1*1+\epsilon^{(2)}=0.7
+\\
+b+w_1*2+\epsilon^{(3)}=1.1
+\\
+b+w_1*3+\epsilon^{(4)}=1.4
+\\
+b+w_1*4+\epsilon^{(5)}=1.65
+\\
+
+$$
+
+From the above equations we should calculate the coefficients \\(b,w_1\\). We will get to solving the equations later in this post.
+
+
+
 
 
 Figure 1 presents graphically a 1D linear predictor for the above data.
@@ -87,6 +111,39 @@ $$y\approx \hat{y^i}=b+\sum_{j=1}^{2}w_j{x}^i_j$$
 
 
 Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalculated \hat{y^i} are located on the painted surface  of Fig 2.
+
+
+Inserting table 2's data to Eq. 3 gives the following set of equations:
+
+$$
+
+\\
+b+w_1*0+w_2*5=1.5
+\\
+b+w_1*1+w_2*4=0.5
+\\
+b+w_1*2+w_2*5=1
+\\
+b+w_1*3+w_2*6=1.2
+\\
+b+w_1*4+w_2*6=1.5
+\\
+b+w_1*5+w_2*4=0.5
+\\
+b+w_1*6+w_2*5=0.6
+\\
+b+w_1*7+w_2*3=0.9
+\\
+b+w_1*8+w_2*4=0.7
+\\
+b+w_1*9+w_2*3=0.7
+\\
+b+w_1*10+w_2*5=1.3
+\\
+
+$$
+
+From the above equations we should calculate the coefficients \\(b,w_1, w_2\\). We will get to solving the equations in the next paragraph of this post.
 
 
 
@@ -182,11 +239,136 @@ $$
 Y=XW
 $$
 
+Bow let's do some basic well-known Linear Algebra gimnastics:
 
-matrix X is mXn, not square square and not invertible. \\(X^tX) on the other hand is invertible.
+Matrix X dimensions are mXn, where m >> n, i.e. m, the number of examples, should be be much greater than n, the input's dimensions. 
+Accordingly, considering X is not square, it is not invertible. Still, if X is Full Rank, i.e. it's columns are linear independent, then \\(X^TX\\) is invertible.
+So multiply each side of Eq. 6 by  \\(X^T\\):
+
+Eq. 7: 
+
+$$
+\\
+X^TY=X^TXW
+$$
+
+Multiply each side of Eq. 7 by \\((X^TX)^{-1}\\) :
+
+Eq. 8: 
+
+$$
+\\
+(X^TX)^{-1}X^TY=(X^TX)^{-1}X^TXW
+$$
 
 
-were the example set is  \\((x_1...x_n))\\ and the label is the corresponding output.
+Since   \\((X^TX)^{-1}X^TX\\)=I   Eq. 8 reduces to:
+
+Eq. 9: 
+
+$$
+\\
+(X^TX)^{-1}X^TY=W
+$$
+
+And that's it! We have the solution for the predictor's coefficents.
+
+
+
+Let's illustrate Eq. 9 on the 1D predictor listed above. Let's plug Eq.2 into the components of Eq. 9, as shown in Eq. 10.
+
+Eq. 10: 
+$$
+\\
+Y=\begin{bmatrix}
+0.4\\ 
+0.7\\ 
+1.1\\ 
+1.4\\ 
+1.65
+\end{bmatrix}
+\\
+$$
+
+$$
+\\
+X=
+\begin{bmatrix}
+ 1 & 0\\ 
+ 1 & 1\\ 
+ 1 & 2\\ 
+ 1 & 3\\ 
+ 1 &4
+\end{bmatrix}
+\\
+
+$$
+
+$$
+\\
+w=\begin{bmatrix}
+b\\ 
+w_1\\ 
+\end{bmatrix}
+\\
+$$
+
+
+
+
+$$
+\\
+\\X^TX=\begin{bmatrix}
+5 &10 \\ 
+10 & 30
+\end{bmatrix}
+\\
+$$
+
+
+Inverse of a 2X2 matrix is given by:
+$$
+\\
+\begin{bmatrix}
+a & b\\
+c & d
+\end{bmatrix}^{-1}=\frac{1}{Determinant}*\begin{bmatrix}
+d & -b\\
+-c & a
+\end{bmatrix}
+\\
+$$
+
+
+So: 
+$$
+\\
+
+\\(X^TX)^{-1}=\begin{bmatrix}
+0.6 &-0.2 \\ 
+-0.2 & 0.1
+\end{bmatrix}
+\\
+$$
+
+
+and:
+
+
+$$
+\\
+
+\\(X^TX)^{-1}=\begin{bmatrix}
+0.6 &-0.2 \\ 
+-0.2 & 0.1
+\end{bmatrix}
+\\
+$$
+
+
+
+
+$$
 
 
 
