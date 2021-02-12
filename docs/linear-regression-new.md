@@ -105,7 +105,88 @@ Now that we've seen 2 linear prediction examples, with n=1 and n=2, we continue 
 
 Given Eq. 1 we aim to find the predictor's coefficents \\b, (w_i)\\,  j=1:n which will lead to the best predictor \\\hat(y)\\ for y.
 
-For our calculation, we need a set of labeled examples \\((x_1...x_n) , y)\\, were the example set is  \\((x_1...x_n))\\ and the label is the corresponding output.
+For our calculation, we need a set of labeled examples \\((x_1...x_n) , y)\\. See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index. 
+
+### Eq. 4: Linear Predictor, n dimensional input, m examples 
+
+$$
+\\
+y^{(1)}=b+w_1x_1^{(1)}+w_2x_2^{(1)}+w_3x_3^{(1)}+....w_nx_n^{(1)}+\epsilon^1
+\\
+y^{(2)}=b+w_1x_1^{(2)}+w_2x_2^{(2)}+w_3x_3^{(2)}+....w_nx_n^{(2)}+\epsilon^2
+\\.
+\\.
+\\.
+y^{(m)}=b+w_1x_1^{(m)}+w_2x_2^{(m)}+w_3x_3^{(m)}+....w_nx_n^{(m)}+\epsilon^2
+$$
+
+
+Let's present Eq. 4 in a matrix format:
+
+Eq. 5: 
+$$
+\\
+\begin{bmatrix}
+y^{(1)}
+\\ 
+y^{(2)}
+\\ 
+.
+\\ 
+.
+\\ 
+.
+\\ 
+y^{(m)}
+
+\end{bmatrix} = \begin{bmatrix}
+1 & x_1^{(1)} & x_2^{(1)} & x_3^{(1)} & . & . & x_n^{(1)}\\ 
+1 & x_1^{(2)} & x_2^{(2)} & x_3^{(2)} & . & . & x_n^{(2)}\\ 
+ &  &  &  & \\ 
+ &  &  &  & \\ 
+ &  &  &  & \\ 
+1 & x_1^{(m)} & x_2^{(m)} & x_3^{(m)} & . & . & x_n^{(m)}\\ 
+\end{bmatrix}
+\begin{bmatrix}
+b\\ 
+w_1\\ 
+.\\ 
+.\\ 
+. \\ 
+w_n\\ 
+\end{bmatrix}+\begin{bmatrix}
+\epsilon^{(1)}\\ 
+\epsilon^{(2)}\\  
+.\\ 
+.\\ 
+. \\ 
+\epsilon^{(n)}\\ 
+\end{bmatrix}
+$$
+
+And in a more compact format:
+
+Eq. 6: 
+
+$$
+\\
+Y=XW+\epsilon
+$$
+
+And dropping  \epsilon, leaving aside the prediction residual we get:
+
+Eq. 6: 
+
+$$
+\\
+Y=XW
+$$
+
+
+matrix X is mXn, not square square and not invertible. \\(X^tX) on the other hand is invertible.
+
+
+were the example set is  \\((x_1...x_n))\\ and the label is the corresponding output.
 
 
 
