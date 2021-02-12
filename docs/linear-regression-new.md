@@ -12,16 +12,16 @@ Eq. 1 presnets the Linear Prediction formula.
 
 #### Eq. 1: Linear Prediction 
 
-$$y\approx \hat{y}=b+\sum_{j=1}^{n}w_jx_j$$
+$$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
 
 
-Eq.1 presents \\(\\hat{y}\\) which estimates y, by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients.
+Eq.1 presents \\(\\hat{y}\\) which estimates y, by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e.
 
 
 Now let's present 2 example prediction scenario, and illustrate the Linear Predictior on each. The first example will present a first order Linear Predictor and the second, a second order linear predictor.
 
 Let's start:
-Table 1 presents a set of example data points: Each datapoint represents an example of an appartment located at floor x, 'labeled' with its price. Based on this, we should set a model which can predict an apartment price, based on its floor. (Obviously Floor number by itself is not sufficient for apartment price prediction, so are 6 examples anyway, but still this example meant to ilustrate a first order predictor).
+Table 1 presents a set of example data points: Each datapoint represents an example of an appartment, where the given data x is the floor number, and the input data's label y, is the price. Based on this, we should set a model which can predict an apartment price, based on its floor. (Obviously Floor number by itself is not sufficient for apartment price prediction, so are 6 examples anyway, but still this example meant to ilustrate a first order predictor).
 
 
 ### Table 1:  Apartments price prediction - single feature
@@ -40,7 +40,7 @@ With n=1 Eq.1, number of coeffcients reduces to 2, as presented by Eq. 2.
 
 ### Eq. 2: Linear Prediction with n=1 
 
-$$y\approx \hat{y}=b+w_1x_1$$
+$$y = y\approx \hat{y} + e=b+w_1x_1 + e$$
 
 
 Figure 1 presents graphically a 1D linear predictor for the above data.
@@ -97,14 +97,20 @@ Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalcu
 
 ## Calculation of Predictor's Coeffcients
 
-Now that we've seen 2 linear prediction examples, with n=1 and n=2, we can continue to the next step: Calculate the predictors coefficients. We will start with presenting the analytical solution, which works find for Linear Predictors. Optionally Gradient Descent solution could also be implemented here, but Gradient Descent will be presented in a post which follows, while illustrating the solution for Logistic Regression predictor. 
+Now that we've seen 2 linear prediction examples, with n=1 and n=2, we continue to the next step: Calculate the predictors coefficientsת \\(b, w_i\\). The common algorithm to do it is the Gradient Descent. Gradient Descent is an iterative algorithm, which will be detailed post which follows, illustrated on the Logistic Regression predictor. To solve for the Linear Regression we can use the Analytical Solution as well. So let's review the solution here.
 
-TIL HERE!!!
+
+
 ### Analytical Solution for Linear Predictor Coefficents
 
 Given Eq. 1 we aim to find the predictor's coefficents \\b, (w_i)\\,  j=1:n which will lead to the best predictor \\\hat(y)\\ for y.
 
 For our calculation, we need a set of labeled examples \\((x_1...x_n) , y)\\, were the example set is  \\((x_1...x_n))\\ and the label is the corresponding output.
+
+
+
+
+
 
 
 
