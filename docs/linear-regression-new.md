@@ -139,7 +139,7 @@ From the above equations we should calculate the coefficients \\(b,w_1, w_2\\). 
 
 ### Figure 2: Linear Prediction - 2D
 
-![Linear Predictiopn 2d](../assets/images/linear-regression/predicted_prices_2d_gif.gif)
+![Linear Predictiopn 2d](../assets/images/linear-regression/linear_prediction_2d.gif)
 
 
 ## Calculation of Predictor's Coeffcients
