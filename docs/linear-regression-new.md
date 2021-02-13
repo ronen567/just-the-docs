@@ -281,6 +281,7 @@ Eq. 10:
 
 $$
 \\
+
 Y=\begin{bmatrix}
 0.4\\ 
 0.7\\ 
@@ -288,6 +289,7 @@ Y=\begin{bmatrix}
 1.4\\ 
 1.65
 \end{bmatrix}
+
 \\
 
 $$
