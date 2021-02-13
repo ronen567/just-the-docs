@@ -4,7 +4,7 @@ nav_order: 1
 title: inear Regression NEW!!
 ---
 
-# Linear Regression and Analytical Solution
+# Linear Regression with the Analytical Solution
 
 When speaking of Supervised Learning, curenntly **Logistic Regression** is the commonly used predictor. We'll present it in a post which follows. Still, this post is about another predictor model, the **Linear Predictor** aka **Linear Regression**. Though not as commonly used for Supervised Learning, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
 
