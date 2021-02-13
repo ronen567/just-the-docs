@@ -336,7 +336,7 @@ We have now all the building block to complete the calculation:
 
 $$
 (X^TX)^{-1}(X^TY)=\begin{bmatrix}
-0.6 &-0.2 \\\
+0.6 &-0.2\\\
 -0.2 & 0.1
 \end{bmatrix}
 $$
