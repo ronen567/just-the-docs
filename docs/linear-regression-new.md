@@ -315,8 +315,7 @@ X^TX
  1 & 2\\\\
  1 & 3\\\\
  1 &4
-\end{bmatrix}
-=
+ \end{bmatrix}=
 \begin{bmatrix}
 5 &10 \\\ 
 10 & 30
