@@ -7,7 +7,15 @@ layout: table_wrappers
 <html lang="{{ site.lang | default: 'en-US' }}">
 {% include head.html %}
 <body>
-  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" ></script>
+<!--   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript" ></script> -->
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook('TeX Jax Ready', function () {
+  MathJax.InputJax.TeX.prefilterHooks.Add(function (data) {
+    data.math = data.math.replace(/^% <!\[CDATA\[/, '').replace(/%\]\]>$/, '');
+  });
+});
+</script>
+  
   
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="svg-link" viewBox="0 0 24 24">
