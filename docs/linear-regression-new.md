@@ -309,12 +309,10 @@ $$
 
 
 $$
-\\
-\\X^TX=\begin{bmatrix}
+X^TX=\begin{bmatrix}
 5 &10 \\ 
 10 & 30
 \end{bmatrix}
-\\
 $$
 
 
