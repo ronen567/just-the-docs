@@ -15,6 +15,15 @@ parent: Utilities
 
 ---
 
+|Floor    |Price (M $)|
+|:--------|:----------|
+|0        | 0.4       |
+|1        | 0.7       |
+|2        | 1.1       |
+|3        | 1.4       |
+|4        | 1.65      |        
+
+
 ## Spacing
 
 These spacers are available to use for margins and padding with responsive utility classes. Combine these prefixes with a screen size and spacing scale to use them responsively.
