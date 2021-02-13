@@ -280,13 +280,28 @@ $$ \displaylines{X=
 
 $$
 w=\begin{bmatrix}
-b\\\
-w_1\\\\
+b\\\\\
+w_1
 \end{bmatrix}
 $$
 
-
-
+$$
+X^TY=\begin{bmatrix}
+0 &1&2&3$4 \\\\\
+1&1&1&1&1
+\end{bmatrix}
+\begin{bmatrix}
+0.4\\\ 
+0.7\\\\
+1.1\\\\\
+1.4\\\\\
+1.65
+\end{bmatrix}=
+\begin{bmatrix}
+5 &10 \\\ 
+10 & 30
+\end{bmatrix}
+$$
 
 $$
 X^TX=\begin{bmatrix}
@@ -319,15 +334,7 @@ $$
 $$
 
 
-and:
 
-
-$$
-(X^TY)^{-1}=\begin{bmatrix}
-0.6 &-0.2 \\\\
--0.2 & 0.1
-\end{bmatrix}
-$$
 
 
 We have now all the building block to complete the calculation:
@@ -335,7 +342,12 @@ We have now all the building block to complete the calculation:
 
 
 $$
-(X^TX)^{-1}(X^TY)=\begin{bmatrix}
+(X^TX)^{-1}(X^TY)=
+\begin{bmatrix}
+5 &10\\\\\
+10 & 30
+\end{bmatrix}
+\begin{bmatrix}
 0.6 &-0.2\\\\\
 -0.2 & 0.1
 \end{bmatrix}
