@@ -374,6 +374,8 @@ $$
 
 
 
+The predictor's coefficients are \\(b=0.41\\) and \\(w_1=0.32\\), which define the regression line  \\(\hat(y)=0.41+0.32x\\), which is already presented in Figre 1.
+
 
 
 
