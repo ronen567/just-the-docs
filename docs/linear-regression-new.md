@@ -269,14 +269,14 @@ $$Y=\begin{bmatrix}
 1.65
 \end{bmatrix}$$
 
-$$ \displaylines{X=
+$$ X=
 \begin{bmatrix}
 1 & 0\\\ 
  1 & 1\\\\
  1 & 2\\\\
  1 & 3\\\\
  1 &4
-\end{bmatrix}}$$
+\end{bmatrix}$$
 
 $$
 w=\begin{bmatrix}
@@ -287,7 +287,7 @@ $$
 
 $$
 X^TY=\begin{bmatrix}
-0 &1&2&3$4 \\\\\
+0 &1&2&3&4 \\\\\
 1&1&1&1&1
 \end{bmatrix}
 \begin{bmatrix}
@@ -298,13 +298,26 @@ X^TY=\begin{bmatrix}
 1.65
 \end{bmatrix}=
 \begin{bmatrix}
-5 &10 \\\ 
-10 & 30
+5.25  \\\ 
+13.7 
 \end{bmatrix}
 $$
 
 $$
-X^TX=\begin{bmatrix}
+X^TX=
+=\begin{bmatrix}
+0 &1&2&3&4 \\\\\
+1&1&1&1&1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 0\\\ 
+ 1 & 1\\\\
+ 1 & 2\\\\
+ 1 & 3\\\\
+ 1 &4
+\end{bmatrix}
+=
+\begin{bmatrix}
 5 &10 \\\ 
 10 & 30
 \end{bmatrix}
@@ -342,14 +355,21 @@ We have now all the building block to complete the calculation:
 
 
 $$
-(X^TX)^{-1}(X^TY)=
+w=\begin{bmatrix}
+b\\\\\
+w_1
+\end{bmatrix}=(X^TX)^{-1}(X^TY)=
 \begin{bmatrix}
-5 &10\\\\\
-10 & 30
+0.6 &-0.2 \\\\\\
+-0.2 & 0.1
 \end{bmatrix}
 \begin{bmatrix}
-0.6 &-0.2\\\\\
--0.2 & 0.1
+5.25\\\\\
+13.7
+\end{bmatrix}=
+\begin{bmatrix}
+0.41\\\\\
+0.32
 \end{bmatrix}
 $$
 
