@@ -170,18 +170,23 @@ Let's present Eq. 4 in a matrix format:
 Eq. 5: 
 $$\begin{bmatrix}
 y^{(1)}
-\\ 
+$$
+$$
 y^{(2)}
-\\ 
+$$
+$$
 .
-\\ 
+$$
+$$
 .
-\\ 
+$$
+$$
 .
-\\ 
+$$ 
 y^{(m)}
 
-\end{bmatrix} = \begin{bmatrix}
+\end{bmatrix} = $$
+$$\begin{bmatrix}
 1 & x_1^{(1)} & x_2^{(1)} & x_3^{(1)} & . & . & x_n^{(1)}\\ 
 1 & x_1^{(2)} & x_2^{(2)} & x_3^{(2)} & . & . & x_n^{(2)}\\ 
  &  &  &  & \\ 
