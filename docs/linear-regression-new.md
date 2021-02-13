@@ -156,22 +156,19 @@ For our calculation, we need a set of labeled examples \\((x_1...x_n) , y)\\. Se
 
 ### Eq. 4: Linear Predictor, n dimensional input, m examples 
 
-$$
-\\
-y^{(1)}=b+w_1x_1^{(1)}+w_2x_2^{(1)}+w_3x_3^{(1)}+....w_nx_n^{(1)}+\epsilon^1
-\\
-y^{(2)}=b+w_1x_1^{(2)}+w_2x_2^{(2)}+w_3x_3^{(2)}+....w_nx_n^{(2)}+\epsilon^2
-\\.
-\\.
-\\.
-y^{(m)}=b+w_1x_1^{(m)}+w_2x_2^{(m)}+w_3x_3^{(m)}+....w_nx_n^{(m)}+\epsilon^2$$
+$$y^{(1)}=b+w_1x_1^{(1)}+w_2x_2^{(1)}+w_3x_3^{(1)}+....w_nx_n^{(1)}+\epsilon^1$$
+
+$$y^{(2)}=b+w_1x_1^{(2)}+w_2x_2^{(2)}+w_3x_3^{(2)}+....w_nx_n^{(2)}+\epsilon^2$$
+$$.$$
+$$.$$
+$$.$$
+$$y^{(m)}=b+w_1x_1^{(m)}+w_2x_2^{(m)}+w_3x_3^{(m)}+....w_nx_n^{(m)}+\epsilon^2$$
 
 
 Let's present Eq. 4 in a matrix format:
 
 Eq. 5: 
-$$
-\begin{bmatrix}
+$$\begin{bmatrix}
 y^{(1)}
 \\ 
 y^{(2)}
