@@ -269,14 +269,14 @@ $$Y=\begin{bmatrix}
 1.65
 \end{bmatrix}$$
 
-$$X=
+$$ \displaylines{X=
 \begin{bmatrix}
- \displaylines{1XX & 0\\ 
+1 & 0\\ 
  1 & 1\\ 
  1 & 2\\ 
  1 & 3\\ 
- 1 &4}
-\end{bmatrix}$$
+ 1 &4
+\end{bmatrix}}$$
 
 $$
 w=\begin{bmatrix}
