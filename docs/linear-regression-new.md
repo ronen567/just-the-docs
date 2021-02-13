@@ -304,7 +304,7 @@ X^TY=\begin{bmatrix}
 $$
 
 $$
-X^TX=
+X^TX
 =\begin{bmatrix}
 0 &1&2&3&4 \\\\\
 1&1&1&1&1
