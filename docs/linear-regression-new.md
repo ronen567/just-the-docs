@@ -279,34 +279,22 @@ Let's illustrate Eq. 9 on the 1D predictor listed above. Let's plug Eq.2 into th
 
 Eq. 10: 
 
-$$
-\\
-
-Y=\begin{bmatrix}
+$$Y=\begin{bmatrix}
 0.4\\ 
 0.7\\ 
 1.1\\ 
 1.4\\ 
 1.65
-\end{bmatrix}
+\end{bmatrix}$$
 
-\\
-
-$$
-
-$$
-\\
-X=
+$$X=
 \begin{bmatrix}
  1 & 0\\ 
  1 & 1\\ 
  1 & 2\\ 
  1 & 3\\ 
  1 &4
-\end{bmatrix}
-\\
-
-$$
+\end{bmatrix}$$
 
 $$
 \\
