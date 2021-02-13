@@ -40,15 +40,13 @@ Plugginh n=1 to Eq.1 results in Eq.2.
 
 ### Eq. 2a: Linear Prediction with n=1 
 
-$$\\y = y\approx \hat{y} + e=b+w_1x_1 + e$$
+$$y = y\approx \hat{y} + e=b+w_1x_1 + e$$
 
 
 Inserting table 1's data to Eq. 2a gives the following set of equations:
 
 ### Eq. 2b:
-$$
-\\
-b+w_1*0+\epsilon^{(1)}=0.4
+$$b+w_1*0+\epsilon^{(1)}=0.4
 \\
 b+w_1*1+\epsilon^{(2)}=0.7
 \\
@@ -56,10 +54,7 @@ b+w_1*2+\epsilon^{(3)}=1.1
 \\
 b+w_1*3+\epsilon^{(4)}=1.4
 \\
-b+w_1*4+\epsilon^{(5)}=1.65
-\\
-
-$$
+b+w_1*4+\epsilon^{(5)}=1.65$$
 
 From the above equations we should calculate the coefficients \\(b,w_1\\). We will get to solving the equations later in this post.
 
@@ -107,7 +102,7 @@ Let's look at the graphical presentation of table 2's graphical presentation. Fi
 
 Eq. 3:
 
-$$y\approx \hat{y^i}=b+\sum_{j=1}^{2}w_j{x}^i_j$$
+$$y=\hat{y^i}+\epsilon^i=b+\sum_{j=1}^{2}w_j{x}^i_j+\epsilon^i$$
 
 
 Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalculated \hat{y^i} are located on the painted surface  of Fig 2.
@@ -115,10 +110,7 @@ Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalcu
 
 Inserting table 2's data to Eq. 3 gives the following set of equations:
 
-$$
-
-\\
-b+w_1*0+w_2*5=1.5
+$$b+w_1*0+w_2*5=1.5
 \\
 b+w_1*1+w_2*4=0.5
 \\
@@ -139,8 +131,6 @@ b+w_1*8+w_2*4=0.7
 b+w_1*9+w_2*3=0.7
 \\
 b+w_1*10+w_2*5=1.3
-\\
-
 $$
 
 From the above equations we should calculate the coefficients \\(b,w_1, w_2\\). We will get to solving the equations in the next paragraph of this post.
@@ -174,15 +164,13 @@ y^{(2)}=b+w_1x_1^{(2)}+w_2x_2^{(2)}+w_3x_3^{(2)}+....w_nx_n^{(2)}+\epsilon^2
 \\.
 \\.
 \\.
-y^{(m)}=b+w_1x_1^{(m)}+w_2x_2^{(m)}+w_3x_3^{(m)}+....w_nx_n^{(m)}+\epsilon^2
-$$
+y^{(m)}=b+w_1x_1^{(m)}+w_2x_2^{(m)}+w_3x_3^{(m)}+....w_nx_n^{(m)}+\epsilon^2$$
 
 
 Let's present Eq. 4 in a matrix format:
 
 Eq. 5: 
 $$
-\\
 \begin{bmatrix}
 y^{(1)}
 \\ 
@@ -226,7 +214,6 @@ And in a more compact format:
 Eq. 6: 
 
 $$
-\\
 Y=XW+\epsilon
 $$
 
@@ -235,7 +222,6 @@ And dropping  \epsilon, leaving aside the prediction residual we get:
 Eq. 6: 
 
 $$
-\\
 Y=XW
 $$
 
@@ -248,7 +234,6 @@ So multiply each side of Eq. 6 by  \\(X^T\\):
 Eq. 7: 
 
 $$
-\\
 X^TY=X^TXW
 $$
 
@@ -257,7 +242,6 @@ Multiply each side of Eq. 7 by \\((X^TX)^{-1}\\) :
 Eq. 8: 
 
 $$
-\\
 (X^TX)^{-1}X^TY=(X^TX)^{-1}X^TXW
 $$
 
@@ -267,7 +251,6 @@ Since   \\((X^TX)^{-1}X^TX\\)=I   Eq. 8 reduces to:
 Eq. 9: 
 
 $$
-\\
 (X^TX)^{-1}X^TY=W
 $$
 
@@ -297,12 +280,10 @@ $$X=
 \end{bmatrix}$$
 
 $$
-\\
 w=\begin{bmatrix}
 b\\ 
 w_1\\ 
 \end{bmatrix}
-\\
 $$
 
 
@@ -319,7 +300,6 @@ $$
 Inverse of a 2X2 matrix is given by:
 
 $$
-\\
 \begin{bmatrix}
 a & b\\
 c & d
@@ -327,20 +307,16 @@ c & d
 d & -b\\
 -c & a
 \end{bmatrix}
-\\
 $$
 
 
 So: 
 
 $$
-\\
-
 \\(X^TX)^{-1}=\begin{bmatrix}
 0.6 &-0.2 \\ 
 -0.2 & 0.1
 \end{bmatrix}
-\\
 $$
 
 
@@ -348,13 +324,10 @@ and:
 
 
 $$
-\\
-
 \\(X^TY)^{-1}=\begin{bmatrix}
 0.6 &-0.2 \\ 
 -0.2 & 0.1
 \end{bmatrix}
-\\
 $$
 
 
@@ -363,14 +336,10 @@ We have now all the building block to complete the calculation:
 
 
 $$
-\\
-
 \\(X^TX)^{-1}(X^TY)=\begin{bmatrix}
 0.6 &-0.2 \\ 
 -0.2 & 0.1
 \end{bmatrix}
-
-\\
 $$
 
 
