@@ -271,7 +271,7 @@ $$Y=\begin{bmatrix}
 
 $$X=
 \begin{bmatrix}
- \displaylines{1 & 0\\ 
+ \displaylines{1XX & 0\\ 
  1 & 1\\ 
  1 & 2\\ 
  1 & 3\\ 
