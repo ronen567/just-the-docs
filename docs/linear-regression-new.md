@@ -264,24 +264,24 @@ Eq. 10:
 $$Y=\begin{bmatrix}
 0.4\\\ 
 0.7\\\\
-1.1\\\\\\
-1.4\\\\\\\\
+1.1\\\\\
+1.4\\\\\
 1.65
 \end{bmatrix}$$
 
 $$ \displaylines{X=
 \begin{bmatrix}
-1 & 0\\ 
- 1 & 1\\ 
- 1 & 2\\ 
- 1 & 3\\ 
+1 & 0\\\ 
+ 1 & 1\\\\
+ 1 & 2\\\\
+ 1 & 3\\\\
  1 &4
 \end{bmatrix}}$$
 
 $$
 w=\begin{bmatrix}
-b\\ 
-w_1\\ 
+b\\\
+w_1\\\\
 \end{bmatrix}
 $$
 
@@ -290,7 +290,7 @@ $$
 
 $$
 X^TX=\begin{bmatrix}
-5 &10 \\ 
+5 &10 \\\ 
 10 & 30
 \end{bmatrix}
 $$
@@ -300,10 +300,10 @@ Inverse of a 2X2 matrix is given by:
 
 $$
 \begin{bmatrix}
-a & b\\
+a & b\\\
 c & d
 \end{bmatrix}^{-1}=\frac{1}{Determinant}*\begin{bmatrix}
-d & -b\\
+d & -b\\\
 -c & a
 \end{bmatrix}
 $$
@@ -313,7 +313,7 @@ So:
 
 $$
 (X^TX)^{-1}=\begin{bmatrix}
-0.6 &-0.2 \\ 
+0.6 &-0.2 \\\
 -0.2 & 0.1
 \end{bmatrix}
 $$
@@ -324,7 +324,7 @@ and:
 
 $$
 (X^TY)^{-1}=\begin{bmatrix}
-0.6 &-0.2 \\ 
+0.6 &-0.2 \\\ 
 -0.2 & 0.1
 \end{bmatrix}
 $$
@@ -336,7 +336,7 @@ We have now all the building block to complete the calculation:
 
 $$
 (X^TX)^{-1}(X^TY)=\begin{bmatrix}
-0.6 &-0.2 \\ 
+0.6 &-0.2 \\\
 -0.2 & 0.1
 \end{bmatrix}
 $$
