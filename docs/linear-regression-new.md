@@ -4,6 +4,18 @@ nav_order: 1
 title: inear Regression NEW!!
 ---
 
+# Layout Utilities
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
+
 # An Intro to Supervised Learning, Linear Regression and Gradient Descent
 
 The essence of machine learning is the predictor. The curenntly commonly used predictort of Supervised Learning is **Logistic Regression**. Logistic Regression will be presented with details on a post which follows. Still, this post is about another predictor model, the **Linear Predictor** aka **Linear Regression**. Though not commonly used for Supervised Learning, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
@@ -28,7 +40,7 @@ Table 1 presents a set of example data points: Each datapoint represents an exam
 
 
 |Floor    |Price (M $)|
-|:-       |:-         |
+|:--------|:----------|
 |0        | 0.4       |
 |1        | 0.7       |
 |2        | 1.1       |
