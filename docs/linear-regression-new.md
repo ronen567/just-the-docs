@@ -278,6 +278,7 @@ And that's it! We have the solution for the predictor's coefficents.
 Let's illustrate Eq. 9 on the 1D predictor listed above. Let's plug Eq.2 into the components of Eq. 9, as shown in Eq. 10.
 
 Eq. 10: 
+
 $$
 \\
 Y=\begin{bmatrix}
@@ -288,6 +289,7 @@ Y=\begin{bmatrix}
 1.65
 \end{bmatrix}
 \\
+
 $$
 
 $$
@@ -327,6 +329,7 @@ $$
 
 
 Inverse of a 2X2 matrix is given by:
+
 $$
 \\
 \begin{bmatrix}
@@ -341,6 +344,7 @@ $$
 
 
 So: 
+
 $$
 \\
 
@@ -358,7 +362,7 @@ and:
 $$
 \\
 
-\\(X^TX)^{-1}=\begin{bmatrix}
+\\(X^TY)^{-1}=\begin{bmatrix}
 0.6 &-0.2 \\ 
 -0.2 & 0.1
 \end{bmatrix}
@@ -366,8 +370,19 @@ $$
 $$
 
 
+We have now all the building block to complete the calculation:
 
 
+
+$$
+\\
+
+\\(X^TX)^{-1}(X^TY)=\begin{bmatrix}
+0.6 &-0.2 \\ 
+-0.2 & 0.1
+\end{bmatrix}
+
+\\
 $$
 
 
