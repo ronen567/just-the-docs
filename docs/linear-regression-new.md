@@ -168,6 +168,7 @@ $$y^{(m)}=b+w_1x_1^{(m)}+w_2x_2^{(m)}+w_3x_3^{(m)}+....w_nx_n^{(m)}+\epsilon^2$$
 Let's present Eq. 4 in a matrix format:
 
 Eq. 5: 
+
 $$\begin{bmatrix}
 y^{(1)}
 \\
