@@ -303,7 +303,7 @@ $$
 a &b \\\
 c & d
 \end{bmatrix}^{-1}=\frac{1}{Determinant}*\begin{bmatrix}
-d &-b \\\
+d &-b \\\\\
 -c & a
 \end{bmatrix}
 $$
@@ -313,7 +313,7 @@ So:
 
 $$
 (X^TX)^{-1}=\begin{bmatrix}
-0.6 &-0.2x \\\\\\
+0.6 &-0.2 \\\\\\
 -0.2 & 0.1
 \end{bmatrix}
 $$
@@ -336,7 +336,7 @@ We have now all the building block to complete the calculation:
 
 $$
 (X^TX)^{-1}(X^TY)=\begin{bmatrix}
-0.6 &-0.2\\\
+0.6 &-0.2\\\\\
 -0.2 & 0.1
 \end{bmatrix}
 $$
