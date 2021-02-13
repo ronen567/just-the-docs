@@ -4,39 +4,27 @@ nav_order: 1
 title: inear Regression NEW!!
 ---
 
-# Layout Utilities
-{: .no_toc }
+# Linear Regression and Analytical Solution
 
-## Table of contents
-{: .no_toc .text-delta }
+When speaking of Supervised Learning, curenntly **Logistic Regression** is the commonly used predictor. We'll present it in a post which follows. Still, this post is about another predictor model, the **Linear Predictor** aka **Linear Regression**. Though not as commonly used for Supervised Learning, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
 
-1. TOC
-{:toc}
+At its name Linear Predictor implies, the predicted output is modeled as a linear combination ofthe input set data, as shown in Eq. 1. Eq.1 presents \\(\\hat{y}\\) which is the estimated value of y, which is modeled by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e.
 
----
-
-
-# An Intro to Supervised Learning, Linear Regression and Gradient Descent
-
-The essence of machine learning is the predictor. The curenntly commonly used predictort of Supervised Learning is **Logistic Regression**. Logistic Regression will be presented with details on a post which follows. Still, this post is about another predictor model, the **Linear Predictor** aka **Linear Regression**. Though not commonly used for Supervised Learning, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
-
-Eq. 1 presnets the Linear Prediction formula.
 
 #### Eq. 1: Linear Prediction 
 
 $$\\y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
 
 
-Eq.1 presents \\(\\hat{y}\\) which estimates y, by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e.
+Eq.1 presents \\(\\hat{y}\\) which is an estimation for y, computed by as a linear combination of the inputdata set  \\(X={x_i}\\) (AKA input features ). The predictor's coefficients are b and  {w_i}, i=1:n, and \\(\epsilon\\) is the estimation's residual, AKA error.
 
 
-Now let's present 2 example prediction scenario, and illustrate the Linear Predictior on each. The first example will present a first order Linear Predictor and the second, a second order linear predictor.
+Here's an example of Linear Predictor which is a part of a Supervised Learning Regression sceanrio. We use this example to illustrate the Linear Predictor's solution while mathematically presenting the development of the predicto'rs calculation.
 
-Let's start:
-Table 1 presents a set of example data points: Each datapoint represents an example of an appartment, where the given data x is the floor number, and the input data's label y, is the price. Based on this, we should set a model which can predict an apartment price, based on its floor. (Obviously Floor number by itself is not sufficient for apartment price prediction, so are 6 examples anyway, but still this example meant to ilustrate a first order predictor).
+Let's start with a simplified form of the example, presented in Table 1. The table holds a set of 5 example data points: 5 example appartments floor labeled by their price. Here x is the floor number, and y is the price. Based on this, we should set a model to predict an apartment price, based on its floor. (Obviously Floor number by itself is not sufficient for apartment price prediction, so is the small number of examples, i.e. 5 examples, but still, we can go with it for the sake of example's simplicity.
 
 
-### Table 1:  Apartments price prediction - single feature
+#### Table 1:  Apartments price prediction - single feature
 
 
 |Floor    |Price (M $)|
@@ -48,9 +36,9 @@ Table 1 presents a set of example data points: Each datapoint represents an exam
 |4        | 1.65      |        
 
 
-Plugginh n=1 to Eq.1 results in Eq.2.
+The Linear Predictor based on table 1, would be just the predictor listed in Eq. 1, with n=1 - see Eq. 2a.  Pluging the Table 1's data to Eq. 2a, results in Eq. 2b.
 
-### Eq. 2a: Linear Prediction with n=1 
+#### Eq. 2a: Linear Prediction with n=1 
 
 $$y = y\approx \hat{y} + e=b+w_1x_1 + e$$
 
@@ -131,48 +119,27 @@ Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalcu
 
 Inserting table 2's data to Eq. 3 gives the following set of equations:
 
-$$b+w_1*0+w_2*5=1.5
-$$
+$$b+w_1*0+w_2*5=1.5$$
 
-$$
-b+w_1*1+w_2*4=0.5
-$$
+$$b+w_1*1+w_2*4=0.5$$
 
-$$
-b+w_1*2+w_2*5=1
-$$
+$$b+w_1*2+w_2*5=1$$
 
-$$
-b+w_1*3+w_2*6=1.2
-$$
+$$b+w_1*3+w_2*6=1.2$$
 
-$$
-b+w_1*4+w_2*6=1.5
-$$
+$$b+w_1*4+w_2*6=1.5$$
 
-$$
-b+w_1*5+w_2*4=0.5
-$$
+$$b+w_1*5+w_2*4=0.5$$
 
-$$
-b+w_1*6+w_2*5=0.6
-$$
+$$b+w_1*6+w_2*5=0.6$$
 
-$$
-b+w_1*7+w_2*3=0.9
-$$
+$$b+w_1*7+w_2*3=0.9$$
 
-$$
-b+w_1*8+w_2*4=0.7
-$$
+$$b+w_1*8+w_2*4=0.7$$
 
-$$
-b+w_1*9+w_2*3=0.7
-$$
+$$b+w_1*9+w_2*3=0.7$$
 
-$$
-b+w_1*10+w_2*5=1.3
-$$
+$$b+w_1*10+w_2*5=1.3$$
 
 From the above equations we should calculate the coefficients \\(b,w_1, w_2\\). We will get to solving the equations in the next paragraph of this post.
 
