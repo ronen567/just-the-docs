@@ -315,7 +315,7 @@ Inverse of a 2X2 matrix is given by:
 
 $$
 \begin{bmatrix}
-a &b \\\
+a &b \\\\\
 c & d
 \end{bmatrix}^{-1}=\frac{1}{Determinant}*\begin{bmatrix}
 d &-b \\\\\
