@@ -59,14 +59,23 @@ Inserting table 1's data to Eq. 2a gives the following set of equations:
 
 ### Eq. 2b:
 $$b+w_1*0+\epsilon^{(1)}=0.4
-\\\\
+$$
+
+$$
 b+w_1*1+\epsilon^{(2)}=0.7
-\\\\
+$$
+
+$$
 b+w_1*2+\epsilon^{(3)}=1.1
-\\\\
+$$
+
+$$
 b+w_1*3+\epsilon^{(4)}=1.4
-\\\\
-b+w_1*4+\epsilon^{(5)}=1.65$$
+$$
+
+$$
+b+w_1*4+\epsilon^{(5)}=1.65
+$$
 
 From the above equations we should calculate the coefficients \\(b,w_1\\). We will get to solving the equations later in this post.
 
@@ -123,25 +132,45 @@ Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalcu
 Inserting table 2's data to Eq. 3 gives the following set of equations:
 
 $$b+w_1*0+w_2*5=1.5
-\\\\
+$$
+
+$$
 b+w_1*1+w_2*4=0.5
-\\\\\
+$$
+
+$$
 b+w_1*2+w_2*5=1
-\\\\\
+$$
+
+$$
 b+w_1*3+w_2*6=1.2
-\\\\\
+$$
+
+$$
 b+w_1*4+w_2*6=1.5
-\\\\\
+$$
+
+$$
 b+w_1*5+w_2*4=0.5
-\\\\\
+$$
+
+$$
 b+w_1*6+w_2*5=0.6
-\\\\\
+$$
+
+$$
 b+w_1*7+w_2*3=0.9
-\\\\\
+$$
+
+$$
 b+w_1*8+w_2*4=0.7
-\\\\\
+$$
+
+$$
 b+w_1*9+w_2*3=0.7
-\\\\\
+$$
+
+$$
 b+w_1*10+w_2*5=1.3
 $$
 
