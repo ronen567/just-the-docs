@@ -313,7 +313,7 @@ $$
 So: 
 
 $$
-\\(X^TX)^{-1}=\begin{bmatrix}
+(X^TX)^{-1}=\begin{bmatrix}
 0.6 &-0.2 \\ 
 -0.2 & 0.1
 \end{bmatrix}
@@ -324,7 +324,7 @@ and:
 
 
 $$
-\\(X^TY)^{-1}=\begin{bmatrix}
+(X^TY)^{-1}=\begin{bmatrix}
 0.6 &-0.2 \\ 
 -0.2 & 0.1
 \end{bmatrix}
@@ -336,7 +336,7 @@ We have now all the building block to complete the calculation:
 
 
 $$
-\\(X^TX)^{-1}(X^TY)=\begin{bmatrix}
+(X^TX)^{-1}(X^TY)=\begin{bmatrix}
 0.6 &-0.2 \\ 
 -0.2 & 0.1
 \end{bmatrix}
