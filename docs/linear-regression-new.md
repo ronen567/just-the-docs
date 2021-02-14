@@ -5,13 +5,19 @@ title: inear Regression NEW!!
 ---
 
 # Linear Regression with the Analytical Solution
-This post is about **Linear Predictor** aka **Linear Regression**. Though not as commonly used as a  Supervised Learning prediction model for, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
 
+Consider the following (very simplified problem): It is needed to predict homes' price, based on 7 features: their address, floor, number of rooms, number of bethrooms, area, schools, and and average of nearby home prices. How should we do that? Answer - remember the presented Supervised Machine Learning model, presented in Figure 1? To perform the task we need to set a prediction algorithm, which parameters should be calculated during the Training phase. Sounds simple right? This process is detailed in this post.
 
+Figure 1: Supervise Learning Outlines
 
-When speaking of Supervised Learning, curenntly **Logistic Regression** is the commonly used predictor. We'll present it in a post which follows. Still, this post is about another predictor model, the **Linear Predictor** aka **Linear Regression**. Though not as commonly used for Supervised Learning, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
+![Supervise Learning Outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
 
-At its name Linear Predictor implies, the predicted output is modeled as a linear combination ofthe input set data, as shown in Eq. 1. Eq.1 presents \\(hat{y}\\) which is the estimated value of y, which is modeled by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e.
+The first step should be the selection of the prediction model. This post presents the **Linear Predictor** aka **Linear Regression**. 
+It is a relatively simple prediction model, a good point to start with, and gain familiarity with some of the predictors' principles.
+
+At the name Linear Predictor implies, the predicted output is modeled by a linear combination of the input dataset, as shown in Eq. 1. 
+In Eq. 1 and throughout equations, \\(hat{y}\\) represents the the estimated value of y, \\(X={x_j}\\) represent the data set input features, where j=1:n, and  \\
+({b, w_i}\\), i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e. 
 
 
 #### Eq. 1: Linear Prediction 
@@ -19,12 +25,9 @@ At its name Linear Predictor implies, the predicted output is modeled as a linea
 $$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
 
 
-Eq.1 presents \\(\\hat{y}\\) which is an estimation for y, computed by as a linear combination of the inputdata set  \\(X={x_i}\\) (AKA input features ). The predictor's coefficients are b and  {w_i}, i=1:n, and \\(\epsilon\\) is the estimation's residual, AKA error.
+Let's return to our homes prices prediction example, but for our convinience, simplify it for now, reduce the number of input features to n=1. This reduction will simplify the comutation illustration and graphical presentation of the problem, but we will not use generality and develope thesolution for any n.
 
-
-Here's an example of Linear Predictor which is a part of a Supervised Learning Regression sceanrio. We use this example to illustrate the Linear Predictor's solution while mathematically presenting the development of the predicto'rs calculation.
-
-Let's start with a simplified form of the example, presented in Table 1. The table holds a set of 5 example data points: 5 example appartments floor labeled by their price. Here x is the floor number, and y is the price. Based on this, we should set a model to predict an apartment price, based on its floor. (Obviously Floor number by itself is not sufficient for apartment price prediction, so is the small number of examples, i.e. 5 examples, but still, we can go with it for the sake of example's simplicity.
+With that in mind, watch Table 1, which holds a set of 5 example data points, each relates to an appartment which is charectarized by its floor, and  labeled by its price. Based on those examples, we should set a model which will predict apartments price, given its floor. (Obviously the floor  by itself is not sufficient for apartment price prediction, but still, we take that for the sake of example's simplicity, but without losing generality - we will show the solution for any n. Besides the too-small number of features,the number of examples, m=5, is obviously too small for a good prediction, but again, it's all for the sake of the example's simplicity.
 
 
 #### Table 1:  Apartments price prediction - single feature
@@ -39,7 +42,7 @@ Let's start with a simplified form of the example, presented in Table 1. The tab
 |4        | 1.65      |        
 
 
-The Linear Predictor based on table 1, would be just the predictor listed in Eq. 1, with n=1 - see Eq. 2a.  Pluging the Table 1's data to Eq. 2a, results in Eq. 2b.
+For Table 1's single feature data, the predictor equation of Eq. 1, reduces to the equation specified in Eq 2A. Pluging the Table 1's data to Eq. 2a, results in Eq. 2b.
 
 #### Eq. 2a: Linear Prediction with n=1 
 
@@ -68,25 +71,20 @@ $$
 b+w_1*4+\epsilon^{(5)}=1.65
 $$
 
-From the above equations we should calculate the coefficients \\(b,w_1\\). We will get to solving the equations later in this post.
+From the above equations the coefficients \\(b,w_1\\) can be found. We will get to solving the equations later in this post.
 
 
 
-
-
-Figure 1 presents graphically a 1D linear predictor for the above data.
-
-
+Figure 1 presents the Table 1's 5 data points, along with a line regression estimator graph.  
 
 #### Figure 1: Linear Prediction - 1D
 
 ![Linear Predictiopn 1d](../assets/images/linear-regression/linear_1d_prediction.png)
 
 
-According to the graph sketched in Figure 1, the linear model indeed fits the data points. To prove a validitiy of a model though,  much more than 5 example data points are needed. Here we use less points, for the sake of simplicity. Later on, we will increase the number of points, AKA examples.
+According to the graph sketched in Figure 1, the linear model indeed seems to fit in as an estimator for the data points. To prove a validitiy of a model though,  one needs much more than 5 example data points. Needles to repeat here on the reasons for our seletion.
 
-
-Now let's increase the predictor's dimenssions to 2. The 2 features which determine the apartments' prices are now Floor and Number of rooms, as listed in Table 2.
+Have not yet explained how the fitting line was calculated, butlet's examine a higher order estimator, with n=2. So accordingly, Let's have now 2 features - floor number and number of bedrooms, as shown in Table 2.
 
 
 #### Table 2:  Apartments price prediction, with n=2
@@ -105,6 +103,7 @@ Now let's increase the predictor's dimenssions to 2. The 2 features which determ
 | 9   | 3       | 0.7        |
 | 10  | 5       | 1.3        |
 
+Till Here!
 
 Needless to note again that these 2 features are not enough to predict apartments pricess, nor is the number of the example points. But that doesn't matter at this point, while it will not be possible to graphically display the datapoints for n>2.
 
