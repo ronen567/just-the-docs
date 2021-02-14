@@ -8,12 +8,12 @@ title: inear Regression NEW!!
 
 When speaking of Supervised Learning, curenntly **Logistic Regression** is the commonly used predictor. We'll present it in a post which follows. Still, this post is about another predictor model, the **Linear Predictor** aka **Linear Regression**. Though not as commonly used for Supervised Learning, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
 
-At its name Linear Predictor implies, the predicted output is modeled as a linear combination ofthe input set data, as shown in Eq. 1. Eq.1 presents \\(\\hat{y}\\) which is the estimated value of y, which is modeled by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e.
+At its name Linear Predictor implies, the predicted output is modeled as a linear combination ofthe input set data, as shown in Eq. 1. Eq.1 presents \\(hat{y}\\) which is the estimated value of y, which is modeled by a linear combination of the input set (AKA input features ), \\(X={x_i}\\) while b and  {w_i}, i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e.
 
 
 #### Eq. 1: Linear Prediction 
 
-$$\\y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
+$$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
 
 
 Eq.1 presents \\(\\hat{y}\\) which is an estimation for y, computed by as a linear combination of the inputdata set  \\(X={x_i}\\) (AKA input features ). The predictor's coefficients are b and  {w_i}, i=1:n, and \\(\epsilon\\) is the estimation's residual, AKA error.
