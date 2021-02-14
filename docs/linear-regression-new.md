@@ -409,7 +409,18 @@ $$
 
 
 
-The predictor's coefficients are \\(b=0.41\\) and \\(w_1=0.32\\), which define the regression line  \\(\hat{y}=0.41+0.32x\\), which is already presented in Figre 1.
+The predictor's coefficients are \\(b=0.41\\) and \\(w_1=0.32\\), which define the regression line  \\(\hat{y}=0.41+0.32x\\). BTW, this line predictor was already presented in Figre 1.
+
+
+To conclude, the bottom line of all the above development of equations is expressed by Eq. 9, which calculates the predictions coefficients \\W=( b, w_j...w_n \\) based on the set of labeled data \\( X=({x_i}^{(2)}...{x_n}^{(i)}), Y=y^{(i)} \\) where i is the example's index, running from 1 to m.
+$$
+Here's Eq. 9 again:
+$$
+(X^TX)^{-1}X^TY=W
+$$
+
+The drawbacks of the analyical solution is the need to inverse natrix \\(X^TX\\), which dimension are (n+1)*(n+1). So when the number of features is large, say overa few hundrerds or so, depending available computation power, the analytical solution might be too expensive. Alternatively, the solution may be calculated using Gradient Descent. We will present and illustrate it along with the Logistic Regression prediction model in a next post.
+
 
 
 
