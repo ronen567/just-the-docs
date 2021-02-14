@@ -27,7 +27,7 @@ $$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
 
 Let's return to our homes prices prediction example, but for our convinience, simplify it for now, reduce the number of input features to n=1. This reduction will simplify the comutation illustration and graphical presentation of the problem, but we will not use generality and develope thesolution for any n.
 
-With that in mind, watch Table 1, which holds a set of 5 example data points, each relates to an appartment which is charectarized by its floor, and  labeled by its price. Based on those examples, we should set a model which will predict apartments price, given its floor. (Obviously the floor  by itself is not sufficient for apartment price prediction, but still, we take that for the sake of example's simplicity, but without losing generality - we will show the solution for any n. Besides the too-small number of features,the number of examples, m=5, is obviously too small for a good prediction, but again, it's all for the sake of the example's simplicity.
+With that in mind, watch Table 1, which holds a set of 5 example data points, each relates to an appartment which is charectarized by its floor, and  labeled by its price. Based on those examples, we should set a model which will predict apartments price, given its floor. (Obviously the floor  by itself is not sufficient for a valid apartment price prediction, but still, we take that for the sake of example's simplicity, but without losing generality - we will show the solution for any n. Besides the too-small number of features,the number of examples, m=5, is obviously too small for a good prediction, but again, it's all for the sake of the example's simplicity.
 
 
 #### Table 1:  Apartments price prediction - single feature
@@ -103,13 +103,12 @@ Have not yet explained how the fitting line was calculated, butlet's examine a h
 | 9   | 3       | 0.7        |
 | 10  | 5       | 1.3        |
 
-Till Here!
-
-Needless to note again that these 2 features are not enough to predict apartments pricess, nor is the number of the example points. But that doesn't matter at this point, while it will not be possible to graphically display the datapoints for n>2.
 
 
-Let's look at the graphical presentation of table 2's graphical presentation. Figure 2 presents the above dataset examples - those points have the x marker. Based on those points, a linear predictor was calculated, as epressed by Eq. 3 - same like Eq. 1, but with n=2:
+Still now, these 2 features are not enough for a valid prediction of apartments pricess, nor is the number of the example points. But that doesn't matter at this point. Anyway, with n<=2, it is still possible to present the datapoints and the predictor graphically, as shown in Figure 2.
+Figure 2 presents the listed above dataset examples, (see x marker points), and based on those points, it presents a linear predictor points, which where  calculated with the predictor expression of Eq. 3, which is same as Eq. 1, but with n=2.
 
+As before,  i=1:m, where m=11 is the number of examples. Nore that the Linear Predictor's calculated \hat{y^{(i)}}  points, are located on the colored presented surface of Fig 2.
 
 #### Eq. 3:
 
@@ -118,10 +117,7 @@ y=\hat{y^{(i)}}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
 $$
 
 
-Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalculated \hat{y^{(i)}} are located on the painted surface  of Fig 2.
-
-
-Inserting table 2's data to Eq. 3 gives the following set of equations:
+Let's insert table 2's data to Eq. 3 gives the following set of equations:
 
 
 $$
@@ -169,7 +165,7 @@ $$
 b+w_{_1}*10+w{_2}*5+\epsilon^{(11)}=1.3
 $$
 
-From the above equations we should calculate the coefficients \\( {b,w_1, w_2} \\). We will get to solving the equations in the next paragraph of this post.
+From the above 11 equations, it is possible to calculate the coefficients \\( {b,w_1, w_2} \\). We will get to solving the equations in the next paragraph of this post.
 
 
 
