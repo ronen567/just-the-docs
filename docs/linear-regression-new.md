@@ -189,7 +189,7 @@ Now that we've seen 2 linear prediction examples, with n=1 and n=2, we continue 
 
 Given Eq. 1 we aim to find the predictor's coefficents \\( {b, w_i}\\),  j=1:n which will lead to the best predictor \\(\hat{y}\\) for y.
 
-For our calculation, we need a set of labeled examples \\( {x_1...x_n, y} )\\. See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index, which runs fro, 1 to n. 
+For our calculation, we need a set of labeled examples \\( {x_1...x_n, y} \\) See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index, which runs fro, 1 to n. 
 
 #### Eq. 4: Linear Predictor, n dimensional input, m examples 
 
@@ -409,7 +409,7 @@ $$
 
 
 
-The predictor's coefficients are \\(b=0.41\\) and \\(w_1=0.32\\), which define the regression line  \\(\hat(y)=0.41+0.32x\\), which is already presented in Figre 1.
+The predictor's coefficients are \\(b=0.41\\) and \\(w_1=0.32\\), which define the regression line  \\(\hat{y}=0.41+0.32x\\), which is already presented in Figre 1.
 
 
 
