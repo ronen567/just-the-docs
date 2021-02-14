@@ -116,7 +116,7 @@ y=\hat{y^{(i)}}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
 $$
 
 
-Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalculated \hat{y^^{(i)}} are located on the painted surface  of Fig 2.
+Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalculated \hat{y^{(i)}} are located on the painted surface  of Fig 2.
 
 
 Inserting table 2's data to Eq. 3 gives the following set of equations:
@@ -184,7 +184,7 @@ Now that we've seen 2 linear prediction examples, with n=1 and n=2, we continue 
 
 ### Analytical Solution for Linear Predictor Coefficents
 
-Given Eq. 1 we aim to find the predictor's coefficents \\b, (w_i)\\,  j=1:n which will lead to the best predictor \\(\hat(y)\\) for y.
+Given Eq. 1 we aim to find the predictor's coefficents \\b, (w_i)\\,  j=1:n which will lead to the best predictor \\(\hat{y}\\) for y.
 
 For our calculation, we need a set of labeled examples \\((x_1...x_n) , y)\\. See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index. 
 
