@@ -111,7 +111,9 @@ Let's look at the graphical presentation of table 2's graphical presentation. Fi
 
 Eq. 3:
 
-$$y=\hat{y^^{(i)}}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}$$
+$$
+y=\hat{y^^{(i)}}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
+$$
 
 
 Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalculated \hat{y^^{(i)}} are located on the painted surface  of Fig 2.
@@ -124,7 +126,8 @@ $$
 b+w{_1}*0+w{_2}*5+\epsilon^{(1)}=1.5
 $$
 
-$$b+w{_1}*1+w_2*4+\epsilon^{(2)}=0.5
+$$
+b+w{_1}*1+w_2*4+\epsilon^{(2)}=0.5
 $$
 
 $$
