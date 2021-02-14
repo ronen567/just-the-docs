@@ -216,16 +216,14 @@ y^{(2)}
 .
 \\\\
 y^{(m)}
-\end{bmatrix}= 
-\begin{bmatrix}
+\end{bmatrix}= \begin{bmatrix}
 1 & x_1^{(1)} & x_2^{(1)} & x_3^{(1)} & . & . & x_n^{(1)}\\\\\
 1 & x_1^{(2)} & x_2^{(2)} & x_3^{(2)} & . & . & x_n^{(2)}\\\\\
 .& .& .& .& \\\\\
 .& .& .& .& \\\\\
 .& .& .& .& \\\\\
 1 & x_1^{(m)} & x_2^{(m)} & x_3^{(m)} & . & . & x_n^{(m)} 
-\end{bmatrix}
-\begin{bmatrix}
+\end{bmatrix} \begin{bmatrix}
 b\\\\\ 
 w_1\\\\\
 .\\\\
