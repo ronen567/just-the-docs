@@ -5,6 +5,9 @@ title: inear Regression NEW!!
 ---
 
 # Linear Regression with the Analytical Solution
+This post is about **Linear Predictor** aka **Linear Regression**. Though not as commonly used as a  Supervised Learning prediction model for, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
+
+
 
 When speaking of Supervised Learning, curenntly **Logistic Regression** is the commonly used predictor. We'll present it in a post which follows. Still, this post is about another predictor model, the **Linear Predictor** aka **Linear Regression**. Though not as commonly used for Supervised Learning, it is a relatively simple model, which might be a good point to start with, and gain familiarity with some of the predictors' principles.
 
@@ -40,7 +43,7 @@ The Linear Predictor based on table 1, would be just the predictor listed in Eq.
 
 #### Eq. 2a: Linear Prediction with n=1 
 
-$$y = y\approx \hat{y} + e=b+w_1x_1 + e$$
+$$y = \hat{y} + e=b+w_1x_1 + e$$
 
 
 Inserting table 1's data to Eq. 2a gives the following set of equations:
@@ -167,7 +170,7 @@ $$
 b+w_{_1}*10+w{_2}*5+\epsilon^{(11)}=1.3
 $$
 
-From the above equations we should calculate the coefficients \\(b,w_1, w_2\\). We will get to solving the equations in the next paragraph of this post.
+From the above equations we should calculate the coefficients \\( {b,w_1, w_2} \\). We will get to solving the equations in the next paragraph of this post.
 
 
 
@@ -184,9 +187,9 @@ Now that we've seen 2 linear prediction examples, with n=1 and n=2, we continue 
 
 ### Analytical Solution for Linear Predictor Coefficents
 
-Given Eq. 1 we aim to find the predictor's coefficents \\b, (w_i)\\,  j=1:n which will lead to the best predictor \\(\hat{y}\\) for y.
+Given Eq. 1 we aim to find the predictor's coefficents \\( {b, w_i}\\),  j=1:n which will lead to the best predictor \\(\hat{y}\\) for y.
 
-For our calculation, we need a set of labeled examples \\((x_1...x_n) , y)\\. See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index. 
+For our calculation, we need a set of labeled examples \\( {x_1...x_n, y} )\\. See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index, which runs fro, 1 to n. 
 
 #### Eq. 4: Linear Predictor, n dimensional input, m examples 
 
