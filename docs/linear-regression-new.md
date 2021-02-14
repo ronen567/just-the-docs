@@ -119,7 +119,13 @@ Where i=1:m, where m=11 is the number of examples. The Linear Predictor's pcalcu
 
 Inserting table 2's data to Eq. 3 gives the following set of equations:
 
-$$b+w_1*0+w_2*5=1.5
+
+$$
+b+w_1*3+\epsilon^{(4)}=1.4
+$$
+
+$$
+b+w_1*0+w_2*5=1.5
 $$
 
 
