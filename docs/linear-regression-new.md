@@ -21,7 +21,7 @@ According to our notations In Eq. 1 and on,  are  \\(\hat{y}\\) represents the t
 
 #### Eq. 1: Linear Prediction 
 
-\\\\\\\\\\$$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
+$$\\\\\\\\\\y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
 
 
 Let's return to our homes prices prediction example, but for our convinience, simplify it for now, reduce the number of input features to n=1. This reduction will simplify the comutation illustration and graphical presentation of the problem, but we will not use generality and develope thesolution for any n.
