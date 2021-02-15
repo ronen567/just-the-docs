@@ -16,12 +16,12 @@ The first step should be the selection of the prediction model. This post presen
 It is a relatively simple prediction model, a good point to start with, and gain familiarity with some of the predictors' principles.
 
 At the name Linear Predictor implies, the predicted output is modeled by a linear combination of the input dataset, as shown in Eq. 1. 
-In Eq. 1 and throughout equations, \\(hat{y}\\) represents the the estimated value of  \\(y\\), \\(X={x_j}\\) represent the data set input features, where j=1:n, and  \\({b, w_i}\\), i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e. 
+According to our notations In Eq. 1 and on,  are  \\(\hat{y}\\) represents the the estimated value of  \\(y\\), \\(X={x_j}\\) represent the data set input features, where j=1:n, and  \\({b, w_i}\\), i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e. 
 
 
 #### Eq. 1: Linear Prediction 
 
-$$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
+\\\\\\\\\\$$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
 
 
 Let's return to our homes prices prediction example, but for our convinience, simplify it for now, reduce the number of input features to n=1. This reduction will simplify the comutation illustration and graphical presentation of the problem, but we will not use generality and develope thesolution for any n.
