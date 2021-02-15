@@ -16,8 +16,7 @@ The first step should be the selection of the prediction model. This post presen
 It is a relatively simple prediction model, a good point to start with, and gain familiarity with some of the predictors' principles.
 
 At the name Linear Predictor implies, the predicted output is modeled by a linear combination of the input dataset, as shown in Eq. 1. 
-In Eq. 1 and throughout equations, \\(hat{y}\\) represents the the estimated value of y, \\(X={x_j}\\) represent the data set input features, where j=1:n, and  \\
-({b, w_i}\\), i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e. 
+In Eq. 1 and throughout equations, \\(hat{y}\\) represents the the estimated value of  \\(y\\), \\(X={x_j}\\) represent the data set input features, where j=1:n, and  \\({b, w_i}\\), i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e. 
 
 
 #### Eq. 1: Linear Prediction 
