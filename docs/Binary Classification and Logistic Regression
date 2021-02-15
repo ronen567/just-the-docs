@@ -7,26 +7,32 @@ title: Binary Classification and Logistic Regression New!
 # Binary Classification and Logistic Regression
 
 
-Take the following (very simplified) problem: 
+Take the following problem: Predict if a customer will make a purchase based on his income, time from previous purchace, and address. Quite similar to the case discussed in the previous post on Linear Regression, but unlike the other case, where the predicted value - homes pricess - are continous, and the prediction system described was the Supervised Learning Regression Classifcation, here the result is binary, either yes or no, and accordingly named Supervised Learning Binary Classifcation.
 
-This post is about Binary Classification in the context of Supervised Machine Learning Algorithms. In Binary classification, the algorithm needs to select between 2 hypothesis, for a given set of input features. For example: Will a customer will buy the product or not, based on a set of input features which consists of his income, address, occupaition, previous purchaces and so on. So the 2 classes here are: Will purcease and Will not purchace. In the formulas that follow, those 2 classes are denoted as 1 and 0. Which of the 2 classes should take the 1 and which the 0? Bassically, it doesn't matter, but the convention is to assign the 1 to the 'positive' hypothesis and the 0 to the negative hypothesis.
-
-Just note that the focus now is on a Binary Classification, but based on that, we will extend to multi classes. In a post which follows.
-
-So, Question: how will the algorithm work? Answer: It works according to the Supervised Learning algorithm. Let's recap briefly: Figure 1 presents the block diagram of  describe such a system - (re-posting the same diagram for convinience):
+The Supervise Learning Outlines diagram (Figure 1) presented in some previous posts, is still relevant. Same as in  Linear Regression, the Predictor is claculated during the Data Training phase, making it ready for predictions with normal data after that. 
 
 Figure 1: Supervise Learning Outlines
 
 ![Supervise Learning Outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
 
+Following Figure 1, we are now concentrating on setting a Prediction Model, which will produce the classification decisions, based on input data X.
+So in this post the following topics are discussed:
+1. Try to fit Linear Regression as a prediction model for Binary Classifcations.
+2. Present the Logistic Regression, as the prediction model which fits Bumary Classifcation
+3. Develop a cost function for Logistic Regression. The cost function expresses the prediction error. To optimize the predictor, we need to find its coefficients which minimize the cost function.
+4. We will find the cost minima, using first order derivative, and find the coefficents at that point.
 
-Following Figure 1, we are now concentrating on setting a Prediction Model, which makes the classification decision for the inpuut features X. The model's coefficients are calculated during the Training phase, and later, during the normal data phase, do the classification.
 
-Done with the introduction, the rest of the post will present the following:
-1. Present the selection of Logistic Regression as the predictor for Binary Classification.
-2. Present the usage of Gradient Decent to find the Logistic Regression coefficients
+We need to find the point where cost function is minimal, and use the point at which the cost function Once we have such a cost function, 
 
 
+1. An introduction to  the Logistic Regression as the predictor for Binary Classification.
+2. An introdcution to Gradient Decent, illustrating it on solving for the Logistic Regression coefficents.
+
+## An introduction to the Logistic Regression as the predictor for Binary Classification
+
+I
+n this chapter we will present the Back to the problem presented here on top, where we need to predict a purchase based on 3 features: 
 To start with, we will use a reduced features order Binary Classification sceanrio, i.e.: Predict if a customer will buy a new product based on his income. Such a prediction maybe does not make sense practicdally, but the reduced features dimensions to 1, makes it easier to present it graphically.
 So now, Figure 2 presents the purchase perdiction based on income only.
 
