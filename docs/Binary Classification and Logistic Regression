@@ -6,36 +6,23 @@ title: Binary Classification and Logistic Regression New!
 
 # Binary Classification and Logistic Regression
 
-
-Take the following problem: Predict if a customer will make a purchase based on his income, time from previous purchace, and address. Quite similar to the case discussed in the previous post on Linear Regression, but unlike the other case, here the decision is binary: yes or no.
-
+The previous post was about Regression Supervised Learning, where the prediction was of a continous variable, such as price, amount, presiod, distance, etc. In Binary Classification Supervised Learning, it is needed to decide between 2 descrete hypothesis, such as a decision whether a tumor is malignant or not, or a or a purchace forecast - will a customer purchase an item or not, etc.
 
 
-where the predicted value - homes pricess - are continous, and the prediction system described was the Supervised Learning Regression Classifcation, here the result is binary, either yes or no, and accordingly named Supervised Learning Binary Classifcation.
+The Supervise Learning Outlines diagram (Figure 1) presented for Regression Learning, is still valid here. The difference is with the prediction model: We'll present the Logistic Regression prediction model, which fits Binary Classification - before that we'll show that a continous prediction model such as the Linear Prediction model doesn't fit. After that, we will show how to calculate the predictor's coefficients with the Gradient Descent algorithm.
 
-The Supervise Learning Outlines diagram (Figure 1) presented in some previous posts, is still relevant. Same as in  Linear Regression, the Predictor is claculated during the Data Training phase, making it ready for predictions with normal data after that. 
 
 Figure 1: Supervise Learning Outlines
 
 ![Supervise Learning Outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
 
-Following Figure 1, we are now concentrating on setting a Prediction Model, which will produce the classification decisions, based on input data X.
-So in this post the following topics are discussed:
-1. Try to fit Linear Regression as a prediction model for Binary Classifcations.
-2. Present the Logistic Regression, as the prediction model which fits Bumary Classifcation
-3. Develop a cost function for Logistic Regression. The cost function expresses the prediction error. To optimize the predictor, we need to find its coefficients which minimize the cost function.
-4. We will find the cost minima, using first order derivative, and find the coefficents at that point.
+So let's start! 
+
+## An introduction to the Logistic Regression
+
+To illustrate Binary Classification let's examine a simple problem
 
 
-We need to find the point where cost function is minimal, and use the point at which the cost function Once we have such a cost function, 
-
-
-1. An introduction to  the Logistic Regression as the predictor for Binary Classification.
-2. An introdcution to Gradient Decent, illustrating it on solving for the Logistic Regression coefficents.
-
-## An introduction to the Logistic Regression as the predictor for Binary Classification
-
-I
 n this chapter we will present the Back to the problem presented here on top, where we need to predict a purchase based on 3 features: 
 To start with, we will use a reduced features order Binary Classification sceanrio, i.e.: Predict if a customer will buy a new product based on his income. Such a prediction maybe does not make sense practicdally, but the reduced features dimensions to 1, makes it easier to present it graphically.
 So now, Figure 2 presents the purchase perdiction based on income only.
