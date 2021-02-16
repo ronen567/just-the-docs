@@ -7,7 +7,11 @@ title: Binary Classification and Logistic Regression New!
 # Binary Classification and Logistic Regression
 
 
-Take the following problem: Predict if a customer will make a purchase based on his income, time from previous purchace, and address. Quite similar to the case discussed in the previous post on Linear Regression, but unlike the other case, where the predicted value - homes pricess - are continous, and the prediction system described was the Supervised Learning Regression Classifcation, here the result is binary, either yes or no, and accordingly named Supervised Learning Binary Classifcation.
+Take the following problem: Predict if a customer will make a purchase based on his income, time from previous purchace, and address. Quite similar to the case discussed in the previous post on Linear Regression, but unlike the other case, here the decision is binary: yes or no.
+
+
+
+where the predicted value - homes pricess - are continous, and the prediction system described was the Supervised Learning Regression Classifcation, here the result is binary, either yes or no, and accordingly named Supervised Learning Binary Classifcation.
 
 The Supervise Learning Outlines diagram (Figure 1) presented in some previous posts, is still relevant. Same as in  Linear Regression, the Predictor is claculated during the Data Training phase, making it ready for predictions with normal data after that. 
 
