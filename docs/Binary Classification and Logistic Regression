@@ -20,19 +20,13 @@ So let's start!
 
 ## An introduction to the Logistic Regression
 
-To illustrate Binary Classification let's examine a simple problem
+To illustrate Binary Classification let's examine a simple problem, at which we need to predict if a customer will buy a certain product, based on his income - such a prediction indeed does not make sense practicdally, as a good predictor for this can't based on income only, but the example is simplified to ease the graphical illustration.
 
-
-n this chapter we will present the Back to the problem presented here on top, where we need to predict a purchase based on 3 features: 
-To start with, we will use a reduced features order Binary Classification sceanrio, i.e.: Predict if a customer will buy a new product based on his income. Such a prediction maybe does not make sense practicdally, but the reduced features dimensions to 1, makes it easier to present it graphically.
-So now, Figure 2 presents the purchase perdiction based on income only.
-
-
+So now, we collected the income of customers which visited the store, as presented in Figure 2. 
 
 Figure 2:  Binary Classification - Purchace prediction based on income
-
-
-![Supervised  outlines](../assets/images/logistic-regression/binary-classification-points.png)
+ TILL HERE!!
+![Supervised  outlines](../assets/images/logistic-regression/binary_point.png)
 
 
 The data set presented in Figure 2, hold the labeled training data, i.e. the each income feature point is labeled with its related purchase decisoin taken. We would need a prediction model that can fir these points. According to our paradigm, after fitting the model to the training data, it should fir the normal unlabeled data that comes after. (Though after training, the model's performance should be tested before accepted to be used for real data).
@@ -42,19 +36,19 @@ So which model can we take? We previously reviewed the linear prediction model, 
 examines Linear Prediction for Binary Classification.
 
 
-![Linear Prediction for Binary Classification](../assets/images/logistic-regression/linear-prediction-binary-classification.png)
+![Linear Prediction for Binary Classification](../assets/images/logistic-regression/binary_point_linear_pred.png)
 
 
 Figure 3 presents a line which is assumed to model the data points. Examine the model: According to it, a income of 3000, which was labeld with a 0, will now be mapped to ~0.4. and the income of 3500 now maps to 0.5. Can this model create valid predictions? Figure 4 presnets the decision boundary - any point on the line, from 0.5 and up will be classified as 1, and the rest as 0. One might tend to think that this model is valid - but that is not correct. Justtake another set of training points, as presented by Figure 5, keep the thershold on 0.5, and now, only income from 5000 and up is mapped to 1. And if we had taken more points, obviously the treshhold would move more. 
 
 Figure 4: Linear Prediction for Binary Classification with thresholds
 
-![Linear Prediction for Binary Classification THresholds](../assets/images/logistic-regression/linear-prediction-binary-classification_thresholds.png)
+![Linear Prediction for Binary Classification THresholds](../assets/images/logistic-regression/binary_point_linear_pred_with_markers.png)
 
 
 Figure 5: Linear Prediction for Binary Classification with thresholds - Problem!
 
-![Linear Prediction for Binary Classification Thresholds Problem](../assets/images/logistic-regression/linear-prediction-binary-classification_thresholds_problem.png)
+![Linear Prediction for Binary Classification Thresholds Problem](../assets/images/logistic-regression/binary_point_linear_pred_problem.png)
 
 
 
