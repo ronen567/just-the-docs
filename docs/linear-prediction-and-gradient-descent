@@ -1,3 +1,17 @@
+---
+.text-green-300
+layout: default
+nav_order: 1
+title: Linear Prediction Using Gradient Descent New!
+.fs-10
+.text-green-300
+---
+
+Linear Prediction Using  Gradient Descent
+
+The previous post introduced the usage of Linear Prediction model for Regression Supervised Machine Learning. Along with that, the model's parameter were calculated using the Analytical Solution. The analytical solution is fairly simple and straight forward, except that it requires an nxn matrix inversion, where n is the dimension of the input data vector, or in other words, the number of input data features. Normally, the solution is feasible, unless the number of features is very big, say >1000, but anyway dependes on the computation cost and availability.
+Here we will present an alternative solution, the Gradient Descent, which is a simple and common iterative solution. Gradient Descent is widely used  for solving for the Logistic Regression predictor's predictor, for which the analytical solution doesn't fit. Logistic Regression will be presented in a next post.
+
 
 
 
