@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 3
-title: Linear Prediction Using Gradient Descent New!
+title: Linear Prediction Using Gradient Descent New! backup!
 ---
 
 ## Linear Prediction Using  Gradient Descent
