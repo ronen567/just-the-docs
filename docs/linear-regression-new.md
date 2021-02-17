@@ -21,7 +21,7 @@ According to our notations, \\(\hat{y}\\) represents the the estimated value of 
 
 #### Eq. 1: Linear Prediction 
 
-$$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e$$
+$$ \begin{flushleft}y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e\end{flushleft}$$
 
 
 Let's return to our homes prices prediction example, but for our convinience, simplify it for now, reduce the number of input features to n=1. This reduction will simplify the comutation illustration and graphical presentation of the problem, but we will not use generality and develope thesolution for any n.
@@ -245,7 +245,7 @@ $$
 Y=XW+\epsilon
 $$
 
-And dropping  \epsilon, leaving aside the prediction residual we get:
+And dropping  \\(\epsilon\\), leaving aside the prediction residual we get:
 
 Eq. 6: 
 
@@ -279,7 +279,7 @@ Since   \\((X^TX)^{-1}X^TX\\)=I   Eq. 8 reduces to:
 #### Eq. 9: 
 
 $$
-(X^TX)^{-1}X^TY=W
+\mathbf{(X^TX)^{-1}X^TY=W}
 $$
 
 And that's it! We have the solution for the predictor's coefficents.
