@@ -370,7 +370,7 @@ d &-b \\\\\
 \end{bmatrix}
 $$
 
-Where
+Where the denominator is a determinant, so:
 
 $$\begin{vmatrix}
 d & -b \\\\\ 
