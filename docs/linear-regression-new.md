@@ -9,6 +9,7 @@ title: inear Regression NEW!!
 
 # Linear Regression with the Analytical Solution
 
+
 Consider the following (very simplified problem): It is needed to predict homes' price, based on 6 features: their address, floor, number of rooms, number of bethrooms, area, and schools. How should we do that? Answer - remember the presented Supervised Machine Learning model, presented in Figure 1? To perform the task we need to set a prediction algorithm, which parameters should be calculated during the Training phase. Sounds simple right? This process is detailed in this post.
 
 Figure 1: Supervise Learning Outlines
