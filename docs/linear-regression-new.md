@@ -8,6 +8,21 @@ title: inear Regression NEW!!
 ---
 
 
+Font size
+Use the .fs-1 - .fs-10 to set an explicit font-size.
+
+Class	Small screen size font-size	Large screen size font-size
+.fs-1	9px	10px
+.fs-2	11px	12px
+.fs-3	12px	14px
+.fs-4	14px	16px
+.fs-5	16px	18px
+.fs-6	18px	24px
+.fs-7	24px	32px
+.fs-8	32px	38px
+.fs-9	38px	42px
+.fs-10	42px	48px
+
 # Linear Regression with the Analytical Solution
 
 Consider the following (very simplified problem): It is needed to predict homes' price, based on 6 features: their address, floor, number of rooms, number of bethrooms, area, and schools. How should we do that? Answer - remember the presented Supervised Machine Learning model, presented in Figure 1? To perform the task we need to set a prediction algorithm, which parameters should be calculated during the Training phase. Sounds simple right? This process is detailed in this post.
