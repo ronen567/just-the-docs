@@ -361,12 +361,21 @@ $$
 \begin{bmatrix}
 a &b \\\\\
 c & d
-\end{bmatrix}^{-1}=\frac{1}{Determinant}*\begin{bmatrix}
+\end{bmatrix}^{-1}=\frac{1}{\begin{vmatrix}
+d & -b\\ 
+-c & a
+\end{vmatrix}}*\begin{bmatrix}
 d &-b \\\\\
 -c & a
 \end{bmatrix}
 $$
 
+Where
+
+$$\begin{vmatrix}
+d & -b\\ 
+-c & a
+\end{vmatrix} = da-bc$$
 
 So: 
 
@@ -383,7 +392,10 @@ $$
 
 We have now all the building block to complete the calculation:
 
-
+\begin{vmatrix}
+d & -b\\ 
+-c & a
+\end{vmatrix}
 
 $$
 w=\begin{bmatrix}
