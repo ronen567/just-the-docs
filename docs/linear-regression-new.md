@@ -4,7 +4,7 @@ layout: default
 nav_order: 1
 title: inear Regression NEW!!
 ---
-
+.fs-10
 .text-green-300
 
 # Linear Regression with the Analytical Solution
