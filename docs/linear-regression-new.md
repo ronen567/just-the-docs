@@ -108,7 +108,7 @@ Have not yet explained how the fitting line was calculated, butlet's examine a h
 Still now, these 2 features are not enough for a valid prediction of apartments pricess, nor is the number of the example points. But that doesn't matter at this point. Anyway, with n<=2, it is still possible to present the datapoints and the predictor graphically, as shown in Figure 2.
 Figure 2 presents the listed above dataset examples, (see x marker points), and based on those points, it presents a linear predictor points, which where  calculated with the predictor expression of Eq. 3, which is same as Eq. 1, but with n=2.
 
-As before,  i=1:m, where m=11 is the number of examples. Nore that the Linear Predictor's calculated \\(\hat{y^{(i)}}\\)  points, are located on the colored presented surface of Fig 2.
+As before,  i=1:m, where m=11 is the number of examples. Nore that the Linear Predictor's calculated \\(\hat(y^{(i)})\\)  points, are located on the colored presented surface of Fig 2.
 
 #### Eq. 3:
 
