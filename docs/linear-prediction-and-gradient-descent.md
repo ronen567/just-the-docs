@@ -1,10 +1,7 @@
 ---
-.text-green-300
 layout: default
-nav_order: 4
+nav_order: 3
 title: Linear Prediction Using Gradient Descent New!
-.fs-10
-.text-green-300
 ---
 
 Linear Prediction Using  Gradient Descent
