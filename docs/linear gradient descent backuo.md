@@ -73,7 +73,8 @@ $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2$$
 #### Figure 3:  Plot illustration of  $$J(b,w)$$,  n=1:
 
 
-![Approximation Surface](../assets/images/approximationSurface.jpg)
+![Approximation Surface](../assets/images/gradient_descent/cost_function_2d.png)
+
 
 
 We are looking for the predictor's coefficents which minimize the cost function. The cost function is minimal just at the point where the first derivative is 0. 
@@ -83,12 +84,32 @@ Gradient Descent algorithm will do the job! Here's the algorithm's formula:
 
 #### Eq. 5: Gradient Descent
 a:  Gradient Descent with gradient to the \\(w_j\\) direction:
-$$\\w_j:=w_j-\alpha \frac{\partial J(b,w) }{\partial w_j}$$
+$$w_j:=w_j-\alpha \frac{\partial J(b,w) }{\partial w_j}$$
 
 b. Gradient Descent with gradient to the {b} direction:
-$$\\b:=b-\alpha \frac{\partial J(b,w) }{\partial b}$$
+$$b:=b-\alpha \frac{\partial J(b,w) }{\partial b}$$
 
-Eq. 13 describes an iterative algorithm, which should run in paralel for all the n+1 variables, i.e. b and  \\(w_j\\) j=1:n.
+Eq. 5 describes an iterative algorithm, which should run in paralel for all the n+1 variables, i.e. b and  \\(w_j\\) j=1:n.
+
+
+Here's the algorithm's procedure: 
+1. Select arbitrary initial values for n+1 coefficients (A bad values selectionmay delay convergance. Check if so by trial and error.)
+2. Using latest calculated coefficients, calculate a new set of n+1 coefficents using Eq. 5
+3. Check ***termination condition***. If not fullfiled, go sto step 2.
+
+
+
+Some notes on the algorithm:
+1. Termination conditio
+2. Selection of alpha
+
+There are some different stopping rules, such as number of iterations, or 
+
+
+The algorithm steps in the opposite direction of the gradient until convergence, as the gradient, multiplied by a constant $$\alpha$$ is decremented from previous value.
+
+
+
 
 Before we formulate the algorithm procedure, plugging Eq. 6 into Eq. 2, resultant in Eq.7,  it's easy to get the partial derivatives, as shown in Eq. 8
 
@@ -113,14 +134,6 @@ $$\frac{\partial J(w,b))}{\partial w_j} = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)
 $$
 
 TILL HERE!!!!! ronen
-Here'd the algorithm's procedure: 
-1. Select arbitrary initial values for the calculated values. we can set all to 0: b=0, all wj=0.
-2. Calculate  Iteration 1 done!
-3. Substitute new values in Eq. 13, and repeat to produce new {b} and {w_1}
-4. Repeat step 3 until convergence, i.e. whenn iteration result wrt to previous iteration is below threshold: if $$abs(w_1[k]-w_1[k-]) < \Delta, stop$$
-
-The algorithm steps in the opposite direction of the gradient until convergence, as the gradient, multiplied by a constant $$\alpha$$ is decremented from previous value.
-
 
 
 
