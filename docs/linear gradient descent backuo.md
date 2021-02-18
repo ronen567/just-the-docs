@@ -92,21 +92,97 @@ $$b:=b-\alpha \frac{\partial J(b,w) }{\partial b}$$
 Eq. 5 describes an iterative algorithm, which should run in paralel for all the n+1 variables, i.e. b and  \\(w_j\\) j=1:n.
 
 
-Here's the algorithm's procedure: 
+### Here's the algorithm's procedure: 
 1. Select arbitrary initial values for n+1 coefficients (A bad values selectionmay delay convergance. Check if so by trial and error.)
 2. Using latest calculated coefficients, calculate a new set of n+1 coefficents using Eq. 5
 3. Check ***termination condition***. If not fullfiled, go sto step 2.
 
 
+Plots in Figure 4 illustrate the Gradient Descent operation. Those plots isolates one of the n+1 coefficients calculations.
+:
 
-Some notes on the algorithm:
-1. Termination conditio
-2. Selection of alpha
 
-There are some different stopping rules, such as number of iterations, or 
+
+
+
+
+
+
+
+
+#### Some notes on the algorithm:
+1. Termination condition - when to stop the iterative process.
+2. Selection of \\(\alpha\\) - alpha AKA as the learning rate.
+
+Regarding termination condition, there are some different rules, either based on the fact that the algorithm merges at the minimal point where the derivatives are 0, or after number of iterations passed, or time has elapsed,  3 different options are listed below:
+a. Counting number of iterations.
+b. Comparing the the gradient magnitute against a threshold i.e. 
+
+$$\left \| \bigtriangledown J(b,w) \right \| < \epsilon$$
+
+
+Where:
+
+$$\left \| \bigtriangledown J(b,w) \right \|=
+\left \|\frac{\partial J(b,w)}{\partial b},\frac{\partial J(b,w)}{\partial w_1}....\frac{\partial J(b,w)}{\partial w_n} \right \|
+$$
+
+
+
+c. Check the calculated value and see it is not changing i.e. converged, i.e:
+
+\left \| w_j{(i+1))}- w_j{(i))} \right \| < \epsilon
+
+Note that there is no general rule for the selection of \\(\epsilon\\), in both options.
+
+### Selection of alpha selection: 
 
 
 The algorithm steps in the opposite direction of the gradient until convergence, as the gradient, multiplied by a constant $$\alpha$$ is decremented from previous value.
+
+#### Figure 4: Gradient Descent: Gradient of a single parameter
+
+a. After One Iteration
+
+![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_1_iteration.png)
+
+b. After Four Iterations
+
+![gradient_descent_4_iterations](../assets/images/gradient_descent/gradient_descent_4_iterations.png)
+
+
+c. After Fourteen Iterationss
+
+![gradient_descent_14_iteration](../assets/images/gradient_descent/gradient_descent_14_iteration.png)
+
+
+
+
+The convergence shown should be achieved simoultansouly on all n+1 dimensions.
+Figure 5 illustrate Gradient Descent with 2 fimensional variables: b and \\(w_1\\}.
+ 
+ 
+
+
+Figure 5: Illustration of Gradient Descent with n+1=2
+
+![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
+
+
+Till here!!
+
+
+Let's talk about $$/alpha$$, the step size.
+
+Looking at Figure 8, it looks like the smaller the step size $$/alpha$$ is, the slower convergence goes. And also vice versa - one might assume that the larger $$/alpha$$ is, the fastest it will converge. Wrong assumption!
+A too large step-size may result with oscilations. Look at Figure 9.
+
+Figre 9: Gradient Descent Oscilation
+
+![gradient_descent_14_iteration](../assets/images/gradient_descent/gradient_descent_oscilations.png)
+
+
+Conclusion - step size should be carefully selected, and may be needed to tune during caluclations.
 
 
 
