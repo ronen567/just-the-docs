@@ -8,30 +8,33 @@ title: Linear Prediction Using Gradient Descent New! backup!
 
 ### Introduction
 
-The previous post introduced Linear Prediction model for Regression Supervised Machine Learning. It is recommended to read it first, in case you're not familiar with it. Along with that, the previous post presented the Analytical Solution for calculating the predictor's coefficents. The analytical solution is fairly simple and straight forward, except that it requires an nxn matrix inversion, where n is the dimension of the input data vector, or in other words, the number of input data features. Normally, the solution is feasible, unless the number of features is very big, say >1000, but anyway dependes on the computation cost and availability.
-Here we will present an alternative solution, the Gradient Descent, which is a simple and common iterative solution. Gradient Descent is widely used  for solving for the Logistic Regression predictor's predictor, for which the analytical solution doesn't fit. Logistic Regression will be presented in a next post.
+The previous post introduced Linear Prediction model for Regression Supervised Machine Learning. It is recommended to read it first, unless you are familiar with the Linear Regression prediction model. Along with model presentation, the previous post presented the Analytical Solution for calculating the predictor's coefficents. it's a fairly simple solution, except it requires an \\(n X n\\) matrix inversion, where n is the dimension of the input data vector. In many cases, that's not an issue, unless the number of features large, say >1000. Anyway, it's a matter of computational cost and availability.
+This post presents an alternative solution, the Gradient Descent. Gradient Descent is a simple and common iterative solution. It is widely used for solving prediction models such as the Logistic Regression predictor, for which the analyitcal solution does not fit. BTW, Logistic Regression will be presented in a next post.
 
 
 ### Outlines of this post
 
-We start by defining a ***cost function***, which determines the mean squared error between the real expected system's output, and the prediction model's related value.
-Then, the Cost Function's partial derivatives, with regard to each predictore's coeffcient are calculated. With those derivatives, we will be able to find the coefficients, as will be detailed later in this doc.
+So we need to find the predictor's coefficients \\(b, w_j\\), where j=1:n. 
+***Question:*** What is the expected criteria for the desired set of coeficients?
+***Answer:*** The set of coefficents should minimize a cost function which expresses the difference between the modeled value and the actual value. So that's what this post is about: Determining a cost function, and finding the coefficents which minimize it - using the Gradient Descent algorithm.
 So let's start!
 
 
 ### Cost Function
 
-The Linear Prediction model is listed in Eq. 1
+To recall the Linear Prediction formula, it is listed here in Eq. 1. Following that,  Eq. 2 presents a cost functiom, denoted by ***\\(J(w,b)\\)***. The cost is expressed as the mean squared error between the real and modeled values. Alternatively, other cost functions could be chosen, e.g. the absolute distance between the real and predicted values, see Eq. 3. The Mean Square cost expression, expressed in Eq. 2, is commonly used. Dependent on squared distances, error increases more withthe eucleadean distance. In addition, the squared error is convex, which is sigificant for fininding function's extreme point (minima or maxima).  (What is a convex function? It's a function that the line between 2 points on the graph are alays about the values of the points between those 2 points - see Figure 3.)
 
+Figure 1 illustrates graphically the euclidiean distance between the actual value y, and it's corresponding model predicted value \\(d=\hat{y}-y \\) in a 1D domain.
 
 #### Eq. 1: Linear Prediction Model
 
 $$
-y=\hat{y}^{(i)}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
+y=\hat{y}+\epsilon=b+\sum_{j=1}^{2}w_j{x}_j+\epsilon
 $$
 
 
-The cost function, denoted by **\\(J(w,b)\\)** is chosen to be the sum of squared euclidiean distances, aka squared errors,  between the predicted data points and data real points, as denoted by Eq. 2.
+
+Note that the the superscript i, in Eq 2 and throughout all the equations,  denotes the ith example, where the labeled data sequence, AKA training seqence consists of m examples. Note that the \\(frac{1}{m} \\) factor is just a normalizing factor, but has no significance. 
 
 #### Eq. 2: Cost function -Squared Errors
 
@@ -47,15 +50,12 @@ Note that the \\(frac{1}{m} \\) factor is just a normalizing factor, but has no 
 
 
 
-BTW, optionally other cost functions could be chosen, e.g. the absolute difference between coordinates, see Eq. 3.
 
 #### Eq. 3: Cost function using absolute coordinates differences
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |$$
 
-Cost expression expressed in Eq. 2, is very commonly used. It is dependent on squared distances, thus increases more as error grows, and it is convex, which is sigificant when the extreme point is searched for, as we'll see soon.
 
-BTW, a function is convex if any line between 2 points on the function's graph is above the graph between those 2 points, as shown in Figure 2. Obviously, a quadric function is convex.
 
 
 #### Figure 2: Convex and Non Convex functions
@@ -168,9 +168,6 @@ Figure 5: Illustration of Gradient Descent with n+1=2
 
 ![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
 
-
-
-![Linear Predictiopn 2d](../assets/images/linear-regression/linear_prediction_2d.gif)
 
 
 
