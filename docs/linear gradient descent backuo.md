@@ -169,6 +169,11 @@ Figure 5: Illustration of Gradient Descent with n+1=2
 ![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
 
 
+
+![Linear Predictiopn 2d](../assets/images/linear-regression/linear_prediction_2d.gif)
+
+
+
 Till here!!
 
 
