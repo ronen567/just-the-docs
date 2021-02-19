@@ -93,12 +93,63 @@ $$b:=b-\alpha \frac{\partial J(b,w) }{\partial b}$$
 Eq. 5 describes an iterative algorithm, which should run in paralel for all the n+1 variables, i.e. b and  \\(w_j\\) j=1:n.
 
 
+
+Before we formulate the algorithm procedure, plugging Eq. 6 into Eq. 2, resultant in Eq.7,  it's easy to get the partial derivatives, as shown in Eq. 8
+
+Eq. 6
+$$
+\hat{y}^{(i)}=b+\sum_{j=1}^{n}w_j{x}^{(i)}_j
+$$
+
+Eq. 7
+$$
+J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b+\sum_{j=1}^{n}w_j{x}^{(i)}_j-y^{(i)})^2
+$$
+
+Eq. 8a
+$$
+\frac{\partial J(w,b))}{\partial b}
+= \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})
+$$
+
+Eq. 8b
+$$\frac{\partial J(w,b))}{\partial w_j} = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})*x^{(i)}
+$$
+
+
+
 ### Here's the algorithm's procedure: 
 1. Select arbitrary initial values for n+1 coefficients (A bad values selectionmay delay convergance. Check if so by trial and error.)
 2.  Eq. 5, calculate a new set of n+1 coefficents using Eq. 5
 3. Check ***termination condition*** (explained next). If not fullfiled, go to step 2.
 
 Figures 4a-4c, present an illustration of a cost function, projected on one of the coefficent's domain. The numbered crosses marked on the Cost fuction represent the Gradient Descent iterations. As a result of the fact that the gradients decrease while striding towards the minima, the distance between the iteration points decreases ith the strides. At the minima, where the gradient is 0, the Gradient Descent converges. Figure 4a shows the stride after 1 iteration. Firgure 4b presents 3 more strides, where the decrease of stride size can be easuly seen. Figure 4c presents more strides, till convergence at the minima. 
+
+#### Figure 4: Gradient Descent: Gradient of a single parameter
+
+a. After One Iteration
+
+![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_1_iteration.png)
+
+b. After Four Iterations
+
+![gradient_descent_4_iterations](../assets/images/gradient_descent/gradient_descent_4_iterations.png)
+
+
+c. After Fourteen Iterationss
+
+![gradient_descent_14_iteration](../assets/images/gradient_descent/gradient_descent_14_iteration.png)
+
+
+The convergence shown should be achieved simoultansouly on all n+1 dimensions.
+Figure 5 illustrate Gradient Descent with 2 fimensional variables: b and \\(w_1\\}.
+ 
+ 
+
+
+Figure 5: Illustration of Gradient Descent with n+1=2
+
+![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
 
 
 
@@ -124,7 +175,8 @@ $$
 
 c. Check the calculated value and see it is not changing i.e. converged, i.e:
 
-\left \| w_j{(i+1))}- w_j{(i))} \right \| < \epsilon
+$$\left \| w_j{(i+1))}- w_j{(i))} \right \| < \epsilon
+$$
 
 Note that there is no general rule for the selection of \\(\epsilon\\), in both options b and c.
 
@@ -132,78 +184,23 @@ Note that there is no general rule for the selection of \\(\epsilon\\), in both 
 #### Selection of alpha selection: 
 
 
-The algorithm steps in the opposite direction of the gradient until convergence, as the gradient, multiplied by a constant $$\alpha$$ is decremented from previous value.
-
-#### Figure 4: Gradient Descent: Gradient of a single parameter
-
-a. After One Iteration
-
-![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_1_iteration.png)
-
-b. After Four Iterations
-
-![gradient_descent_4_iterations](../assets/images/gradient_descent/gradient_descent_4_iterations.png)
+The algorithm steps in the opposite direction of the gradient until convergence, as the gradient, multiplied by a constant \\(\alpha\\), AKA :earning Rate, is decremented from previous value.
 
 
-c. After Fourteen Iterationss
+One might assume that the larger $$/alpha$$ is, the fastest convergence will be. Wrong assumption! A too large step-size may result with oscilations. Look at Figure 9.
 
-![gradient_descent_14_iteration](../assets/images/gradient_descent/gradient_descent_14_iteration.png)
-
-
-
-
-The convergence shown should be achieved simoultansouly on all n+1 dimensions.
-Figure 5 illustrate Gradient Descent with 2 fimensional variables: b and \\(w_1\\}.
- 
- 
-
-
-Figure 5: Illustration of Gradient Descent with n+1=2
-
-![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
-
-
-
-
-Till here!!
-
-
-Let's talk about $$/alpha$$, the step size.
-
-Looking at Figure 8, it looks like the smaller the step size $$/alpha$$ is, the slower convergence goes. And also vice versa - one might assume that the larger $$/alpha$$ is, the fastest it will converge. Wrong assumption!
-A too large step-size may result with oscilations. Look at Figure 9.
-
-Figre 9: Gradient Descent Oscilation
+#### Figure 9: Gradient Descent Oscilation
 
 ![gradient_descent_14_iteration](../assets/images/gradient_descent/gradient_descent_oscilations.png)
 
 
-Conclusion - step size should be carefully selected, and may be needed to tune during caluclations.
+Conclusion - step size should be carefully selected, and may be needed to tune during caluclations. Typical values are in the range of 0.001-1, which is quite a wide range. Normally you will make some iterations before selecting your learning rate.
 
 
 
 
-Before we formulate the algorithm procedure, plugging Eq. 6 into Eq. 2, resultant in Eq.7,  it's easy to get the partial derivatives, as shown in Eq. 8
 
-Eq. 6
-$$
-\hat{y}^{(i)}=b+\sum_{j=1}^{n}w_j{x}^{(i)}_j
-$$
 
-Eq. 7
-$$
-J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b+\sum_{j=1}^{n}w_j{x}^{(i)}_j-y^{(i)})^2
-$$
-
-Eq. 8a
-$$
-\frac{\partial J(w,b))}{\partial b}
-= \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})
-$$
-
-Eq. 8b
-$$\frac{\partial J(w,b))}{\partial w_j} = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})*x^{(i)}
-$$
 
 TILL HERE!!!!! ronen
 
