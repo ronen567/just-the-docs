@@ -8,21 +8,21 @@ title: Linear Prediction Using Gradient Descent New! backup!
 
 ### Introduction
 
-The previous post introduced Linear Prediction model for Regression Supervised Machine Learning. It is recommended to read it first, unless you are familiar with the Linear Regression prediction model. Along with model presentation, the previous post presented the Analytical Solution for calculating the predictor's coefficents. it's a fairly simple solution, except it requires an \\(n X n\\) matrix inversion, where n is the dimension of the input data vector. In many cases, that's not an issue, unless the number of features large, say >1000. Anyway, it's a matter of computational cost and availability.
-This post presents an alternative solution, the Gradient Descent. Gradient Descent is a simple and common iterative solution. It is widely used for solving prediction models such as the Logistic Regression predictor, for which the analyitcal solution does not fit. BTW, Logistic Regression will be presented in a next post.
+The previous post introduced the Linear Prediction model. It is recommended to read that post first, unless you are familiar with that material. It presented the Analytical Solution for calculating the model's coefficents. The Analytical Solution is fairly simple solution, except it requires an \\(n X n\\) matrix inversion, where n is the dimension of the input data vector. In many cases, that's a non issue, unless the number of features is large, say >1000. Anyway, it's a matter of computational cost and availability.
+The current post presents an alternative solution, named Gradient Descent. Gradient Descent is a simple iterative solution, and commonly used for solving prediction models such as the Logistic Regression predictor, for which the analyitcal solution does not fit. BTW, Logistic Regression will be presented in a next post.
 
 
 ### Outlines of this post
 
-So we need to find the predictor's coefficients \\(b, w_j\\), where j=1:n. 
-***Question:*** What is the expected criteria for the desired set of coeficients?
-***Answer:*** The set of coefficents should minimize a cost function which expresses the difference between the modeled value and the actual value. So that's what this post is about: Determining a cost function, and finding the coefficents which minimize it - using the Gradient Descent algorithm.
+So we need to find the Linear Predictor's set of coefficients \\(b, w_j\\), where j=1:n. 
+***Question:*** What is the expected criteria, according which we should chose the desired set of coeficients?
+***Answer:*** The set of coefficents should minimize a cost function. which expresses the difference between the modeled value and the actual value. So that's what this post is about: Determining a cost function, and finding the coefficents which minimize it, using the Gradient Descent algorithm.
 So let's start!
 
 
 ### Cost Function
 
-To recall the Linear Prediction formula, it is listed here in Eq. 1. Following that,  Eq. 2 presents a cost functiom, denoted by ***\\(J(w,b)\\)***. The cost is expressed as the mean squared error between the real and modeled values. Alternatively, other cost functions could be chosen, e.g. the absolute distance between the real and predicted values, see Eq. 3. The Mean Square cost expression, expressed in Eq. 2, is commonly used. Dependent on squared distances, error increases more withthe eucleadean distance. In addition, the squared error is convex, which is sigificant for fininding function's extreme point (minima or maxima).  (What is a convex function? It's a function that the line between 2 points on the graph are alays about the values of the points between those 2 points - see Figure 3.)
+The Linear Prediction formula is listed in Eq. 1. Following that,  Eq. 2 presents a Cost functiom, denoted by ***\\(J(w,b)\\)***. The Cost is expressed as the mean squared error between the real and modeled values. The Cost is a sum of that difference over m examples. Alternatively, Eq. 3 presnets another type of Cost function, which is the sume of absolute distances between the real and predicted values. The Cost function expressed in Eq. 2, is commonly used. It has some benefits: It is dependent on squared distances, so error increases faster than the eucleadean distance. In addition, the squared error is convex, which is sigificant for fininding the extreme point (minima or maxima), needed for our calculations.  (What is a convex function? It's a function that the line between 2 points on the graph are alays about the values of the points between those 2 points - see Figure 3.)
 
 Figure 1 illustrates graphically the euclidiean distance between the actual value y, and it's corresponding model predicted value \\(d=\hat{y}-y \\) in a 1D domain.
 
@@ -62,7 +62,7 @@ $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |$$
 ![Approximation Distance](../assets/images/gradient_descent/convex_non_convex.png)
 
 
-So the cost function expressed by Eq. 2 is convex. Number of variables are n+1, so to plot it, n+1 dimensions are needed. Accordingly, we can plot it for n=1. as expressed by Eq. 4.
+As stated, the cost function expressed by Eq. 2 is convex, since it is a quadratic equation. Number of variables are n+1. It is possible to illustrate the Cost function graphically, only for the cases where n+1<2. Accordingly, the Cost equation for n=1 is expressed by Eq. 4, and an example plot is shown in Figure 3.
 
 #### Eq. 4: Cost function, n=1
 
@@ -76,17 +76,18 @@ $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2$$
 ![Approximation Surface](../assets/images/gradient_descent/cost_function_2d.png)
 
 
+### Findinding the coefficients - Gradient Descent
 
-We are looking for the predictor's coefficents which minimize the cost function. The cost function is minimal just at the point where the first derivative is 0. 
-Gradient Descent algorithm will do the job! Here's the algorithm's formula:
+Having the Cost function formula in hand, we can continure to our next goal: finding the set of coefficents which minimize it. Obviously, the point at which the Cost function is minimal, is the point where first derivative is 0. 
+Gradient Descent algorithm will calculate the coeffcients at that point! Here's the algorithm's formula:
 
 
 
 #### Eq. 5: Gradient Descent
-a:  Gradient Descent with gradient to the \\(w_j\\) direction:
+a: For \\(w_j\\) j=1:n:
 $$w_j:=w_j-\alpha \frac{\partial J(b,w) }{\partial w_j}$$
 
-b. Gradient Descent with gradient to the {b} direction:
+b. For the constant coefficient \(({b}\\):
 $$b:=b-\alpha \frac{\partial J(b,w) }{\partial b}$$
 
 Eq. 5 describes an iterative algorithm, which should run in paralel for all the n+1 variables, i.e. b and  \\(w_j\\) j=1:n.
@@ -94,19 +95,10 @@ Eq. 5 describes an iterative algorithm, which should run in paralel for all the 
 
 ### Here's the algorithm's procedure: 
 1. Select arbitrary initial values for n+1 coefficients (A bad values selectionmay delay convergance. Check if so by trial and error.)
-2. Using latest calculated coefficients, calculate a new set of n+1 coefficents using Eq. 5
-3. Check ***termination condition***. If not fullfiled, go sto step 2.
+2.  Eq. 5, calculate a new set of n+1 coefficents using Eq. 5
+3. Check ***termination condition*** (explained next). If not fullfiled, go to step 2.
 
-
-Plots in Figure 4 illustrate the Gradient Descent operation. Those plots isolates one of the n+1 coefficients calculations.
-:
-
-
-
-
-
-
-
+Figures 4a-4c, present an illustration of a cost function, projected on one of the coefficent's domain. The numbered crosses marked on the Cost fuction represent the Gradient Descent iterations. As a result of the fact that the gradients decrease while striding towards the minima, the distance between the iteration points decreases ith the strides. At the minima, where the gradient is 0, the Gradient Descent converges. Figure 4a shows the stride after 1 iteration. Firgure 4b presents 3 more strides, where the decrease of stride size can be easuly seen. Figure 4c presents more strides, till convergence at the minima. 
 
 
 
@@ -114,8 +106,9 @@ Plots in Figure 4 illustrate the Gradient Descent operation. Those plots isolate
 1. Termination condition - when to stop the iterative process.
 2. Selection of \\(\alpha\\) - alpha AKA as the learning rate.
 
-Regarding termination condition, there are some different rules, either based on the fact that the algorithm merges at the minimal point where the derivatives are 0, or after number of iterations passed, or time has elapsed,  3 different options are listed below:
-a. Counting number of iterations.
+#### Termination condition: 
+There is no definete criteria for termination condtion. Here are 3 common termination criterias:
+a. Counting number of iterations - easy to implement, but convergence is not verified.
 b. Comparing the the gradient magnitute against a threshold i.e. 
 
 $$\left \| \bigtriangledown J(b,w) \right \| < \epsilon$$
@@ -133,9 +126,10 @@ c. Check the calculated value and see it is not changing i.e. converged, i.e:
 
 \left \| w_j{(i+1))}- w_j{(i))} \right \| < \epsilon
 
-Note that there is no general rule for the selection of \\(\epsilon\\), in both options.
+Note that there is no general rule for the selection of \\(\epsilon\\), in both options b and c.
 
-### Selection of alpha selection: 
+
+#### Selection of alpha selection: 
 
 
 The algorithm steps in the opposite direction of the gradient until convergence, as the gradient, multiplied by a constant $$\alpha$$ is decremented from previous value.
