@@ -69,13 +69,12 @@ $$\sigma(z)=\frac{1}{1+e^{-z}}$$
 #### Sigmoid Properties:
 
 ##### $$\sigma(z)_{z \to  -{\infty}} \to 0
-$$, 
+$$
 
 ##### $$\sigma(z)_{z \to  {\infty}} \to 1
 $$
 
-##### $$\sigma(z)_{z=0} =0.5
-$$
+##### $$\sigma(z)_{z=0}=0.5$$
 
 
 For Logistic Regression predictor, z argument is replaced by a linear combination of the input dataset x, as shown by Eq. 2:
