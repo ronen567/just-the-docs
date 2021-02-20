@@ -68,11 +68,9 @@ $$\sigma(z)=\frac{1}{1+e^{-z}}$$
 
 #### Sigmoid Properties:
 
-##### $$\sigma(z)_{z \to  -{\infty}} \to 0
-$$
+##### $$\sigma(z)_{z \to  -{\infty}} \to 0$$
 
-##### $$\sigma(z)_{z \to  {\infty}} \to 1
-$$
+##### $$\sigma(z)_{z \to  {\infty}} \to 1$$
 
 ##### $$\sigma(z)_{z=0}=0.5$$
 
