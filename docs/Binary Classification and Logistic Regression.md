@@ -135,6 +135,8 @@ Gradient Descent over a Cost function does work, as we will show soon. Remember 
 
 ![Convex and Non Convex Functions](../assets/images/gradient_descent/convex_non_convex.png)
 
+A function is convex if the line between 2 points on the graph are alays above the values of the points between those 2 points
+
 
 #### Logistic Regression Cost Function
 
