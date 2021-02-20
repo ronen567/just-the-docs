@@ -36,7 +36,7 @@ Now it is needed to train a predictor with this data. But which model should we 
 ![Linear Prediction for Binary Classification](../assets/images/logistic-regression/binary_point_linear_pred.png)
 
 
-If we set the threshold to 0.5, it seems to give correct results. Take a look at Figure 4:  An income of 3000 maps to 0.4, i.e. Y=0. An income of 3500 maps to 0.5 i.e. Y=1.  Linear prediction seems like a good predictor if threshold is set to 0.5. Is that a correct conclusion? ****it's not correct!**** Figure 5 proves that.
+If we set the decision boundary to 0.5, it seems to give correct results. Take a look at Figure 4:  An income of 3000 maps to 0.4, i.e. Y=0. An income of 3500 maps to 0.5 i.e. Y=1.  Linear prediction seems like a good predictor if threshold is set to 0.5. Is that a correct conclusion? ****it's not correct!**** Figure 5 proves that.
 
 #### Figure 4: Linear Prediction for Binary Classification with thresholds
 
