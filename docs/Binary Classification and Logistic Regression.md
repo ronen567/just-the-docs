@@ -6,102 +6,114 @@ title: Binary Classification and Logistic Regression New!
 
 # Binary Classification and Logistic Regression
 
-The previous post was about Regression Supervised Learning, where the prediction was of a continous variable, such as price, amount, presiod, distance, etc. In Binary Classification Supervised Learning, it is needed to decide between 2 descrete hypothesis, such as a decision whether a tumor is malignant or not, or a or a purchace forecast - will a customer purchase an item or not, etc.
+Binary Classification as its name implies, classifies input data to one of 2 hypothesis. Naturally, the 2 binary hypotheses are assigned with a binary indices,  either 0 or 1. So decisions such as whether a tumor is malignant or not, will a customer purchase an item or not, require a Binary Classification. In the context of machine learning. Binary Classification belongs to the Supervised Machine Learning category. Just to note, previous posts where about Regression Supervised Learning,which also belongs to the same  machine learning category, but fits prediction of continous values, such as price, anounts, periods, etc, while the Binary Classifier decides between 2 descrete decisions. BTW, one of the next posts will present the extension of Binary Classification to Multi-Class Classification.
+y differ 
+The Supervise Learning Outlines diagram (Figure 1) is similar to the one presented presented in the context of Regression Machine Learning. They differ only in  the prediction model,  and subsequently in the nature of the output.
+In this We'll present the Logistic Regression prediction model, which fits Binary Classification. We'll start by showing that a continous prediction models such as the Linear Prediction model don't fit. After that, we will show how to calculate the predictor's coefficients with the Gradient Descent algorithm.
 
 
-The Supervise Learning Outlines diagram (Figure 1) presented for Regression Learning, is still valid here. The difference is with the prediction model: We'll present the Logistic Regression prediction model, which fits Binary Classification - before that we'll show that a continous prediction model such as the Linear Prediction model doesn't fit. After that, we will show how to calculate the predictor's coefficients with the Gradient Descent algorithm.
+#### Figure 1: Supervise Learning Outlines
 
-
-Figure 1: Supervise Learning Outlines
-
-![Supervise Learning Outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
+![Supervise Learning Outlines](../assets/images/supervised/binary-calssification-machine-learning-model.svg)
 
 So let's start! 
 
 ## An introduction to the Logistic Regression
 
-To illustrate Binary Classification let's examine a simple problem, at which we need to predict if a customer will buy a certain product, based on his income - such a prediction indeed does not make sense practicdally, as a good predictor for this can't based on income only, but the example is simplified to ease the graphical illustration.
+To illustrate Binary Classification let's take a simple example: It is required to predict the if a customer will buy a product, based on her income. (A good prediction indeed can't base on inome only. Still, the simplified example eases the graphical illustration. Anyway, the model and solution will support mult-deatured input data)
 
-So now, we collected the income of customers which visited the store, as presented in Figure 2. 
+To set the predictor, we first need to have a training data sequence, with labeled customers' income data. Figure 2 presents such data, collected from 11 customers. Each data point is labeled by either Y=1, if the  customer did purchase, or Y=0, if he did not purchase. (The assignment of 0 or 1 to the hypothesises is arbitrary, though it makes more sense to assign a 1 to the positive hypothesis.
 
-Figure 2:  Binary Classification - Purchace prediction based on income
- TILL HERE!!
+#### Figure 2: Labled Data: customers' income, labeld by Y=1/0 if customer did buy/did not buy
+
 ![Supervised  outlines](../assets/images/logistic-regression/binary_point.png)
 
 
-The data set presented in Figure 2, hold the labeled training data, i.e. the each income feature point is labeled with its related purchase decisoin taken. We would need a prediction model that can fir these points. According to our paradigm, after fitting the model to the training data, it should fir the normal unlabeled data that comes after. (Though after training, the model's performance should be tested before accepted to be used for real data).
+Now it is needed to train a predictor with this data. But which model should we train? Will the Linear Prediction model, which we already deployed for Regression Prediction fit? Let's examine that!. Figure 3 illustrates a linear line which fits the data point. Will it fit? 
 
-So which model can we take? We previously reviewed the linear prediction model, used for predicting Regression data. Will it fit here too?  Let's see. Figure 3 
-
-examines Linear Prediction for Binary Classification.
-
+#### Figure 3: Linear Prediction Mode: Will it fit binary classifcation?
 
 ![Linear Prediction for Binary Classification](../assets/images/logistic-regression/binary_point_linear_pred.png)
 
 
-Figure 3 presents a line which is assumed to model the data points. Examine the model: According to it, a income of 3000, which was labeld with a 0, will now be mapped to ~0.4. and the income of 3500 now maps to 0.5. Can this model create valid predictions? Figure 4 presnets the decision boundary - any point on the line, from 0.5 and up will be classified as 1, and the rest as 0. One might tend to think that this model is valid - but that is not correct. Justtake another set of training points, as presented by Figure 5, keep the thershold on 0.5, and now, only income from 5000 and up is mapped to 1. And if we had taken more points, obviously the treshhold would move more. 
+If we set the threshold to 0.5, it seems to give correct results. Take a look at Figure 4:  An income of 3000 maps to 0.4, i.e. Y=0. An income of 3500 maps to 0.5 i.e. Y=1.  Linear prediction seems like a good predictor if threshold is set to 0.5. Is that a correct conclusion? ****it's not correct!**** Figure 5 proves that.
 
-Figure 4: Linear Prediction for Binary Classification with thresholds
+#### Figure 4: Linear Prediction for Binary Classification with thresholds
 
 ![Linear Prediction for Binary Classification THresholds](../assets/images/logistic-regression/binary_point_linear_pred_with_markers.png)
 
 
-Figure 5: Linear Prediction for Binary Classification with thresholds - Problem!
+Adding more data points, as presented by Figure 5, changes the line predictor's results: Now the predictor maps a customer with an income of 5000 to a point on the line which is below the 0.5 threshold. Obviously, the linear prediction won't work for Binary Classification. Another different prediction model is needed. Let me introduce the Logistic Regression Model..
+
+
+#### Figure 6: Linear Prediction for Binary Classification with thresholds - Problem!
 
 ![Linear Prediction for Binary Classification Thresholds Problem](../assets/images/logistic-regression/binary_point_linear_pred_problem.png)
 
 
 
-Obviously, linear prediction doesn't work for Binary Classification. Another different prediction model is needed. Let me present the Logistic Regression Model.
-
-
 ## Logistic Regression Model
 
-The Logistic Regression is a model which predicts the ####probability#### of hypothesis given the data input, in a binary classification. The model is based on the sigmoid function presented in Eq. 1. 
+The Logistic Regression is a model which predicts the ####probability#### of the hypothesises. The model is based on the sigmoid function, which is presented in Eq. 1 and sketched in Figure 6.
 
-### Eq. 1: Sigmoid Function
+#### Eq. 1: Sigmoid Function
 
 $$\sigma(z)=\frac{1}{1+e^{-z}}$$
 
 
-The sigmoid function maps the z values to values the range [0,1]. $$\sigmaz(z)\rightarrow0$$ as $$z\rightarrow -\infty$$, $$\sigmaz(z)\rightarrow1$$ as $$z\rightarrow \infty$$. and  $$\sigmaz(z) = 0.5$$ for $$z=0$$ as shown in Figure 5. 
-
-
-Figure 5: Sigmoid Function
+Figure 6: Sigmoid Function
 
 ![Sigmoid Function](../assets/images/logistic-regression/sigmoid-function.png)
 
+Sigmoid Charectaristics:
 
-For Logistic Regression predictor, the z argument is replaces by a linear function of the input dataset x: $$z=b+wx$$ in, where $$x=\begin{bmatrix}
-x_1 \\ x_2 \\ x_3 \\ x_4 \\..\\x_n 
-\end{bmatrix}$$, an n dimensional vector, is the input data set, AKA input features, and $${b,w}$$ are the predictor's coefficients, such that b is a scalar and $$w=\begin{bmatrix}
+-The sigmoid function maps the z values to values the range [0,1]. 
+-$$\sigma(z)_{z \to  -{\infty}} \to 0$$, 
+-$$\sigma(z)_{z \to  {\infty}} \to 1$$
+-$$\sigma(z)_{z \to  {\infty}} \to 1
+$$
+
+
+For Logistic Regression predictor, the z argument is replaced by a linear function of the input dataset x: \\(z=b+wx\\), where \\(x=\begin{bmatrix}\\\\)
+x_1 \\\\\ x_2 \\\\\ x_3 \\\\\ x_4 \\\\\..\\\\\x_n 
+
+\end{bmatrix}\\), is an n-dimensional input data vector, and ***\\({b,w}\\)*** are the predictor's coefficients, such that b is a scalar and \\(w=\begin{bmatrix}
 w_1 \\ w_2 \\ w_3 \\ w_4 \\..\\w_n 
-\end{bmatrix}$$ is the vector of coeffcients.
+\end{bmatrix}\\) is the vector of n coeffcients.
 
-So we now plug $$z=b+wx = b + w_1x_1+w_2x_2+....w_nx_n $$ into Eq 1, as shown in Eq. 2.
+Plugging  \\(z=b+wx = b + w_1x_1+w_2x_2+....w_nx_n\\) into Eq 1, results in Eq. 2, which determines the probability of y=1, given the input vector x and the coefficent set {w,b}.
 
-### Eq. 2: Logistic Regression Formula
+#### Eq. 2: Logistic Regression Formula
 
-$$p(y=1| x, w,b) = \sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+#### Eq. 2a: Logistic Regression Formula, probaility of y=1
+$$p(y=1| x,w,b) = \sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 
-Looking at Figure 5, the interpretation Eq. 2 is: 
-The predicted probabilty of y=1 for large negative $$b+w^Tx$$ values, i.e.  p(y=1| $$b+w^Tx\rightarrow -\infty$$), tends to 0.
-The predicted probabilty of y=1 for large positive $$b+w^Tx$$ values, i.e.  p(y=1| $$b+w^Tx\rightarrow \infty$$), tends to 1.
-The predicted probabilty for y=1 for $$b+w^Tx$$=0 is 0.5. That means, y=1 with probability 0.5.
+#### Eq. 2b: Logistic Regression Formula, probaility of y=0
+$$p(y=0| x,w,b) = 1-\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+
+
+Examining the probailities at the limits and in the middle we can note that:
+
+$$p(y=1|b+w^Tx \to -{\infty}) \to 0$$
+
+
+$$p(y=1|b+w^Tx \to {\infty}) \to 1$$
+
+
+$$p(y=1|b+w^Tx =0 ) = 0.5$$
+
+
+$$p(y=0|b+w^Tx \to -{\infty}) \to 0$$
+
+
+$$p(y=0|b+w^Tx \to {\infty}) \to 1$$
+
+
+$$p(y=0|b+w^Tx =0 ) = 0.5$$
+
+
  
-Now, if we had the values of b and w, we could calulate the predicted probability of y=1 for a given features set x.
-Obviously, the probability for y=0, for a given set of coefficients {b,w} and input set x, is the 1s complement of p(y=1), as expressed in Eq. 3
-
-
-### Eq. 3: Probability for y=0 
-
-$$p(y=0| x, w,b) = 1- p(y=1| x, w,b)$$
-
-And, obviously....:
-The predicted probabilty of y=0 for large negative $$b+w^Tx$$ values, i.e.  p(y=0| $$b+w^Tx\rightarrow -\infty$$), tends to 1.
-The predicted probabilty of y=0 for large positive $$b+w^Tx$$ values, i.e.  p(y=0| $$b+w^Tx\rightarrow \infty$$), tends to 0.
-The predicted probabilty for y=0 for $$b+w^Tx$$=0 is 0.5. That means, y=0 with probability 0.5.
  
 Next paragraphs we will show how to calculate the coefficients $${w,b}$$.
 
@@ -116,7 +128,7 @@ The cost function normally expresses the difference (sometimes called error), be
 
 Rembember the Cost function assigned for tLinear Prediction? Remninder - It was based on minimizing the error between the real values and the pmodel's redicted values, where the error was taken as the Euacliden distance, as shown in Eq. 4.
 
-### Eq 4: Cost function - Euclidean Distance:
+#### Eq 4: Cost function - Euclidean Distance:
 
 J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
@@ -131,7 +143,7 @@ Solution for Logistic Regression is different, from some reasons, e.g. the analy
 
 
 
-Figure 6 a: Non Convex Cost Function
+#### Figure 6 a: Non Convex Cost Function
 
 
 
