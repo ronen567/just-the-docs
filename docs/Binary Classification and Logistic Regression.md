@@ -168,7 +168,7 @@ $$Cost(h_{b,w}(x^i), y^i)=[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]$
 
 
 
-
+TILL HERE!!!!!!
 
 
 Same as with all Suprevised Learning predictors, the Logistic Regression coefficients are calculated during the Training phase. 
