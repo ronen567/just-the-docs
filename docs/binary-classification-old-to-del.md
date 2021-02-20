@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 6
 title: Binary Classification and Logistic Regression
 ---
 
