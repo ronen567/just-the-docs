@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 6
-title: Binary Classification and Logistic Regression
+title: Binary Classification and Logistic Regression To Del
 ---
 
 # Binary Classification and Logistic Regression
