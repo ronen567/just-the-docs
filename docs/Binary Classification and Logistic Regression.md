@@ -77,26 +77,43 @@ $$\sigma(z)=\frac{1}{1+e^{-z}}$$
 $$
 
 
-For Logistic Regression predictor, the z argument is replaced by a linear function of the input dataset x: \\(z=b+wx\\), where \\(x=\begin{bmatrix}\\\\)
+For Logistic Regression predictor, Sigmoid's z argument is replaced by a linear combination of the input dataset x: 
+
+#### Eq. 3
+$$z=b+wx$$, 
+
+where x is the n-dimensional input data vector as specified here:
+
+
+$$x=\begin{bmatrix}\\\\)
 x_1 \\\\\ x_2 \\\\\ x_3 \\\\\ x_4 \\\\\..\\\\\x_n 
 
-\end{bmatrix}\\), is an n-dimensional input data vector, and ***\\({b,w}\\)*** are the predictor's coefficients, such that b is a scalar and \\(w=\begin{bmatrix}
-w_1 \\ w_2 \\ w_3 \\ w_4 \\..\\w_n 
-\end{bmatrix}\\) is the vector of n coeffcients.
+\end{bmatrix}$$ 
 
-Plugging  \\(z=b+wx = b + w_1x_1+w_2x_2+....w_nx_n\\) into Eq 1, results in Eq. 2, which determines the probability of y=1, given the input vector x and the coefficent set {w,b}.
+and ***{b,w}*** are the predictor's coefficients, such that b is a scalar and w the coeffcients vector of size n as specified here:
 
-#### Eq. 2: Logistic Regression Formula
+$$w=\begin{bmatrix}
+w_1 \\\\\\ w_2 \\\\\\ w_3 \\\\\\ w_4 \\\\\\..\\\\\\w_n 
+\end{bmatrix}
+$$
 
-#### Eq. 2a: Logistic Regression Formula, probaility of y=1
+
+Plugging  Eq. 3 into Eq 1, we have the Logistic Regression  expression, which is the probability of y=1, given the input vector x and the coefficent set {w,b}.
+
+#### Eq. 4: Logistic Regression Formula
+
 $$p(y=1| x,w,b) = \sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
+Obviously the dependent probability of y=0 is:
 
-#### Eq. 2b: Logistic Regression Formula, probaility of y=0
-$$p(y=0| x,w,b) = 1-\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+#### Eq. 5: Probability of y=0 Regression Formula
+
+$$p(y=0| x,w,b) = 1-$$p(y=1| x,w,b) = 1- \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 
-Examining the probailities at the limits and in the middle we can note that:
+
+Examining the probailities at the limits and in the middle, we can note that:
+
 
 $$p(y=1|b+w^Tx \to -{\infty}) \to 0$$
 
