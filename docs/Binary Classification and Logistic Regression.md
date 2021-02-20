@@ -68,37 +68,23 @@ $$\sigma(z)=\frac{1}{1+e^{-z}}$$
 
 #### Sigmoid Properties:
 
-##### The sigmoid function maps the z values to values the range [0,1]. 
-##### $$\sigma(z)_{z \to  -{\infty}} \to 0$$, 
+##### $$\sigma(z)_{z \to  -{\infty}} \to 0
+$$, 
 
-##### $$\sigma(z)_{z \to  {\infty}} \to 1$$
+##### $$\sigma(z)_{z \to  {\infty}} \to 1
+$$
 
 ##### $$\sigma(z)_{z=0} =0.5
 $$
 
 
-For Logistic Regression predictor, Sigmoid's z argument is replaced by a linear combination of the input dataset x: 
+For Logistic Regression predictor, z argument is replaced by a linear combination of the input dataset x, as shown by Eq. 2:
 
-#### Eq. 3
+#### Eq. 2: 
 $$z=b+wx$$, 
 
-where x is the n-dimensional input data vector as specified here:
 
-
-$$x=\begin{bmatrix}\\\\)
-x_1 \\\\\ x_2 \\\\\ x_3 \\\\\ x_4 \\\\\..\\\\\x_n 
-
-\end{bmatrix}$$ 
-
-and ***{b,w}*** are the predictor's coefficients, such that b is a scalar and w the coeffcients vector of size n as specified here:
-
-$$w=\begin{bmatrix}
-w_1 \\\\\\ w_2 \\\\\\ w_3 \\\\\\ w_4 \\\\\\..\\\\\\w_n 
-\end{bmatrix}
-$$
-
-
-Plugging  Eq. 3 into Eq 1, we have the Logistic Regression  expression, which is the probability of y=1, given the input vector x and the coefficent set {w,b}.
+Plugging  Eq. 3 into Eq 1, results in the Logistic Regression  expression, which is the probability of y=1, given the input vector x and the coefficent set {w,b}.
 
 #### Eq. 4: Logistic Regression Formula
 
@@ -108,7 +94,7 @@ Obviously the dependent probability of y=0 is:
 
 #### Eq. 5: Probability of y=0 Regression Formula
 
-$$p(y=0| x,w,b) = 1-$$p(y=1| x,w,b) = 1- \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+$$p(y=0| x,w,b) = 1-p(y=1| x,w,b) = 1- \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 
 
@@ -135,31 +121,45 @@ $$p(y=0|b+w^Tx =0 ) = 0.5$$
 
  
  
-Next paragraphs we will show how to calculate the coefficients $${w,b}$$.
+Next paragraphs we will show how to calculate the Logistic Regression coefficients.
 
 
+
+## Finding Logistic Regression Coefficents
+
+In previous posts on Linear Predictor, 2 solutions for for finding the predictor's coefficents were presented:
+1. The analytical solution
+2. Gradient descent, based on minimizing the Cost function.
+
+Since the predictor's equation is not linear, as it is for the Linear predictor, (reminder: \\(Y=XW+\epsilon\\)), but instead, the predictor's equation is non-linear, where X and W are exponential coefficents, there is no simple analitical solution.
+Gradient Descent over a Cost function does work, as we will show soon. Remember that in order to guaranty convergence in a non-local minima, the cost function should be convex. (Remeber what convex is? find explaination here + figure 7 illustrate the idea)
+
+#### Figure 7: CONVEX AND NON CONVEX FUNCTIONS
+
+![Convex and Non Convex Functions](../assets/images/gradient_descent/convex_non_convex.png)
+
+TILL HERE!!!
 
 #### Logistic Regression Cost Function
 
 Same as with all Suprevised Learning predictors, the Logistic Regression coefficients are calculated during the Training phase. 
+So we need to find the Linear Predictor's set of coefficients b,wj, where j=1:n. 
+
 Question: What would be the criteria for the selection of the coefficients' values? 
-Answer: This is trivial - we search for the coefficients which lead to the best prediction results, unders a cost function condition we should define.
-The cost function normally expresses the difference (sometimes called error), between the labeled points actual values $$y$$, and their values predicted by the model. The Logistic Regression cost function is determined by th Most LikeLihood predictin, as detailed next.
+Answer: The set of coefficents should minimize a Cost function. which expresses the difference between the modeled value and the actual value.
 
-Rembember the Cost function assigned for tLinear Prediction? Remninder - It was based on minimizing the error between the real values and the pmodel's redicted values, where the error was taken as the Euacliden distance, as shown in Eq. 4.
+Rembember the Cost function assigned for tLinear Prediction? ****Remninder**** - It was based on minimizing the error between the real values and the pmodel's predicted values. The error was taken as the Euacliden distance between the 2 points, as shown in Eq. 5.
 
-#### Eq 4: Cost function - Euclidean Distance:
+#### Eq 5: Cost function - Euclidean Distance:
 
 J(b,w) = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(h_{b,w}(x^i)-y^i)^2
 
+ The above was developed in the Linear Prediction and Gradient Descent post, where we had to find the minima of the cost function, and calculate the coefficents at that point, (with the Gardient Descent algorithm). 
+ 
+***Q***: How should the cost function be found?
+***A***: It's the point were the first derivative equals 0.
 
-Still ccontinueing with the reminder - in the effort of finding the best coefficients, we had to find the minima of the cost function, and calculate the coefficents at that point. 
-Q: How should the cost function be found?
-A: It's the point were the first derivative equals 0.
 
-And one more reminder - With Linear Prediction 2 solutions were presented: the analytical solutiuon and the Gradient Descent solution. Actuallym the analytical solution, involved with inverting matrixes, fits well, unless number of input features is huge.
-
-Solution for Logistic Regression is different, from some reasons, e.g. the analytical solution is way up complicated, and Eq. 4 would not be convex - see Figure 6 , so the solution may converge to a local minima instead of the global minima. We need a convex cost function. 
 
 
 
