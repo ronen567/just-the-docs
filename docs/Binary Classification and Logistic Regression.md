@@ -54,7 +54,7 @@ Adding more data points, as presented by Figure 5, changes the line predictor's 
 
 ## Logistic Regression Model
 
-The Logistic Regression is a model which predicts the ####probability#### of the hypothesises. The model is based on the sigmoid function, which is presented in Eq. 1 and sketched in Figure 6.
+The Logistic Regression is a model which predicts the ****probability**** of the hypothesises. The model is based on the sigmoid function, which is presented in Eq. 1 and sketched in Figure 6.
 
 #### Eq. 1: Sigmoid Function
 
@@ -135,9 +135,39 @@ Gradient Descent over a Cost function does work, as we will show soon. Remember 
 
 ![Convex and Non Convex Functions](../assets/images/gradient_descent/convex_non_convex.png)
 
-TILL HERE!!!
 
 #### Logistic Regression Cost Function
+
+Recalling the cost function used for Linear Refression, the selection of the square error expression as the Cost function might have seemed to be the best and straight forward choice. The square error expression for Logistic Regression is shown in Eq. 6. It is not a convex function, so we are prevented from taking the Square Error expression as our cost function.
+
+#### Eq. 6: square error expression for Logistic Regression
+
+
+$$SE = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(\hat{y}^i-y^i)^2=\frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(\frac{1}{1+e^{^{-(b+w^Tx^i)}}}-y^i)^2$$
+
+Instead, the Cost function used is presented in Eq. 7. The detailed development of this expression is presented in the appendix. 
+
+
+
+
+#### Eq. 7: Cost function used for Logistic Regression
+##### 5a
+
+$$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
+-log (h_{b,w}(x^i,y^i)) \; if\; y=1\\
+-log (1-h_{b,w}(x^i,y^i))\; if \;y=0
+\end{matrix}\right.
+$$
+
+Or expressing it in a single equation:
+
+#####5b
+$$Cost(h_{b,w}(x^i), y^i)=[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]$$
+
+
+
+
+
 
 Same as with all Suprevised Learning predictors, the Logistic Regression coefficients are calculated during the Training phase. 
 So we need to find the Linear Predictor's set of coefficients b,wj, where j=1:n. 
