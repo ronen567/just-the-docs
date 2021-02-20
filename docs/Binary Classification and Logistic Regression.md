@@ -71,7 +71,7 @@ Sigmoid Properties:
 -The sigmoid function maps the z values to values the range [0,1]. 
 -$$\sigma(z)_{z \to  -{\infty}} \to 0$$, 
 -$$\sigma(z)_{z \to  {\infty}} \to 1$$
--$$\sigma(z)_{z \to  {\infty}} \to 1
+-$$\sigma(z)_{z=0} =0.5
 $$
 
 
