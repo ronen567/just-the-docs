@@ -153,22 +153,22 @@ Instead, the Cost function used is presented in Eq. 7. The detailed development 
 
 
 #### Eq. 7: Cost function used for Logistic Regression
-##### 5a
+##### 7a
 
 $$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
 -log (h_{b,w}(x^i,y^i)) \; if\; y=1\\
 -log (1-h_{b,w}(x^i,y^i))\; if \;y=0
-\end{matrix}\right.
-$$
+\end{matrix}\right$$
 
 Or expressing it in a single equation:
 
-#####5b
+##### 7b
 $$Cost(h_{b,w}(x^i), y^i)=[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]$$
 
+It is needed now to calculate 
 
 
-TILL HERE!!!!!!
+#### 
 
 
 Same as with all Suprevised Learning predictors, the Logistic Regression coefficients are calculated during the Training phase. 
