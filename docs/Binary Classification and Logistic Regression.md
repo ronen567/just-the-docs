@@ -147,12 +147,15 @@ Recalling the cost function used for Linear Refression, the selection of the squ
 
 $$SE = \frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(\hat{y}^i-y^i)^2=\frac{1}{m}\sum_{i=1}^{m}\frac{1}{2}(\frac{1}{1+e^{^{-(b+w^Tx^i)}}}-y^i)^2$$
 
-Instead, the Cost function used is presented in Eq. 7. The detailed development of this expression is presented in the appendix. 
+Instead, the Loss function used is presented in Eq. 7. The detailed development of this expression is presented in the appendix. Note that ***Loss*** function is calculated for a single instance of training data, while Cost is an average of m Loss entries. The superscript i of the loss entries, indicates the index in the traing data sequence. The `log` operator is in natural logarithm. 
+
+Eq. 7a assigns expressions for y=0 and y=1. Eq. 7b combines both equations. Figure 8 illustrate a Loss function, presenting both y=0 and y=1 parts. The behavior of the Loss function is self explained, so I'll not add more on that. The overall Cost function is the sum the m training examples Loss functions, as shown in Eq. 8.  
 
 
 
 
-#### Eq. 7: Cost function used for Logistic Regression
+
+#### Eq. 7: Loss function used for Logistic Regression
 ##### 7a
 
 $$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
@@ -162,11 +165,256 @@ $$Cost(h_{b,w}(x^i,y^i))=\left\{\begin{matrix}
 
 Or expressing it in a single equation:
 
-##### 7b
+##### 7b: Loss express in  expressing it in a single equation:
+
 $$Cost(h_{b,w}(x^i), y^i)=[y^ilog(h_{(b,w)}(x^i))+(1-y^i)log(1-h_{(b,w)}(x^i))]$$
 
-It is needed now to calculate 
 
+
+Figure 8: Logistic Regression Lost Function
+
+
+![Convex  Function](../assets/images/logistic-regression/logistic-regression-cost-function.png)
+
+
+
+From Eq. 8, we need find the the n+1 coefficients, b and w, whch minimize the cost. Fortunatley, as explained in the Mathematical development section, the Cost function, is concave. This is an important property, otherwise, with local minima poits, it would be harder to find the global minima. But unfortunatley, unlike the Linear Predictor's Cost function, it is not possible to find am analytical solution. Let's have some insight on that:
+
+
+We need to take the first derivative of the cost function, \\(\frac{\partial }{\partial w_i}J(b,w)\\),  set it to 0 and solve. The derivative formula of Eq. 8 is derived just a few lines ahead, and the result is:
+
+\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}
+
+So 
+
+\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\frac{1}{1+e^{b+wTx^{(i)}}} -y^{(i)})}x^{(i)}
+
+We have a sum of m none linear functions, for which there is no analytical solution, with the exception of special cases with 2 observations, as explained in the paper by Stan Lipovetsky https://www.tandfonline.com/doi/abs/10.1080/02664763.2014.932760.
+
+Instead, we can use a mone alanlytical solution, such as the ****Gradient Descent****. 
+
+Gradient Descent was already explained to the details, and illustrated with the Linear Predictor. So here we can jump directly to implement the solution for Logistic Regression..
+
+
+
+Here's the  Gradient Descent operator set on cost function J(b,w), for the free coeffcient {b} and the other linear coefficients {w_j}
+
+
+#### Eq. 9:  Gradient Descent
+
+#### Eq. 9 a:
+$$b:=b-\alpha \frac{\partial J(b,w)}{\partial b}$$
+
+#### Eq. 9b:
+$$w_j:=w_j-\alpha \frac{\partial J(b,w)}{\partial w_j}$$
+For all {b}, {w_j} j=1...n calculate:
+
+
+Eq. 9a and 9b for all n coefficents should be repeated iteratively repeated until all {b} and all \\({w_j}\\) converge. The convergence point, is the point where all derivatives are 0, i.e. the minima point. 
+
+The development of the partial derivative \\(\frac{\partial Cost(b,w)}{\partial w_i}\\), is detailed in the appendix below. The result is presented in Eq 10.
+
+
+### Eq 10 a: Cost Function Partial Derivative
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}$$
+
+Pluging $$\hat{y}^{(i)}=\sigma(b+w^Tx^{(i)})$$ into Eq. 10a gives:
+
+
+### Eq 10 b: Cost Function Partial Derivative:
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
+
+
+
+Now we are ready to the itterative calculation of $$w_i, i=1-n$$ and $$b$$ with Gradient Descent.
+
+
+Here's the Gradient algorithm procedure:
+
+
+1. Initialize all n unknow coefficients with an arbitrary value. Let's set it to 0: 
+$$w_i_{i=1-n}=0, b=0$$
+  do ntill converged: 
+   \\ $$b = b - \alpha \frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})$$
+   \\ $$for i=1 to n:$$
+   \\ $w_i = w_i-\alpha \frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
+  
+
+
+
+
+Appendix A: Detailed Development of Logistic Regression Cost Function
+## Mathematical Development of Cost Function
+
+
+This section presents the mathematical development the Logistic Regression cost function formula.
+
+For convinience, let's re-write the Logistic Regression formulas for 
+
+### Eq. 6: Logistic Regression Formula
+
+#### 6a Logistic Regression Formula for y=1
+
+$$p(y=1| x, w,b) = \hat(y)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+
+#### 6b Logistic Regression Formula for y=0
+
+
+$$p(y=0| x, w,b) = 1 - p(y=1| x, w,b) = 1-\hat{y}$$
+
+
+Consequently, we can combine 6a and 6b to have an expression for $$y\varepsilon [0,1]$$:
+
+### Eq. 7: Combined Logistic Regression Formula
+
+$$p(y|x.b,w) =  \hat{y}^y(1- \hat{y})^{y-1}$$
+
+
+Now we take Eq 7, to find the likelihhod of, the output of m training example. It equeals to the multiplication of probabilities $$p(y_i|b,w,x_i)$$ of all i, i=1:m. The Likelihhod is a function of the parameters b,w, for a given outcome y and the input variable x.
+
+### Eq. 8: Likelihood Function
+$$L(b, w| y, x) = (p(Y| X, w,b) = 
+\prod_{i=1}^{m}p(y_i|x_i, b,w)= 
+\prod_{i=1}^{m}(\hat{y}^{(i)})^{y^{(i)}}(1-\hat{y}^{(i)})^{1-y^{(i)}}$$
+
+Eq. 8 is not concave, i.e. not convex. Note that the non-concave charectaristic is common to the exponential family, which are only logarithmically concave. 
+With that in mind, and considering that logarithms are strictly increasing functions, maximizing the log of the likelihood is equivalent to maximizing the likelihood. Not only that, but taking the log makes things much more covinient, as the multiplication are converted to a sum. So Here we take the natural log of Eq. 8 likelihood equation.
+
+### Eq. 9: Log Likelihood Function
+
+$$logL(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)$$
+
+Pluging Eq. 7 into Eq 9 + following the common convention of denoting the log-likelihood with a lowercase l, we get: 
+
+### Eq. 10: Log Likelihood Function
+
+$$l(b,w|y,x)=\sum_{i=1}^{m}logp(y_i|x_i, b,w)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})$$
+
+
+Consider the Logarithm power rule:
+### Eq. 11: Logarithm power rule:
+
+$$log(x^ y) = y log(x)$$
+
+
+Plug Eq. 11 into Eq 10 and get:
+### Eq. 12: Log Likelihood Function - Simplified
+
+
+$$l(b,w|y,x)=\sum_{i=1}^{m}log( h_{b,w}(x_i)^y_i(1- h_{b,w}(x_i))^{y_i-1})=\sum_{i=1}^{m}y_ilogh_{b,w}(x_i)+(y_i-1)log(1-h_{b,w}(x_i))$$
+
+
+Eq. 12 is the Likelihhod Function, according wich we can find the maximun likelihood, in the effort to find optimal set of coefficients. BUT - instead of maximizing the likelihhod, to we can speak of minimozing the cost, where the cost is the likelihhod's negative:
+
+
+### Eq. 13: Cost Function
+
+J(b,w) = -l(b,w)=\sum_{i=1}^{m}-y_ilogh_{b,w}(x_i)+(1-y_i)log(1-h_{b,w}(x_i))
+
+Q.E.D.
+
+
+
+Appendix B: Detailed Development of Cost Function Partial Derivative
+
+Let's calculate the partial derivative $$\frac{\partial Cost(b,w)}{\partial w_i}$$, relying on the derivatives chain rule, reconstructing the cost function into 3 equations:
+### Eq. 15: Decomposing Cost Function Before Chain Rule Derivation
+##### Eq. 15a
+
+$$z=b+w^Tx$$
+
+##### Eq. 15b
+
+
+$$\sigma(z)=\frac{1}{1+e^{-z}}$$
+
+### Eq. 15 c
+
+$$L(z)= -ylog \sigma(z) + (1-y)log(1- \sigma(z))
+$$
+
+
+Accoringly:
+
+#### Eq. 16: Cost Function Chain Derivatives
+
+$$\frac{\partial }{\partial w_i}L(z)=\frac{\partial }{\partial \sigma(z)}L(z)\cdot\frac{\partial }  {\partial z}\sigma(z)\cdot\frac{\partial }  {\partial w_i}z
+$$
+
+
+Now we can compute each of Eq 16's parts.
+
+To dericate the first derivative in chain, $$\frac{\partial }{\partial \sigma(z)}L(z) $$, remember the natural log derivative:
+
+### Eq 17: Well Known Natural Log Derivative
+
+
+$$\frac{\partial}{\partial x}log x=\frac{1}{x}$$
+
+
+Plug that into the first partial derivative element of Eq 16:
+
+### Eq 18: First part of the derivative chain
+
+$$\frac{\partial }{\partial \sigma(z)}L(z)=\frac{\partial }{\partial \sigma(z)}(-y^{(i)}log(\sigma(z)+(1-y^{(i)})log(1-\sigma(z))=-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}$$
+
+
+For the 2nd part of the derivative chain we'll use the reciprocal derivative rule:
+
+### Eq 19: The reciprocal derivative rule
+
+$$(\frac{1}{f(x)})'=-\frac{f'(x)}{f^2(x)}
+$$
+
+
+
+Accordingly:
+
+
+
+### Eq 19: Second part of the derivative chain
+
+
+$$\frac{\partial }  {\partial z}\sigma(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
+-\frac{-e^{-z}}{(1+e^{-z})^2}=-\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=-\sigma(z)^2+\sigma(z)=\sigma(z)(1-\sigma(z))$$
+
+### Eq 20: Third part of the derivative chain
+
+$$\frac{\partial }  {\partial w_i}=x_i$$
+
+
+
+re-Combining the 3 parts of the chain we get the Loss function for a single example:
+
+### Eq 21:  Recombining the 3 chained derivatives:
+
+$$\frac{\partial }{\partial w_i}L(\hat{y}^{(i)},y^{(i)})=(-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}) \cdot \sigma(z)(1-\sigma(z)) \cdot x^{(i)}=(\sigma(z)-y^{(i)})x^{(i)}$$
+
+
+
+Summing the Loss for all m examples, to get the Cost function derivatives:
+
+### Eq 23 a: Partial Derivative of Sum All Examples Losses:
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}$$
+
+Pluging $$\hat{y}^{(i)}=\sigma(b+w^Tx^{(i)})$$ into Eq. 23, gives:
+
+
+### Eq 23 b: Partial Derivative of Sum All Examples Losses:
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
+
+
+################
+
+
+
+We have 
+
+
+except for some special cases 
+
+
+Eq. 8 presnets 
 
 #### 
 
@@ -347,91 +595,6 @@ Explaination for the Gradient Decent Process :
 The above equations should be repeated iteratively, calculating a new set of {b,w_j} at each iteration. This iterative process should contiue until all {b} and {w_j} converge. The convergence point, is the point where all derivatives are 0, i.e. the minima point. 
 
 
-Let's calculate the partial derivative $$\frac{\partial Cost(b,w)}{\partial w_i}$$, relying on the derivatives chain rule, reconstructing the cost function into 3 equations:
-### Eq. 15: Decomposing Cost Function Before Chain Rule Derivation
-##### Eq. 15a
-
-$$z=b+w^Tx$$
-
-##### Eq. 15b
-
-
-$$\sigma(z)=\frac{1}{1+e^{-z}}$$
-
-### Eq. 15 c
-
-$$L(z)= -ylog \sigma(z) + (1-y)log(1- \sigma(z))
-$$
-
-
-Accoringly:
-
-#### Eq. 16: Cost Function Chain Derivatives
-
-$$\frac{\partial }{\partial w_i}L(z)=\frac{\partial }{\partial \sigma(z)}L(z)\cdot\frac{\partial }  {\partial z}\sigma(z)\cdot\frac{\partial }  {\partial w_i}z
-$$
-
-
-Now we can compute each of Eq 16's parts.
-
-To dericate the first derivative in chain, $$\frac{\partial }{\partial \sigma(z)}L(z) $$, remember the natural log derivative:
-
-### Eq 17: Well Known Natural Log Derivative
-
-
-$$\frac{\partial}{\partial x}log x=\frac{1}{x}$$
-
-
-Plug that into the first partial derivative element of Eq 16:
-
-### Eq 18: First part of the derivative chain
-
-$$\frac{\partial }{\partial \sigma(z)}L(z)=\frac{\partial }{\partial \sigma(z)}(-y^{(i)}log(\sigma(z)+(1-y^{(i)})log(1-\sigma(z))=-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}$$
-
-
-For the 2nd part of the derivative chain we'll use the reciprocal derivative rule:
-
-### Eq 19: The reciprocal derivative rule
-
-$$(\frac{1}{f(x)})'=-\frac{f'(x)}{f^2(x)}
-$$
-
-
-
-Accordingly:
-
-
-
-### Eq 19: Second part of the derivative chain
-
-
-$$\frac{\partial }  {\partial z}\sigma(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
--\frac{-e^{-z}}{(1+e^{-z})^2}=-\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=-\sigma(z)^2+\sigma(z)=\sigma(z)(1-\sigma(z))$$
-
-### Eq 20: Third part of the derivative chain
-
-$$\frac{\partial }  {\partial w_i}=x_i$$
-
-
-
-re-Combining the 3 parts of the chain we get the Loss function for a single example:
-
-### Eq 21:  Recombining the 3 chained derivatives:
-
-$$\frac{\partial }{\partial w_i}L(\hat{y}^{(i)},y^{(i)})=(-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}) \cdot \sigma(z)(1-\sigma(z)) \cdot x^{(i)}=(\sigma(z)-y^{(i)})x^{(i)}$$
-
-
-
-Summing the Loss for all m examples, to get the Cost function derivatives:
-
-### Eq 23 a: Partial Derivative of Sum All Examples Losses:
-$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}$$
-
-Pluging $$\hat{y}^{(i)}=\sigma(b+w^Tx^{(i)})$$ into Eq. 23, gives:
-
-
-### Eq 23 b: Partial Derivative of Sum All Examples Losses:
-$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
 
 
 Now we are ready to the itterative calculation of $$w_i, i=1-n$$ and $$b$$ with Gradient Descent.
