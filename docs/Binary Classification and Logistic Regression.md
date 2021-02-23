@@ -243,19 +243,15 @@ $$w_i_{i=1-n}=0, b=0$$
 
 
 
-Appendix A: Detailed Development of Logistic Regression Cost Function
-## Mathematical Development of Cost Function
+## Appendix A: Detailed Development of Logistic Regression Cost Function
 
+For convinience, let's re-write the Logistic Regression formulas 
 
-This section presents the mathematical development the Logistic Regression cost function formula.
-
-For convinience, let's re-write the Logistic Regression formulas for 
-
-### Eq. 6: Logistic Regression Formula
+#### Eq. 6: Logistic Regression Formula
 
 #### 6a Logistic Regression Formula for y=1
 
-$$p(y=1| x, w,b) = \hat(y)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
+$$p(y=1| x, w,b) = \hat{y}=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 #### 6b Logistic Regression Formula for y=0
 
@@ -263,16 +259,18 @@ $$p(y=1| x, w,b) = \hat(y)=\sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 $$p(y=0| x, w,b) = 1 - p(y=1| x, w,b) = 1-\hat{y}$$
 
 
-Consequently, we can combine 6a and 6b to have an expression for $$y\varepsilon [0,1]$$:
+Consequently, we can combine 6a and 6b to have an expression for \\(y\varepsilon [0,1]\\):
 
-### Eq. 7: Combined Logistic Regression Formula
+#### Eq. 7: Combined Logistic Regression Formula
 
 $$p(y|x.b,w) =  \hat{y}^y(1- \hat{y})^{y-1}$$
 
 
-Now we take Eq 7, to find the likelihhod of, the output of m training example. It equeals to the multiplication of probabilities $$p(y_i|b,w,x_i)$$ of all i, i=1:m. The Likelihhod is a function of the parameters b,w, for a given outcome y and the input variable x.
+For Logistic regression, instead of finding the parameters which minimize the cost function - which would not be convex, we will find the parameters which maximze the likelihood function.
 
-### Eq. 8: Likelihood Function
+To find the likelihood function Now we take Eq 7, the output of m training example. It equeals to the multiplication of probabilities $$p(y_i|b,w,x_i)$$ of all i, i=1:m. The Likelihhod is a function of the parameters b,w, for a given outcome y and the input variable x.
+
+#### Eq. 8: Likelihood Function
 $$L(b, w| y, x) = (p(Y| X, w,b) = 
 \prod_{i=1}^{m}p(y_i|x_i, b,w)= 
 \prod_{i=1}^{m}(\hat{y}^{(i)})^{y^{(i)}}(1-\hat{y}^{(i)})^{1-y^{(i)}}$$
