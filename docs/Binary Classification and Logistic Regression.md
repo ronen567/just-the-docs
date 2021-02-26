@@ -173,10 +173,6 @@ $$L(b,w)=-log(\hat{y}^{(i)})*y^{(i)}$$
 $$-log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
 
 
-$$L(b,w)=-log(\hat{y}^{(i)})*y^{(i)}-log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
-
-
-
 
 Figure 8: Logistic Regression Lost Function
 
@@ -192,9 +188,13 @@ We need to take the first derivative of the cost function, \\(\frac{\partial }{\
 
 $$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
 
-So 
+Plugging in:
 
-$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\frac{1}{1+e^{b+wTx^{(i)}}} -y^{(i)})}x^{(i)}$$
+$$\sigma(b+w^Tx^{(i)}) =  \frac{1}{1+e^{b+wTx^{(i)}}}$$
+
+We get:
+
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m} (\frac{1}{1+e^{b+wTx^{(i)}}} -y^{(i)})x^{(i)}$$
 
 We have a sum of m none linear functions, for which there is no analytical solution, with the exception of special cases with 2 observations, as explained in the paper by Stan Lipovetsky https://www.tandfonline.com/doi/abs/10.1080/02664763.2014.932760.
 
@@ -219,7 +219,7 @@ For all {b}, {w_j} j=1...n calculate:
 
 Eq. 9a and 9b for all n coefficents should be repeated iteratively repeated until all {b} and all \\({w_j}\\) converge. The convergence point, is the point where all derivatives are 0, i.e. the minima point. 
 
-The development of the partial derivative \\(\frac{\partial Cost(b,w)}{\partial w_i}\\), is detailed in the appendix below. The result is presented in Eq 10.
+The development of the partial derivative \\(\frac{\partial L(b,w)}{\partial w_i}\\), is detailed in the appendix below. The result is presented in Eq 10.
 
 
 #### Eq 10 a: Cost Function Partial Derivative
@@ -233,18 +233,17 @@ $$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{
 
 
 
-Now we are ready to the itterative calculation of $$w_i, i=1-n$$ and $$b$$ with Gradient Descent.
+Now we are ready to the itterative calculation of \\(w_i, i=1-n\\) and \\(b\\) with Gradient Descent.
 
 
 Here's the Gradient algorithm procedure:
 
 
-1. Initialize all n unknow coefficients with an arbitrary value. Let's set it to 0: 
-$$w_i_{i=1-n}=0, b=0$$
-  do ntill converged: 
+1. Initialize all n+1 unknow coefficients with an initial value.
+2. repeat untill converged: 
    \\ $$b = b - \alpha \frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})$$
-   \\ $$for i=1 to n:$$
-   \\ $w_i = w_i-\alpha \frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
+   and for i=1 to n:
+   $$w_i = w_i-\alpha \frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
   
 
 
