@@ -156,13 +156,11 @@ Eq. 7a assigns expressions for y=0 and y=1. Eq. 7b combines both equations. Figu
 
 
 #### Eq. 7: Loss function used for Logistic Regression
-##### 7a
-if \\(y^i=1\\):
-$$L(b,w)= -log(\hat{y}^i)$$
 
-if \\(y^i=0\\):
-
-$$L(b,w)= 1-log(\hat{y}^i)$$
+\begin{cases}
+ &  L(b,w)= -log(\hat{y}^i) \text{ if } y^i=1\\  
+ & L(b,w)= -log(1-\hat{y}^i) \text{ if } y^i=0
+\end{cases}
 
 
 
@@ -170,7 +168,8 @@ Or expressing it in a single equation:
 
 ##### 7b: Loss express in  expressing it in a single equation:
 
-$$L(b,w)=-log(\hat{y}^i)*{y^i}+log(1-\hat{y}^i)*(1-y^i)]$$
+$$L(b,w)=-log(\hat{y}^i)*{y^i}+log(1-\hat{y}^i)*(1-y^i)]
+$$
 
 
 
@@ -186,11 +185,11 @@ From Eq. 8, we need find the the n+1 coefficients, b and w, whch minimize the co
 
 We need to take the first derivative of the cost function, \\(\frac{\partial }{\partial w_i}J(b,w)\\),  set it to 0 and solve. The derivative formula of Eq. 8 is derived just a few lines ahead, and the result is:
 
-\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
 
 So 
 
-\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\frac{1}{1+e^{b+wTx^{(i)}}} -y^{(i)})}x^{(i)}
+$$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\frac{1}{1+e^{b+wTx^{(i)}}} -y^{(i)})}x^{(i)}$$
 
 We have a sum of m none linear functions, for which there is no analytical solution, with the exception of special cases with 2 observations, as explained in the paper by Stan Lipovetsky https://www.tandfonline.com/doi/abs/10.1080/02664763.2014.932760.
 
@@ -218,13 +217,13 @@ Eq. 9a and 9b for all n coefficents should be repeated iteratively repeated unti
 The development of the partial derivative \\(\frac{\partial Cost(b,w)}{\partial w_i}\\), is detailed in the appendix below. The result is presented in Eq 10.
 
 
-### Eq 10 a: Cost Function Partial Derivative
+#### Eq 10 a: Cost Function Partial Derivative
 $$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)}$$
 
 Pluging $$\hat{y}^{(i)}=\sigma(b+w^Tx^{(i)})$$ into Eq. 10a gives:
 
 
-### Eq 10 b: Cost Function Partial Derivative:
+#### Eq 10 b: Cost Function Partial Derivative:
 $$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\sigma(b+w^Tx^{(i)}) -y^{(i)})x_i^{(i)}$$
 
 
