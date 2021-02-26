@@ -81,9 +81,9 @@ For Logistic Regression predictor, z argument is replaced by a linear combinatio
 $$z=b+wx$$, 
 
 
-Plugging  Eq. 3 into Eq 1, results in the Logistic Regression  expression, which is the probability of y=1, given the input vector x and the coefficent set {w,b}.
+Plugging  Eq. 2 into Eq 1, results in the Logistic Regression  expression, which is the probability of y=1, given the input vector x and the coefficent set {w,b}.
 
-#### Eq. 4: Logistic Regression Formula
+#### Eq. 3: Logistic Regression Formula
 
 $$p(y=1| x,w,b) = \sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
