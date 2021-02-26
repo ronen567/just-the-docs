@@ -167,20 +167,15 @@ L(b,w)= -log(1-\hat{y}^i) & \text{ if } y^i=0
 Or expressing it in a single equation:
 
 ##### 7b: Loss express in  expressing it in a single equation:
-$$L(b,w)=-log(\hat{y}^{(i)})*{y^{(i)}}$$
 
-$$L(b,w)=-log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
+$$L(b,w)=-log(\hat{y}^{(i)})*y^{(i)}$$
 
-
-$$4L(b,w)=-log(\hat{y}^{(i)})*y^{(i)}\\\\\-log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
+$$-log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
 
 
-$$5L(b,w)=-log(\hat{y}^{(i)})*y^{(i)}$$
+$$L(b,w)=-log(\hat{y}^{(i)})*y^{(i)}$$
+$$-log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
 
-$$6-log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
-
-
-$$7L(b,w)=-log(1-\hat{y}^{(i)})*(1-y^{(i)})$$ \\(-log(\hat{y}^{(i)})*y^{(i)}-log(1-\hat{y}^{(i)})*(1-y^{(i)})\\)
 
 
 
