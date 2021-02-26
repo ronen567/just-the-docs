@@ -168,7 +168,9 @@ Or expressing it in a single equation:
 
 ##### 7b: Loss express in  expressing it in a single equation:
 
-$$L(b,w)=-log(\hat{y}^{(i)})*{y^{(i)}}+log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
+$$
+L(b,w)=-log(\hat{y}^{(i)})*{y^{(i)}}+log(1-\hat{y}^{(i)})*(1-y^{(i)})
+$$
 
 
 
