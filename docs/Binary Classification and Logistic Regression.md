@@ -155,7 +155,7 @@ Eq. 7a assigns expressions for y=0 and y=1. Eq. 7b combines both equations. Figu
 
 
 
-#### Eq. 7: Loss function used for Logistic Regression
+#### Eq. 7ba: Loss function used for Logistic Regression
 \begin{cases}
 L(b,w)= -log(\hat{y}^i) & \text{ if } y^i=1\\\\\\
 L(b,w)= -log(1-\hat{y}^i) & \text{ if } y^i=0
@@ -168,8 +168,7 @@ Or expressing it in a single equation:
 
 ##### 7b: Loss express in  expressing it in a single equation:
 
-$$L(b,w)=-log(\hat{y}^i)*{y^i}+log(1-\hat{y}^i)*(1-y^i)]
-$$
+$$L(b,w)=-log(\hat{y}^{(i)})*{y^{(i)}}+log(1-\hat{y}^{(i)})*(1-y^{(i)})$$
 
 
 
