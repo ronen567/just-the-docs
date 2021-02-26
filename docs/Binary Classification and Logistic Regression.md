@@ -341,16 +341,16 @@ The Cost function's partial derivatives are needed for the Gradient Descent calc
 $$\frac{\partial J(b,w)}{\partial w_i} =\sum_{i=1}^{m}\frac{\partial L(b,w)}{\partial w_i}$$
 
 
-To simplify the equation let's look at the Loss function. It will be easy to sum the Losses later:
+To simplify the equation let's look at one instance of the Loss function. It will be easy to sum the Losses later:
 
 #### Eq. 15: Loss Function Derivative
-$$\frac{\partial L(b,w)}{\partial w_i} =\frac{\partial (-y_ilog ()_{b,w}(x_i)+(1-y_i)log(1-h_{b,w}(x_i)))}{\partial w_i})$$
+
+$$\frac{\partial L(b,w)}{\partial w_i} =\frac{\partial }{\partial w_i}(-y^{(i)}log (\hat{y}^{(i)})-(1-y^{(i)})log(1-\hat{y}^{(i)})$$
 
 
 
 
-
-Now let's prepare the presentation of the Loss function for applying the derivative chan rule: 
+Now let's prepare the presentation of the Loss function for applying the derivative chain rule: 
 
 
 
