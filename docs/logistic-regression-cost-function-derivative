@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 4
-title: Binary Classification and Logistic Regression New!
+title: Logistic Regression cost Function Derivation Equation Development
 ---
 ## Appendix B:  Development of Cost Function Partial Derivative
 
