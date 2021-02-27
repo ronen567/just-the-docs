@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 2
-title: Logistic Derivative Cost Function
+title: Logistic Regression Cost Function
 ---
 ## Appendix A: Detailed Development of Logistic Regression Cost Function
 
