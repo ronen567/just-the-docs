@@ -6,51 +6,84 @@ title: Logistic Regression
 
 # Logistic Regression
 
-Logistic regression is an algorithm for performing Ninary Classification. This post introduces the algorithm outlines, with an illustration of a simplified classifcation problem. 
+## Introduction
+
+This post introduces Logistic regression, an algorithm for performing Binary Classification. The introduction contains 4 chapters:
+
+1. Background: Supervised Learning and Binary Classification
+2. Classification Model Selection - why not Linear Regression?
+3. Presentetion of Logistic Regression Model
+4. Logistic Regression Cost Function
+5. Gradient Descent Solution
+
+
+##  Background: Binary Classification, Supervised Learning
+
+
+ntroduces the algorithm and is devided to the foll outlines, with an illustration of a simplified classifcation problem. 
 
 assign observations to a discrete set of classes. Some of the examples of classification problems are Email spam or not spam, Online transactions Fraud or not Fraud, Tumor Malignant or Benign. Logistic regression transforms its output using the logistic sigmoid function to return a probability value.
 
-Binary Classification as its name implies, classifies input data to one of 2 hypothesis. Naturally, the 2 binary hypotheses are assigned with a binary indices,  either 0 or 1. So decisions such as whether a tumor is malignant or not, will a customer purchase an item or not, require a Binary Classification. In the context of machine learning. Binary Classification belongs to the Supervised Machine Learning category. Just to note, previous posts where about Regression Supervised Learning,which also belongs to the same  machine learning category, but fits prediction of continous values, such as price, anounts, periods, etc, while the Binary Classifier decides between 2 descrete decisions. BTW, one of the next posts will present the extension of Binary Classification to Multi-Class Classification.
-y differ 
-The Supervise Learning Outlines diagram (Figure 1) is similar to the one presented presented in the context of Regression Machine Learning. They differ only in  the prediction model,  and subsequently in the nature of the output.
-In this We'll present the Logistic Regression prediction model, which fits Binary Classification. We'll start by showing that a continous prediction models such as the Linear Prediction model don't fit. After that, we will show how to calculate the predictor's coefficients with the Gradient Descent algorithm.
+Binary Classification as its name implies, is the operation which assigns observations to one of 2 pre-assigned classes. The classes are conventionally marked by a 1 and 0 indices, where the 1 index will normally be assigned to the positive decision. So for example, decisions such as whether a tumor is malignant or not, or will a customer purchase an item or not, require a Binary Classification. I
+
+Binary Classification belongs to the Supervised Machine Learning category, which model is presented by Figure 1. The Prediction Model resides at the heart of the Learning Model. The predictor's coefficents are calculated during the Training Phase, an later are used for the prediction of data in the normal data phase which follows.
+The chaters which follow discusss considerations for the selection of a classifer which fits, presnet the Logistic Regression classifier, the Cost function, and the Grdient Descent algorithm which calculates the predictor's coefficients.
 
 
 #### Figure 1: Supervise Learning Outlines
 
 ![Supervise Learning Outlines](../assets/images/supervised/binary-calssification-machine-learning-model.svg)
 
-So let's start! 
 
-## An introduction to the Logistic Regression
 
-To illustrate Binary Classification let's take a simple example: It is required to predict the if a customer will buy a product, based on her income. (A good prediction indeed can't base on inome only. Still, the simplified example eases the graphical illustration. Anyway, the model and solution will support mult-deatured input data)
+## Fitting a Classification Model Selection - why not Linear Regression?
 
-To set the predictor, we first need to have a training data sequence, with labeled customers' income data. Figure 2 presents such data, collected from 11 customers. Each data point is labeled by either Y=1, if the  customer did purchase, or Y=0, if he did not purchase. (The assignment of 0 or 1 to the hypothesises is arbitrary, though it makes more sense to assign a 1 to the positive hypothesis.
+Let's take a Binary Classification simplified example: It is required to predict if a customer will buy a product, based on income. (Note: A good prediction indeed can't base on inome only, and anyway needs much more data points. Still, the simplified example eases the illustration.)
+
+To train the predictor, we use a training data sequence, which consists of labeled data from 11 observations, as presneted by table 1: 
+
+#### Table 1:  Purchase Training Data
+
+|`Income  | Did customer buy? |
+|:--------|:------------------|
+| 1000    |yes                |
+| 1500    |yes                |
+| 2000    |yes                |
+| 2500    |yes                |
+| 3000    |yes                |
+| 3500    |yes                |
+| 4000    |no                 |
+| 4500    |no                 |
+| 5000    |no                 |
+| 5500    |no                 |
+| 6000    |no                 |
+
+
+
+Table 1's data is presented on a graph - see Figure 2, where Y=1 means "Customer did purchase". Based on these poinst, it isa needed to perform a predictor which  should be able to make the purchace prediction based on customers' income. We begin by tryin to fit in a Linear Predictor. Will it work?
+Figure 3 presents a linear line which was produced by the Linear Regression algorithm. Does it indeed fit? If we set the decision boundery at y=0.5, as illustrated in Figure 4, it seems as if it fits: All the points with income less than 3500 map to 0, and all the rest to 1. But that is an illusion. The Linear Predictor can't realy fit here. Let's show that by taking more observations, as illustrated by Figure 5. Now the line, produced by Linear Regression, maps data points with with an imcome below ~9000 to 0. If we took more points, the classification results might change more, anyway, they can't fir the training data points. Next candicate: Logistic Regression Algorithm!
+
+ense to assign a 1 to the positive hypothesis.
 
 #### Figure 2: Labled Data: customers' income, labeld by Y=1/0 if customer did buy/did not buy
 
 ![Supervised  outlines](../assets/images/logistic-regression/binary_point.png)
 
 
-Now it is needed to train a predictor with this data. But which model should we train? Will the Linear Prediction model, which we already deployed for Regression Prediction fit? Let's examine that!. Figure 3 illustrates a linear line which fits the data point. Will it fit? 
 
 #### Figure 3: Linear Prediction Mode: Will it fit binary classifcation?
 
 ![Linear Prediction for Binary Classification](../assets/images/logistic-regression/binary_point_linear_pred.png)
 
 
-If we set the decision boundary to 0.5, it seems to give correct results. Take a look at Figure 4:  An income of 3000 maps to 0.4, i.e. Y=0. An income of 3500 maps to 0.5 i.e. Y=1.  Linear prediction seems like a good predictor if threshold is set to 0.5. Is that a correct conclusion? ****it's not correct!**** Figure 5 proves that.
-
 #### Figure 4: Linear Prediction for Binary Classification with thresholds
 
 ![Linear Prediction for Binary Classification THresholds](../assets/images/logistic-regression/binary_point_linear_pred_with_markers.png)
 
 
-Adding more data points, as presented by Figure 5, changes the line predictor's results: Now the predictor maps a customer with an income of 5000 to a point on the line which is below the 0.5 threshold. Obviously, the linear prediction won't work for Binary Classification. Another different prediction model is needed. Let me introduce the Logistic Regression Model..
 
 
-#### Figure 6: Linear Prediction for Binary Classification with thresholds - Problem!
+#### Figure 5: Linear Prediction for Binary Classification with thresholds - Problem!
 
 ![Linear Prediction for Binary Classification Thresholds Problem](../assets/images/logistic-regression/binary_point_linear_pred_problem.png)
 
