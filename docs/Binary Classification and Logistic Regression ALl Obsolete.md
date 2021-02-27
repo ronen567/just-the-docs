@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 2
-title: Binary Classification and Logistic Regression New!
+title: Binary Classification and Logistic Regression Old Obsolete!
 ---
 
 # Binary Classification and Logistic Regression
