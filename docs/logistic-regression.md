@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 7
+nav_order: 4
 title: Logistic Regression
 ---
 
