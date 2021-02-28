@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 6
+nav_order: 5
 title: Logistic Regression Cost Function
 ---
 ## Appendix A: Detailed Development of Logistic Regression Cost Function
