@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 4
+nav_order: 40
 title: Linear Prediction Using Gradient Descent
 ---
 
