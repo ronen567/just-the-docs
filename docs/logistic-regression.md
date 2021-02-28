@@ -208,7 +208,7 @@ L(b,w)= -log(1-\hat{y}^i) & \text{ if } y^i=0
 
 Or expressing it in a single equation:
 
-### 7: Loss express in  expressing it in a single equation:
+### Eq. 7: Loss express in  expressing it in a single equation:
 
 $$L(b,w)=-log(\hat{y}^{(i)})*y^{(i)}$$
 
