@@ -2,7 +2,7 @@
 .text-green-300
 layout: default
 nav_order: 3
-title: inear Regression
+title: Linear Regression Analytical Solution
 .fs-10
 .text-green-300
 ---
