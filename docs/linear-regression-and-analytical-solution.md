@@ -120,7 +120,7 @@ $$
 Let's insert table 2's data to Eq. 3 gives the following set of equations:
 
 $$\begin{align*}
- b+w{_1} &= 0.5 \\\\\\
+ b+w{_1}*1+w{_2}*4 &= 0.5 \\\\\\
  b+w{_1} &= 1.0 \\\\\\
  b+w{_1} &= 1.2 \\\\\\
  b+w{_1} &= 1.5 
