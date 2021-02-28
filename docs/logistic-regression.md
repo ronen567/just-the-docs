@@ -55,7 +55,7 @@ To train the predictor, we use a training data sequence, which consists of label
 
 
 Table 1's data is presented on a graph - see Figure 2, where Y=1 means "Customer did purchase". Based on these poinst, it isa needed to perform a predictor which  should be able to make the purchace prediction based on customers' income. We begin by tryin to fit in a Linear Predictor. Will it work?
-Figure 3 presents a linear line which was produced by the Linear Regression algorithm. Does it indeed fit? If we set the decision boundery at y=0.5, as illustrated in Figure 4, it seems as if it fits: All the points with income less than 3500 map to 0, and all the rest to 1. But that is an illusion. The Linear Predictor can't realy fit here. Let's show that by taking more observations, as illustrated by Figure 5. Now the line, produced by Linear Regression, maps data points with with an imcome below ~9000 to 0. If we took more points, the classification results might change more, anyway, they can't fit the training data points. Next candicate: Logistic Regression Algorithm!
+Figure 3 presents a linear line which was produced by the Linear Regression algorithm. Does it indeed fit? If we set the decision boundery at y=0.5, as illustrated in Figure 3, it seems as if it fits: All the points with income less than 3500 map to 0, and all the rest to 1. But that is an illusion. The Linear Predictor can't realy fit here. Let's show that by taking more observations, as illustrated by Figure 4. Now the line, produced by Linear Regression, maps data points with with an imcome below ~9000 to 0. If we took more points, the classification results might change more, anyway, they can't fit the training data points. Next candicate: Logistic Regression Algorithm!
 
 ense to assign a 1 to the positive hypothesis.
 
@@ -64,20 +64,14 @@ ense to assign a 1 to the positive hypothesis.
 ![Supervised  outlines](../assets/images/logistic-regression/binary_point.png)
 
 
-
-### Figure 3: Linear Prediction Mode: Will it fit binary classifcation?
-
-![Linear Prediction for Binary Classification](../assets/images/logistic-regression/binary_point_linear_pred.png)
-
-
-### Figure 4: Linear Prediction for Binary Classification with thresholds
+### Figure 3: Linear Prediction for Binary Classification with thresholds
 
 ![Linear Prediction for Binary Classification THresholds](../assets/images/logistic-regression/binary_point_linear_pred_with_markers.png)
 
 
 
 
-### Figure 5: Linear Prediction for Binary Classification with thresholds - Problem!
+### Figure 4: Linear Prediction for Binary Classification with thresholds - Problem!
 
 ![Linear Prediction for Binary Classification Thresholds Problem](../assets/images/logistic-regression/binary_point_linear_pred_problem.png)
 
@@ -88,14 +82,14 @@ ense to assign a 1 to the positive hypothesis.
 The Logistic Regression is a model which predicts the ****probability**** of the hypothesises, .e. given the observation x, it predicts the decision \\(\hat{y}\\), 
 where is a \\(\hat{y}=p(y=1|x)\\), is the probability of the decision to be 1, given the input x. 
 
-The model used for the prediction of the conditional probability, is sigmoid function, which is presented in Eq. 1 and sketched in Figure 6.
+The model used for the prediction of the conditional probability, is sigmoid function, which is presented in Eq. 1 and sketched in Figure 5.
 
 ### Eq. 1: Sigmoid Function
 
 $$\hat{y}(z) = \sigma(z)=\frac{1}{1+e^{-z}}$$
 
 
-### Figure 6: Sigmoid Function
+### Figure 5: Sigmoid Function
 
 ![Sigmoid Function](../assets/images/logistic-regression/sigmoid-function.png)
 
@@ -123,10 +117,8 @@ $$p(y=1| x,w,b) = \sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
 Obviously, the dependent probability of y=0 is the the mirror picture of the above, as presented by Eq. 4 and Fgure 6a
 
-### Figure 6a: Probability for y=0: 1- Sigmoid Function
+### Figure 6: Probability for y=0: 1- Sigmoid Function
 
-
-### Figure 6: 1-Sigmoid Function
 
 ![Sigmoid Function](../assets/images/logistic-regression//mirrored_sigmoid.png)
 
