@@ -113,7 +113,7 @@ As before,  i=1:m, where m=11 is the number of examples. Nore that the Linear Pr
 ### Eq. 3:
 
 $$
-y=\hat{y^{(i)}}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
+y=\hat{y}^{(i)}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
 $$
 
 
