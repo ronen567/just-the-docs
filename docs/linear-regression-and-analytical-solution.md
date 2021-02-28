@@ -9,7 +9,7 @@ title: Linear Regression Analytical Solution
 
 Consider the following (very simplified problem): It is needed to predict homes' price, based on 6 features: their address, floor, number of rooms, number of bethrooms, area, and schools. How should we do that? Answer - remember the presented Supervised Machine Learning model, presented in Figure 1? To perform the task we need to set a prediction algorithm, which parameters should be calculated during the Training phase. Sounds simple right? This process is detailed in this post.
 
-Figure 1: Supervise Learning Outlines
+### Figure 1: Supervise Learning Outlines
 
 ![Supervise Learning Outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
 
@@ -20,7 +20,7 @@ At the name Linear Predictor implies, the predicted output is modeled by a linea
 According to our notations, \\(\hat{y}\\) represents the the estimated value of  \\(y\\), \\({x_j}\\) represent the input data set, where j=1:n, and  \\({b, w_j}\\), i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e. 
 
 
-#### Eq. 1: Linear Prediction 
+### Eq. 1: Linear Prediction 
 
 $$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e $$
 
@@ -30,7 +30,7 @@ Let's return to our homes prices prediction example, but for our convinience, si
 With that in mind, watch Table 1, which holds a set of 5 example data points, each relates to an appartment which is charectarized by its floor, and  labeled by its price. Based on those examples, we should set a model which will predict apartments price, given its floor. (Obviously the floor  by itself is not sufficient for a valid apartment price prediction, but still, we take that for the sake of example's simplicity, but without losing generality - we will show the solution for any n. Besides the too-small number of features,the number of examples, m=5, is obviously too small for a good prediction, but again, it's all for the sake of the example's simplicity.
 
 
-#### Table 1:  Apartments price prediction - single feature
+### Table 1:  Apartments price prediction - single feature
 
 
 |Floor    |Price (M $)|
@@ -44,14 +44,14 @@ With that in mind, watch Table 1, which holds a set of 5 example data points, ea
 
 For Table 1's single feature data, the predictor equation of Eq. 1, reduces to the equation specified in Eq 2A. Pluging the Table 1's data to Eq. 2a, results in Eq. 2b.
 
-#### Eq. 2a: Linear Prediction with n=1 
+### Eq. 2a: Linear Prediction with n=1 
 
 $$y = \hat{y} + e=b+w_1x_1 + e$$
 
 
 Inserting table 1's data to Eq. 2a gives the following set of equations:
 
-#### Eq. 2b:
+### Eq. 2b:
 $$b+w_1*0+\epsilon^{(1)}=0.4
 $$
 
@@ -77,7 +77,7 @@ From the above equations the coefficients \\(b,w_1\\) can be found. We will get 
 
 Figure 1 presents the Table 1's 5 data points, along with a line regression estimator graph.  
 
-#### Figure 1: Linear Prediction - 1D
+### Figure 1: Linear Prediction - 1D
 
 ![Linear Predictiopn 1d](../assets/images/linear-regression/linear_1d_prediction.png)
 
@@ -87,7 +87,7 @@ According to the graph sketched in Figure 1, the linear model indeed seems to fi
 Have not yet explained how the fitting line was calculated, butlet's examine a higher order estimator, with n=2. So accordingly, Let's have now 2 features - floor number and number of bedrooms, as shown in Table 2.
 
 
-#### Table 2:  Apartments price prediction, with n=2
+### Table 2:  Apartments price prediction, with n=2
 
 |Floor|Bedrooms | Price (M $)|
 |:----|:--------|:-----------|
@@ -110,7 +110,7 @@ Figure 2 presents the listed above dataset examples, (see x marker points), and 
 
 As before,  i=1:m, where m=11 is the number of examples. Nore that the Linear Predictor's calculated \\(\hat{y^{(i)}}\\)  points, are located on the colored presented surface of Fig 2.
 
-#### Eq. 3:
+### Eq. 3:
 
 $$
 y=\hat{y^{(i)}}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
@@ -169,7 +169,7 @@ From the above 11 equations, it is possible to calculate the coefficients \\( {b
 
 
 
-#### Figure 2: Linear Prediction - 2D
+### Figure 2: Linear Prediction - 2D
 
 ![Linear Predictiopn 2d](../assets/images/linear-regression/linear_prediction_2d.gif)
 
@@ -179,14 +179,13 @@ From the above 11 equations, it is possible to calculate the coefficients \\( {b
 Now that we've seen 2 linear prediction examples, with n=1 and n=2, we continue to the next step: Calculate the predictors coefficientsת \\(b, w_i\\). The common algorithm to do it is the Gradient Descent. Gradient Descent is an iterative algorithm, which will be detailed post which follows, illustrated on the Logistic Regression predictor. To solve for the Linear Regression we can use the Analytical Solution as well. So let's review the solution here.
 
 
-
-### Analytical Solution for Linear Predictor Coefficents
+## Analytical Solution for Linear Predictor Coefficents
 
 Given Eq. 1 we aim to find the predictor's coefficents \\( {b, w_i}\\),  j=1:n which will lead to the best predictor \\(\hat{y}\\) for y.
 
 For our calculation, we need a set of labeled examples \\( {x_1...x_n, y} \\) See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index, which runs fro, 1 to n. 
 
-#### Eq. 4: Linear Predictor, n dimensional input, m examples 
+### Eq. 4: Linear Predictor, n dimensional input, m examples 
 
 $$y^{(1)}=b+w_1x_1^{(1)}+w_2x_2^{(1)}+w_3x_3^{(1)}+....w_nx_n^{(1)}+\epsilon^1$$
 
@@ -200,7 +199,7 @@ $$y^{(m)}=b+w_1x_1^{(m)}+w_2x_2^{(m)}+w_3x_3^{(m)}+....w_nx_n^{(m)}+\epsilon^2$$
 
 Let's present Eq. 4 in a matrix format:
 
-#### Eq. 5: 
+### Eq. 5: 
 
 $$\begin{bmatrix}
 y^{(1)}
@@ -240,7 +239,7 @@ $$
 
 And in a more compact format:
 
-#### Eq. 6: 
+### Eq. 6: 
 
 $$
 Y=XW+\epsilon
@@ -260,7 +259,7 @@ Matrix X dimensions are mXn, where m >> n, i.e. m, the number of examples, shoul
 Accordingly, considering X is not square, it is not invertible. Still, if X is Full Rank, i.e. it's columns are linear independent, then \\(X^TX\\) is invertible.
 So multiply each side of Eq. 6 by  \\(X^T\\):
 
-#### Eq. 7: 
+### Eq. 7: 
 
 $$
 X^TY=X^TXW
@@ -268,7 +267,7 @@ $$
 
 Multiply each side of Eq. 7 by \\((X^TX)^{-1}\\) :
 
-#### Eq. 8: 
+### Eq. 8: 
 
 $$
 (X^TX)^{-1}X^TY=(X^TX)^{-1}X^TXW
@@ -277,7 +276,7 @@ $$
 
 Since   \\((X^TX)^{-1}X^TX\\)=I   Eq. 8 reduces to:
 
-#### Eq. 9: 
+### Eq. 9: 
 
 $$
 \mathbf{(X^TX)^{-1}X^TY=W}
@@ -285,11 +284,11 @@ $$
 
 #### And that's it! We have the solution for the predictor's coefficents.
 
-### Ilustrating the Solution by Calculating the 1D Predictor
+## Ilustrating the Solution by Calculating the 1D Predictor
 
 Let's illustrate Eq. 9 on the 1D predictor listed above. Let's plug Eq.2 into the components of Eq. 9, as shown in Eq. 10.
 
-#### Eq. 10: 
+### Eq. 10: 
 
 $$Y=\begin{bmatrix}
 0.4\\\ 
