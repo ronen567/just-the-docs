@@ -2,7 +2,7 @@
 .text-green-300
 layout: default
 nav_order: 2
-title: inear Regression NEW!!
+title: inear Regression
 .fs-10
 .text-green-300
 ---
