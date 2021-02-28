@@ -120,9 +120,9 @@ $$
 Let's insert table 2's data to Eq. 3 gives the following set of equations:
 
 $$\begin{align*}
- &= \\ 
- &= \\ 
- &= \\ 
+ &= \\\\\\
+ &= \\\\\\
+ &= \\\\\\
  &= 
 \end{align*}$$
 
