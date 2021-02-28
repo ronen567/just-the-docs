@@ -120,6 +120,20 @@ $$
 Let's insert table 2's data to Eq. 3 gives the following set of equations:
 
 
+$$\begin{align*}
+b+w{_1}*0+w{_2}*5+\epsilon^{(1)}&=1.5\\\\\\
+b+w{_1}*1+w{_2}*4+\epsilon^{(2)}&=0.5\\\\\\
+b+w{_1}*2+w{_2}*5+\epsilon^{(3)}&=1\\\\\\
+b+w{_1}*3+w{_2}*6+\epsilon^{(4)}&=1.2\\\\\\
+b+w{_1}*4+w{_2}*6+\epsilon^{(5)}&=1.5\\\\\\
+b+w{_1}*5+w{_2}*4+\epsilon^{(6)}&=0.5\\\\\\
+b+w_{_1}*6+w{_2}*5+\epsilon^{(7)}&=0.6\\\\\\
+b+w_{_1}*7+w{_2}*3+\epsilon^{(8)}&=0.9\\\\\\
+b+w_{_1}*8+w{_2}*4+\epsilon^{(9)}&=0.7\\\\\\
+b+w_{_1}*9+w{_2}*3+\epsilon^{(10)}&=0.7\\\\\\
+b+w_{_1}*10+w{_2}*5+\epsilon^{(11)}&=1.3\\\\\\
+\end{align*}$$
+
 $$b+w{_1}*0+w{_2}*5+\epsilon^{(1)}=1.5
 \\\\\\\
 b+w{_1}*1+w{_2}*4+\epsilon^{(2)}=0.5
@@ -137,6 +151,10 @@ b+w_{_1}*7+w{_2}*3+\epsilon^{(8)}=0.9
 b+w_{_1}*9+w{_2}*3+\epsilon^{(10)}=0.7
 \\\\\\\b+w_{_1}*10+w{_2}*5+\epsilon^{(11)}=1.3
 $$
+
+
+
+
 
 From the above 11 equations, it is possible to calculate the coefficients \\( {b,w_1, w_2} \\). We will get to solving the equations in the next paragraph of this post.
 
