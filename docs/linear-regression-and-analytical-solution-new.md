@@ -1,7 +1,7 @@
 ---
 .text-green-300
 layout: default
-nav_order: 2
+nav_order: 3
 title: inear Regression
 .fs-10
 .text-green-300
