@@ -120,9 +120,11 @@ $$
 Let's insert table 2's data to Eq. 3 gives the following set of equations:
 
 
-$$
-\begin{align*}
-b+w{_1}*0+w{_2}*5+\epsilon^{(1)} & =1.5 \\\\\\
+$$\begin{align*}
+b+w{_1}*0+w{_2}*5+\epsilon^{(1)} & =1.5
+\end{align*}$$
+
+$$\begin{align*}
 b+w{_1}*1+w{_2}*4+\epsilon^{(2)} & =0.5 \\\\\\
 b+w{_1}*2+w{_2}*5+\epsilon^{(3)} & =1 \\\\\\
 b+w{_1}*3+w{_2}*6+\epsilon^{(4)} & =1.2 \\\\\\
