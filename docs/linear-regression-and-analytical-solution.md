@@ -119,6 +119,13 @@ $$
 
 Let's insert table 2's data to Eq. 3 gives the following set of equations:
 
+$$\begin{align*}
+ &= \\ 
+ &= \\ 
+ &= \\ 
+ &= 
+\end{align*}$$
+
 
 $$\begin{align*}
 b+w{_1}*0+w{_2}*5+\epsilon^{(1)} & =1.5
