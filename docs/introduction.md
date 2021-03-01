@@ -3,7 +3,7 @@ layout: default
 nav_order: 1
 title: Introduction
 ---
-## Introduction
+# Introduction
 
 
 Here's is my first post on machine learning and deep learning. It will be followed by posts both on theory and implementation topics. So, this is a kind of an intro.
@@ -11,11 +11,11 @@ If so, I should start with a definitoion of 'What Machine Learning is'. Here's t
 
 I'll explain the meaning of "improve automatically through reference from data", and emphasize the difference between Machine Learning Algorithms and conventional algorithms, using an example problem.
 
-### Example Problem: Classify pictures to one of the 2 classes: "cat" or "not a cat".
+## Example Problem: Classify pictures to one of the 2 classes: "cat" or "not a cat".
 So here's the classical problem: We need an algorithm which can classify pictures into 2 classes: "cat" if it shows a cat, or "not a cat" otherwise. Figure 1 would belong to the "cat" class. Figure 2 would not.
 So, how shoild be problem be solved?
 
-Figure 1: This is a cat!
+### Figure 1: This is a cat!
 
 ![This is a cat](../assets/images/pictures/definitely-a-cat.jpg)
 
@@ -23,7 +23,7 @@ Let's put Machine Learning aside, and consider a solution for this classificatio
 
 Take a look at that cute cat up here: the algorithm needs to detect charectarizing features such as the ears, eyes, whiskers, etc. Not an easy job at all! It requires complicated parsing and detection algorithms, and be indifferent to so many potential camera perspectives, poses, colors, scales, and just name it... And..let's assume that mission is possible, algorithm can make it, and is able to determine a cat - when he sees a picture of a one. But, what about a picture of 'not a cat',  but with lots of cat-like features - I mean - take a look at the puppy below!
 
-Figure 2: Not a cat!
+### Figure 2: Not a cat!
 
 ![Not a cat](../assets/images/pictures/not-a-cat.jpg)
 
@@ -36,14 +36,14 @@ A Machine Learning algorithm, would tackle such a problems in a totally differen
 
 What do mean by by "parametric predictor model"? Equation 1 shows such a model:
 
-Equation 1: Parametric predictor model
+### Equation 1: Parametric predictor model
 
 $$/hat{y} = h(x) =b+\sum_{i=1}^{n}w_i*x_i$$
 
-Equation 1, presents a parametric model, where parameters are $${b, w_i}$$, which predicts the value of $$y$$, marked here $$/hat{y]$$, according to the system's input $${x_i}$$.
+Equation 1, presents a parametric model, where parameters are \\({b, w_i}\\), which predicts the value of \\(y\\), marked here \\(/hat{y]\\), according to the system's input \\({x_i}\\).
 
 
-Throughout next posts we will delve into Equation 1 and show methods to find the model's parameters  $${b, w_i}$$ .
+Throughout next posts we will delve into Equation 1 and show methods to find the model's parameters  \\({b, w_i}\\) .
 
 The important detail here, not to say amazing, is that the same parametric equation concept, with similar solutions, solves so many problems in so many different topics.
 
@@ -56,7 +56,7 @@ The idea presented in that sketch, is of the 2 phase Machine Learning system ope
 
 
 
-Figure 3: Machine Learning system's outlines
+### Figure 3: Machine Learning system's outlines
 
 ![Supervised learning outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
 
@@ -64,11 +64,11 @@ Figure 3: Machine Learning system's outlines
 During the Training phase, the system runs with 'labeled data' input, i.e. each entry of the input data is labeled with its expected output. For example, in the above cat classification example problem, the labeled data set would consist of pictures, each with either 'a cat' label or 'not a cat" label.
 
 Goal of traning phase, is to determine the coefficients for the selected prediction model function:
-$$h(x)$$ - see Equatio 1. 
+\\(h(x)\\) - see Equatio 1. 
 
 ===reviewed till here=====
 
-To do that, it normally needs a large training set, where each element of that dataset is a labeled input data. At this point, it may all sound vage: How does that "magic" prediction function look like? what coefficients are we tailking about? In a nutshell, the predictor out put is $$\hat{y}$$, which estimates $${y}$$. To illustrate that with an example, then $$\hat{y}$$ is the 'a cat' or 'not a cat' decision made bythe predictor, which tryies to predict $${y}$$, which is the correct "cat", "no cat" decision.
+To do that, it normally needs a large training set, where each element of that dataset is a labeled input data. At this point, it may all sound vage: How does that "magic" prediction function look like? what coefficients are we tailking about? In a nutshell, the predictor out put is \\(\hat{y}\\), which estimates \\\\\\({y}$\\). To illustrate that with an example, then \\(\hat{y}\\) is the 'a cat' or 'not a cat' decision made bythe predictor, which tryies to predict \\({y}\\), which is the correct "cat", "no cat" decision.
 We'll delve to the details in posts which follow. This is an introductory post.
 
 Having the predictor, we can move to the normal data phase, at which the system is ready to predict the expected output for unlabeled input data:
@@ -201,13 +201,13 @@ model presents 2 sources of data: Training Data and Normal Data. The process sta
 much poorer to the - performance of such algorithms were much poorer than the results of current machine learning algorithms.
 
 On the other hand, a machine learning algorithm model which fit this problem, would be executed in 2 phases:
-Training phase - at this stage, the algorithm calculates a set of weight coefficients w, which maximize the likelihood of a stochastic predictor: $$p_{w}(y|x)$$
+Training phase - at this stage, the algorithm calculates a set of weight coefficients w, which maximize the likelihood of a stochastic predictor: \\(p_{w}(y|x)\\)
 
 
-The prediction phase - at this stage the predicted decision $$y\hat{}$$ is calculated using the predictor calculated during the training phase.
+The prediction phase - at this stage the predicted decision \\(\hat{y}\\( is calculated using the predictor calculated during the training phase.
 
 Figure 1 below illustrates the machine learning algorithm operations described above.
-Note that in most actual cases, the machine learning algorithm will pass through 3 phases, where a ‘test’ phase is normally added between the training and the read data phases, as illustrated in Figure 2. During the test phase, the error between the predicted result $$y\hat{}$$ and the expected by label y, will be used to decide if the predictor is valid or needs refinements.
+Note that in most actual cases, the machine learning algorithm will pass through 3 phases, where a ‘test’ phase is normally added between the training and the read data phases, as illustrated in Figure 2. During the test phase, the error between the predicted result \\(\hat{y}\\) and the expected by label y, will be used to decide if the predictor is valid or needs refinements.
 
 More details on the prediction method, how it is calculated, how it works, the 3 phases, etc - in posts which will follow.
 
