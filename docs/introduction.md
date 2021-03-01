@@ -38,9 +38,9 @@ What do mean by by "parametric predictor model"? Equation 1 shows such a model:
 
 ### Equation 1: Parametric predictor model
 
-$$/hat{y} = h(x) =b+\sum_{i=1}^{n}w_i*x_i$$
+$$\hat{y} = h(x) =b+\sum_{i=1}^{n}w_i*x_i$$
 
-Equation 1, presents a parametric model, where parameters are \\({b, w_i}\\), which predicts the value of \\(y\\), marked here \\(/hat{y]\\), according to the system's input \\({x_i}\\).
+Equation 1, presents a parametric model, where parameters are \\({b, w_i}\\), which predicts the value of \\(y\\), marked here \\(\hat{y]\\), according to the system's input \\({x_i}\\).
 
 
 Throughout next posts we will delve into Equation 1 and show methods to find the model's parameters  \\({b, w_i}\\) .
