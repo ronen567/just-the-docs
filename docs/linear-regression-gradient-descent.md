@@ -17,7 +17,7 @@ The current post presents an alternative solution, named Gradient Descent. Gradi
 ## Outlines of this post
 
 
-So we need to find the Linear Predictor's set of coefficients \\(b, w_j\\), where j=1:n. 
+So we need to find the Linear Predictor's set of coefficients \\(b, w_j\\), where j=1:n. (Where b stands for bias, and w for weight -  see Eq. 1)
 ***Question:*** What is the expected criteria, according which we should chose the desired set of coeficients?
 ***Answer:*** The set of coefficents should minimize a cost function. which expresses the difference between the modeled value and the actual value. So that's what this post is about: Determining a cost function, and finding the coefficents which minimize it, using the Gradient Descent algorithm.
 So let's start!
