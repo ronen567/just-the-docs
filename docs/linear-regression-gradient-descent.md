@@ -40,7 +40,7 @@ $$
 
 Note that the the superscript i, in Eq 2 and throughout all the equations,  denotes the ith example, where the labeled data sequence, AKA training seqence consists of m examples. Note that the \\(frac{1}{m} \\) factor is just a normalizing factor, but has no significance. 
 
-### Eq. 2: Cost function -Squared Errors
+### Eq. 2: Cost function - Squared Errors
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
 
@@ -88,6 +88,7 @@ Gradient Descent algorithm will calculate the coeffcients at that point! Here's 
 
 
 ### Eq. 5: Gradient Descent
+
 a: For \\(w_j\\) j=1:n:
 $$w_j:=w_j-\alpha \frac{\partial J(b,w) }{\partial w_j}$$
 
@@ -100,32 +101,34 @@ Eq. 5 describes an iterative algorithm, which should run in paralel for all the 
 
 Before we formulate the algorithm procedure, plugging Eq. 6 into Eq. 2, resultant in Eq.7,  it's easy to get the partial derivatives, as shown in Eq. 8
 
-### q. 6
+### Eq. 6
 $$
 \hat{y}^{(i)}=b+\sum_{j=1}^{n}w_j{x}^{(i)}_j
 $$
 
-### q. 7
+### Eq. 7
 $$
 J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b+\sum_{j=1}^{n}w_j{x}^{(i)}_j-y^{(i)})^2
 $$
 
-### q. 8a
+### Eq. 8a
 $$
 \frac{\partial J(w,b))}{\partial b}
-= \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})
+= \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)}) = \frac{1}{m}\sum_{i=1}^{m}(b+\sum_{j=1}^{n}w_j{x}^{(i)}_j-y^{(i)})
 $$
 
-### q. 8b
-$$\frac{\partial J(w,b))}{\partial w_j} = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})*x^{(i)}
+### Eq. 8b
+$$\frac{\partial J(w,b))}{\partial w_j} = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})*x^{(i)}=\frac{1}{m}\sum_{i=1}^{m}(b+\sum_{j=1}^{n}w_j{x}^{(i)}_j-y^{(i)})*x^{(i)}
 $$
 
 
 
 ## Here's the algorithm's procedure: 
-1. Select arbitrary initial values for n+1 coefficients (A bad values selectionmay delay convergance. Check if so by trial and error.)
-2.  Eq. 5, calculate a new set of n+1 coefficents using Eq. 5
-3. Check ***termination condition*** (explained next). If not fullfiled, go to step 2.
+1. Init b,\\(w_j\\) j=1:n to an arbitrary value. (A bad values selection may delay convergance. Check if so by trial and error.)
+2. Take the m training ith labeled example, \\(\x{(^i)},y{(^i)}\)
+3. Calculate the Cost's gradient for with Eq. 8a and 8b.
+4. calculate a new set of n+1 coefficents using Eq. 5
+5. Check ***termination condition*** (explained next). If not fullfiled, go to step 3.
 
 Figures 4a-4c, present an illustration of a cost function, projected on one of the coefficent's domain. The crosses markea on the Cost fuction represent the Gradient Descent iterations: the iteration's coeffcients are calculated, and their corresponding Cost value is marked on the graph. Note that as the gradients decrease while striding towards the minima, the distancees between the iterations decrease accordingly, as implied by Eq. 5. At the Cost's minima, where the gradient is 0, the Gradient Descent converges. Figure 4a shows the stride after 1 iteration. Firgure 4b presents 3 more strides, where the decrease of stride size can be easuly seen. Figure 4c presents more strides, till convergence at the minima. 
 
@@ -149,7 +152,7 @@ The convergence shown should be achieved simoultansouly on all n+1 dimensions.
 Figure 5 illustrate Gradient Descent with 2 fimensional variables: b and \\(w_1\\). The graph presents points on the Cost's graph, which relate to the calculated coefficents after each iteration.
 
 
-### igure 5: Illustration of Gradient Descent with n+1=2
+### Figure 5: Illustration of Gradient Descent with n+1=2
 
 ![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
 
