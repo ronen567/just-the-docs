@@ -24,6 +24,8 @@ According to our notations, \\(\hat{y}\\) represents the the estimated value of 
 
 $$y = \hat{y} + e = b+\sum_{j=1}^{n}w_jx_j +e $$
 
+Where b stands for bias, and w for weigtht.
+
 
 Let's return to our homes prices prediction example, but for our convinience, simplify it for now, reduce the number of input features to n=1. This reduction will simplify the comutation illustration and graphical presentation of the problem, but we will not use generality and develope thesolution for any n.
 
