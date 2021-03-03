@@ -108,6 +108,8 @@ For Logistic Regression predictor, z argument is replaced by a linear combinatio
 ### Eq. 2: 
 $$z=b+wx$$, 
 
+Where b stands for bias, and w for weight.
+
 
 Plugging  Eq. 2 into Eq 1, results in the Logistic Regression  expression, which is the probability of y=1, given the input vector x and the coefficent set {w,b}.
 
