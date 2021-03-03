@@ -8,7 +8,8 @@ title: Logistic Regression
 
 ## Preface
 
-This post introduces Logistic regression, an algorithm for performing Binary Classification. The introduction contains 4 chapters:
+This post introduces Logistic regression, an algorithm for performing Binary Classification. 
+This introduction to Logistic Regression contains 4 chapters:
 
 1. Background: Supervised Learning and Binary Classification
 2. Classification Model Selection - why not Linear Regression?
@@ -162,15 +163,16 @@ This section presented the Logistic Regression formula (Eq. 3). Our goal is to f
 
 ## Logistic Regression Cost Function
 
+
 In the itroductive posts on Linear Predictor, 2 methods were presented for finding the predictor's coefficents:
-1. The analytical solution
-2. Gradient descent, based on minimizing the Cost function.
+1. The analytical solution, which can be implemented when the set of equation is linear.
+2. Gradient descent, which is an optimization iterative method, based on minimizing a Cost function.
 
-Since the predictor's equation is not linear, as it is for the Linear predictor, (reminder: \\(Y=XW+\epsilon\\)), but instead, the predictor's equation is non-linear, where X and W are exponential coefficents, there is no simple analitical solution.
-Gradient Descent over a Cost function does work, as we will show soon.
+Since the predictor's equation (Eq. 3) is not linear, it is impossible to implement the analytical solution. Instead, we need to implement an optimization method.
+Optimization methods need a Cost Function which measure prediction results during the Training phase, and an optimization algorithm, which will determine the set of coefficents, aka weights, which minimize the cost. 
+We will now define a cost function accordingly, and after that, find the coefficents which minimize the cost using the Gradient Descent algorithm.
 
-
-The most intuitive, straight-forward  formula to be assigned as a cost function is the Mean Squared Error, like done for Linear Regression. 
+Speaking of a Cost Function, the most intuitive, straight-forward formula to be assigned as a cost function is the Mean Squared Error, like done for Linear Regression. 
 The square error expression for Logistic Regression is presented in Eq. 5. Problem is - it is not a convex function. That makes it non suitable for a cost function, as our next step is to find the Cost function's global minimum.
 
 ### Eq. 5: square error expression for Logistic Regression
