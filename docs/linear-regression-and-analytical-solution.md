@@ -146,10 +146,10 @@ From the above 11 equations, it is possible to calculate the coefficients \\( {b
 
 
 ## Calculation of Predictor's Coeffcients
-Having the equation \\(\hat{y}=wx\\), where \\(\hat{y}\\),  w and  x are listed below, we need to solve for the coefficients vector w. In our case, i.e. Linear Prediction, we have a set of linear equations which can be solved analytically. The analytical solution is detailed here below. However, for most other predictors, the set of equations is non linear, so the solution will be an optimized iterative solution. A common algorithm for such a solution is the Gradient Descent. Next post introduces the Gradient Descent algorithm, and illustrates calculation Linear Predictor's coefficents.
+We can present Eq.1 in a matrix form \\(y=wx\\),  where  y, w and x are listed below. Considering that the equations are linear, isolution is straight forward. Detailed solution is presented next.
 
 
-$$\hat{y}=\begin{bmatrix}
+$$\y=\begin{bmatrix}
 y^{(1)}
 \\\\
 y^{(2)}
@@ -289,6 +289,13 @@ $$
 $$
 
 #### And that's it! We have the solution for the predictor's coefficents.
+
+To sum up the solution, we 
+Sample some training data and run it through the network to make predictions.
+Measure the loss between the predictions and the true values.
+Finally, adjust the weights in a direction that makes the loss smaller.
+
+
 
 ## Ilustrating the Solution by Calculating the 1D Predictor
 
@@ -442,7 +449,7 @@ w_n
 $$
 
 
-The drawbacks of the analyical solution is the need to inverse natrix \\(X^TX\\), which dimension are (n+1)*(n+1). So when the number of features is large, say overa few hundrerds or so, depending available computation power, the analytical solution might be too expensive. Alternatively, the solution may be calculated using Gradient Descent, as presented in the next post.
+The drawbacks of the analyical solution is the need to inverse natrix \\(X^TX\\), which dimension are (n+1)*(n+1). So when the number of features is large, say overa few hundrerds or so, depending available computation power, the analytical solution might be too expensive. Alternatively, the solution may be calculated using Gradient Descent,  an optimized iterative solution. Next post introduces the Gradient Descent algorithm, and illustrates calculation Linear Predictor's coefficents.
 
 
 
