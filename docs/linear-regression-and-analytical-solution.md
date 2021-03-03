@@ -146,8 +146,43 @@ From the above 11 equations, it is possible to calculate the coefficients \\( {b
 
 
 ## Calculation of Predictor's Coeffcients
+Having the equation \\(\hat{y}=wx\\), where \\(\hat{y}\\),  w and  x are listed below, we need to solve for the coefficients vector w. In our case, i.e. Linear Prediction, we have a set of linear equations which can be solved analytically. The analytical solution is detailed here below. However, for most other predictors, the set of equations is non linear, so the solution will be an optimized iterative solution. A common algorithm for such a solution is the Gradient Descent. Next post introduces the Gradient Descent algorithm, and illustrates calculation Linear Predictor's coefficents.
 
-Now that we've seen 2 linear prediction examples, with n=1 and n=2, we continue to the next step: Calculate the predictors coefficientsת \\(b, w_i\\). The common algorithm to do it is the Gradient Descent. Gradient Descent is an iterative algorithm, which will be detailed post which follows, illustrated on the Logistic Regression predictor. To solve for the Linear Regression we can use the Analytical Solution as well. So let's review the solution here.
+
+$$\hat{y}=\begin{bmatrix}
+y^{(1)}
+\\\\
+y^{(2)}
+\\\\
+.
+\\\\
+.
+\\\\
+.
+\\\\
+y^{(m)}
+\end{bmatrix}$$
+
+$$b=\begin{bmatrix}
+b\\\\\ 
+w_1\\\\\
+.\\\\
+.\\\\\
+. \\\\\
+w_n
+\end{bmatrix}$$
+
+
+and 
+
+$$x=\begin{bmatrix}
+1 & x_1^{(1)} & x_2^{(1)} & x_3^{(1)} & . & . & x_n^{(1)}\\\\\
+1 & x_1^{(2)} & x_2^{(2)} & x_3^{(2)} & . & . & x_n^{(2)}\\\\\
+.& .& .& .& \\\\\
+.& .& .& .& \\\\\
+.& .& .& .& \\\\\
+1 & x_1^{(m)} & x_2^{(m)} & x_3^{(m)} & . & . & x_n^{(m)} 
+\end{bmatrix}$$
 
 
 ## Analytical Solution for Linear Predictor Coefficents
