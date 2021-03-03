@@ -10,16 +10,17 @@ title: Linear Prediction Using Gradient Descent
 
 
 
-The previous post introduced the Linear Prediction model. It is recommended to read that post first, unless you are familiar with that material. It presented the Analytical Solution for calculating the model's coefficents. The Analytical Solution is fairly simple solution, except it requires an \\(n X n\\) matrix inversion, where n is the dimension of the input data vector. In many cases, that's a non issue, unless the number of features is large, say >1000. Anyway, it's a matter of computational cost and availability.
-The current post presents an alternative solution, named Gradient Descent. Gradient Descent is a simple iterative solution, and commonly used for solving prediction models such as the Logistic Regression predictor, for which the analyitcal solution does not fit. BTW, Logistic Regression will be presented in a next post.
+The previous post introduced the Linear Prediction model. It is recommended to read that post first, unless you are familiar with that material. It presented the Analytical Solution for calculating the model's coefficents. The Analytical Solution is fairly simple solution to find coefficients of a Linear Predictor, except it requires an \\(n X n\\) matrix inversion, where n is the dimension of the input data vector. In many cases, that's a non issue, unless the number of features is large, say >1000. Anyway, it's a matter of computational cost and availability.
+The current post presents an alternative algorithm, using an optimized iterative solution, named Gradient Descent. Gradient Descent is a simple iterative solution, and commonly used for solving prediction models such as the Logistic Regression predictor, for which the analyitcal solution does not fit. BTW, Logistic Regression will be presented in a next post.
 
 
 ## Outlines of this post
 
 
-So we need to find the Linear Predictor's set of coefficients \\(b, w_j\\), where j=1:n. (Where b stands for bias, and w for weight -  see Eq. 1)
-***Question:*** What is the expected criteria, according which we should chose the desired set of coeficients?
-***Answer:*** The set of coefficents should minimize a cost function. which expresses the difference between the modeled value and the actual value. So that's what this post is about: Determining a cost function, and finding the coefficents which minimize it, using the Gradient Descent algorithm.
+So we need to find the Linear Predictor's set of coefficients \\(b, w_j\\), where j=1:n. (b stands for bias, and w for weight -  see Eq. 1).
+Optimization methods need a Cost Function which measure prediction results during the Training phase, and an optimization algorithm, which will determine the set of coefficents, aka weights, which minimize the cost.
+
+That's what this post is about: Determining a cost function, and finding the coefficents which minimize it, using the Gradient Descent algorithm.
 So let's start!
 
 
