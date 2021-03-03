@@ -169,7 +169,7 @@ In the itroductive posts on Linear Predictor, 2 methods were presented for findi
 2. Gradient descent, which is an optimization iterative method, based on minimizing a Cost function.
 
 Since the predictor's equation (Eq. 3) is not linear, it is impossible to implement the analytical solution. Instead, we need to implement an optimization method.
-Optimization methods need a Cost Function which measure prediction results during the Training phase, and an optimization algorithm, which will determine the set of coefficents, aka weights, which minimize the cost. 
+Optimization methods need a Cost Function which measure the difference between the true values and the model's prediction results during the Training phase, and an optimization algorithm, which will determine the set of coefficents, aka weights, which minimize the cost. 
 We will now define a cost function accordingly, and after that, find the coefficents which minimize the cost using the Gradient Descent algorithm.
 
 Speaking of a Cost Function, the most intuitive, straight-forward formula to be assigned as a cost function is the Mean Squared Error, like done for Linear Regression. 
