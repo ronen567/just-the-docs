@@ -18,7 +18,7 @@ The current post presents an alternative algorithm, using an optimized iterative
 
 
 So we need to find the Linear Predictor's set of coefficients \\(b, w_j\\), where j=1:n. (b stands for bias, and w for weight -  see Eq. 1).
-Optimization methods need a Cost Function which measure prediction results during the Training phase, and an optimization algorithm, which will determine the set of coefficents, aka weights, which minimize the cost.
+Optimization methods need a Cost Function which measure the difference between the true values and the model's prediction results during the Training phase, and an optimization algorithm, which will determine the set of coefficents, aka weights, which minimize the cost.
 
 That's what this post is about: Determining a cost function, and finding the coefficents which minimize it, using the Gradient Descent algorithm.
 So let's start!
