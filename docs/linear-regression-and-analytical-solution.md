@@ -146,7 +146,11 @@ From the above 11 equations, it is possible to calculate the coefficients \\( {b
 
 
 ## Calculation of Predictor's Coeffcients
-We can present Eq.1 in a matrix form \\(y=wx\\),  where  y, w and x are listed below. Considering that the equations are linear, isolution is straight forward. Detailed solution is presented next.
+We can present Eq.1 in a matrix form \\(y=wx\\),  where  y, w and x are listed below. Considering that the equations are linear, isolution is straight forward:
+
+1. Construct the y vector, which holds the true results of m trainaing examples.
+2. Construct the x vector wich holds the related input features of m training examples, each example's input has n features.
+The detailed solution follows in the next paragraph.
 
 
 $$\y=\begin{bmatrix}
