@@ -113,12 +113,12 @@ $$
 
 ### Eq. 8a
 $$
-\frac{\partial J(w,b))}{\partial b}
+\frac{\partial J(w,b)}{\partial b}
 = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)}) = \frac{1}{m}\sum_{i=1}^{m}(b+\sum_{j=1}^{n}w_j{x}^{(i)}_j-y^{(i)})
 $$
 
 ### Eq. 8b
-$$\frac{\partial J(w,b))}{\partial w_j} = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})*x^{(i)}=\frac{1}{m}\sum_{i=1}^{m}(b+\sum_{j=1}^{n}w_j{x}^{(i)}_j-y^{(i)})*x^{(i)}
+$$\frac{\partial J(w,b)}{\partial w_j} = \frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})*x^{(i)}=\frac{1}{m}\sum_{i=1}^{m}(b+\sum_{j=1}^{n}w_j{x}^{(i)}_j-y^{(i)})*x^{(i)}
 $$
 
 
