@@ -104,7 +104,7 @@ $$\hat{y}(z) = \sigma(z)=\frac{1}{1+e^{-z}}$$
 ##### $$\sigma(z)_{z=0}=0.5$$
 
 
-For Logistic Regression predictor, z argument is replaced by a linear combination of the input dataset x, as shown by Eq. 2:
+For Logistic Regression predictor, z argument is replaced by a linear combination of the input dataset x, as depicted by Eq. 2:
 
 ### Eq. 2: 
 $$z=b+wx$$, 
@@ -195,7 +195,7 @@ Back to our cost function -  Eq. 6 and Eq. 7 present the Logistic Regression Los
 
 [The detailed development of the cost expression is presented here.](logistic-regression-cost-function.md)
 
-Eq. 6 assigns expressions for y=0 and y=1. Eq. 7 combines both equations. Figure 8 illustrate a Loss function, presenting both y=0 and y=1 parts. The behavior of the Loss function is self explained, so I'll not add more on that. The overall Cost function is the sum the m training examples Loss functions, as shown in Eq. 8.  
+Eq. 6 assigns expressions for y=0 and y=1. Eq. 7 combines both equations. Figure 8 illustrate a Loss function, presenting both y=0 and y=1 parts. The behavior of the Loss function is self explained, so I'll not add more on that. The overall Cost function is the sum the m training examples Loss functions, as depicted in Eq. 8.  
 
 
 
