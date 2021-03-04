@@ -125,9 +125,9 @@ $$
 
 ## Here's the algorithm's procedure: 
 1. Init b,\\(w_j\\) j=1:n to an arbitrary value. (A bad values selection may delay convergance. Check if so by trial and error.)
-2. Take  m training labeled examples, \\(\x{(^i)},y{(^i)}\\), i=1:m
+2. Take  m training labeled examples, \\(x{(^i)},y{(^i)}\\), i=1:m
 3. Calculate Cost's gradient using Eq. 8a, 8b.
-4. Calculate a new set of n+1 coefficents //({b, w_1....w_n}//) using Eq. 5.
+4. Calculate a new set of n+1 coefficents \\({b, w_1....w_n}\\) using Eq. 5.
 5. Check ***termination condition*** (explained next). If not fullfiled, go to step 3.
 
 Figures 4a-4c, present an illustration of a cost function, projected on one of the coefficent's domain. The crosses markea on the Cost fuction represent the Gradient Descent iterations: the iteration's coeffcients are calculated, and their corresponding Cost value is marked on the graph. Note that as the gradients decrease while striding towards the minima, the distancees between the iterations decrease accordingly, as implied by Eq. 5. At the Cost's minima, where the gradient is 0, the Gradient Descent converges. Figure 4a shows the stride after 1 iteration. Firgure 4b presents 3 more strides, where the decrease of stride size can be easuly seen. Figure 4c presents more strides, till convergence at the minima. 
@@ -183,10 +183,11 @@ c. Check the calculated value and see it is not changing i.e. converged, i.e:
 $$\left \| w_j{(i+1))}- w_j{(i))} \right \| < \epsilon
 $$
 
-Note that there is no general rule for the selection of \\(\epsilon\\), in both options b and c.
+Note that there is no general rule for the 
+\\(\epsilon\\), in both options b and c.
 
 
-### Selection of The Learning Rate alpha - 
+### Selection of The Learning Rate (alpha)
 
 
 The algorithm steps in the opposite direction of the gradient until convergence, as the gradient, multiplied by a constant \\(\alpha\\), AKA :earning Rate, is decremented from previous value.
