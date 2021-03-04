@@ -28,7 +28,7 @@ So let's start!
 
 The Linear Prediction formula is listed in Eq. 1. Following that,  Eq. 2 presents a Cost functiom, denoted by ***\\(J(w,b)\\)***. The Cost is expressed as the mean squared error between the real and modeled values. The Cost is a sum of that difference over m examples. Alternatively, Eq. 3 presnets another type of Cost function, which is the sume of absolute distances between the real and predicted values. The Cost function expressed in Eq. 2, is commonly used. It has some benefits: It is dependent on squared distances, so error increases faster than the eucleadean distance. In addition, the squared error is convex, which is sigificant for fininding the extreme point (minima or maxima), needed for our calculations.  (What is a convex function? It's a function that the line between 2 points on the graph are alays above the values of the points between those 2 points - see Figure 3.)
 
-Figure 1 illustrates graphically the euclidiean distance between the actual value y, and it's corresponding model predicted value \\(d=\hat{y}-y \\) in a 1D domain.
+Figure 1 depicts graphically the euclidiean distance between the actual value y, and it's corresponding model predicted value \\(d=\hat{y}-y \\) in a 1D domain.
 
 ### Eq. 1: Linear Prediction Model
 
@@ -44,7 +44,7 @@ Note that the the superscript i, in Eq 2 and throughout all the equations,  deno
 
 $$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
 
-Figure 1 illustrates graphically the euclidiean distance between the actual value y, and it's corresponding model predicted value \\(d=\hat{y}-y \\).
+Figure 1 depicts graphically the euclidiean distance between the actual value y, and it's corresponding model predicted value \\(d=\hat{y}-y \\).
 
 Note that the \\(frac{1}{m} \\) factor is just a normalizing factor, but has no significance. 
 
@@ -130,7 +130,7 @@ $$
 4. Calculate a new set of n+1 coefficents \\({b, w_1....w_n}\\) using Eq. 5.
 5. Check ***termination condition*** (explained next). If not fullfiled, go to step 3.
 
-Figures 4a-4c, present an illustration of a cost function, projected on one of the coefficent's domain. The crosses markea on the Cost fuction represent the Gradient Descent iterations: the iteration's coeffcients are calculated, and their corresponding Cost value is marked on the graph. Note that as the gradients decrease while striding towards the minima, the distancees between the iterations decrease accordingly, as implied by Eq. 5. At the Cost's minima, where the gradient is 0, the Gradient Descent converges. Figure 4a shows the stride after 1 iteration. Firgure 4b presents 3 more strides, where the decrease of stride size can be easuly seen. Figure 4c presents more strides, till convergence at the minima. 
+Figures 4a-4c, depict an illustration of a cost function, projected on one of the coefficent's domain. The crosses markea on the Cost fuction represent the Gradient Descent iterations: the iteration's coeffcients are calculated, and their corresponding Cost value is marked on the graph. Note that as the gradients decrease while striding towards the minima, the distancees between the iterations decrease accordingly, as implied by Eq. 5. At the Cost's minima, where the gradient is 0, the Gradient Descent converges. Figure 4a depict the stride after 1 iteration. Firgure 4b presents 3 more strides, where the decrease of stride size can be easuly seen. Figure 4c presents more strides, till convergence at the minima. 
 
 ### Figure 4: Gradient Descent: Gradient of a single parameter
 
@@ -149,10 +149,10 @@ c. After Fourteen Iterationss
 
 
 The convergence shown should be achieved simoultansouly on all n+1 dimensions.
-Figure 5 illustrate Gradient Descent with 2 fimensional variables: b and \\(w_1\\). The graph presents points on the Cost's graph, which relate to the calculated coefficents after each iteration.
+Figure 5 depicts Gradient Descent with 2 fimensional variables: b and \\(w_1\\). The graph presents points on the Cost's graph, which relate to the calculated coefficents after each iteration.
 
 
-### Figure 5: Illustration of Gradient Descent with n+1=2
+### Figure 5: An Illustration of Gradient Descent with n+1=2
 
 ![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
 
