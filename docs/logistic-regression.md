@@ -20,7 +20,9 @@ This introduction to Logistic Regression contains 4 chapters:
 
 ##  Background: Binary Classification, Supervised Learning
 
-Binary Classification, as its name implies, is the operation which assigns observations to one of 2 pre-assigned classes. The classes are conventionally marked by a 1 and 0 indices, where the 1 index is normally assigned to the positive decision. So, for example, binary decisions such as whether a tumor is malignant or not, or will a customer purchase an item or not, the 'positive' cases, i.e. 'maligant tumore' and 'customer will purchase' are marked by 1, and the other optional decisions by 0.
+
+Binary Classification, is the operation of assigning the observations into one of two classes, auch as: 'a tumor is malignant'/'a tumor is not malignant',  or 'a  customer purchase an item'/'a customer does not purchase an item', The picture is of a cat/dog, etc. 
+The classes will be represented by numeric values, normaly 0 and 1, when the convention is to assign the 1 to the poisitive class and the 0 to the negative, e.g. 'yes' is 1 and 'no' 0.
 
 Binary Classification belongs to the Supervised Machine Learning category, which model is presented by Figure 1. The Prediction Model module resides at the heart of the Learning Model, where the predictor's coefficents are calculated during the Training Phase, an later are used for the prediction of data in the normal data phase which follows.
 
