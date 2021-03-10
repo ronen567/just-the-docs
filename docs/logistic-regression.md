@@ -24,7 +24,7 @@ This introduction to Logistic Regression contains 4 chapters:
 Binary Classification, is the operation of assigning the observations into one of two classes, auch as: 'a tumor is malignant'/'a tumor is not malignant',  or 'a  customer purchase an item'/'a customer does not purchase an item', The picture is of a cat/dog, etc. 
 The classes will be represented by numeric values, normaly 0 and 1, when the convention is to assign the 1 to the poisitive class and the 0 to the negative, e.g. 'yes' is 1 and 'no' 0.
 
-Binary Classification belongs to the Supervised Machine Learning category, which model is presented by Figure 1. The Supervised machine learning system runs through 3 phases as depicted in Figure 1 a-c. Figure 1 presents a system with n-dimensional input (AKA n features), denoted by\\(x_1-x_n\\), and the predictor's corresponding n+1 coefficients, denoted by \\(b\\) - the bias coefficient, and \\(w_1-w_n\\).
+Binary Classification belongs to the Supervised Machine Learning category, which model is presented by Figure 1. The Supervised machine learning system runs through 3 phases as depicted in Figure 1, a-c. Figure 1 presents a system with n-dimensional input (AKA n features), denoted by\\(x_1-x_n\\), and the predictor's corresponding n+1 coefficients, denoted by \\(b\\) - the bias coefficient, and \\(w_1-w_n\\).
 
 ***Training Phase*** - during the Training phase, the predictor's coefficients are calculated, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The optimizer calculates the predictor's coeffcients, by minimizing a cost function, which expresses the error between the expected value \\(y\\) and the predcited/modeled value \\(\hat(y)\\). 
 ***Validation Phase*** - during the Validation phase, the predictor's performance is validated, using a cost function as depicted in Figure 1-b. In case results are not acceptable, the Training phase should be revisited. The input dataset consists of k sets om labeled input data.
@@ -37,13 +37,14 @@ In the case of Binary Classification, the epected result is binary: 0 or 1. We w
 
 ### Figure 1-a: Training Phase.  
 ****The Training input Dataset consists of m labeled examples, each of n features.****
+The Optimizer finds the set of coefficients which minimize the cost function.
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-training-network.svg)
 
 ### Figure 1-b: Validation Phase
 ****The Validation input Dataset consists of k labeled examples, each of n features.****
-
+The predictions are validated by checking the cost function.
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
 
@@ -53,6 +54,7 @@ In the case of Binary Classification, the epected result is binary: 0 or 1. We w
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-data-network.svg)
+
 
 
 
