@@ -33,7 +33,6 @@ Here's a brief description of the 3 phases:
 ****Validation input Dataset consists of k labeled examples, each of n features.****
 
 
-
 ![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
 
 
