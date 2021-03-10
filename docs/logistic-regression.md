@@ -35,16 +35,22 @@ In the case of Binary Classification, the epected result is binary: 0 or 1. We w
 
 ### Figure 1: Supervise Learning Model
 
-#### Figure 1-a: Training Phase
+### Figure 1-a: Training Phase.  
+****The Training input Dataset consists of m labeled examples, each of n features.****
+
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-training-network.svg)
 
-#### Figure 1-b: Validation Phase
+### Figure 1-b: Validation Phase
+****The Validation input Dataset consists of k labeled examples, each of n features.****
+
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
 
 
-#### Figure 1-c: Normal Data Phase
+### Figure 1-c: Normal Data Phase
+****The Normal Data input Dataset consists n features.****
+
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-data-network.svg)
 
