@@ -10,7 +10,7 @@ Sounds simple right? This process is detailed in this post.
 
 
 ## Recap - Regression Supervised Predictive model  
-The prediction model which should be implemented for this problem is the Regression Supervised Predictive model. A Regression predictor is the predictor which predicts continous values shuch as home prices. The supervised model, runs through 3 phases,as depicted in Figure 1 (a-c). 
+The prediction model which should be implemented for this problem is the Regression Supervised Predictive model. A Regression predictor is the predictor which predicts continous values shuch as home prices. The supervised model, runs through 3 phases,as depicted in Figure 1, a-c. 
 
 Figure 1 presents a system with n-dimensional input (AKA n features), denoted by\\(x_1-x_n\\), and the predictor's corresponding n+1 coefficients, denoted by \\(b\\) - the bias coefficient, and \\(w_1-w_n\\). 
 
