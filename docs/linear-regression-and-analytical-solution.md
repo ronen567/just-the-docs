@@ -32,7 +32,7 @@ The Optimizer finds the set of coefficients which minimize the cost function.
 
 ### Figure 1-b: Validation Phase
 ****The Validation input Dataset consists of k labeled examples, each of n features.****
-The predictions are validaed by checking the cost function.
+The predictions are validated by checking the cost function.
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
 
