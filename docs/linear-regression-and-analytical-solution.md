@@ -25,13 +25,14 @@ Here's a brief description of the 3 phases:
 
 ### Figure 1-a: Training Phase.  
 ****The Training input Dataset consists of m labeled examples, each of n features.****
+The Optimizer finds the set of coefficients which minimize the cost function.
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-training-network.svg)
 
 ### Figure 1-b: Validation Phase
 ****The Validation input Dataset consists of k labeled examples, each of n features.****
-
+The predictions are validaed by checking the cost function.
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
 
