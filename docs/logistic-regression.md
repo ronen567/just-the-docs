@@ -24,12 +24,31 @@ This introduction to Logistic Regression contains 4 chapters:
 Binary Classification, is the operation of assigning the observations into one of two classes, auch as: 'a tumor is malignant'/'a tumor is not malignant',  or 'a  customer purchase an item'/'a customer does not purchase an item', The picture is of a cat/dog, etc. 
 The classes will be represented by numeric values, normaly 0 and 1, when the convention is to assign the 1 to the poisitive class and the 0 to the negative, e.g. 'yes' is 1 and 'no' 0.
 
-Binary Classification belongs to the Supervised Machine Learning category, which model is presented by Figure 1. The Prediction Model module resides at the heart of the Learning Model, where the predictor's coefficents are calculated during the Training Phase, an later are used for the prediction of data in the normal data phase which follows.
+Binary Classification belongs to the Supervised Machine Learning category, which model is presented by Figure 1. The Supervised machine learning system runs through 3 phases as depicted in Figure 1 a-c. Figure 1 presents a system with n-dimensional input (AKA n features), deoted by\\(x_1-x_n\\). and their corresponding n+1 coefficients, denoted by \\(b\\) - the bias coefficient, and \\(w_1-w_n\\). 
+
+***Training Phase*** - during the Training phase, the predictor's coefficients are calculated, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The optimizer calculates the predictor's coeffcients, by minimizing a cost function, which expresses the error between the expected value \\(y\\) and the predcited/modeled value \\(\hat(y)\\). 
+***Validation Phase*** - during the Validation phase, the predictor's performance is validated, using a cost function as depicted in Figure 1-b. In case results are not acceptable, the Training phase should be revisited. The input dataset consists of k sets om labeled input data.
+***Normal Data Phase*** - During the Data phase, the system predicts the output for the input data.
+
+In the case of Binary Classification, the epected result is binary: 0 or 1. We will show next the consideration for chosing the predictor (which eventually will be Logistic Regression). After that, we will develop the equations for calculating the predictor's coefficients, using Gradient Descent.
 
 
-### Figure 1: Supervise Learning Outlines
+### Figure 1: Supervise Learning Model
 
-![Supervise Learning Outlines](../assets/images/supervised/binary-calssification-machine-learning-model.svg)
+#### Figure 1-a: Training Phase
+
+![Supervise Learning Outlines](../assets/images/supervised/M-training-network.svg)
+
+#### Figure 1-b: Validation Phase
+
+![Supervise Learning Outlines](../assets/images/supervised/validation-network.svg)
+
+
+#### Figure 1-c: Normal Data Phase
+
+![Supervise Learning Outlines](../assets/images/supervised/ML-data-network.svg)
+
+
 
 
 
