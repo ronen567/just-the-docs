@@ -5,16 +5,42 @@ title: Linear Regression Analytical Solution
 ---
 # Linear Regression with the Analytical Solution
 
+Consider the following (very simplified problem): It is needed to predict homes' price, based on 6 features: their address, floor, number of rooms, number of bethrooms, area, and schools. How should we do that? To perform the task we need to set a prediction algorithm, and train it to predict homes prices.
+Sounds simple right? This process is detailed in this post.
 
 
-Consider the following (very simplified problem): It is needed to predict homes' price, based on 6 features: their address, floor, number of rooms, number of bethrooms, area, and schools. How should we do that? Answer - remember the presented Supervised Machine Learning model, presented in Figure 1? To perform the task we need to set a prediction algorithm, which parameters should be calculated during the Training phase. Sounds simple right? This process is detailed in this post.
+## Recap - Regression Supervised Predictive model  
+The prediction model which should be implemented for this problem is the Regression Supervised Predictive model. A Regression predictor is the predictor which predicts continous values shuch as home prices. The supervised model, runs through 3 phases,as depicted in Figure 1 (a-c). 
 
-### Figure 1: Supervise Learning Outlines
+Figure 1 presents a system with n-dimensional input (AKA n features), denoted by\\(x_1-x_n\\), and the predictor's corresponding n+1 coefficients, denoted by \\(b\\) - the bias coefficient, and \\(w_1-w_n\\). 
 
-![Supervise Learning Outlines](../assets/images/supervised/outlines-of-machine-learning-system-model.svg)
+Here's a brief description of the 3 phases:
 
-The first step should be the selection of the prediction model. This post presents the **Linear Predictor** aka **Linear Regression**. 
-It is a relatively simple prediction model, a good point to start with, and gain familiarity with some of the predictors' principles.
+***Training Phase*** - during the Training phase, the predictor's coefficients are calculated, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The optimizer calculates the predictor's coeffcients, by minimizing a cost function, which expresses the error between the expected value \\(y\\) and the predcited/modeled value \\(\hat(y)\\). 
+***Validation Phase*** - during the Validation phase, the predictor's performance is validated, using a cost function as depicted in Figure 1-b. In case results are not acceptable, the Training phase should be revisited. The input dataset consists of k sets om labeled input data.
+***Normal Data Phase*** - During the Data phase, the system predicts the output for the input data.
+
+
+### Figure 1: Supervise Learning Model
+
+#### Figure 1-a: Training Phase
+
+![Supervise Learning Outlines](../assets/images/supervised/ML-training-network.svg)
+
+#### Figure 1-b: Validation Phase
+
+![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
+
+
+#### Figure 1-c: Normal Data Phase
+
+![Supervise Learning Outlines](../assets/images/supervised/ML-data-network.svg)
+
+
+## Linear Prediction
+
+
+The first step towards solving the problem, should be the selection of the prediction model. This post presents the **Linear Predictor** aka **Linear Regression**
 
 At the name Linear Predictor implies, the predicted output is modeled by a linear combination of the input dataset, as shown in Eq. 1. 
 According to our notations, \\(\hat{y}\\) represents the the estimated value of  \\(y\\), \\({x_j}\\) represent the input data set, where j=1:n, and  \\({b, w_j}\\), i=1:n are the predictor's coeffcients. The estimation residual, AKA error is denoted by e. 
