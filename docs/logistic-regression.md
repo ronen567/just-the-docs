@@ -37,11 +37,11 @@ In the case of Binary Classification, the epected result is binary: 0 or 1. We w
 
 #### Figure 1-a: Training Phase
 
-![Supervise Learning Outlines](../assets/images/supervised/M-training-network.svg)
+![Supervise Learning Outlines](../assets/images/supervised/ML-training-network.svg)
 
 #### Figure 1-b: Validation Phase
 
-![Supervise Learning Outlines](../assets/images/supervised/validation-network.svg)
+![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
 
 
 #### Figure 1-c: Normal Data Phase
