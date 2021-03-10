@@ -23,22 +23,22 @@ Here's a brief description of the 3 phases:
 
 ### Figure 1: Supervise Learning Model
 
-#### Figure 1-a: Training Phase.  
-Training input Dataset consists of m labeled examples, each of n features.
+### Figure 1-a: Training Phase.  
+****Training input Dataset consists of m labeled examples, each of n features.****
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-training-network.svg)
 
-#### Figure 1-b: Validation Phase
-Validation input Dataset consists of k labeled examples, each of n features.
+### Figure 1-b: Validation Phase
+****Validation input Dataset consists of k labeled examples, each of n features.****
 
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
 
 
-#### Figure 1-c: Normal Data Phase
-Noraml Data input Dataset consists n features.
+### Figure 1-c: Normal Data Phase
+****Noraml Data input Dataset consists n features.****
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-data-network.svg)
