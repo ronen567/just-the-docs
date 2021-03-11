@@ -42,7 +42,7 @@ Note that the the superscript i, in Eq 2 and throughout all the equations,  deno
 
 ### Eq. 2: Cost function - Squared Errors
 
-$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^i-y^i)^2$$
+$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)}-y^{(i)})^2$$
 
 Figure 1 depicts graphically the euclidiean distance between the actual value y, and it's corresponding model predicted value \\(d=\hat{y}-y \\).
 
@@ -57,7 +57,7 @@ Note that the \\(frac{1}{m} \\) factor is just a normalizing factor, but has no 
 
 ### Eq. 3: Cost function using absolute coordinates differences
 
-$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^i-y^i \right |$$
+$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}\left | \hat{y}^{(i)}-y^{(i)} \right |$$
 
 
 
@@ -70,7 +70,7 @@ As stated, the cost function expressed by Eq. 2 is convex, since it is a quadrat
 
 ### Eq. 4: Cost function, n=1
 
-$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^i+w_1x^i-y^i)^2$$
+$$J(w,b)=\frac{1}{m}\sum_{i=1}^{m}(b^{(i)}+w_1x^{(i)}-y^{(i)})^2$$
 
 
 
