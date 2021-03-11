@@ -1,31 +1,33 @@
 ---
 layout: default
 nav_order: 2
-title: Linear Regression Analytical Solution
+title: Regression Supervised Machine Learning Intro - Linear Prediction with an Analytical Solution
 ---
-# Linear Regression with the Analytical Solution
+# Types of Supervised Machine Learning
 
-Consider the following (very simplified problem): It is needed to predict homes' price, based on 6 features: their address, floor, number of rooms, number of bethrooms, area, and schools. How should we do that? To perform the task we need to set a prediction algorithm, and train it to predict homes prices.
-Sounds simple right? This process is detailed in this post.
+Supervised Machine Learning can be splitted into 2 main branches: Classification and Regression. In Classification, the data is grouped into a descrete set of classes, e.g. classify a picture to one of [cat, dog, lion], or decide if to buy or not to buy a stock. In Regression, the output is a continious value, e.g. predict a trip time, a weight of a baby, a price of a house, etc.
+This post is part of an intro to Regression Supervised Machine Learning. It presents the Linear Prediction model for solving Reression problems, and the Analytical Solution for determining the predictor's coefficents.
 
 
 ## Recap - Regression Supervised Predictive model  
-The prediction model which should be implemented for this problem is the Regression Supervised Predictive model. A Regression predictor is the predictor which predicts continous values shuch as home prices. The supervised model, runs through 3 phases,as depicted in Figure 1, a-c. 
+
+The supervised model, runs through 3 phases,as depicted in Figure 1, a-c. 
 
 Figure 1 presents a system with n-dimensional input (AKA n features), denoted by\\(x_1-x_n\\), and the predictor's corresponding n+1 coefficients, denoted by \\(b\\) - the bias coefficient, and \\(w_1-w_n\\). 
 
 Here's a brief description of the 3 phases:
 
-***Training Phase*** - during the Training phase, the predictor's coefficients are calculated, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The optimizer calculates the predictor's coeffcients, by minimizing a cost function, which expresses the error between the expected value \\(y\\) and the predcited/modeled value \\(\hat{y}\\). 
-***Validation Phase*** - during the Validation phase, the predictor's performance is validated, using a cost function as depicted in Figure 1-b. In case results are not acceptable, the Training phase should be revisited. The input dataset consists of k sets om labeled input data.
-***Normal Data Phase*** - During the Data phase, the system predicts the output for the input data.
+***Training Phase*** - During the Training phase, the predictor's coefficients are calculated by the model fitter, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The fitter calculates the predictor's coefficents.
+
+***Validation Phase*** - When fitting is done, having the predictor's coefficients, the predictor's performance is validated, as depicted in Figure 1-b. The validation normally uses a cost function to verify that the prediction results are indeed satisfactory. In case results are not acceptable, the Training phase should be revisited. The validation's k labeled examples input data set should not be a part of the training dataset, otherwise, problems such as overfitting would might notbe observed. We will detail overfitting and underfitting phenomenas in one of the next posts.
+
+***Normal Data Phase*** - During the Data phase, the system predicts the output for the input data, using the fitted model.
 
 
 ### Figure 1: Supervise Learning Model
 
 ### Figure 1-a: Training Phase.  
 ****The Training input Dataset consists of m labeled examples, each of n features.****
-The Optimizer finds the set of coefficients which minimize the cost function.
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-training-network.svg)
