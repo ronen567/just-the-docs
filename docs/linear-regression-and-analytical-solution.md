@@ -148,11 +148,11 @@ As before,  i=1:m, where m=11 is the number of examples. Nore that the Linear Pr
 ### Eq. 3:
 
 $$
-y=\hat{y}^{(i)}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
+y^{(i)}=\hat{y}^{(i)}+\epsilon^{(i)}=b+\sum_{j=1}^{2}w_j{x}^{(i)}_j+\epsilon^{(i)}
 $$
 
 
-Let's insert table 2's data to Eq. 3 gives the following set of equations:
+Let's plug table 2's data to Eq. 3, replacing \\(y^{(i)}\\) and \\(x^{(i)}\\) by the actual data observations, and get following set of equations:
 
 
 $$b+w{_1}*0+w{_2}*5+\epsilon^{(1)}=1.5$$
@@ -186,7 +186,7 @@ We can present Eq.1 in a matrix form \\(y=wx\\),  where  y, w and x are listed b
 The detailed solution follows in the next paragraph.
 
 
-$$\y=\begin{bmatrix}
+$$y=\begin{bmatrix}
 y^{(1)}
 \\\\
 y^{(2)}
