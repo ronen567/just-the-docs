@@ -13,7 +13,7 @@ Figure 1 presents a system with n-dimensional input (AKA n features), denoted by
 
 Here's a brief description of the 3 phases:
 
-***Training Phase*** - During the Training phase, the predictor's coefficients are calculated by the model fitter, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The fitter calculates the predictor's coefficents. The common way to fit the predictor's coefficents is by implementing a optimizing algorithm, to minimize a cost function. That cost function expresses the error between the expected value y and the predcited/modeled value \\(\hat{y}\\).  Alternatively, in cases such as the Linear Predictor, it may be sompossible to do the fitting using an analytical solution rather than an optimizer. This post presnets the analytical model fitting. Linear Prediction with a Gradient Descent optimizer is presented in a post which follows.
+***Training Phase*** - During the Training phase, the predictor's coefficients are calculated by the model fitter, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The fitter calculates the predictor's coefficents. The common way to do it is by a cost function minimization: That cost function expresses the error between the expected value \\(y\\) and the predictor model value \\(\hat{y}\\), and the an optimization algorithm searches for the coefficents with which the minimum cost is achieved.  Alternatively, in case of a Linear Predictor, it is possible to analytically find a the coefficients. And indeed, this post presnets the analytical model fitting. The optimizer model fitting, using the Gradient Descent optimization algorithm, is presented in a post which follows.
 
 ***Validation Phase*** - When fitting is done, having the predictor's coefficients, the predictor's performance is validated, as depicted in Figure 1-b. The validation normally uses a cost function to verify that the prediction results are indeed satisfactory. In case results are not acceptable, the Training phase should be revisited. The validation's k labeled examples input data set should not be a part of the training dataset, otherwise, problems such as overfitting would might notbe observed. We will detail overfitting and underfitting phenomenas in one of the next posts.
 
@@ -111,14 +111,14 @@ From the above equations the coefficients \\(b,w_1\\) can be found. We will get 
 
 
 
-Figure 1 presents the Table 1's 5 data points, along with a line regression estimator graph.  
+Figure 2 presents a graph of Table 1's 5 data points, along with a line regression estimator graph.  
 
-### Figure 1: Linear Prediction - 1D
+### Figure 2: Linear Prediction - 1D
 
 ![Linear Predictiopn 1d](../assets/images/linear-regression/linear_1d_prediction.png)
 
 
-According to the graph sketched in Figure 1, the linear model indeed seems to fit in as an estimator for the data points. To prove a validitiy of a model though,  one needs much more than 5 example data points. Needles to repeat here on the reasons for our seletion.
+According to the graph sketched in Figure 2, the linear model indeed seems to fit in as an estimator for the data points. To prove a validitiy of a model though,  one needs much more than 5 example data points. Needles to repeat here on the reasons for our seletion.
 
 Have not yet explained how the fitting line was calculated, butlet's examine a higher order estimator, with n=2. So accordingly, Let's have now 2 features - floor number and number of bedrooms, as shown in Table 2.
 
@@ -141,8 +141,8 @@ Have not yet explained how the fitting line was calculated, butlet's examine a h
 
 
 
-Still now, these 2 features are not enough for a valid prediction of apartments pricess, nor is the number of the example points. But that doesn't matter at this point. Anyway, with n<=2, it is still possible to present the datapoints and the predictor graphically, as shown in Figure 2.
-Figure 2 presents the listed above dataset examples, (see x marker points), and based on those points, it presents a linear predictor points, which where  calculated with the predictor expression of Eq. 3, which is same as Eq. 1, but with n=2.
+Still now, these 2 features are not enough for a valid prediction of apartments pricess, nor is the number of the example points. But that doesn't matter at this point. Anyway, with n<=2, it is still possible to present the datapoints and the predictor graphically, as shown in Figure 3.
+Figure 3 presents the listed above dataset examples, (see x marker points), and based on those points, it presents a linear predictor points, which where  calculated with the predictor expression of Eq. 3, which is same as Eq. 1, but with n=2.
 
 As before,  i=1:m, where m=11 is the number of examples. Nore that the Linear Predictor's calculated \\(\hat{y^{(i)}}\\)  points, are located on the colored presented surface of Fig 2.
 
@@ -174,18 +174,46 @@ From the above 11 equations, it is possible to calculate the coefficients \\( {b
 
 
 
-### Figure 2: Linear Prediction - 2D
+### Figure 3: Linear Prediction - 2D
 
 ![Linear Predictiopn 2d](../assets/images/linear-regression/linear_prediction_2d.gif)
 
 
-## Calculation of Predictor's Coeffcients
-We can present Eq.1 in a matrix form \\(y=wx\\),  where  y, w and x are listed below. Considering that the equations are linear, isolution is straight forward:
+## Model Fitting - Predictor's Coeffcients Calculation
 
-1. Construct the y vector, which holds the true results of m trainaing examples.
-2. Construct the x vector wich holds the related input features of m training examples, each example's input has n features.
-The detailed solution follows in the next paragraph.
+As already stated above, the common way for model fitting, i.e. finding the predictor's coeffcients, is by a cost function minimization, e.g. by the Gradient Descent algorithm. This will be reviewed in a post which follows.  This post presnets the analytical model fitting. This chapter presents the mathematical equation development of this solution. The solution is illustrated by Figure 4. 
 
+### Figure 4: Fitting by Analitical Operation
+
+![Analytical Fitting](../assets/images/linear-regression/ML-training-network-analytic.svg)
+
+
+
+So, we start the equation development by re-writing Eq. 1 in a matrix form, as shown in Eq. 3a.  x and y are presented in Eq. 3b and Eq. 3c respectively. The unknown vector w is presented by Eq. 3d.
+
+
+### Eq. 3a: Predictor Equation in a Matrix Form
+
+\\(y=wx+\epsilon = \hat{y}+\epsilon \\).
+
+
+### Eq. 3b: x matrix
+x matrix holds the m input set examples, where each inpt set consists of n features
+
+
+$$x=\begin{bmatrix}
+1 & x_1^{(1)} & x_2^{(1)} & x_3^{(1)} & . & . & x_n^{(1)}\\\\\
+1 & x_1^{(2)} & x_2^{(2)} & x_3^{(2)} & . & . & x_n^{(2)}\\\\\
+.& .& .& .& \\\\\
+.& .& .& .& \\\\\
+.& .& .& .& \\\\\
+1 & x_1^{(m)} & x_2^{(m)} & x_3^{(m)} & . & . & x_n^{(m)} 
+\end{bmatrix}$$
+
+
+### Eq. 3c: y vector
+
+y vector holds the m training examples observed output, AKA labels
 
 $$y=\begin{bmatrix}
 y^{(1)}
@@ -201,6 +229,12 @@ y^{(2)}
 y^{(m)}
 \end{bmatrix}$$
 
+### Eq. 3d: w vector
+
+
+w vextore is the unknown coefficients vector we aim to find. The first entry of the vector is b, the bias entry.
+
+
 $$b=\begin{bmatrix}
 b\\\\\ 
 w_1\\\\\
@@ -210,22 +244,9 @@ w_1\\\\\
 w_n
 \end{bmatrix}$$
 
+# TILL HERE RONEN
 
-and 
-
-$$x=\begin{bmatrix}
-1 & x_1^{(1)} & x_2^{(1)} & x_3^{(1)} & . & . & x_n^{(1)}\\\\\
-1 & x_1^{(2)} & x_2^{(2)} & x_3^{(2)} & . & . & x_n^{(2)}\\\\\
-.& .& .& .& \\\\\
-.& .& .& .& \\\\\
-.& .& .& .& \\\\\
-1 & x_1^{(m)} & x_2^{(m)} & x_3^{(m)} & . & . & x_n^{(m)} 
-\end{bmatrix}$$
-
-
-## Analytical Solution for Linear Predictor Coefficents
-
-Given Eq. 1 we aim to find the predictor's coefficents \\( {b, w_i}\\),  j=1:n which will lead to the best predictor \\(\hat{y}\\) for y.
+With this set of tools in hand, we aim to solve Eq. 3a, and find the predictor's coefficents \\( w={b, w_i}\\),  j=1:n 
 
 For our calculation, we need a set of labeled examples \\( {x_1...x_n, y} \\) See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index, which runs fro, 1 to n. 
 
