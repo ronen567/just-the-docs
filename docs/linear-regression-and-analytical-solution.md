@@ -3,13 +3,9 @@ layout: default
 nav_order: 2
 title: Regression Supervised Machine Learning Intro - Linear Prediction with an Analytical Solution
 ---
-# Types of Supervised Machine Learning
+## Recap - Supervised Machine Learning
 
 Supervised Machine Learning can be splitted into 2 main branches: Classification and Regression. In Classification, the data is grouped into a descrete set of classes, e.g. classify a picture to one of [cat, dog, lion], or decide if to buy or not to buy a stock. In Regression, the output is a continious value, e.g. predict a trip time, a weight of a baby, a price of a house, etc.
-This post is part of an intro to Regression Supervised Machine Learning. It presents the Linear Prediction model for solving Reression problems, and the Analytical Solution for determining the predictor's coefficents.
-
-
-## Recap - Regression Supervised Predictive model  
 
 The supervised model, runs through 3 phases,as depicted in Figure 1, a-c. 
 
@@ -17,11 +13,14 @@ Figure 1 presents a system with n-dimensional input (AKA n features), denoted by
 
 Here's a brief description of the 3 phases:
 
-***Training Phase*** - During the Training phase, the predictor's coefficients are calculated by the model fitter, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The fitter calculates the predictor's coefficents.
+***Training Phase*** - During the Training phase, the predictor's coefficients are calculated by the model fitter, as depicted by Figure 1-a. The Training data consists of m examples, denoted by superscripts 1-m. The fitter calculates the predictor's coefficents. The common way to fit the predictor's coefficents is by implementing a optimizing algorithm, to minimize a cost function. That cost function expresses the error between the expected value y and the predcited/modeled value \\(\hat{y}\\).  Alternatively, in cases such as the Linear Predictor, it may be sompossible to do the fitting using an analytical solution rather than an optimizer.
 
 ***Validation Phase*** - When fitting is done, having the predictor's coefficients, the predictor's performance is validated, as depicted in Figure 1-b. The validation normally uses a cost function to verify that the prediction results are indeed satisfactory. In case results are not acceptable, the Training phase should be revisited. The validation's k labeled examples input data set should not be a part of the training dataset, otherwise, problems such as overfitting would might notbe observed. We will detail overfitting and underfitting phenomenas in one of the next posts.
 
 ***Normal Data Phase*** - During the Data phase, the system predicts the output for the input data, using the fitted model.
+
+
+This post is part of an intro to Regression Supervised Machine Learning. It presents the Linear Prediction model for solving Reression problems, and the Analytical Solution for determining the predictor's coefficents.
 
 
 ### Figure 1: Supervise Learning Model
