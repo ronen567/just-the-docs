@@ -31,18 +31,18 @@ This post is part of an intro to Regression Supervised Machine Learning. It pres
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-training-network.svg)
 
-### Figure 1-b: Validation Phase
+### Figure 1-b: Linear Model, Validation Phase
 ****The Validation input Dataset consists of k labeled examples, each of n features.****
 The predictions are validated by checking the cost function.
 
-![Supervise Learning Outlines](../assets/images/supervised/ML-validation-network.svg)
+![Supervise Learning Outlines](../assets/images/supervised/ML-data-linear-network.svg)
 
 
-### Figure 1-c: Normal Data Phase
+### Figure 1-c: Linear ModelNormal, Data Phase
 ****The Normal Data input Dataset consists n features.****
 
 
-![Supervise Learning Outlines](../assets/images/supervised/ML-data-network.svg)
+![Supervise Learning Outlines](../assets/images/supervised/ML-data-linear-network.svg)
 
 
 ## Linear Prediction
