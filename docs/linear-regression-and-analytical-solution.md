@@ -35,7 +35,7 @@ This post is part of an intro to Regression Supervised Machine Learning. It pres
 ****The Validation input Dataset consists of k labeled examples, each of n features.****
 The predictions are validated by checking the cost function.
 
-![Supervise Learning Outlines](../assets/images/supervised/ML-data-linear-network.svg)
+![Supervise Learning Outlines](../assets/images/supervised/ML-validation-linear-network.svg)
 
 
 ### Figure 1-c: Linear ModelNormal, Data Phase
