@@ -189,15 +189,17 @@ As already stated above, the common way for model fitting, i.e. finding the pred
 
 
 
-So, we start the equation development by re-writing Eq. 1 in a matrix form, as shown in Eq. 3a.  x and y are presented in Eq. 3b and Eq. 3c respectively. The unknown vector w is presented by Eq. 3d.
+So, we start the equation development by re-writing Eq. 1 in a matrix form, as shown in Eq. 3.  x and y are presented in Eq. 4a and Eq. 4b respectively. The unknown vector w is presented by Eq. 4c. Eq.5 is the result of plugging Eq. 4a-Eq. 4c to Eq. 3.
 
 
-### Eq. 3a: Predictor Equation in a Matrix Form
+### Eq. 3: Predictor Equation in a Matrix Form
 
-\\(y=wx+\epsilon = \hat{y}+\epsilon \\).
+$$
+Y=XW+\epsilon
+$$
 
 
-### Eq. 3b: x matrix
+### Eq. 4a: x matrix
 x matrix holds the m input set examples, where each inpt set consists of n features
 
 
@@ -211,7 +213,7 @@ $$x=\begin{bmatrix}
 \end{bmatrix}$$
 
 
-### Eq. 3c: y vector
+### Eq. 4b: y vector
 
 y vector holds the m training examples observed output, AKA labels
 
@@ -229,10 +231,10 @@ y^{(2)}
 y^{(m)}
 \end{bmatrix}$$
 
-### Eq. 3d: w vector
+### Eq. 4c: w vector
 
 
-w vextore is the unknown coefficients vector we aim to find. The first entry of the vector is b, the bias entry.
+w vector is the unknown coefficients vector we aim to find. The first entry of the vector is b, the bias entry.
 
 
 $$b=\begin{bmatrix}
@@ -244,25 +246,9 @@ w_1\\\\\
 w_n
 \end{bmatrix}$$
 
-# TILL HERE RONEN
-
-With this set of tools in hand, we aim to solve Eq. 3a, and find the predictor's coefficents \\( w={b, w_i}\\),  j=1:n 
-
-For our calculation, we need a set of labeled examples \\( {x_1...x_n, y} \\) See Eq. 4, where the superscript which runs from 1 to m is the exaple index, and the subscript is the parameter index, which runs fro, 1 to n. 
-
-### Eq. 4: Linear Predictor, n dimensional input, m examples 
-
-$$y^{(1)}=b+w_1x_1^{(1)}+w_2x_2^{(1)}+w_3x_3^{(1)}+....w_nx_n^{(1)}+\epsilon^1$$
-
-$$y^{(2)}=b+w_1x_1^{(2)}+w_2x_2^{(2)}+w_3x_3^{(2)}+....w_nx_n^{(2)}+\epsilon^2$$
-$$.$$
-$$.$$
-$$.$$
-$$y^{(m)}=b+w_1x_1^{(m)}+w_2x_2^{(m)}+w_3x_3^{(m)}+....w_nx_n^{(m)}+\epsilon^2$$
 
 
 
-Let's present Eq. 4 in a matrix format:
 
 ### Eq. 5: 
 
@@ -302,23 +288,16 @@ w_n
 \end{bmatrix}
 $$
 
-And in a more compact format:
+Eq. 5 is listed here to clarify the all Eq. 3 components. Having that, let's solve Eq. 3, but first lets drop the prediction error from the equation, as this error exists, but we consider it as random independent additive noise.
 
-### Eq. 6: 
 
-$$
-Y=XW+\epsilon
-$$
-
-And dropping  \\(\epsilon\\), leaving aside the prediction residual we get:
-
-Eq. 6: 
+### Eq. 6: Predictor Equation, error omitted
 
 $$
 Y=XW
 $$
 
-Bow let's do some basic well-known Linear Algebra gimnastics:
+Now let's do some basic well-known Linear Algebra gimnastics:
 
 Matrix X dimensions are mXn, where m >> n, i.e. m, the number of examples, should be be much greater than n, the input's dimensions. 
 Accordingly, considering X is not square, it is not invertible. Still, if X is Full Rank, i.e. it's columns are linear independent, then \\(X^TX\\) is invertible.
@@ -358,7 +337,7 @@ Finally, adjust the weights in a direction that makes the loss smaller.
 
 ## Ilustrating the Solution by Calculating the 1D Predictor
 
-Let's illustrate Eq. 9 on the 1D predictor listed above. Let's plug Eq.2 into the components of Eq. 9, as shown in Eq. 10.
+Let's illustrate Eq. 8 on the 1D predictor listed above. Let's plug Eq.2 into the components of Eq. 9, as shown in Eq. 10.
 
 ### Eq. 10: 
 
