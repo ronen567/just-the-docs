@@ -185,7 +185,7 @@ As already stated above, the common way for model fitting, i.e. finding the pred
 
 ### Figure 4: Fitting by Analitical Operation
 
-![Analytical Fitting](../assets/images/linear-regression/ML-training-network-analytic.svg)
+![Analytical Fitting](../assets/images/supervised/ML-training-network-analytic.svg)
 
 
 
