@@ -199,7 +199,7 @@ Y=XW+\epsilon
 $$
 
 
-### Eq. 4a: x matrix
+### Eq. 4a: Training data set - x matrix
 x matrix holds the m input set examples, where each inpt set consists of n features
 
 
@@ -213,7 +213,7 @@ $$x=\begin{bmatrix}
 \end{bmatrix}$$
 
 
-### Eq. 4b: y vector
+### Eq. 4b: Training data set - y vector
 
 y vector holds the m training examples observed output, AKA labels
 
@@ -231,7 +231,7 @@ y^{(2)}
 y^{(m)}
 \end{bmatrix}$$
 
-### Eq. 4c: w vector
+### Eq. 4c: Fitter's Output - w vector
 
 
 w vector is the unknown coefficients vector we aim to find. The first entry of the vector is b, the bias entry.
@@ -250,7 +250,7 @@ w_n
 
 
 
-### Eq. 5: 
+### Eq. 5: Linear Regression Predictor Model Equation
 
 $$\begin{bmatrix}
 y^{(1)}
@@ -291,7 +291,7 @@ $$
 Eq. 5 is listed here to clarify the all Eq. 3 components. Having that, let's solve Eq. 3, but first lets drop the prediction error from the equation, as this error exists, but we consider it as random independent additive noise.
 
 
-### Eq. 6: Predictor Equation, error omitted
+### Eq. 6: Predictor Equation (error omitted)
 
 $$
 Y=XW
@@ -303,7 +303,7 @@ Matrix X dimensions are mXn, where m >> n, i.e. m, the number of examples, shoul
 Accordingly, considering X is not square, it is not invertible. Still, if X is Full Rank, i.e. it's columns are linear independent, then \\(X^TX\\) is invertible.
 So multiply each side of Eq. 6 by  \\(X^T\\):
 
-### Eq. 7: 
+### Eq. 7: Solving Linear Equation - Step 1
 
 $$
 X^TY=X^TXW
@@ -311,7 +311,7 @@ $$
 
 Multiply each side of Eq. 7 by \\((X^TX)^{-1}\\) :
 
-### Eq. 8: 
+### Eq. 8: Solving Linear Equation - Step 2
 
 $$
 (X^TX)^{-1}X^TY=(X^TX)^{-1}X^TXW
@@ -320,7 +320,7 @@ $$
 
 Since   \\((X^TX)^{-1}X^TX\\)=I   Eq. 8 reduces to:
 
-### Eq. 9: 
+### Eq. 9: Solving Linear Equation - Result
 
 $$
 \mathbf{(X^TX)^{-1}X^TY=W}
@@ -335,19 +335,11 @@ Finally, adjust the weights in a direction that makes the loss smaller.
 
 
 
-## Ilustrating the Solution by Calculating the 1D Predictor
+## Illustrating the Solution by Calculating the 1D Predictor
 
 Let's illustrate Eq. 8 on the 1D predictor listed above. Let's plug Eq.2 into the components of Eq. 9, as shown in Eq. 10.
 
-### Eq. 10: 
-
-$$Y=\begin{bmatrix}
-0.4\\\ 
-0.7\\\\
-1.1\\\\\
-1.4\\\\\
-1.65
-\end{bmatrix}$$
+### Eq. 10a: Example's Training data set - x matrix
 
 $$ X=
 \begin{bmatrix}
@@ -358,12 +350,30 @@ $$ X=
  1 &4
 \end{bmatrix}$$
 
+
+### Eq. 10b: Example's Training data set - y vector
+
+$$Y=\begin{bmatrix}
+0.4\\\ 
+0.7\\\\
+1.1\\\\\
+1.4\\\\\
+1.65
+\end{bmatrix}$$
+
+### Eq. 10c: Example's Fitter's Output - w vector
+
+
 $$
 w=\begin{bmatrix}
 b\\\\\
 w_1
 \end{bmatrix}
 $$
+
+
+### Eq. 11: Solving Linear Equation - Step 1
+
 
 $$
 X^TY=\begin{bmatrix}
@@ -383,12 +393,17 @@ X^TY=\begin{bmatrix}
 \end{bmatrix}
 $$
 
+### Eq. 12: Solving Linear Equation - Step 2
+
+
 $$
 X^TX
 =\begin{bmatrix}
 0 &1&2&3&4 \\\\\
 1&1&1&1&1
 \end{bmatrix}
+
+
 \begin{bmatrix}
 1 & 0\\\ 
  1 & 1\\\\
@@ -402,6 +417,8 @@ X^TX
 \end{bmatrix}
 $$
 
+
+### Eq. 13: Solving Linear Equation - Recap Linear Algebra
 
 Inverse of a 2X2 matrix is given by:
 
@@ -418,14 +435,18 @@ d &-b \\\\\
 \end{bmatrix}
 $$
 
-Where the denominator is a determinant, so:
+The denominator is a determinant:
+
 
 $$\begin{vmatrix}
 d & -b \\\\\ 
 -c & a
 \end{vmatrix} = da-bc$$
 
-So: 
+Combine Eq. 13 and Eq. 12: 
+
+
+### Eq. 14: Solving Linear Equation - Step 3
 
 $$
 (X^TX)^{-1}=\begin{bmatrix}
@@ -439,6 +460,8 @@ $$
 
 
 We have now all the building block to complete the calculation:
+
+### Eq. 14: Solving Linear Equation - Last Step/ Solution
 
 
 $$
