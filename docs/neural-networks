@@ -1,8 +1,8 @@
 ## Deep Learning
 
-Recall the Supervise Learning Model sketch, which was posted in the Gradient Descent post. Here it is again:
+Recall the Supervise Learning Model sketch, which was posted in the Logistic Regression post. Here it is again:
 
-
+### Figure 1: Logistic Regression Data Network
 ****The Normal Data input Dataset consists n features.****
 $$\hat{y}=\sigma(b+w^Tx)$$
 
@@ -10,9 +10,14 @@ $$\hat{y}=\sigma(b+w^Tx)$$
 ![Supervise Learning Outlines](../assets/images/supervised/ML-data-activation-network.svg)
 
 
-A deep Learning Network, AKA Deep Neural Network, uses a similar block as the above, repeated many times and tied in a mesh architecture as depicted in Figure 1.
+A deep Learning Network, AKA Deep Neural Network, takes the Data Network sketched in Figure 1 and repeats it in a dense connected network as depicted in Figure 2.
 
 ### Figure 1: Deep Neural Network
+
+
+![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.svg)
+
+
 
 
 
