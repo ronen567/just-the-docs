@@ -7,7 +7,7 @@ Recall the Supervise Learning Model sketch, which was posted in the Logistic Reg
 $$\hat{y}=\sigma(b+w^Tx)$$
 
 
-![Supervise Learning Outlines](../assets/images/supervised/ML-data-activation-network.svg)
+![Supervise Learning Outlines](../assets/images/supervised/ML-data-sigmoid-network.svg)
 
 
 A deep Learning Network, AKA Deep Neural Network, takes the Data Network sketched in Figure 1 and repeats it in a dense connected network as depicted in Figure 2.
