@@ -205,12 +205,14 @@ The Optimizer finds the set of coefficients which minimize the cost function.
 ### Figure 6-b: Validation Phase
 ****The Validation input Dataset consists of k labeled examples, each of n features.****
 The predictions are validated by checking the cost function.
+$$\hat{y}=\sigma(b+w^Tx)$$
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-validation-activation-network.svg)
 
 
 ### Figure 6-c: Normal Data Phase
 ****The Normal Data input Dataset consists n features.****
+$$\hat{y}=\sigma(b+w^Tx)$$
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-data-activation-network.svg)
@@ -312,7 +314,6 @@ Eq. 9a and 9b for all n coefficents should be repeated iteratively until {b} and
 The development of the partial derivative \\(\frac{\partial L(b,w)}{\partial w_i}\\), is detailed here] (logistic-regression-cost-function-derivative). The result is presented in Eq 10.
 The considerations for the selection of the the step size \\(\alpha\\) AKA learning rate, with a detailed explaination on the algorithm can be found it in Linear Regression post.
 
-Till Here!!!!
 
 ### Eq. 9:  Gradient Descent
 
