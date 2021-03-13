@@ -112,14 +112,14 @@ ense to assign a 1 to the positive hypothesis.
 The Logistic Regression is a model which predicts the ****probability**** of the hypothesises, .e. given the observation x, it predicts the decision \\(\hat{y}\\), 
 where is a \\(\hat{y}=p(y=1|x)\\), is the probability of the decision to be 1, given the input x. 
 
-The model used for the prediction of the conditional probability, is sigmoid function, which is presented in Eq. 1 and sketched in Figure 5.
+The model used for the prediction of the conditional probability, is sigmoid function, which is presented in Eq. 1 and sketched in Figure 5a.
 
 ### Eq. 1: Sigmoid Function
 
 $$\hat{y}(z) = \sigma(z)=\frac{1}{1+e^{-z}}$$
 
 
-### Figure 5: Sigmoid Function
+### Figure 5a: Sigmoid Function
 
 ![Sigmoid Function](../assets/images/logistic-regression/sigmoid-function.png)
 
@@ -135,7 +135,7 @@ $$\hat{y}(z) = \sigma(z)=\frac{1}{1+e^{-z}}$$
 
 For Logistic Regression predictor, z argument is replaced by a linear combination of the input dataset x, as depicted by Eq. 2:
 
-### Eq. 2: 
+### Eq. 2: z argument expression
 $$z=b+wx$$, 
 
 Where b stands for bias, and w for weight.
@@ -147,9 +147,9 @@ Plugging  Eq. 2 into Eq 1, results in the Logistic Regression  expression, which
 
 $$p(y=1| x,w,b) = \sigma(b+w^Tx) = \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
-Obviously, the dependent probability of y=0 is the the mirror picture of the above, as presented by Eq. 4 and Fgure 6a
+Obviously, the dependent probability of y=0 is the the mirror picture of the above, as presented by Eq. 4 and Figure 6a
 
-### Figure 6: Probability for y=0: 1- Sigmoid Function
+### Figure 5b: Reverse Sigmoid Function, Probability for y=0
 
 
 ![Sigmoid Function](../assets/images/logistic-regression//mirrored_sigmoid.png)
@@ -157,7 +157,7 @@ Obviously, the dependent probability of y=0 is the the mirror picture of the abo
 
 
 
-### Eq. 4: Probability of y=0 Regression Formula
+### Eq. 4: Reverse Sigmoid - Probability of y=0 Regression Formula
 
 $$p(y=0| x,w,b) = 1-p(y=1| x,w,b) = 1- \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 
@@ -187,6 +187,34 @@ $$p(y=0|b+w^Tx =0 ) = 0.5$$
 
 
 This section presented the Logistic Regression formula (Eq. 3). Our goal is to find the predictor's coefficients {b, w}, which optimize the prediction. Optimization means - minimization of a cost function. Next section presents the Logistic Regression Cost function.
+
+## Logistic Regression Presentation
+
+Before developing the cost function, and following with finding the optimizing sigmoid coefficients, let's redraw the ML model's diagrams, (Figure 1), plugging in the Logistic Regression model:
+
+
+### Figure 6: Supervise Learning Model
+
+### Figure 6-a: Training Phase.  
+****The Training input Dataset consists of m labeled examples, each of n features.****
+The Optimizer finds the set of coefficients which minimize the cost function.
+
+
+![Supervise Learning Outlines](../assets/images/supervised/ML-training-logistic-regression-network.svg)
+
+### Figure 6-b: Validation Phase
+****The Validation input Dataset consists of k labeled examples, each of n features.****
+The predictions are validated by checking the cost function.
+
+![Supervise Learning Outlines](../assets/images/supervised/ML-validation-activation-network.svg)
+
+
+### Figure 6-c: Normal Data Phase
+****The Normal Data input Dataset consists n features.****
+
+
+![Supervise Learning Outlines](../assets/images/supervised/ML-data-activation-network.svg)
+
 
 
 
