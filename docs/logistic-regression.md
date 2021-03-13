@@ -205,14 +205,12 @@ The Optimizer finds the set of coefficients which minimize the cost function.
 ### Figure 6-b: Validation Phase
 ****The Validation input Dataset consists of k labeled examples, each of n features.****
 The predictions are validated by checking the cost function.
-$$\hat{y}=\sigma(b+w^Tx)$$
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-validation-sigmoid-network.svg)
 
 
 ### Figure 6-c: Normal Data Phase
 ****The Normal Data input Dataset consists n features.****
-$$\hat{y}=\sigma(b+w^Tx)$$
 
 
 ![Supervise Learning Outlines](../assets/images/supervised/ML-data-sigmoid-network.svg)
