@@ -207,7 +207,7 @@ The Optimizer finds the set of coefficients which minimize the cost function.
 The predictions are validated by checking the cost function.
 $$\hat{y}=\sigma(b+w^Tx)$$
 
-![Supervise Learning Outlines](../assets/images/supervised/ML-validation-activation-network.svg)
+![Supervise Learning Outlines](../assets/images/supervised/ML-validation-sigmoid-network.svg)
 
 
 ### Figure 6-c: Normal Data Phase
@@ -215,7 +215,7 @@ $$\hat{y}=\sigma(b+w^Tx)$$
 $$\hat{y}=\sigma(b+w^Tx)$$
 
 
-![Supervise Learning Outlines](../assets/images/supervised/ML-data-activation-network.svg)
+![Supervise Learning Outlines](../assets/images/supervised/ML-data-sigmoid-network.svg)
 
 
 
