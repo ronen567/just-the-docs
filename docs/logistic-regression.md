@@ -168,22 +168,22 @@ $$p(y=0| x,w,b) = 1-p(y=1| x,w,b) = 1- \frac{1}{1+e^{^{-(b+w^Tx)}}}$$
 Examining the probailities at the limits and in the middle, we can note that:
 
 
-$$p(y=1|b+w^Tx \to -{\infty}) \to 0$$
+$$p(y=1|(b+w^Tx) \to -{\infty}) \to 0$$
 
 
-$$p(y=1|b+w^Tx \to {\infty}) \to 1$$
+$$p(y=1|(b+w^Tx) \to {\infty}) \to 1$$
 
 
-$$p(y=1|b+w^Tx =0 ) = 0.5$$
+$$p(y=1|(b+w^Tx) =0 ) = 0.5$$
 
 
-$$p(y=0|b+w^Tx \to -{\infty}) \to 1$$
+$$p(y=0|(b+w^Tx) \to -{\infty}) \to 1$$
 
 
-$$p(y=0|b+w^Tx \to {\infty}) \to 0$$
+$$p(y=0|(b+w^Tx) \to {\infty}) \to 0$$
 
 
-$$p(y=0|b+w^Tx =0 ) = 0.5$$
+$$p(y=0|(b+w^Tx) =0 ) = 0.5$$
 
 
 This section presented the Logistic Regression formula (Eq. 3). Our goal is to find the predictor's coefficients {b, w}, which optimize the prediction. Optimization means - minimization of a cost function. Next section presents the Logistic Regression Cost function.
