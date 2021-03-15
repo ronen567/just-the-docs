@@ -10,10 +10,10 @@ Recall the Supervise Learning Model sketch, which was posted in the Logistic Reg
 
 The Logistic Regression data network module depicted in Figure 1 generates predicted value \\(\hat{y}\\). Figure 1 presents the module's sub elements elements:
 
-****Input Data**** - The figure presents n dimensional input data \\( (x_1, x_2.....x_n) \\)
-****Weights**** - The n input weigths vector  \\( (w_1, w_2.....w_n) \\) multiplies the input data vector.
-****Bias**** - The bias coefficent b is summed with the weighted input data.
-****Sigmoid**** - This is the non-linear element which is perated on the weighted input and bias.
+- **Input Data** - The figure presents n dimensional input data \\( (x_1, x_2.....x_n) \\)
+- **Weights** - The n input weigths vector  \\( (w_1, w_2.....w_n) \\) multiplies the input data vector.
+- **Bias** - The bias coefficent b is summed with the weighted input data.
+- **Sigmoid** - This is the non-linear element which is perated on the weighted input and bias.
 
 
 
@@ -27,11 +27,11 @@ The Neural Network scheme cosiders the above module a single Nueron, while a Neu
 
 Let's start with noting some common tersm:
 
-- Layers: The Neural Network is arranged in layers. The network presented in Figure 2 has 4 layers - marked L1-L4.
-- Input Layer: The input layer is the first layer of the Nural Network. It is conventionally not counted in the layers count - (otherwise tFigure 5 would be regarded as a 5 layers networks).
-- Hiden Layer: Layers which both input and output are both connected to other network's  layers - L1-L3 are Hidden layers.
-- Output Layer: The Last network's layer-  L4 in Figure 2.
-- Deep Neural Network: A neural network with many layers. There is no definite minimal number of layers for that, though 3 hidden layers used to be regarded "Deep".
+- **Layers**: The Neural Network is arranged in layers. The network presented in Figure 2 has 4 layers - marked L1-L4.
+- **Input Layer**: The input layer is the first layer of the Nural Network. It is conventionally not counted in the layers count - (otherwise tFigure 5 would be regarded as a 5 layers networks).
+- **Hiden Layer**: Layers which both input and output are both connected to other network's  layers - L1-L3 are Hidden layers.
+- **Output Layer**: The Last network's layer-  L4 in Figure 2.
+- **Deep Neural Network**: A neural network with many layers. There is no definite minimal number of layers for that, though 3 hidden layers used to be regarded "Deep".
 
 
 
