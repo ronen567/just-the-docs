@@ -27,11 +27,11 @@ The Neural Network scheme cosiders the above module a single Nueron, while a Neu
 
 Let's start with noting some common tersm:
 
--Layers: The Neural Network is arranged in layers. The network presented in Figure 2 has 4 layers - marked L1-L4.
--Input Layer: The input layer is the first layer of the Nural Network. It is conventionally not counted in the layers count - (otherwise tFigure 5 would be regarded as a 5 layers networks).
--Hiden Layer: Layers which both input and output are both connected to other network's  layers - L1-L3 are Hidden layers.
--Output Layer: The Last network's layer-  L4 in Figure 2.
--Deep Neural Network: A neural network with many layers. There is no definite minimal number of layers for that, though 3 hidden layers used to be regarded "Deep".
+- Layers: The Neural Network is arranged in layers. The network presented in Figure 2 has 4 layers - marked L1-L4.
+- Input Layer: The input layer is the first layer of the Nural Network. It is conventionally not counted in the layers count - (otherwise tFigure 5 would be regarded as a 5 layers networks).
+- Hiden Layer: Layers which both input and output are both connected to other network's  layers - L1-L3 are Hidden layers.
+- Output Layer: The Last network's layer-  L4 in Figure 2.
+- Deep Neural Network: A neural network with many layers. There is no definite minimal number of layers for that, though 3 hidden layers used to be regarded "Deep".
 
 
 
