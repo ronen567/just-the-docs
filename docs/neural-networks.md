@@ -34,6 +34,19 @@ Let's start with noting some common tersm:
 - **Deep Neural Network**: A neural network with many layers. There is no definite minimal number of layers for that, though 3 hidden layers used to be regarded "Deep".
 
 
+Figure 1 presents a 4 layer neural networks:
+- The input layer is of size 3
+- Layers 1 and 2 (marked by L1 and L2), have 4 neurons each, 
+- layer 3 has 2 neurons
+- layer 1, the output layer has a single neuron. 
+
+
+Here's a focus on the first element of L1:
+
+
+
+
+
 
 
 
