@@ -22,7 +22,7 @@ The Neural Network scheme cosiders the above module a single Nueron, while a Neu
 ### Figure 2: Deep Neural Network
 
 
-![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.svg)
+![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
 
 
 Let's start with noting some common tersm:
