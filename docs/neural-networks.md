@@ -5,6 +5,11 @@ Recall the Supervise Learning Model sketch, which was posted in the Logistic Reg
 ### Figure 1: Logistic Regression Data Network
 
 
+
+![Supervise Learning Outlines](../assets/images/neural-networks/logistic-regression-network.svg)
+
+
+
 ![Supervise Learning Outlines](../assets/images/supervised/ML-data-sigmoid-network.svg)
 
 
