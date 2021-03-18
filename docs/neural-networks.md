@@ -1,6 +1,10 @@
 ## Deep Learning
 
-Recall the Supervise Learning Model sketch, which was posted in the Logistic Regression post. Here it is again:
+This post introduces Deep Learning, which a branch of Machine Learning. Bassically both use the same building blocks, but Deep Learning, (DL), a denser architecture which achieves better performance for complicated problems. Let's show that.
+
+
+Figure 1 depicts the the scheme of Logistic Regression prediction model. Observing the scheme from its left side, the input data set consists of n elements \\(x_1-x_n\\), multiplied by n weights \\(w_1-w_n\\). The weighted inputs are sumed, together with the bias input b. Then this sum is activated by a sigmoid, which is a non linear function, used for binary decision. The sigmoid output, a, is here the predicted decision value , \\(\hat{y}\)). The weights and bias values are determined in the Training phase. 
+
 
 ### Figure 1: Logistic Regression Data Network
 
@@ -9,34 +13,40 @@ Recall the Supervise Learning Model sketch, which was posted in the Logistic Reg
 ![Supervise Learning Outlines](../assets/images/neural-networks/logistic-regression-network.svg)
 
 
+Figure 1 may resemble a Nueron, where the data input lines resemble the dendrites, by which the neuron receives input from other cells.
+With the Neuron in mind, it will be easy to prescieve the neural network structure in Figure 2.
 
-![Supervise Learning Outlines](../assets/images/supervised/ML-data-sigmoid-network.svg)
-
-
-The Logistic Regression data network module depicted in Figure 1 generates predicted value \\(\hat{y}\\). Figure 1 presents the module's sub elements elements:
-
-- **Input Data** - The figure presents n dimensional input data \\( (x_1, x_2.....x_n) \\)
-- **Weights** - The n input weigths vector  \\( (w_1, w_2.....w_n) \\) multiplies the input data vector.
-- **Bias** - The bias coefficent b is summed with the weighted input data.
-- **Sigmoid** - This is the non-linear element which is perated on the weighted input and bias.
+### Figure 2: Neural Network
 
 
+![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.svg)
 
-The Neural Network scheme cosiders the above module a single Nueron, while a Neural Network, is a network of Neurons arranged as depicted in Figure 2.
-
-### Figure 2: Deep Neural Network
-
-
-![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
-
-
-Let's start with noting some common tersm:
+Following Figure 2, let's list some common terms:
 
 - **Layers**: The Neural Network is arranged in layers. The network presented in Figure 2 has 4 layers - marked L1-L4.
 - **Input Layer**: The input layer is the first layer of the Nural Network. It is conventionally not counted in the layers count - (otherwise tFigure 5 would be regarded as a 5 layers networks).
 - **Hiden Layer**: Layers which both input and output are both connected to other network's  layers - L1-L3 are Hidden layers.
 - **Output Layer**: The Last network's layer-  L4 in Figure 2.
 - **Deep Neural Network**: A neural network with many layers. There is no definite minimal number of layers for that, though 3 hidden layers used to be regarded "Deep".
+
+
+
+
+The Neural Network scheme cosiders the above module a single Nueron, while a Neural Network, is a network of Neurons arranged as depicted in Figure 2. The network is arranged in perpendicular layers, each populated with Neurons. Excluding the input layer, Figure 2 depicts 5 layers, where the number of neurons in each layers, starting from the leftmost layer, after the input, are 4,4,4,2 and 1. Is it a "Deep" neural netwrk? I'd say sure. How many layers should be considered "deep"? There's no definite answer to that, but 3 layers are commonly considered as Deep Networks.
+
+
+
+
+
+### Figure 2: Neural Network
+
+
+![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
+
+
+One may wonder if this should be considered a Deep Nueral Network or a Shalow Network. There is no definite answer dor that, but 
+
+
 
 
 Figure 1 presents a 4 layer neural networks:
