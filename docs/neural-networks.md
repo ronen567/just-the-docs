@@ -1,4 +1,6 @@
-## Deep Learning
+# Deep Learning
+
+## Introdcution
 
 This post introduces Deep Learning, which a branch of Machine Learning. Bassically both use the same building blocks, but Deep Learning, (DL), a denser architecture which achieves better performance for complicated problems. Let's show that.
 
@@ -10,9 +12,10 @@ Figure 1 depicts the the scheme of Logistic Regression prediction model. Observi
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/logistic-regression-network.svg)
 
+## Neural Networks
 
-Figure 1 may resemble a Nueron, where the data input lines resemble the dendrites, by which the neuron receives input from other cells.
-With the Neuron in mind, it will be easy to prescieve the neural network structure in Figure 2.
+Figure resembles a Nueron, at least graphically-wise, where the data input lines resemble the dendrites, by which the neuron receives input from other cells.
+Deep Learning algorithm are driven by a dense network, structured with many such Neurons, as depicted in Figure 2.
 
 ### Figure 2: Neural Network
 
@@ -31,11 +34,11 @@ Following Figure 2, here below are some commonly used terms:
 
 
 Figure 3 depicts a Nueral Network with less layers and neurons, which might be more comfortable to illustrate its structure in more details. Some notes on the notations:
-- **Superscript index in square bracketed**: This is the layer's index. Example: \\(b^{[1]}\\) is a bias of layer 1.
-- **Subscript index**:  This is the Neuron's index. Examples:  Example: \\(x^i\\) or \\(x^{ij}\\). The first index indicates the current layer's index, while the second index, if exists, indicates the destination layer. 
-- **weights**: In the deep learning model, the weights multiply the layer's data input, before being summed up with all other weighted inputs which are connected to the same neuron. Example: \\(w_{21}^[2]\\) in Figure 3, is the weight which corresponds to the input coming from the seconds neoron of Layer 1, to the second neoron of layer 2.
-
-- **bias**: Bias multiplies a constant 1 and summed up with all weighted inputs. Example: \\(b_2^{[1]}\\) is the bias added to the second element of Layer 1.
+- **Superscript index in square bracketed**: This is the layer's index. 
+- **Subscript index**:  This is the Neuron's index. 
+- **weights**: The weights multiply the layer's data input at the Neuron's input. Example: \\(w_{21}^[2]\\) in Figure 3, weights the input coming from the Neuron 1 of Layer 1, to the Neuron 2 of layer 2. 
+- **bias**: Bias multiplies a constant 1 and summed up with all weighted inputs. Example: \\(b_2^{[1]}\\) is the bias input of Neuron 2 of Layer 1.
+- **Nuerons Output**: The Neurons output stage is represented by a, which stands for activation output. Example:  \\(a_2^{[1]}\\) is the output of first Neuron of Layer 1.
 
 
 
@@ -45,6 +48,30 @@ Figure 3 depicts a Nueral Network with less layers and neurons, which might be m
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
 
+
+## Activation Functions
+
+Each Neuron's operator consists of 2 parts, as depicted in Figure 1: The sum of wheigthed input with a bias, and a none linear operator. In Figure 1, the none linear operator is a sigmoid. Sigmoid is indeed the activation operator which performs Binary Decisions, used by Logistic Regression. This chapter presents more activation functions used for Deep Learning.
+
+
+
+### Sigmoid
+
+
+### tanh
+
+### Relu
+
+
+### Leaky Relu
+
+
+
+
+
+
+
+Binary Classification
 
 One may wonder if this should be considered a Deep Nueral Network or a Shalow Network. There is no definite answer dor that, but 
 
