@@ -31,8 +31,8 @@ Following Figure 2, here below are some commonly used terms:
 
 
 Figure 3 depicts a Nueral Network with less layers and neurons, which might be more comfortable to illustrate its structure in more details. Some notes on the notations:
-- **Superscript index in square bracketed**: Example: \\x^{[i]}\\). The index i indicates the layer index the value of x relates to
-- **Subscript index**: Example: \\x^i\\) or \\x^{ij}\\). The first index indicates the current layer's index, while the second index, if exists, indicates the destination layer. 
+- **Superscript index in square bracketed**: Example: \\(x^{[i]}\\). The index i indicates the layer index the value of x relates to
+- **Subscript index**: Example: \\(x^i\\) or \\(x^{ij}\\). The first index indicates the current layer's index, while the second index, if exists, indicates the destination layer. 
 - **weights**: In the deep learning model, the weights multiply the layer's data input, before being summed up with all other weighted inputs which are connected to the same neuron. Example: \\(w_{21}^[2]\\) in Figure 3, is the weight which corresponds to the input coming from the seconds neoron of Layer 1, to the second neoron of layer 2.
 
 - **bias**: Bias multiplies a constant 1 and summed up with all weighted inputs. Example: \\(b_2^{[1]}\\) is the bias added to the second element of Layer 1.
