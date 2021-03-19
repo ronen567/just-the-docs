@@ -21,24 +21,28 @@ With the Neuron in mind, it will be easy to prescieve the neural network structu
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.svg)
 
-Following Figure 2, let's list some common terms:
+Following Figure 2, here below are some commonly used terms:
 
-- **Layers**: The Neural Network is arranged in layers. The network presented in Figure 2 has 4 layers - marked L1-L4.
-- **Input Layer**: The input layer is the first layer of the Nural Network. It is conventionally not counted in the layers count - (otherwise tFigure 5 would be regarded as a 5 layers networks).
-- **Hiden Layer**: Layers which both input and output are both connected to other network's  layers - L1-L3 are Hidden layers.
-- **Output Layer**: The Last network's layer-  L4 in Figure 2.
+- **Layers**: The Neural Network is arranged in layers. The network presented in Figure 2 has 5 layers - marked L1-L5. Each layer consists of 4,4,4,2 and 1 neurons respectively.
+- **Desnse Layers**: Fully connected layers. The Deep learning scheme is based on densely connected neural networks.
+- **Input Layer**: A layer with input exposed to outside of the network. It is conventionally not counted in the layers count.
+- **Hidden Layer**: Layers which both input and output are  connected to other network's layers - L1-L4 are Hidden layers.
+- **Output Layer**: A layer with output exposed to outside of the network -  L5 in Figure 2.
 - **Deep Neural Network**: A neural network with many layers. There is no definite minimal number of layers for that, though 3 hidden layers used to be regarded "Deep".
 
 
 
+Figure 3 depicts a Nueral Network with less layers and neurons, which might be more comfortable to illustrate its structure in more details. Some notes on the notations:
+-**Superscript index in square bracketed**: Example: \\x^{[i]}\\). The index i indicates the layer index the value of x relates to
+-**Underscript index**: Example: \\x^i\\) or \\x^{ij}\\). The first index indicates the current layer's index, while the second index, if exists, indicates the destination layer. 
+-**weights**: In the deep learning model, the weights multiply the layer's data input, before being summed up with all other weighted inputs which are connected to the same neuron. Example: \\(w_{21}^[2]\\) in Figure 3, is the weight which corresponds to the input coming from the seconds neoron of Layer 1, to the second neoron of layer 2.
 
-The Neural Network scheme cosiders the above module a single Nueron, while a Neural Network, is a network of Neurons arranged as depicted in Figure 2. The network is arranged in perpendicular layers, each populated with Neurons. Excluding the input layer, Figure 2 depicts 5 layers, where the number of neurons in each layers, starting from the leftmost layer, after the input, are 4,4,4,2 and 1. Is it a "Deep" neural netwrk? I'd say sure. How many layers should be considered "deep"? There's no definite answer to that, but 3 layers are commonly considered as Deep Networks.
+--**bias**: Bias multiplies a constant 1 and summed up with all weighted inputs. Example: \\b_2^{[1]}\\) is the bias added to the second element of Layer 1.
 
 
 
+### Figure 3: Neural Network - A More Detailed Scheme
 
-
-### Figure 2: Neural Network
 
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
