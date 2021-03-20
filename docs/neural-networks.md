@@ -297,32 +297,27 @@ z_3^{[2]}
 \end{bmatrix}
 $$
 
-Note that Eq. 9 is similar to Eq. 7, except that the input vector is now \\(\begin{bmatrix}
+Note that Eq. 9 is similar to Eq. 7, except that the input vector for Layer 2 equals the activation output vector of the previous layer, i.e.  \\(\bar{a}^{[1]}\\).
+
+Accordingly, to have a conventional expression for all layers, we will denote the input vector  \\(\begin{bmatrix}
 a_1^{[1]} \\\\\\
 a_2^{[1]} \\\\\\
 a_3^{[1]}
-\end{bmatrix}\\)
-
-So if we denote the input vector of Layer 1 as \\(\begin{bmatrix}
+\end{bmatrix}\\) by \\(\begin{bmatrix}
 a_1^{[0]} \\\\\\
 a_2^{[0]} \\\\\\
 a_3^{[0]}
-\end{bmatrix}\\) instead of \begin{bmatrix}
-x_1 \\\\\\ 
-x_2
-\end{bmatrix}
+\end{bmatrix}\\), and have a generalized expression for the activation of any layer l, l=1:L, in any Neural Network:
 
+Eq. 11: Weighted input of Layer l, l=1:L
+$$
+Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}
+$$
 
-We now generalize Eq. 7-10 to an expression for calculating any layer l activation, in any Neural Network:
-
-Eq. 11:
-
-Z^{[l]}=W^{[1]}A^{[1-1]}+b^{[1]}
-
-Eq. 12:
-
-A^{[1]}=g^{[1]}(Z^{[1]})
-
+Eq. 12: Activation of Layer l, l=1:L
+$$
+A^{[1]}=g^{[l]}(Z^{[l]})
+$$
 
 
 
