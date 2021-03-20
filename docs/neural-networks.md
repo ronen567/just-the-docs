@@ -40,12 +40,13 @@ Following Figure 2, here below are some commonly used terms:
 
 
 
-Figure 3 depicts a Nueral Network with less layers and neurons, which might be more comfortable to illustrate its structure in more details. Some notes on the notations:
+Figure 3 depicts a Nueral Network with less layers and neurons then in Figure 2, to make it more easy to denote detail inside. 
+Some explaination and notations:
 - **Superscript index in square bracketed**: This is the layer's index. 
 - **Subscript index**:  This is the Neuron's index. 
 - **weights**: The weights multiply the layer's data input at the Neuron's input. Example: \\(w_{21}^[2]\\) in Figure 3, weights the input coming from the Neuron 1 of Layer 1, to the Neuron 2 of layer 2. 
 - **bias**: Bias multiplies a constant 1 and summed up with all weighted inputs. Example: \\(b_2^{[1]}\\) is the bias input of Neuron 2 of Layer 1.
-- **Nuerons Output**: The Neurons output stage is represented by a, which stands for activation output. Example:  \\(a_2^{[1]}\\) is the output of first Neuron of Layer 1.
+- **activations**: The activation function defines the output of the node, which is denoted by a, stands for activation. Example:  \\(a_2^{[1]}=g_2^{1}(z^{1})\\) is the activation of second Neuron of Layer 1. 
 
 
 
@@ -141,6 +142,85 @@ Leaky Relue adds a slope to the negative values, preventing the 0 gradient issue
 
 
 ## Forward Propogation
+
+This section describes the Forward Propogation, i.e. equations for determining the of an input transfered through the Neural Network. We'll use the network depicted in Figure 3 to illustrate that.
+
+Let's start with the activation expressions for layer 1's Neurons:
+
+
+$$
+z_1^{[1]}=\begin{bmatrix}
+w_{11}^{[1]} && 
+w_{21}^{[1]} 
+\end{bmatrix}\begin{bmatrix}
+x_1 \\ 
+x_2 \\ 
+\end{bmatrix}+b_1^{[1]}
+$$
+
+$$
+a_1^{[1]}=g_1^{[1]}(z_1^{[1]})
+$$
+$$
+z_2^{[1]}=\begin{bmatrix}
+w_{12}^{[1]} && 
+w_{22}^{[1]} 
+\end{bmatrix}\begin{bmatrix}
+x_1 \\ 
+x_2 \\ 
+\end{bmatrix}+b_2^{[1]}
+$$
+
+$$
+a_2^{[1]}=g_2^{[1]}(z_2^{[1]})
+$$
+
+
+
+
+$$
+z_3^{[1]}=\begin{bmatrix}
+w_{13}^{[1]} && 
+w_{23}^{[1]} 
+\end{bmatrix}\begin{bmatrix}
+x_1 \\ 
+x_2 \\ 
+\end{bmatrix}+b_3^{[1]}
+$$
+
+$$
+a_3^{[1]}=g_3^{[1]}(z_3^{[1]})
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Let's start with the output of a signal Neuron, and take The first Neoron of L1:
+
+
+
+
+
+
+
+
+Neural Network's output, based on the input and the network parameters.
+
+
 
 
 
