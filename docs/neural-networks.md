@@ -2,20 +2,27 @@
 
 ## Introdcution
 
-This post introduces Deep Learning, which is a branch of Machine Learning, using similar building blocks but in a denser architecture which can achieves better performance in complicated problems. Let's show that.
+This post introduces Deep Learning, which is a branch of Machine Learning, using similar building blocks but in a denser architecture which can achieves better performance in complicated problems.
+Let's show that, by first presneting the architecture which drives Deep Learning - Neural Networks.
 
 
-Figure 1 depicts the the scheme of Logistic Regression prediction model. Observing the scheme from its left side, the input data set consists of n elements \\(x_1-x_n\\), multiplied by n weights \\(w_1-w_n\\). The weighted inputs are sumed, together with the bias input b. Then this sum is activated by a sigmoid, which is a non linear function, used for binary decision. The sigmoid output, a, is here the predicted decision value , \\(\hat{y}\)). The weights and bias values are determined in the Training phase. 
+## Neural Networks
+
+
+We start from the already familiar Logistic Regression prediction model, depicted in Figure 1. Does this scheme resembles of a Nueron, at least graphically-wise? With some imagination effort it does, if you see in the data input lines the Neuron's dendrites, by which the Neuron receives input from other cells. The iinterconnections between Neurons, as depicted in Figure 2 may also resemble Neurons. But is there real functional similarity between deep learning's Neutal Networks nd the Human brain's Neural Networks? This is an arguable issue, and we will not get to it in this context.
+
+Anyway, the Neuron structure presented here is the building block of the Neural Network, . Tracing the Forward Propogation path, we observe the n input data set elements \\([x_1-x_n]\\), which are multiplied by n weights \\(w_1-w_n\\) and are then summed, together with the bias input b. That sum is then passed to a non-linear operator called 'activation function', which in our case is the sigmoid operator. The sigmoid output, is denoted by **a**. The weights and bias values are of course determined during the Training phase.
+
+Deep Learning algorithm are driven by a dense network, structured with many such Neurons, as depicted in Figure 2.
 
 
 ### Figure 1: Logistic Regression Data Network
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/logistic-regression-network.svg)
 
-## Neural Networks
 
-Figure resembles a Nueron, at least graphically-wise, where the data input lines resemble the dendrites, by which the neuron receives input from other cells.
-Deep Learning algorithm are driven by a dense network, structured with many such Neurons, as depicted in Figure 2.
+
+
 
 ### Figure 2: Neural Network
 
@@ -58,7 +65,7 @@ Maybe here's the time to remark that in the absence of a non-linear activation f
 The activation function is denoted by g(z). Figure 4 is almost identical to Figure 1, but depicts the Neuron with g(z).
 
 ### Figure 4: Neuton with Activation function g(z)
-![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.png)
+![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
 
 
 
@@ -102,38 +109,38 @@ Tanh usually works better than Sigmoid for hidden layers. Actually, sigmoid is r
 
 ### Relu
 
-### Figure 7: Relu
 
 ### Eq. 4: Relu - Rectified Linear Unit
 
-$$
-Relu{x}=max(0,x)
-$$
+
+relu(x)=max(0,x)
+
 
 Relu solves the "Vanishing Gradient" problem. Derivative is 1 for the positive value. The derivative at x=0 is not defined, but that's not an issue and can be set to either 0 or 1. Relu implementation is simpler and cheaper computation wise then the other activation functions. is commonly used, actually it's in most cases the default activation function. 
 Problem with Relu is the 0 gradient for negative values, so all units with negative value will slow down learning. Still, not considered a critical issues, as about half og the hidden unit are still expected to have values greater than 0.
 Leaky Relu solves the 0 gradient issue anyway.
 
+### Figure 7: RelU
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/relu.png)
 
 
 ### 
 
-### Figure 8: Leaky Relu
+### Figure 8: Leaky RelU
 
 ### Eq. 5: Leaky Relu
 
-$$
-Relu{x}= maxx : 0.01*x)
-$$
+
+leaky_relu(x)= max ? x: 0.01*x
+
 
 Leaky Relue adds a slope to the negative values, preventing the 0 gradient issue. The slope he is set to 0.01.
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/leaky_relu.png)
 
 
-
+## Forward Propogation
 
 
 
