@@ -100,7 +100,7 @@ It's easy to see, by multiplying numerator, as shown in Eq 3. and denominator by
 
 ### Eq. 3: tanh Function is a scaled sigmoid
 
-tanh(x)=\frac{e^x-e^{-x}}{e^{x}+e^{-x}}*\frac{e^{-x}}{e^{-x}}= \frac{2}{1+e^{-2x}}-1=2\sigma(2x)-1$$
+$$tanh(x)=\frac{e^x-e^{-x}}{e^{x}+e^{-x}}*\frac{e^{-x}}{e^{-x}}= \frac{2}{1+e^{-2x}}-1=2\sigma(2x)-1$$
 
 Tanh usually works better than Sigmoid for hidden layers. Actually, sigmoid is rarely used for hidden layers, but only for output layers, where the output is expected to be 0 or 1.
 
@@ -112,6 +112,7 @@ Tanh usually works better than Sigmoid for hidden layers. Actually, sigmoid is r
 
 
 ### Eq. 4: Relu - Rectified Linear Unit
+
 
 
 relu(x)=max(0,x)
