@@ -240,6 +240,7 @@ $$
 
 Eq. 8: Layer 1 activation in a more compact matric format
 
+$$
 \begin{bmatrix}
 a_1^{[1]} \\\\\\
 a_2^{[1]} \\\\\\
@@ -260,7 +261,7 @@ a_3^{[1]}
 
 \end{bmatrix}
 
-
+$$
 
 
 
