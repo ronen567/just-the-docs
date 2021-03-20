@@ -246,11 +246,95 @@ g_{2}^{[1]} \\\\\\
 g_{3}^{[1]} 
 \end{bmatrix}
 \begin{bmatrix}
-a_1^{[1]} \\\\\\ 
-a_2^{[1]} \\\\\\ 
-a_3^{[1]} 
+z_1^{[1]} \\\\\\ 
+z_2^{[1]} \\\\\\ 
+z_3^{[1]} 
 \end{bmatrix}
 $$
+
+Now we can re-write Eq. 7 and Eq. 8 for expression of Layer 2 activation. 
+
+
+Eq. 9: Layer 2 Weighted input in a more compact matric format
+
+
+$$\begin{bmatrix}
+z_1^{[2]} \\\\\\\\ 
+z_2^{[2]} \\\\\\\\ 
+z_3^{[2]}
+\end{bmatrix}=
+\begin{bmatrix}
+w_{11}^{[2]}  & w_{21}^{[2]} \\\\\\ 
+w_{12}^{[2]}  & w_{22}^{[2]} \\\\\\ 
+w_{13}^{[2]}  & w_{13}^{[2]} 
+\end{bmatrix} \begin{bmatrix}
+a_1^{[1] \\\\\\ 
+x_2^{[1]
+\end{bmatrix}+\begin{bmatrix}
+b_1^{[2]} \\\\\\ 
+b_2^{[2]} \\\\\\ 
+b_3^{[2]} 
+\end{bmatrix}
+$$
+
+Eq. 10: Layer 2 activation in a more compact matric format
+
+$$
+\begin{bmatrix}
+a_1^{[2]} \\\\\\
+a_2^{[2]} \\\\\\
+a_3^{[2]}
+\end{bmatrix}=
+\begin{bmatrix}
+g_{1}^{[2]} \\\\\\
+g_{2}^{[2]} \\\\\\ 
+g_{3}^{[2]} 
+\end{bmatrix}
+\begin{bmatrix}
+z_1^{[2]} \\\\\\ 
+z_2^{[2]} \\\\\\ 
+z_3^{[2]} 
+\end{bmatrix}
+$$
+
+Note that Eq. 9 is similar to Eq. 7, except that the input vector is now \\(\begin{bmatrix}
+a_1^{[1]} \\\\\\
+a_2^{[1]} \\\\\\
+a_3^{[1]}
+\end{bmatrix}\\)
+
+So if we denote the input vector of Layer 1 as \\(\begin{bmatrix}
+a_1^{[0]} \\\\\\
+a_2^{[0]} \\\\\\
+a_3^{[0]}
+\end{bmatrix}\\) instead of \begin{bmatrix}
+x_1 \\\\\\ 
+x_2
+\end{bmatrix}
+
+
+We now generalize Eq. 7-10 to an expression for calculating any layer l activation, in any Neural Network:
+
+Eq. 11:
+
+Z^{[l]}=W^{[1]}A^{[1-1]}+b^{[1]}
+
+Eq. 12:
+
+A^{[1]}=g^{[1]}(Z^{[1]})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
