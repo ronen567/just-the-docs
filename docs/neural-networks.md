@@ -258,7 +258,8 @@ Now we can re-write Eq. 7 and Eq. 8 for expression of Layer 2 activation.
 ### Eq. 9: Layer 2 Weighted input in a more compact matric format
 
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 z_1^{[2]} \\\\\\\\ 
 z_2^{[2]}
 \end{bmatrix}=
@@ -266,8 +267,8 @@ z_2^{[2]}
 w_{11}^{[2]}  & w_{21}^{[2]} & w_{31}^{[2]} \\\\\\ 
 w_{12}^{[2]}  & w_{22}^{[2]} & w_{32}^{[2]}
 \end{bmatrix} \begin{bmatrix}
-a_1^{[1] \\\\\\ 
-a_2^{[1]
+a_1^{[1]} \\\\\\ 
+a_2^{[1]}
 \end{bmatrix}+\begin{bmatrix}
 b_1^{[2]} \\\\\\ 
 b_2^{[2]} \\\\\\ 
@@ -293,7 +294,7 @@ $$
 
 Note that Eq. 9 is similar to Eq. 7 in concept, except the input vector which is the activation output of the previous layer, i.e.  \\(\bar{a}^{[1]}\\).
 
-To generelize the expression for all layers, including layer 1 which has no previous layer activation, we will denote the input vector by \\(\begin{bmatrix}
+To generelize the expression for all layers, we will denote the input vector of layer 1 by \\(\begin{bmatrix}
 a_1^{[0]} \\\\\\
 a_2^{[0]} \\\\\\
 a_3^{[0]}
