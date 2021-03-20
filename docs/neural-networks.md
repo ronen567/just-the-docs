@@ -213,12 +213,10 @@ Let's arrange the above equations in a more compact matrix expressions:
 Eq. 7: Layer 1 Weighted input in a more compact matric format
 
 
-$$
-\begin{bmatrix}
+$$\begin{bmatrix}
 z_1^{[1]} \\\\\\ 
 z_2^{[1]} \\\\\\ 
-z_3^{[1]} \\\\\\ 
-
+z_3^{[1]}
 \end{bmatrix}=
 
 \begin{bmatrix}
