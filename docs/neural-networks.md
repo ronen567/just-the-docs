@@ -2,7 +2,7 @@
 
 ## Introdcution
 
-This post introduces Deep Learning, which a branch of Machine Learning. Bassically both use the same building blocks, but Deep Learning, (DL), a denser architecture which achieves better performance for complicated problems. Let's show that.
+This post introduces Deep Learning, which is a branch of Machine Learning, using similar building blocks but in a denser architecture which can achieves better performance in complicated problems. Let's show that.
 
 
 Figure 1 depicts the the scheme of Logistic Regression prediction model. Observing the scheme from its left side, the input data set consists of n elements \\(x_1-x_n\\), multiplied by n weights \\(w_1-w_n\\). The weighted inputs are sumed, together with the bias input b. Then this sum is activated by a sigmoid, which is a non linear function, used for binary decision. The sigmoid output, a, is here the predicted decision value , \\(\hat{y}\)). The weights and bias values are determined in the Training phase. 
@@ -67,9 +67,7 @@ The activation function is denoted by g(z). Figure 4 is almost identical to Figu
 
 ### Eq. 1: Sigmoid Function 
 
-$$
-\sigma{x}=\frac{1}{1+e^{-x}}}
-$$
+$$\sigma{x}=\frac{1}{1+e^{-x}}}$$
 
 Sigmoid was introduced in the Logistic Regression post. With a decision threshold at 0.5, a range of [0,1], and a steep slope, Sigmoid is suitable a a binary decision function. and indeed it's very commonly used for binary classification.
 Still, the sigmoid values flatens as at higher values of z. This the "Vanishing Gradient" problem, with which optimization algorithms such as Gradient Descent will not merge or merge very slowly. 
@@ -83,28 +81,22 @@ Still, the sigmoid values flatens as at higher values of z. This the "Vanishing 
 ### tanh
 
 
-### Eq. 2: tanh Function 
+### Eq. 2: tanh Function
 
 $$
-tanh{x}=\frac{e^x-e^{-x}}{e^{x}+e^{-x}}
+tanh(x)=\frac{e^x-e^{-x}}{e^{x}+e^{-x}}
 $$
 
-It's easy, by multiplying numerator and denominator by \\(e^{-x}\\) we get:
+It's easy to see, by multiplying numerator, as shown in Eq 3. and denominator by \\(e^{-x}\\), that tanh is a scaled sigmoid. It is also depicted in Figure 6 that  tanh is a scaled sigmoid, centered around 0 instead of 0.5 with values [-1,1]..
+
 
 ### Eq. 3: tanh Function is a scaled sigmoid
 
-$$
-tanh{x}=\frac{2}{1+e^{-2x}}}-1=2\sigma(2x)-1
-$$
+tanh(x)=\frac{e^x-e^{-x}}{e^{x}+e^{-x}}*\frac{e^{-x}}{e^{-x}}= \frac{2}{1+e^{-2x}}-1=2\sigma(2x)-1$$
 
-It is clear not only from Eq. 3 but also depicted in Figure 6, that tanh, is a scaled sigmoid, which values are in the range [-1, 1].
-centered around 0 instead of 0.5. Tanh usually works better than Sigmoid for hidden layers. Actually, sigmoid is rarely used for hidden layers, but only for output layers, where the output is expected to be 0 or 1.
-
-
+Tanh usually works better than Sigmoid for hidden layers. Actually, sigmoid is rarely used for hidden layers, but only for output layers, where the output is expected to be 0 or 1.
 
 ### Figure 6: tanh
-
-
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/tanh.png)
 
@@ -145,51 +137,10 @@ Leaky Relue adds a slope to the negative values, preventing the 0 gradient issue
 
 
 
-Binary Classification
-
-One may wonder if this should be considered a Deep Nueral Network or a Shalow Network. There is no definite answer dor that, but 
 
 
 
 
-Figure 1 presents a 4 layer neural networks:
-- The input layer is of size 3
-- Layers 1 and 2 (marked by L1 and L2), have 4 neurons each, 
-- layer 3 has 2 neurons
-- layer 1, the output layer has a single neuron. 
-
-
-Here's a focus on the first element of L1:
-
-
-
-
-
-
-
-
-
-
-A leyer is a group of Neurons, not connected to each other  
-The network presented in Figure 2 has 4 layers, as marked on the diagram. The input layer is not counted as a layer - this is the common convention. The 3 inner network (L1-L3) are called Hidden Layers, since their inputs and outputs are internal.
-
-
-
-
-
-
-
-
-
-
-
-
-a meshed networklayered meshed  of 
-
-
-like logistic regression, repeated a lot of times
-
-Previous posts presented Machine Learning, and its computation element - it is depicted in Figure 1.
 
 
 If there are many layers without an activation function, it is always computing a linear prediction function, no matters how layers the network has.
