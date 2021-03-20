@@ -226,12 +226,12 @@ w_{13}^{[1]}  & w_{13}^{[1]}
 \end{bmatrix}
 \begin{bmatrix}
 x_1 \\\\\\ 
-x_2 \\\\\\
+x_2
 \end{bmatrix}+
 \begin{bmatrix}
 b_1^{[1]} \\\\\\ 
 b_2^{[1]} \\\\\\ 
-b_3^{[1]} \\\\\\
+b_3^{[1]} 
 
 \end{bmatrix}
 $$
@@ -242,14 +242,14 @@ $$
 \begin{bmatrix}
 a_1^{[1]} \\\\\\
 a_2^{[1]} \\\\\\
-a_3^{[1]} \\\\\\ 
+a_3^{[1]}
 
 \end{bmatrix}=
 
 \begin{bmatrix}
 g_{1}^{[1]} \\\\\\
 g_{2}^{[1]} \\\\\\ 
-g_{3}^{[1]} \\\\\\
+g_{3}^{[1]} 
 \end{bmatrix}
 
 \begin{bmatrix}
