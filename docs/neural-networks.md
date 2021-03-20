@@ -210,7 +210,7 @@ $$
 Let's arrange the above equations in a more compact matrix expressions:
 
 
-Eq. 7: Layer 1 Weighted input in a more compact matric format
+### Eq. 7: Layer 1 Weighted input in a more compact matric format
 
 
 $$\begin{bmatrix}
@@ -232,7 +232,7 @@ b_3^{[1]}
 \end{bmatrix}
 $$
 
-Eq. 8: Layer 1 activation in a more compact matric format
+### Eq. 8: Layer 1 activation in a more compact matric format
 
 $$
 \begin{bmatrix}
@@ -255,66 +255,56 @@ $$
 Now we can re-write Eq. 7 and Eq. 8 for expression of Layer 2 activation. 
 
 
-Eq. 9: Layer 2 Weighted input in a more compact matric format
+### Eq. 9: Layer 2 Weighted input in a more compact matric format
 
 
 $$\begin{bmatrix}
 z_1^{[2]} \\\\\\\\ 
-z_2^{[2]} \\\\\\\\ 
-z_3^{[2]}
+z_2^{[2]}
 \end{bmatrix}=
 \begin{bmatrix}
-w_{11}^{[2]}  & w_{21}^{[2]} \\\\\\ 
-w_{12}^{[2]}  & w_{22}^{[2]} \\\\\\ 
-w_{13}^{[2]}  & w_{13}^{[2]} 
+w_{11}^{[2]}  & w_{21}^{[2]} & w_{31}^{[2]} \\\\\\ 
+w_{12}^{[2]}  & w_{22}^{[2]} & w_{32}^{[2]}
 \end{bmatrix} \begin{bmatrix}
 a_1^{[1] \\\\\\ 
-x_2^{[1]
+a_2^{[1]
 \end{bmatrix}+\begin{bmatrix}
 b_1^{[2]} \\\\\\ 
 b_2^{[2]} \\\\\\ 
-b_3^{[2]} 
 \end{bmatrix}
 $$
 
-Eq. 10: Layer 2 activation in a more compact matric format
+### Eq. 10: Layer 2 activation in a more compact matric format
 
 $$
 \begin{bmatrix}
 a_1^{[2]} \\\\\\
-a_2^{[2]} \\\\\\
-a_3^{[2]}
+a_2^{[2]} 
 \end{bmatrix}=
 \begin{bmatrix}
 g_{1}^{[2]} \\\\\\
-g_{2}^{[2]} \\\\\\ 
-g_{3}^{[2]} 
+g_{2}^{[2]}
 \end{bmatrix}
 \begin{bmatrix}
 z_1^{[2]} \\\\\\ 
-z_2^{[2]} \\\\\\ 
-z_3^{[2]} 
+z_2^{[2]}
 \end{bmatrix}
 $$
 
-Note that Eq. 9 is similar to Eq. 7, except that the input vector for Layer 2 equals the activation output vector of the previous layer, i.e.  \\(\bar{a}^{[1]}\\).
+Note that Eq. 9 is similar to Eq. 7 in concept, except the input vector which is the activation output of the previous layer, i.e.  \\(\bar{a}^{[1]}\\).
 
-Accordingly, to have a conventional expression for all layers, we will denote the input vector  \\(\begin{bmatrix}
-a_1^{[1]} \\\\\\
-a_2^{[1]} \\\\\\
-a_3^{[1]}
-\end{bmatrix}\\) by \\(\begin{bmatrix}
+To generelize the expression for all layers, including layer 1 which has no previous layer activation, we will denote the input vector by \\(\begin{bmatrix}
 a_1^{[0]} \\\\\\
 a_2^{[0]} \\\\\\
 a_3^{[0]}
-\end{bmatrix}\\), and have a generalized expression for the activation of any layer l, l=1:L, in any Neural Network:
+\end{bmatrix}\\). Now we can have a generalized expression for the activation of any layer l, l=1:L, in any Neural Network:
 
-Eq. 11: Weighted input of Layer l, l=1:L
+### Eq. 11: Weighted input of Layer l, l=1:L
 $$
 Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}
 $$
 
-Eq. 12: Activation of Layer l, l=1:L
+### Eq. 12: Activation of Layer l, l=1:L
 $$
 A^{[1]}=g^{[l]}(Z^{[l]})
 $$
@@ -346,16 +336,6 @@ $$
 
 
 
-Let's start with the output of a signal Neuron, and take The first Neoron of L1:
-
-
-
-
-
-
-
-
-Neural Network's output, based on the input and the network parameters.
 
 
 
@@ -367,13 +347,15 @@ Neural Network's output, based on the input and the network parameters.
 
 
 
-If there are many layers without an activation function, it is always computing a linear prediction function, no matters how layers the network has.
-
-
-The case with no activation function is the linear regression - predict a price etc.
 
 
 
-and Deep learning is an approach to machine learning characterized by deep stacks of computations. This depth of computation is what has enabled deep learning models to disentangle the kinds of complex and hierarchical patterns found in the most challenging real-world datasets.
 
-Through their power and scalability neural networks have become the defining model of deep learning. Neural networks are composed of neurons, where each neuron individually performs only a simple computation. The power of a neural network comes instead from the complexity of the connections these neurons can form.
+
+
+
+
+
+
+
+
