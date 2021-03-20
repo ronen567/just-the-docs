@@ -297,11 +297,11 @@ To generelize the expression for all layers, including layer 1 which has no prev
 a_1^{[0]} \\\\\\
 a_2^{[0]} \\\\\\
 a_3^{[0]}
-\end{bmatrix}\\). Now we can have a generalized expression for the activation of any layer l, l=1:L, in any Neural Network:
+\end{bmatrix}\\). Now we can have a generalized expression for the activation of any layer l, l=1:L, in any Neural Network. The input will be denoted by \\(a^{[l-1]}\\), the output by  \\(a^{[l]}\\), the weights matrix by  \\(w^{[l]}\\)
 
 ### Eq. 11: Weighted input of Layer l, l=1:L
 $$
-Z^{[l]}=W^{[l]}A^{[l-1]}+b^{[l]}
+z^{[l]}=w^{[l]}a^{[l-1]}+b^{[l]}
 $$
 
 ### Eq. 12: Activation of Layer l, l=1:L
@@ -310,7 +310,7 @@ A^{[1]}=g^{[l]}(Z^{[l]})
 $$
 
 
-
+## Matrix Dimensions
 
 
 
