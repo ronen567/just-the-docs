@@ -207,6 +207,61 @@ $$
 
 
 
+Let's arrange the above equations in a more compact matrix expressions:
+
+
+Eq. 7: Layer 1 Weighted input in a more compact matric format
+
+
+$$
+\begin{bmatrix}
+z_1^{[1]} \\\\\\ 
+z_2^{[1]} \\\\\\ 
+z_3^{[1]} \\\\\\ 
+
+\end{bmatrix}=
+
+\begin{bmatrix}
+w_{11}^{[1]}  & w_{21}^{[1]} \\\\\\ 
+w_{12}^{[1]}  & w_{22}^{[1]} \\\\\\ 
+w_{13}^{[1]}  & w_{13}^{[1]} 
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\\\\\ 
+x_2 \\\\\\
+\end{bmatrix}+
+\begin{bmatrix}
+b_1^{[1]} \\\\\\ 
+b_2^{[1]} \\\\\\ 
+b_3^{[1]} \\\\\\
+
+\end{bmatrix}
+$$
+
+Eq. 8: Layer 1 activation in a more compact matric format
+
+\begin{bmatrix}
+a_1^{[1]} \\\\\\
+a_2^{[1]} \\\\\\
+a_3^{[1]} \\\\\\ 
+
+\end{bmatrix}=
+
+\begin{bmatrix}
+g_{1}^{[1]} \\\\\\
+g_{2}^{[1]} \\\\\\ 
+g_{3}^{[1]} \\\\\\
+\end{bmatrix}
+
+\begin{bmatrix}
+a_1^{[1]} \\\\\\ 
+a_2^{[1]} \\\\\\ 
+a_3^{[1]} 
+
+\end{bmatrix}
+
+
+
 
 
 
