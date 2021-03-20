@@ -148,46 +148,58 @@ This section describes the Forward Propogation, i.e. equations for determining t
 
 Let's start with the activation expressions for layer 1's Neurons:
 
-
+### Eq. 1: Neuron 1 Layer 1 Weighted Input
 $$
 z_1^{[1]}=\begin{bmatrix}
 w_{11}^{[1]} && 
 w_{21}^{[1]} 
 \end{bmatrix}\begin{bmatrix}
-x_1 \\ 
-x_2 \\ 
+x_1 \\\\\\
+x_2 \\\\\\
 \end{bmatrix}+b_1^{[1]}
 $$
+
+### Eq. 2: Neuron 1 Layer 1 activation
+
 
 $$
 a_1^{[1]}=g_1^{[1]}(z_1^{[1]})
 $$
+
+### Eq. 3: Neuron 2 Layer 1 Weighted Input
+
 $$
 z_2^{[1]}=\begin{bmatrix}
 w_{12}^{[1]} && 
 w_{22}^{[1]} 
 \end{bmatrix}\begin{bmatrix}
-x_1 \\ 
-x_2 \\ 
+x_1 \\\\\\
+x_2 \\\\\\
 \end{bmatrix}+b_2^{[1]}
 $$
+
+### Eq. 4: Neuron 2 Layer 1 activation
+
 
 $$
 a_2^{[1]}=g_2^{[1]}(z_2^{[1]})
 $$
 
 
-
+### Eq. 5: Neuron 3 Layer 1 Weighted Input
 
 $$
 z_3^{[1]}=\begin{bmatrix}
 w_{13}^{[1]} && 
 w_{23}^{[1]} 
 \end{bmatrix}\begin{bmatrix}
-x_1 \\ 
-x_2 \\ 
+x_1 \\\\\\
+x_2 \\\\\\
 \end{bmatrix}+b_3^{[1]}
 $$
+
+### Eq. 6: Neuron 3 Layer 1 activation
+
 
 $$
 a_3^{[1]}=g_3^{[1]}(z_3^{[1]})
