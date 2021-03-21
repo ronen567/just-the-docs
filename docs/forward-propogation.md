@@ -1,6 +1,25 @@
-## Forward Propogation
+# Forward Propogation
 
-This section describes the Forward Propogation, i.e. equations for determining the of an input transfered through the Neural Network. We'll use the network depicted in Figure 3 to illustrate that.
+### Introduction
+To move forward through the network, called a forward pass, we iteratively use a formula to calculate
+This section describes the Forward Propogation in Neural Networks. Feed Forward is the transfer of the dataset input through the Neural Networks. We will present here in details the forwarding equations.
+
+### Recap: Neural Networks
+
+Neural Networks were introduced in the previous post. To recap, here are 2 already posted schemes: Figure 1 depicts a Neuron which is the building block of the Neural Networks, and Figure 2 presenta Neural Network, though quite quite shallow, which we'll use to illustrate the forward propogation.
+
+ ### Figure 1: Neuron with Activation function g(z)
+![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
+ 
+ 
+ 
+ ### Figure 3: Neural Network - A More Detailed Scheme
+
+![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
+
+
+
+
 
 Let's start with the activation expressions for layer 1's Neurons:
 
