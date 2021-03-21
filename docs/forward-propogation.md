@@ -12,14 +12,17 @@ Neural Networks were introduced in the previous post. To recap, here are 2 alrea
 ![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
  
  
+
  
- ### Figure 3: Neural Network - A More Detailed Scheme
+ ### Figure 2: Neural Network - A More Detailed Scheme
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
 
 
 
+ ### Feed Forward in Layer l
 
+In this section we will illustrate Feed Forward process over the network sketched in Figure 2.  We will develop the forwarding equations to the details, and conclude with a feed forward equation for any layer l.
 
 Let's start with the activation expressions for layer 1's Neurons:
 
