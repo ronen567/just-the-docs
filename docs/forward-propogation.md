@@ -20,75 +20,45 @@ Neural Networks were introduced in the previous post. To recap, here are 2 alrea
 
 
 
- ### Feed Forward in Layer l
+ ### Feed Forward Equations For a Single Layer
 
-In this section we will illustrate Feed Forward process over the network sketched in Figure 2.  We will develop the forwarding equations to the details, and conclude with a feed forward equation for any layer l.
+As shown in figure 1, the Feed Forward equation of a single neuron is given by Eq. 1a -b
 
-Let's start with the activation expressions for layer 1's Neurons:
+### Eq. 1a
+$$z=b+w^Tx$$
 
-### Eq. 1: Neuron 1 Layer 1 Weighted Input
+### Eq. 1b
+$$a=g(z)$$
+
+
+We need a more compact matrix expression, not just for a single neuron, but to all layer's neurons together. This expression is presneted in Eq. 2a-b
+
+### Eq. 2a: Weighted input of Layer l, l=1:L
 $$
-z_1^{[1]}=\begin{bmatrix}
-w_{11}^{[1]} && 
-w_{21}^{[1]} 
-\end{bmatrix}\begin{bmatrix}
+z^{[l]}=w^{[l]}a^{[l-1]}+b^{[l]}
+$$
+
+### Eq. 2b: Activation of Layer l, l=1:L
+$$
+a^{[1]}=g^{[l]}(z^{[l]})
+$$
+
+
+The variables of Eq. 2a and Eq. 2b are all matrix and vectors. Let's illustrate those equations with the 3 layers of Figure 2.
+
+ 
+
+
+### Eq. 7a1: Layer 1 Weighted input
+
+Layer 1 is different from all other layers in the input data set which is the dataset x and not the activation of the previous layer. But if we represent the input data vector \\(\begin{bmatrix}
 x_1 \\\\\\
-x_2 \\\\\\
-\end{bmatrix}+b_1^{[1]}
-$$
+x_2
+\end{bmatrix}\\) by \\(\begin{bmatrix}
+a_1^{[0]} \\\\\\
+a_2^{[0]}
+\end{bmatrix}\\), the generalized expression can fir for this layer too:
 
-### Eq. 2: Neuron 1 Layer 1 activation
-
-
-$$
-a_1^{[1]}=g_1^{[1]}(z_1^{[1]})
-$$
-
-### Eq. 3: Neuron 2 Layer 1 Weighted Input
-
-$$
-z_2^{[1]}=\begin{bmatrix}
-w_{12}^{[1]} && 
-w_{22}^{[1]} 
-\end{bmatrix}\begin{bmatrix}
-x_1 \\\\\\
-x_2 \\\\\\
-\end{bmatrix}+b_2^{[1]}
-$$
-
-### Eq. 4: Neuron 2 Layer 1 activation
-
-
-$$
-a_2^{[1]}=g_2^{[1]}(z_2^{[1]})
-$$
-
-
-### Eq. 5: Neuron 3 Layer 1 Weighted Input
-
-$$
-z_3^{[1]}=\begin{bmatrix}
-w_{13}^{[1]} && 
-w_{23}^{[1]} 
-\end{bmatrix}\begin{bmatrix}
-x_1 \\\\\\
-x_2 \\\\\\
-\end{bmatrix}+b_3^{[1]}
-$$
-
-### Eq. 6: Neuron 3 Layer 1 activation
-
-
-$$
-a_3^{[1]}=g_3^{[1]}(z_3^{[1]})
-$$
-
-
-
-Let's arrange the above equations in a more compact matrix expressions:
-
-
-### Eq. 7: Layer 1 Weighted input in a more compact matric format
 
 
 $$\begin{bmatrix}
@@ -101,8 +71,8 @@ w_{11}^{[1]}  & w_{21}^{[1]} \\\\\\
 w_{12}^{[1]}  & w_{22}^{[1]} \\\\\\ 
 w_{13}^{[1]}  & w_{13}^{[1]} 
 \end{bmatrix} \begin{bmatrix}
-x_1 \\\\\\ 
-x_2
+a_1^{[0]}  \\\\\\ 
+a_2^{[0]}
 \end{bmatrix}+\begin{bmatrix}
 b_1^{[1]} \\\\\\ 
 b_2^{[1]} \\\\\\ 
@@ -110,30 +80,21 @@ b_3^{[1]}
 \end{bmatrix}
 $$
 
-### Eq. 8: Layer 1 activation in a more compact matric format
+### Eq. 7b: Layer 1 activation
 
-$$
-\begin{bmatrix}
-a_1^{[1]} \\\\\\
-a_2^{[1]} \\\\\\
+$$\begin{bmatrix}
+a_1^{[1]} \\\\\\\\ 
+a_2^{[1]} \\\\\\\\ 
 a_3^{[1]}
+\end{bmatrix}=$$\begin{bmatrix}
+g_1^{[1]}(z_1^{[1]}) \\\\\\\\ 
+g_2^{[1]}(z_2^{[1]}) \\\\\\\\ 
+g_3^{[1]}(z_3^{[1]})
 \end{bmatrix}=
-\begin{bmatrix}
-g_{1}^{[1]} \\\\\\
-g_{2}^{[1]} \\\\\\ 
-g_{3}^{[1]} 
-\end{bmatrix}
-\begin{bmatrix}
-z_1^{[1]} \\\\\\ 
-z_2^{[1]} \\\\\\ 
-z_3^{[1]} 
-\end{bmatrix}
-$$
-
-Now we can re-write Eq. 7 and Eq. 8 for expression of Layer 2 activation. 
 
 
-### Eq. 9: Layer 2 Weighted input in a more compact matric format
+
+### Eq. 8: Layer 2 Weighted input
 
 
 $$
@@ -153,39 +114,35 @@ b_2^{[2]} \\\\\\
 \end{bmatrix}
 $$
 
-### Eq. 10: Layer 2 activation in a more compact matric format
-
+### Eq. 10: Layer 2 activation i
 $$
 \begin{bmatrix}
 a_1^{[2]} \\\\\\
 a_2^{[2]} 
 \end{bmatrix}=
+
 \begin{bmatrix}
-g_{1}^{[2]} \\\\\\
-g_{2}^{[2]}
-\end{bmatrix}
-\begin{bmatrix}
-z_1^{[2]} \\\\\\ 
-z_2^{[2]}
+g_{1}^{[2]} (z_1^{[2]}) \\\\\\ 
+g_{2}^{[2]}(z_2^{[2]})
 \end{bmatrix}
 $$
 
-Note that Eq. 9 is similar to Eq. 7 in concept, except the input vector which is the activation output of the previous layer, i.e.  \\(\bar{a}^{[1]}\\).
+The last layer has a single Neuron, so obviously the equations are:
 
-To generelize the expression for all layers, we will denote the input vector of layer 1 by \\(\begin{bmatrix}
-a_1^{[0]} \\\\\\
-a_2^{[0]} \\\\\\
-a_3^{[0]}
-\end{bmatrix}\\). Now we can have a generalized expression for the activation of any layer l, l=1:L, in any Neural Network. The input will be denoted by \\(a^{[l-1]}\\), the output by  \\(a^{[l]}\\), the weights matrix by  \\(w^{[l]}\\)
+### Eq. 8: Layer 2 Weighted input
 
-### Eq. 11: Weighted input of Layer l, l=1:L
-$$
-z^{[l]}=w^{[l]}a^{[l-1]}+b^{[l]}
-$$
 
-### Eq. 12: Activation of Layer l, l=1:L
 $$
-A^{[1]}=g^{[l]}(Z^{[l]})
+\begin{bmatrix}
+z_1^{[3]} \\\\\\\\ 
+\end{bmatrix}=
+\begin{bmatrix}
+w_{11}^{[3]}  & w_{21}^{[3]}  \\\\\\ 
+\end{bmatrix} \begin{bmatrix}
+a_1^{[2]} 
+\end{bmatrix}+\begin{bmatrix}
+b_1^{[3]}
+\end{bmatrix}
 $$
 
 
