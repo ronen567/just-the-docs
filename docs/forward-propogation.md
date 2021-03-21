@@ -86,11 +86,11 @@ $$\begin{bmatrix}
 a_1^{[1]} \\\\\\\\ 
 a_2^{[1]} \\\\\\\\ 
 a_3^{[1]}
-\end{bmatrix}=$$\begin{bmatrix}
+\end{bmatrix}=\begin{bmatrix}
 g_1^{[1]}(z_1^{[1]}) \\\\\\\\ 
 g_2^{[1]}(z_2^{[1]}) \\\\\\\\ 
 g_3^{[1]}(z_3^{[1]})
-\end{bmatrix}=
+\end{bmatrix}$$
 
 
 
@@ -120,7 +120,6 @@ $$
 a_1^{[2]} \\\\\\
 a_2^{[2]} 
 \end{bmatrix}=
-
 \begin{bmatrix}
 g_{1}^{[2]} (z_1^{[2]}) \\\\\\ 
 g_{2}^{[2]}(z_2^{[2]})
@@ -129,17 +128,18 @@ $$
 
 The last layer has a single Neuron, so obviously the equations are:
 
-### Eq. 8: Layer 2 Weighted input
+### Eq. 8: Layer 3 Weighted input
 
 
 $$
 \begin{bmatrix}
-z_1^{[3]} \\\\\\\\ 
+z_1^{[3]}
 \end{bmatrix}=
 \begin{bmatrix}
-w_{11}^{[3]}  & w_{21}^{[3]}  \\\\\\ 
+w_{11}^{[3]}  & w_{21}^{[3]}
 \end{bmatrix} \begin{bmatrix}
-a_1^{[2]} 
+a_1^{[2]} \\\\\\
+a_2^{[2]}
 \end{bmatrix}+\begin{bmatrix}
 b_1^{[3]}
 \end{bmatrix}
