@@ -65,7 +65,7 @@ Maybe here's the time to remark that in the absence of a non-linear activation f
 
 The activation function is denoted by g(z). Figure 4 is almost identical to Figure 1, but depicts the Neuron with g(z).
 
-### Figure 4: Neuton with Activation function g(z)
+### Figure 4: Neuron with Activation function g(z)
 ![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
 
 
