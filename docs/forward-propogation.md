@@ -132,18 +132,22 @@ The last layer has a single Neuron, so obviously the equations are:
 
 
 $$
-\begin{bmatrix}
-z_1^{[3]}
-\end{bmatrix}=
+z_1^{[3]}=
 \begin{bmatrix}
 w_{11}^{[3]}  & w_{21}^{[3]}
 \end{bmatrix} \begin{bmatrix}
 a_1^{[2]} \\\\\\
 a_2^{[2]}
-\end{bmatrix}+\begin{bmatrix}
-b_1^{[3]}
-\end{bmatrix}
+\end{bmatrix}+b_1^{[3]}
 $$
 
+
+### Eq. 8: Layer 3 activatiob
+
+
+$$
+a_1^{[3]}=
+g^{[3]}(z_1^{[3]})
+$$
 
 ## Matrix Dimensions
