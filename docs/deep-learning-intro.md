@@ -52,7 +52,18 @@ Some explaination and notations:
 - **bias**: Bias multiplies a constant 1 and then summed up together with all weighted inputs. Example: \\(b_2^{[1]}\\) is the bias input of Neuron 2 Layer 1.
 - **activations**: The activation function is the Neuron's non-linear function denoted by g() and its output denoted by a. Example:  \\(a_2^{[1]}=g_2^{1}(z^{1})\\) is the activation of Neuron 2 Layer 1. 
 
+Now that the Neuron's interconnections are introduced, let's drill into the Neuron's.
 
+## The Neuron 
+
+
+Figure 3 presents a Neuron. 
+
+### Figure 3: Neuron
+![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
+
+
+Following the scheme left to right, then we see the n-features input data
 
 
 ## Activation Functions
