@@ -1,9 +1,19 @@
-# Deep Learning
+---
+layout: default
+nav_order: 6
+title: Introduction to Deep Learning
+---
+# Introduction to Deep Learning
+
+This is the first in series of 3 deep learning intro posts:
+1. Introduction to Deep Learning which introduces the Deep Learning technology background, and presents network's building blocks and terms.
+2. Introduction to Forward Propogation, which presents the mathematical equations of the deep learning networks prediction path.
+3. Introduction to Backward Propogation which presents the mathematical equations for network's coefficents optimized calculation, done during the training phase.
 
 ## Introdcution
 
-This post introduces Deep Learning, which is a branch of Machine Learning, using similar building blocks but in a denser architecture which can achieves better performance in complicated problems.
-Let's show that, by first presneting the architecture which drives Deep Learning - Neural Networks.
+To begin with speaking about Deep Learning, I have to recommend of the book named "Deep Learning Adaptive Computation and Machine Learning" by 
+goodfellow, Bengio and Courville, which is my reader book. DLAC&ML reviews briefly the history of deep learning technology and research, which dates long ago, already in the 1940s, though the names and popularity of this field had changed through the years. Deep Learning is quite a recent name. One of its anccestors is the Artificial Neural Networks (ANNs) which research tried to model the biological brain. The modern term Deep Learning has less pretension to mimic the brain or understand its operation, but is still inspired by neurosience and the brain like model of many simple computational elements interacting together, using a single algorithm, to create an intelligent unit which solves many kinds of different problems. We will see in this post that the Deep Learning network AKA Neural Network, is based on many instances of a simple elements named Neuron. The Neuron implements a simple non-linear algorithm - either a sigmoid, or n hyperbolic tangent or in the most commonnly in current implementation, using RelU (Rectified Linear Unit) algorithm.
 
 
 ## Neural Networks
@@ -11,7 +21,8 @@ Let's show that, by first presneting the architecture which drives Deep Learning
 
 We start from the already familiar Logistic Regression prediction model, depicted in Figure 1. Does this scheme resembles of a Nueron, at least graphically-wise? With some imagination effort it does, if you see in the data input lines the Neuron's dendrites, by which the Neuron receives input from other cells. The iinterconnections between Neurons, as depicted in Figure 2 may also resemble Neurons. But is there real functional similarity between deep learning's Neutal Networks nd the Human brain's Neural Networks? This is an arguable issue, and we will not get to it in this context.
 
-Anyway, the Neuron structure presented here is the building block of the Neural Network, . Tracing the Forward Propogation path, we observe the n input data set elements \\([x_1-x_n]\\), which are multiplied by n weights \\(w_1-w_n\\) and are then summed, together with the bias input b. That sum is then passed to a non-linear operator called 'activation function', which in our case is the sigmoid operator. The sigmoid output, is denoted by **a**. The weights and bias values are of course determined during the Training phase.
+Anyway, the Neuron structure presented here is the building block of the Neural Network, . Tracing the 
+rd Propogation path, we observe the n input data set elements \\([x_1-x_n]\\), which are multiplied by n weights \\(w_1-w_n\\) and are then summed, together with the bias input b. That sum is then passed to a non-linear operator called 'activation function', which in our case is the sigmoid operator. The sigmoid output, is denoted by **a**. The weights and bias values are of course determined during the Training phase.
 
 Deep Learning algorithm are driven by a dense network, structured with many such Neurons, as depicted in Figure 2.
 
