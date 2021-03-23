@@ -63,21 +63,31 @@ Figure 3 presents a Neuron.
 ![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
 
 
-Following the scheme left to right, then we see the n-features input data
+Following the scheme left to right, then we see the following:
+1. n-features input data
+2. n weights which mutiply the input data, and a bias multiplies 1.
+3. A cascade of 2 operators (inside the cirdcle):
+  - A linear summation operator which accumulates the weighted data and the bias.
+  - A non linear operator (activation).
+4. The Neuron output is the activation.
+
+
+Now that we're familiar with the Neuron, Figure 4 illustrates the parameters' indices assignemnt conventions, by focusing on Neuron 2 from layer to of Figure 2. 
+Following the scheme left to right, the reader can verify that the indices are according to the conventional index scheme/
+
+
+### Figure 4: Focus on Neuron 1 Layer 2 (See Figure 2)
+![Supervise Learning Outlines](../assets/images/neural-networks/hidden_layer_neuron.png)
+
 
 
 ## Activation Functions
 
-Each Neuron's operator consists of 2 parts, as depicted in Figure 1: The sum of wheigthed input with a bias, and a none linear operator. In Figure 1, the none linear operator is a sigmoid. Sigmoid is indeed the activation operator which performs Binary Decisions, used by Logistic Regression. This chapter presents more activation functions used for Deep Learning. 
-Maybe here's the time to remark that in the absence of a non-linear activation functions, the Neural Network, which would be cascade of linear functions, could be replaced by a single Neurone with a linear function, so there would be no benefit over a single Neurone. 
-
-
-The activation function is denoted by g(z). Figure 4 is almost identical to Figure 1, but depicts the Neuron with g(z).
-
-### Figure 4: Neuron with Activation function g(z)
-![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
-
-
+The previous section presented the Neuron, with its non-linear activation function g(z). But g(z) was not introduced. To complete the introduction on network's building blocks, 4 commonly used activations are presented here below:
+1. Sigmoid
+2. 
+ 
+Maybe here's the right place to comment about how essential the non-linear activations are: In the absence of a non-linear activation functions, the Neural Network would be a cascade of linear functions, which could be replaced by a single Neurone with a linear function. There could be no benefit over a single Neurone.  
 
 
 ### Sigmoid
@@ -98,7 +108,7 @@ Still, the sigmoid values flatens as at higher values of z. This the "Vanishing 
 ### tanh
 
 
-### Eq. 2: tanh Function
+### Eq. 2: Hyporbolic Tangent (tanh)
 
 $$
 tanh(x)=\frac{e^x-e^{-x}}{e^{x}+e^{-x}}
