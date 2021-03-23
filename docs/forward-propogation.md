@@ -24,7 +24,7 @@ This is the second in series of 3 deep learning intro posts:
  
 The Neuron was presented in the previous post. Each Neuron executes on it's input data 2 cascaded operators, the first is linear and the second is non-linear as described in Figure 1.
 
-![Supervise Learning Outlines](../assets/images/neural-networks/neural-cascaded_operator.png)
+![Supervise Learning Outlines](../assets/images/neural-networks/euron_cascaded_operator.png)
 
 
  
