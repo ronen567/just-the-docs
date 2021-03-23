@@ -1,16 +1,16 @@
-# Forward Propogation
+---
+layout: default
+nav_order: 6
+title: Introduction to Forward Propogation
+---
+# Introduction to Forward Propogation
 
-### Introduction
-To move forward through the network, called a forward pass, we iteratively use a formula to calculate
-This section describes the Forward Propogation in Neural Networks. Feed Forward is the transfer of the dataset input through the Neural Networks. We will present here in details the forwarding equations.
+This is the second in series of 3 deep learning intro posts:
+1. Introduction to Deep Learning which introduces the Deep Learning technology background, and presents network's building blocks and terms.
+2. Introduction to Forward Propogation, which presents the mathematical equations of the prediction path.
+3. Introduction to Backward Propogation which presents the mathematical equations for network's coefficents calculation, done during the training phase.
 
-### Recap: Neural Networks
 
-Neural Networks were introduced in the previous post. To recap, here are 2 already posted schemes: Figure 1 depicts a Neuron which is the building block of the Neural Networks, and Figure 2 presenta Neural Network, though quite quite shallow, which we'll use to illustrate the forward propogation.
-
- ### Figure 1: Neuron with Activation function g(z)
-![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
- 
  
 
  
@@ -18,6 +18,21 @@ Neural Networks were introduced in the previous post. To recap, here are 2 alrea
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
 
+
+
+ ### Feed Forward Equations For a Neuron
+ 
+The Neuron was presented in the previous post. Each Neuron executes on it's input data 2 cascaded operators, the first is linear and the second is non-linear as described in Figure 1.
+
+![Supervise Learning Outlines](../assets/images/neural-networks/neural-cascaded_operator.png)
+
+
+ 
+ 
+ 
+ 
+ operates a quite simple In previous post t
+ 
 
 
  ### Feed Forward Equations For a Single Layer
