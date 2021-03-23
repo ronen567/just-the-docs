@@ -7,8 +7,8 @@ title: Introduction to Deep Learning
 
 This is the first in series of 3 deep learning intro posts:
 1. Introduction to Deep Learning which introduces the Deep Learning technology background, and presents network's building blocks and terms.
-2. Introduction to Forward Propogation, which presents the mathematical equations of the deep learning networks prediction path.
-3. Introduction to Backward Propogation which presents the mathematical equations for network's coefficents optimized calculation, done during the training phase.
+2. Introduction to Forward Propogation, which presents the mathematical equations of the prediction path.
+3. Introduction to Backward Propogation which presents the mathematical equations for network's coefficents calculation, done during the training phase.
 
 ## Introdcution
 
@@ -19,53 +19,40 @@ goodfellow, Bengio and Courville, which is my reader book. DLAC&ML reviews brief
 ## Neural Networks
 
 
-We start from the already familiar Logistic Regression prediction model, depicted in Figure 1. Does this scheme resembles of a Nueron, at least graphically-wise? With some imagination effort it does, if you see in the data input lines the Neuron's dendrites, by which the Neuron receives input from other cells. The iinterconnections between Neurons, as depicted in Figure 2 may also resemble Neurons. But is there real functional similarity between deep learning's Neutal Networks nd the Human brain's Neural Networks? This is an arguable issue, and we will not get to it in this context.
-
-Anyway, the Neuron structure presented here is the building block of the Neural Network, . Tracing the 
-rd Propogation path, we observe the n input data set elements \\([x_1-x_n]\\), which are multiplied by n weights \\(w_1-w_n\\) and are then summed, together with the bias input b. That sum is then passed to a non-linear operator called 'activation function', which in our case is the sigmoid operator. The sigmoid output, is denoted by **a**. The weights and bias values are of course determined during the Training phase.
-
-Deep Learning algorithm are driven by a dense network, structured with many such Neurons, as depicted in Figure 2.
+Figure 1 depicts a Neural Network. Input Data is on the left side. The data is forwarded through the network's layers up to the Output-Layer. The network's elements call Neurons are simple computational elements, as depicted in Figure 2.
 
 
-### Figure 1: Logistic Regression Data Network
-
-![Supervise Learning Outlines](../assets/images/neural-networks/logistic-regression-network.svg)
-
-
-
-
-
-### Figure 2: Neural Network
+### Figure 1: Neural Network
 
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.svg)
 
-Following Figure 2, here below are some commonly used terms:
+Following Figure 1, here below are some commonly used terms:
 
 - **Layers**: The Neural Network is arranged in layers. The network presented in Figure 2 has 5 layers - marked L1-L5. Each layer consists of 4,4,4,2 and 1 neurons respectively.
-- **Desnse Layers**: Fully connected layers. The Deep learning scheme is based on densely connected neural networks.
-- **Input Layer**: A layer with input exposed to outside of the network. It is conventionally not counted in the layers count.
-- **Hidden Layer**: Layers which both input and output are  connected to other network's layers - L1-L4 are Hidden layers.
-- **Output Layer**: A layer with output exposed to outside of the network -  L5 in Figure 2.
+- **Desnse Layers**: Fully connected layers. The neural networks are densely connected.
+- **Input Layer**: A layer with input exposed to outside of the network. Input Layer is conventionally not counted in the layers count.
+- **Hidden Layer**: A Layer which has no external input or output. In Figure 1, L1-L4 are Hidden layers.
+- **Output Layer**: A layer with output exposed to outside of the network. L5 in Figure 2.
 - **Deep Neural Network**: A neural network with 'many layers'. There is no definite minimal number of layers for that, though 3 hidden layers used to be regarded "Deep".
 
+By examining Figure 2, let's drill into the structure and elements which constitute the Neural Networks.
+Figure 2 depicts a Nueral Network with less layers and neurons then in Figure 2, to make it more easy to present it with more details. It is followed by corresponding explaination and notaitions.
 
 
-Figure 3 depicts a Nueral Network with less layers and neurons then in Figure 2, to make it more easy to denote detail inside. 
-Some explaination and notations:
-- **Superscript index in square bracketed**: This is the layer's index. 
-- **Subscript index**:  This is the Neuron's index. 
-- **weights**: The weights multiply the layer's data input at the Neuron's input. Example: \\(w_{21}^[2]\\) in Figure 3, weights the input coming from the Neuron 1 of Layer 1, to the Neuron 2 of layer 2. 
-- **bias**: Bias multiplies a constant 1 and summed up with all weighted inputs. Example: \\(b_2^{[1]}\\) is the bias input of Neuron 2 of Layer 1.
-- **activations**: The activation function defines the output of the node, which is denoted by a, stands for activation. Example:  \\(a_2^{[1]}=g_2^{1}(z^{1})\\) is the activation of second Neuron of Layer 1. 
-
-
-
-### Figure 3: Neural Network - A More Detailed Scheme
-
+### Figure 2: Neural Network - A More Detailed Scheme
 
 
 ![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
+
+
+Some explaination and notations:
+- **Meanings of indices**: \\(b_{1}^[2]\\) has a Superscript and a Subscript. The bracketed Superscript correspobds to the Layer index, the Subscript index corresponds to Neuron's index within the layer.
+- **weights**: The weights multiply the layer's data input at the Neuron's input. Example: \\(w_{21}^[2]\\) is the weight for the input from Neuron 1 Layer 1, to  Neuron 2 layer 2. 
+- **bias**: Bias multiplies a constant 1 and then summed up together with all weighted inputs. Example: \\(b_2^{[1]}\\) is the bias input of Neuron 2 Layer 1.
+- **activations**: The activation function is the Neuron's non-linear function denoted by g() and its output denoted by a. Example:  \\(a_2^{[1]}=g_2^{1}(z^{1})\\) is the activation of Neuron 2 Layer 1. 
+
+
 
 
 ## Activation Functions
