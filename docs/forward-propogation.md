@@ -3,21 +3,31 @@ layout: default
 nav_order: 6
 title: Introduction to Forward Propogation
 ---
-# Introduction to Forward Propogation
+# Forward Propogation
+
+## Introduction
 
 This is the second in series of 3 deep learning intro posts:
 1. Introduction to Deep Learning which introduces the Deep Learning technology background, and presents network's building blocks and terms.
-2. Introduction to Forward Propogation, which presents the mathematical equations of the prediction path.
-3. Introduction to Backward Propogation which presents the mathematical equations for network's coefficents calculation, done during the training phase.
+2. Forward Propogation, which presents the mathematical equations of the prediction path.
+3. Backward Propogation which presents the mathematical equations for network's coefficents calculation, done during the training phase.
 
+Forward Propogation is about the forwarding of the input data through the network. This is the network's prediction path. In this section we will introduce the development of the Feed Forward equations. 
 
+$$
+\bar{x}
+$$
+
+Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely interconnected Neurons. Each Neuron is structured as depicted on Figure 2. Figure 3 illustrates the same Neuron but in a 
  
-
  
- ### Figure 2: Neural Network - A More Detailed Scheme
+ ### Figure 1: Neural Network
+ ![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.svg)
 
-![Supervise Learning Outlines](../assets/images/neural-networks/neural-network.svg)
 
+### Figure 2: A Neuron
+
+![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
 
 
  ### Feed Forward Equations For a Neuron
