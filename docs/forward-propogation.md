@@ -14,11 +14,9 @@ This is the second in series of 3 deep learning intro posts:
 
 Forward Propogation is about the forwarding of the input data through the network. This is the network's prediction path. In this section we will introduce the development of the Feed Forward equations. 
 
-$$
-\bar{x}
-$$
 
-Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely interconnected Neurons. Each Neuron is structured as depicted on Figure 2. Figure 3 illustrates the same Neuron but in a 
+
+Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely interconnected Neurons. Each Neuron is structured as depicted on Figure 2. Figure 3 illustrates the same Neuron but different form where the data input is arranged as a vector, and the 2 cascaded operators are arranged in 2 blocks.
  
  
  ### Figure 1: Neural Network
@@ -30,14 +28,16 @@ Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely 
 ![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
 
 
- ### Feed Forward Equations For a Neuron
+ ### Neoron Cascaded operators
  
-The Neuron was presented in the previous post. Each Neuron executes on it's input data 2 cascaded operators, the first is linear and the second is non-linear as described in Figure 1.
-
 ![neuron_cascaded_operator](../assets/images/neural-networks/neuron_cascaded_operator.png)
 
 
  
+We aim to present the prediction equations which maps the input vector data \\(\bar{x}\\) to the prediction value \\(\hat{y}\\). In the effort to keep equations simple and compact, we use matrix format, calculating each layer's Neuron's equations together.
+
+
+So, the forwarding 
  
  
  
