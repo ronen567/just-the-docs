@@ -28,10 +28,14 @@ Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely 
 ![Supervise Learning Outlines](../assets/images/neural-networks/general_neuron.svg)
 
 
- ### Neoron Cascaded operators
+ ### Neoron Cascaded operators L1
  
 ![neuron_cascaded_operator](../assets/images/neural-networks/neuron_cascaded_operator.png)
 
+
+ ### Neoron Cascaded operators L2
+ 
+![neuron_cascaded_operator](../assets/images/neural-networks/L2_neuron_cascaded_operator.png)
 
  
 We aim to present the prediction equations which maps the input vector data \\(\bar{x}\\) to the prediction value \\(\hat{y}\\). In the effort to keep equations simple and compact, we use matrix format, calculating each layer's Neuron's equations together.
