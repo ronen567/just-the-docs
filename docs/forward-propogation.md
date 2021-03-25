@@ -30,7 +30,7 @@ Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely 
 
  ### Neoron Cascaded operators L1
  
-![neuron_cascaded_operator](../assets/images/neural-networks/neuron_cascaded_operator.png)
+![neuron_cascaded_operator](../assets/images/neural-networks/L1_neuron_cascaded_operator.png)
 
 
  ### Neoron Cascaded operators L2
