@@ -169,3 +169,53 @@ g^{[3]}(z_1^{[3]})
 $$
 
 ## Matrix Dimensions
+
+### Eq. 4-a: Layer 4 Weighted input
+
+
+$$
+z_1^{[3]}=
+\begin{bmatrix}
+w_{11}^{[3]}  & w_{21}^{[3]}
+\end{bmatrix} \begin{bmatrix}
+a_1^{[2]} \\\\\\
+a_2^{[2]}
+\end{bmatrix}+b_1^{[3]}
+$$
+
+
+### Eq. 4-b: Layer 4 activation
+
+
+$$
+a_1^{[3]}=
+g^{[3]}(z_1^{[3]})
+$$
+
+## Matrix Dimensions
+
+
+### Eq. 5-a: Layer 5 Weighted input
+
+
+$$
+z_1^{[3]}=
+\begin{bmatrix}
+w_{11}^{[3]}  & w_{21}^{[3]}
+\end{bmatrix} \begin{bmatrix}
+a_1^{[2]} \\\\\\
+a_2^{[2]}
+\end{bmatrix}+b_1^{[3]}
+$$
+
+
+### Eq. 5-b: Layer 5 activation
+
+
+$$
+a_1^{[3]}=
+g^{[3]}(z_1^{[3]})
+$$
+
+## Matrix Dimensions
+
