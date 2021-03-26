@@ -67,52 +67,13 @@ So here are the 5 layers equations, listed within the cascaded neurons' sketches
  
  ## Forwarding Propogation with Vector (Matrix) Equations
 
- The previous section presented the detailed forwaring equations in a scalar form. Goal was to give a detailed example of all the operators and parameters. This section repeats, in some senses, the list of forwarding equations, but now in the more computationally efficient and also presentationally compact vectorized form. 
- Note - there is no single matrix equation which solves the entire network, but a vectorized seperated equations each layer, as presented next.
  
  
+The previous section presented the detailed forwaring equations in a scalar form. Goal was to give a detailed example of all the operators and parameters. This section lists the vectorized forwarding equations corresponding to Figure 1 5 layers example network. The equations are equivalent to those presented in the previous section, but now in the more computationally efficient and also presentationally compact vectorized form. After specifing the vectorized equations for all 5 layers, this section presents the generalized layer forwarding equations.
+Note there is no single matrix equation which solves the entire network, but a vectorized seperated equations each layer, as presented next.
  
- 
- The 5 layer description given above, 
- 
-We aim to present the prediction equations which maps the input vector data \\(\bar{x}\\) to the prediction value \\(\hat{y}\\). In the effort to keep equations simple and compact, we use matrix format, calculating each layer's Neuron's equations together.
+ ![neuron_cascaded_operator](../assets/images/neural-networks/forwarding-vectorized-flow.png)
 
-
-So, the forwarding 
- 
- 
- 
- operates a quite simple In previous post t
- 
-
-
- ### Feed Forward Equations For a Single Layer
-
-As shown in figure 1, the Feed Forward equation of a single neuron is given by Eq. 1a -b
-
-### Eq. 1a
-$$z=b+w^Tx$$
-
-### Eq. 1b
-$$a=g(z)$$
-
-
-We need a more compact matrix expression, not just for a single neuron, but to all layer's neurons together. This expression is presneted in Eq. 2a-b
-
-### Eq. 2a: Weighted input of Layer l, l=1:L
-$$
-z^{[l]}=w^{[l]}a^{[l-1]}+b^{[l]}
-$$
-
-### Eq. 2b: Activation of Layer l, l=1:L
-$$
-a^{[1]}=g^{[l]}(z^{[l]})
-$$
-
-
-The variables of Eq. 2a and Eq. 2b are all matrix and vectors. Let's illustrate those equations with the 3 layers of Figure 2.
-
- 
 
 
 ### Eq. 7a1: Layer 1 Weighted input
