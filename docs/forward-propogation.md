@@ -66,27 +66,18 @@ So here are the 5 layers equations, listed within the cascaded neurons' sketches
  
  
  ## Forwarding Propogation with Vector (Matrix) Equations
-
  
  
-The previous section presented the detailed forwaring equations in a scalar form. Goal was to give a detailed example of all the operators and parameters. This section lists the vectorized forwarding equations corresponding to Figure 1 5 layers example network. The equations are equivalent to those presented in the previous section, but now in the more computationally efficient and also presentationally compact vectorized form. After specifing the vectorized equations for all 5 layers, this section presents the generalized layer forwarding equations.
+The previous section presented the detailed forwaring equations in a scalar form. Goal was to give a detailed example of all the operators and parameters. This section lists the vectorized forwarding equations corresponding to Figure 1, the 5 layers example network. The equations are equivalent to those presented in the previous section, but now in the more computationally efficient and also presentationally compact vectorized form. After specifing the vectorized equations for all 5 layers, the generalized layer forwarding equations are specified.
 Note there is no single matrix equation which solves the entire network, but a vectorized seperated equations each layer, as presented next.
+Figure 2 presents the vectorized forwarding flow, specifing the vectorized operation at each layer. Following it are the vectorized equation which are a breakdown of the vectorized equations. The input to the first layer, denoted by the vector \\(\bar{x}\\) so far, is now denoted by \\(\bar{a}^{[0]}\\), so that layer 1 notations are similar to all other layers.
  
+  
  ![neuron_cascaded_operator](../assets/images/neural-networks/forwarding-vectorized-flow.png)
 
 
 
-### Eq. 7a1: Layer 1 Weighted input
-
-Layer 1 is different from all other layers in the input data set which is the dataset x and not the activation of the previous layer. But if we represent the input data vector \\(\begin{bmatrix}
-x_1 \\\\\\
-x_2
-\end{bmatrix}\\) by \\(\begin{bmatrix}
-a_1^{[0]} \\\\\\
-a_2^{[0]}
-\end{bmatrix}\\), the generalized expression can fir for this layer too:
-
-
+### Eq. 1-a: Layer 1 Weighted input
 
 $$\begin{bmatrix}
 z_1^{[1]} \\\\\\\\ 
@@ -107,7 +98,7 @@ b_3^{[1]}
 \end{bmatrix}
 $$
 
-### Eq. 7b: Layer 1 activation
+### Eq. 1-b: Layer 1 activation
 
 $$\begin{bmatrix}
 a_1^{[1]} \\\\\\\\ 
@@ -121,7 +112,7 @@ g_3^{[1]}(z_3^{[1]})
 
 
 
-### Eq. 8: Layer 2 Weighted input
+### Eq. 1-a: Layer 2 Weighted input
 
 
 $$
@@ -141,7 +132,7 @@ b_2^{[2]} \\\\\\
 \end{bmatrix}
 $$
 
-### Eq. 10: Layer 2 activation i
+### Eq. 2-b: Layer 2 activation
 $$
 \begin{bmatrix}
 a_1^{[2]} \\\\\\
@@ -155,7 +146,7 @@ $$
 
 The last layer has a single Neuron, so obviously the equations are:
 
-### Eq. 8: Layer 3 Weighted input
+### Eq. 3-a: Layer 3 Weighted input
 
 
 $$
@@ -169,7 +160,7 @@ a_2^{[2]}
 $$
 
 
-### Eq. 8: Layer 3 activatiob
+### Eq. 3-b: Layer 3 activation
 
 
 $$
