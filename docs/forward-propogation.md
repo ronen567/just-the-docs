@@ -14,23 +14,31 @@ This is the second in series of 3 deep learning intro posts:
 
 In this post we will examine the forwarding equations of the input data through the network. This is the network's prediction data path, at which the network's weights are static, and only the input data changes. As an oposite to Forward Propogation which calculates the prediction value based on the input data, the Backwards Propogation process calcuates the network's weights. The latter is presented in the next post.
 
+## Network Schemes 
 
-Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely interconnected Neurons. Throughut this post we will present the forwarding equations based on this example network.
+Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely interconnected Neurons. 
+
+The forwarding propogation journey is executed in a layer by layer order, so neurons of layer l calculate their activation output, which is the input data of layer (l+1). 
+Throughut this post we will present the forwarding equations based on Figure 1 as an example network.
  
  
  ### Figure 1: Neural Network
- ![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.svg)
+ ![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.png)
+
+
 
 
 ## Forwarding Propogation with Scalar Equations
 
-Based on the network exapmple of Figure 1, here we will present the forwarding equations of each of the 5 layers
-As presented in the previous post, the Neuron model consists of 2 cascaded operator, where the first is the sum of weighted input data features, and the second is a non linear activation function. So here blow are the equations of the 5 layers, where the input of layer l is the output of layer l-1, for l=2-5. 
+Based on the network exapmple of Figure 1, this section presents the forwarding equations of each of the 5 layers, where the input of layer l is the output of layer l-1, for l=2-5. 
 Note that the subscripts and superscript conventions are as the following:
 - Superscript index in square brackets: Layer index
 - Subscript index: Neuron index within the layer
 - 2 Subscripts (used for weights indexing): First index is the source Neuron index, and second index is of the destination Neuron.
-So here are the 5 layers equations within the cascaded neurons' sketches:
+
+The goal of this detailed description is to give a detailed forwarding example, with a detailed notations of all the parameters involved and their assigned indices.
+
+So here are the 5 layers equations, listed within the cascaded neurons' sketches:
 
 
 
@@ -57,6 +65,15 @@ So here are the 5 layers equations within the cascaded neurons' sketches:
 ![neuron_cascaded_operator](../assets/images/neural-networks/L5_neuron_cascaded_operator.png)
  
  
+ ## Forwarding Propogation with Vector (Matrix) Equations
+
+ The previous section presented the detailed forwaring equations in a scalar form. Goal was to give a detailed example of all the operators and parameters. This section repeats, in some senses, the list of forwarding equations, but now in the more computationally efficient and also presentationally compact vectorized form. 
+ Note - there is no single matrix equation which solves the entire network, but a vectorized seperated equations each layer, as presented next.
+ 
+ 
+ 
+ 
+ The 5 layer description given above, 
  
 We aim to present the prediction equations which maps the input vector data \\(\bar{x}\\) to the prediction value \\(\hat{y}\\). In the effort to keep equations simple and compact, we use matrix format, calculating each layer's Neuron's equations together.
 
