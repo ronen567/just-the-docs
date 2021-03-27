@@ -139,10 +139,11 @@ b_1^{[2]} \\\\\\
 b_2^{[2]} \\\\\\ 
 b_3^{[2]} \\\\\\ 
 b_4^{[2]} 
+\end{bmatrix}
 $$
 
 ### Eq. 2-b: Layer 2 activation
-$$
+
 $$\begin{bmatrix}
 a_1^{[2]} \\\\\\\\ 
 a_2^{[2]} \\\\\\\\ 
@@ -160,7 +161,7 @@ $$
 ### Eq. 3-a: Layer 3 Weighted input
 
 
-$$
+$$\begin{bmatrix}
 z_1^{[3]} \\\\\\\\ 
 z_2^{[3]} \\\\\\\\ 
 z_3^{[3]}  \\\\\\\\ 
@@ -181,6 +182,7 @@ b_1^{[3]} \\\\\\
 b_2^{[3]} \\\\\\ 
 b_3^{[3]} \\\\\\ 
 b_4^{[3]} 
+\end{bmatrix}
 $$
 
 ### Eq. 3-b: Layer 3 activation
@@ -203,7 +205,7 @@ g_4^{[3]}(z_4^{[4]})
 ### Eq. 4-a: Layer 4 Weighted input
 
 
-$$
+$$\begin{bmatrix}
 z_1^{[4]} \\\\\\\\ 
 z_2^{[4]} \\\\\\\\ 
 \end{bmatrix}=
@@ -218,13 +220,14 @@ a_3^{[3]}
 \end{bmatrix}+\begin{bmatrix}
 b_1^{[4]} \\\\\\ 
 b_2^{[4]}
+\end{bmatrix}
 $$
 
 
 ### Eq. 4-b: Layer 4 activation
 
 
-$$
+$$\begin{bmatrix}
 a_1^{[4]} \\\\\\\\ 
 a_2^{[4]} \\\\\\\\ 
 \end{bmatrix}=\begin{bmatrix}
@@ -232,6 +235,7 @@ g_1^{[4]}(z_1^{[4]}) \\\\\\\\
 g_2^{[4]}(z_2^{[4]}) \\\\\\\\ 
 g_3^{[4]}(z_3^{[4]}) \\\\\\\\ 
 g_4^{[4]}(z_4^{[4]})
+\end{bmatrix}
 $$
 
 ## Matrix Dimensions
