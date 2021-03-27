@@ -1,12 +1,3 @@
----
-layout: default
-nav_order: 6
-title: Introduction to Backwards Propogation
----
-# Backward Propogation
-
-## Introduction
-
 This is the third in series of 3 deep learning intro posts:
 1. Introduction to Deep Learning which introduces the Deep Learning technology background, and presents network's building blocks and terms.
 2. Forward Propogation, which presents the mathematical equations of the prediction path.
