@@ -28,7 +28,6 @@ We have developped the neural networks Feead Forward equations, which calculates
 $$
 \begin{bmatrix}
  z_2^{[l]} &  z_2 & \\ 
- &   & 
 \end{bmatrix}
 $$
 
