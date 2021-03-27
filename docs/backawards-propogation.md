@@ -27,8 +27,8 @@ We have developped the neural networks Feead Forward equations, which calculates
 
 $$
 \begin{bmatrix}
- z_2^{[l](1)}&  z_2^{[l](2)}& \\ 
- z_3^{[l](1)}&  z_3^{[l](2)} & 
+ z_2^{[l](1)} &  z_2^{[l](2)} & \\ 
+ z_3^{[l](1)} &  z_3^{[l](2)} & 
 \end{bmatrix}
 $$
 
