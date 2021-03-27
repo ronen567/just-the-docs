@@ -302,7 +302,7 @@ Where \\(A^{[l]}\\) and  \\(Z^{[l]}\\) are now matrices, each column of which re
  z_2^{[l](1)}& z_2^{[l](2)} & . & . & z_2^{[l](m)}\\\\\\  
  z_3^{[l](1)}& z_3^{[l](2)} & . & . & z_3^{[l](m)}\\\\\\ 
  .& . & . & . &. \\\\\\ 
- . & . &.  & . & .\\\\\\ 
+ . & . &.  & . & . \\\\\\ 
  z_n^{[l](1)}&z_n^{[l](2)}  & . & . & z_n^{[l](m)}\end{bmatrix}\\)
 
 
@@ -328,6 +328,6 @@ Note that the dimensions of the first term of Eq. 7a is  m x n(l-1), so the 1 x 
 
 ### Next steps
  
- The next post in this series is about Backwards propogation, which is activated durimg the traing phase, aka fitting, to calculate optimized values for the network's wheights and biases.
+The next post in this series is about Backwards propogation, which is activated durimg the traing phase, aka fitting, to calculate optimized values for the network's wheights and biases.
 
 
