@@ -3,7 +3,7 @@ layout: default
 nav_order: 6
 title: Introduction to Backwards Propogation
 ---
-# Forward Propogation
+# Backward Propogation
 
 ## Introduction
 
