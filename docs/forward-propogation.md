@@ -297,7 +297,7 @@ $$A^{[l]}=
 g^{[l]}(A^{[l]})$$
 
 
-Where \\(A^{[l]}\\) and  \\(Z^{[l]}\\) are now matrices, each column of which relates to an input data example \\(\\m\epsilon M\\), like so:
+Where \\(A^{[l]}\\) and  \\(Z^{[l]}\\) are now matrices, each column of which relates to an input data example \\(m\epsilon M\\) , like so:
 
 \\(\bar{Z}^{[l]}=\begin{bmatrix}
  z_1^{[l](1)}& z_1^{[l](2)} & . & . & z_1^{[l](m)}\\\\\\  
