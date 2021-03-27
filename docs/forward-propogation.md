@@ -263,7 +263,7 @@ g^{[5]}(z_1^{[5]})\\)
  
  ### Eq. 6b: Vectorized Equation Layer l activation
 
-$$(a^{[l]}=
+$$a^{[l]}=
 g^{[l]}(z^{[l]})$$
 
 
@@ -276,6 +276,12 @@ Eq.6 vectors and matrix dimenssions are:
 
 Where n(l) is the number of neurons in layer l.
  
+In a recursive form, we can \\(\bar{z}^{[l]}\\) and \\(a^{[l]}\\) for any layer can be expressed as:
+$$
+\bar{z}^{[l]}=\bar{w}^{[l]}\bar{a}^{[l-1]}+\bar{b}^{[l]}
+$$
+
+ ## Generalized Forwarding Propogation with Vector (Matrix) Equations across multiple examples
 
 Eq. 6a and Eq. 6b are the forwarding equations for a single data input vector. To even more generalized case is the forwarding equation for all training exam or any batch of examples. These multi-examples equations are basically the same as Eq. 6, except the dimensions of the various vector change to a matrix structure as shown in Eq. 7a and Eq. 7b. Accordingly, we the matrix will be denoted in capital letters
 
@@ -287,19 +293,41 @@ Eq. 6a and Eq. 6b are the forwarding equations for a single data input vector. T
  
  ### Eq. 7b: Vectorized Equation for Layer l activation with m data examples
 
-$$(A^{[l]}=
-g^{[l]}(G^{[l]})$$
+$$A^{[l]}=
+g^{[l]}(A^{[l]})$$
+
+
+Where \\(A^{[l]}\\) and  \\(Z^{[l]}\\) are now matrices, each column of which relates to an input data example \\(\\m\epsilon M\\), like so:
+
+\\(\bar{Z}^{[l]}=\begin{bmatrix}
+ z_1^{[l](1)}& z_1^{[l](2)} & . & . & z_1^{[l](m)}\\\\\\  
+ z_2^{[l](1)}& z_2^{[l](2)} &  &  & z_2^{[l](m)}\\\\\\  
+ z_3^{[l](1)}& z_3^{[l](2)} &  &  & z_3^{[l](m)}\\\\\\ 
+ .^{[l](1)}& . &  &  &. \\\\\\ 
+ . & . &  &  & .\\\\\\ 
+ z_n^{[l](1)}&z_n^{[l](2)}  &  &  & z_n^{[l](m)}
+\end{bmatrix}\\)
+
+
+\\(\bar{A}^{[l]}=\begin{bmatrix}
+ a_1^{[l](1)}& a_1^{[l](2)} & . & . & a_1^{[l](m)}\\\\\\  
+ a_2^{[l](1)}& a_2^{[l](2)} &  &  & a_2^{[l](m)}\\\\\\
+ a_3^{[l](1)}& a_3^{[l](2)} &  &  & a_3^{[l](m)}\\\\\\ 
+ .& . &  &  &. \\\\\\
+ . & . &  &  & .\\\\\\ 
+ a_n^{[l](1)}&a_n^{[l](2)}  &  &  & a_n^{[l](m)}
+\end{bmatrix}\\)
 
 
 Eq.7 matrix dimenssions are:
 
  - \\(\bar{Z}^{[l]}\\) : m x n(l)
  - \\(\bar{w}^{[l]}\\) : n(l-1) x n(l)
- - \\(\bar{a}^{[l-1]}\\) : m x n(l-1)
+ - \\(\bar{A}^{[l-1]}\\) : m x n(l-1)
  - \\(\bar{b}^{[l]}\\) : 1 x n(l)
 
 
-Where n(l) is the number of neurons in layer l.
+Where n(l) is the number of neurons in layer l, and 
 
 Note that the dimensions of the first term of Eq. 7a is  m x n(l-1), so the 1 x n(l) vector \\(\bar{b}^{[l]}\\) is added to it using broadcasting addition, i.e. \\(\bar{b}^{[l]}\\) is duplicated m times.
 
