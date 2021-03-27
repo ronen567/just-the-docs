@@ -79,7 +79,7 @@ Figure 2 presents the vectorized forwarding flow, specifing the vectorized opera
 
 ### Eq. 1-a: Layer 1 Weighted input
 
-$$\begin{bmatrix}
+\\(\begin{bmatrix}
 z_1^{[1]} \\\\\\\\ 
 z_2^{[1]} \\\\\\\\ 
 z_3^{[1]}  \\\\\\\\ 
@@ -100,7 +100,7 @@ b_2^{[1]} \\\\\\
 b_3^{[1]} \\\\\\ 
 b_4^{[1]} 
 \end{bmatrix}
-$$
+\\)
 
 ### Eq. 1-b: Layer 1 activation
 
