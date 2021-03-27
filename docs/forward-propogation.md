@@ -10,7 +10,6 @@ title: Introduction to Forward Propogation
 This is the second in series of 3 deep learning intro posts:
 1. Introduction to Deep Learning which introduces the Deep Learning technology background, and presents network's building blocks and terms.
 2. Forward Propogation, which presents the mathematical equations of the prediction path.
-3. Backward Propogation which presents the mathematical equations for network's coefficents calculation, done during the training phase.
 
 In this post we will examine the forwarding equations of the input data through the network. This is the network's prediction data path, at which the network's weights are static, and only the input data changes. As an oposite to Forward Propogation which calculates the prediction value based on the input data, the Backwards Propogation process calcuates the network's weights. The latter is presented in the next post.
 
@@ -303,7 +302,7 @@ Where \\(A^{[l]}\\) and  \\(Z^{[l]}\\) are now matrices, each column of which re
  z_1^{[l](1)}& z_1^{[l](2)} & . & . & z_1^{[l](m)}\\\\\\  
  z_2^{[l](1)}& z_2^{[l](2)} &  &  & z_2^{[l](m)}\\\\\\  
  z_3^{[l](1)}& z_3^{[l](2)} &  &  & z_3^{[l](m)}\\\\\\ 
- .^{[l](1)}& . &  &  &. \\\\\\ 
+ .& . &  &  &. \\\\\\ 
  . & . &  &  & .\\\\\\ 
  z_n^{[l](1)}&z_n^{[l](2)}  &  &  & z_n^{[l](m)}
 \end{bmatrix}\\)
