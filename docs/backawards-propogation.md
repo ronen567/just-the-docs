@@ -26,9 +26,9 @@ $$
 We have developped the neural networks Feead Forward equations, which calculates the predicted value \\(\hat{y}\\), based on input data \\(\bar{x}\\), for a given network structure, with a given set of weights and bias.
 
 $$
-\begin{bmatrix}
- &  & \\ 
- &  & 
+\bar{Z}^{[l]}=\begin{bmatrix}
+ z_2^{[l](1)}&  z_2^{[l](2)}& \\ 
+ z_3^{[l](1)}&  z_3^{[l](2)} & 
 \end{bmatrix}
 $$
 
