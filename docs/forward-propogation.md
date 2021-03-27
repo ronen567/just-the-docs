@@ -155,7 +155,6 @@ g_2^{[2]}(z_2^{[2]}) \\\\\\\\
 g_3^{[2]}(z_3^{[2]}) \\\\\\\\ 
 g_4^{[2]}(z_4^{[2]})
 \end{bmatrix}$$
-$$
 
 
 ### Eq. 3-a: Layer 3 Weighted input
@@ -237,8 +236,6 @@ g_3^{[4]}(z_3^{[4]}) \\\\\\\\
 g_4^{[4]}(z_4^{[4]})
 \end{bmatrix}
 $$
-
-## Matrix Dimensions
 
 
 ### Eq. 5-a: Layer 5 Weighted input
