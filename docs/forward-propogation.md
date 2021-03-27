@@ -252,3 +252,59 @@ a_2^{[4]}
 g^{[5]}(z_1^{[5]})\\)
 
 
+ ## Generalized Forwarding Propogation with Vector (Matrix) Equations
+ 
+ Eq. 6 shows the Feed Forwarding epressions for any layer l, 0<l<L, and a single data exempale vector \\(\bar(x)\\) denoted here by \\(\bar(a)^{[0]}\\) 
+ 
+ ### Eq. 6a: Vectorized Equation for Layer l Weighted input
+ $$
+ \bar{z}^{[l]}=\bar{w}^{[l]}\bar{a}^{[l-1]}+\bar{b}^{[l]}
+ $$
+ 
+ ### Eq. 6b: Vectorized Equation Layer l activation
+
+$$(a^{[l]}=
+g^{[l]}(z^{[l]})$$
+
+
+Eq.6 vectors and matrix dimenssions are:
+
+ - \\(\bar{z}^{[l]}\\) : 1 x n(l)
+ - \\(\bar{w}^{[l]}\\) : n(l-1) x n(l)
+ - \\(\bar{a}^{[l-1]}\\) : 1 x n(l-1)
+ - \\(\bar{b}^{[l]}\\) : 1 x n(l)
+
+Where n(l) is the number of neurons in layer l.
+ 
+
+Eq. 6a and Eq. 6b are the forwarding equations for a single data input vector. To even more generalized case is the forwarding equation for all training exam or any batch of examples. These multi-examples equations are basically the same as Eq. 6, except the dimensions of the various vector change to a matrix structure as shown in Eq. 7a and Eq. 7b. Accordingly, we the matrix will be denoted in capital letters
+
+
+### Eq. 7a: Vectorized Equation Layer l Weighted input with m data examples
+ $$
+ \bar{Z}^{[l]}=\bar{w}^{[l]}\bar{A}^{[l-1]}+\bar{b}^{[l]}
+ $$
+ 
+ ### Eq. 7b: Vectorized Equation for Layer l activation with m data examples
+
+$$(A^{[l]}=
+g^{[l]}(G^{[l]})$$
+
+
+Eq.7 matrix dimenssions are:
+
+ - \\(\bar{Z}^{[l]}\\) : m x n(l)
+ - \\(\bar{w}^{[l]}\\) : n(l-1) x n(l)
+ - \\(\bar{a}^{[l-1]}\\) : m x n(l-1)
+ - \\(\bar{b}^{[l]}\\) : 1 x n(l)
+
+
+Where n(l) is the number of neurons in layer l.
+
+Note that the dimensions of the first term of Eq. 7a is  m x n(l-1), so the 1 x n(l) vector \\(\bar{b}^{[l]}\\) is added to it using broadcasting addition, i.e. \\(\bar{b}^{[l]}\\) is duplicated m times.
+
+### Next steps
+ 
+ The next post in this series is about Backwards propogation, which is activated durimg the traing phase, aka fitting, to calculate optimized values for the network's wheights and biases.
+
+
