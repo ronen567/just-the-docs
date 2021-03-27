@@ -267,7 +267,6 @@ g^{[l]}(z^{[l]})$$
 
 
 Eq.6 vectors and matrix dimenssions are:
-
  - \\(\bar{z}^{[l]}\\) : 1 x n(l)
  - \\(\bar{w}^{[l]}\\) : n(l-1) x n(l)
  - \\(\bar{a}^{[l-1]}\\) : 1 x n(l-1)
@@ -321,8 +320,8 @@ Eq.7 matrix dimenssions are:
  - \\(\bar{A}^{[l-1]}\\) : m x n(l-1)
  - \\(\bar{b}^{[l]}\\) : 1 x n(l)
 
+Where n(l) is the number of neurons in layer l, m is the number of examples, and \\(z_2^{[l]{(m)}}\\) means z of second neuron, lth layer and mth example.
 
-Where n(l) is the number of neurons in layer l, and 
 
 Note that the dimensions of the first term of Eq. 7a is  m x n(l-1), so the 1 x n(l) vector \\(\bar{b}^{[l]}\\) is added to it using broadcasting addition, i.e. \\(\bar{b}^{[l]}\\) is duplicated m times.
 
