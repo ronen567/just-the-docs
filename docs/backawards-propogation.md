@@ -102,11 +102,15 @@ Since \\(C(y,\hat{y})\\) is obviously a function of \\(\hat{y}\\), and \\(\hat{y
  ### Eq. 5: Cost Derivatives with respect to layer L parameters
  \\(\frac{\partial C}{\partial w^{[L]}}=\\)
  
- \\(frac{\partial C}{\partial a^{[L]}}\\)
+ \\(\frac{\partial C}{\partial a^{[L]}}\\)
  
  \\(\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
  \\(\frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
  
+ \\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}} *\frac{\partial a^{[L]}}{\partial z^{[L]}}
+ \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
+ 
+ fsdfsdfsdfsdfsd
  
 \\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}} *\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
 
