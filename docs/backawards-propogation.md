@@ -60,10 +60,14 @@ $$
 
 Where the superscript [l], l=[1,L], denotes the layer.
 
-To solve Eq. 4 we need to find the Cost finction's derivatives for all layers' coeffcients. To make it, we will use the Backward propogation algorithm, as explained next.
+To solve Eq. 4 we need to find the Cost finction's derivatives with respect to all layers' coeffcients. To make it, we will use the Backward propogation algorithm, as explained next.
 
 
 ## Backwards Propogation Algorithm
+
+Our challenge is to find the derivatives of the Cost function derivatives with respect to all weight and bias. To do that, we will use the derivative chain rule. Let's start with the last layer, denoted by l=L.
+
+
 
 
 
