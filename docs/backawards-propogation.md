@@ -43,19 +43,19 @@ We will find the set of coefficients which minimizes a cost function - a functio
 
 We already met 3 types of cost functions as shown in Eq. 2:
 
-### Eq. 2a: MSE Cost Function
+### Eq. 2a: MSE (Mean Squared Error) Cost Function
 
 $$C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left \| y-\hat{y} \right \|^2
 $$
 
-### Eq. 2b: Abs Diefference Cost Function
+### Eq. 2b: MAE (Mean Absolute Error) Cost Function
 
 $$C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left | y-\hat{y} \right |^2
 $$
 
-### Eq. 2c: Logistic Regression Cost Function
+### Eq. 2c: Cross Entropy Cost Function - Used for Logistic Regression
 
-$$J(b,w) =\sum_{i=1}^{m}[-y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]$$
+$$J(b,w) =-sum_{i=1}^{m}[y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]$$
 
 
 To  find the optimized set of parameters we will use Gradient Descent. There are more common variants of GradientDescent such as tochastic gradient descent and ADAM which are discussed in an exclusive post.
@@ -79,11 +79,12 @@ Where the superscript [l], l=[1,L], denotes the layer, and \\(\alpha\\) is the l
 To solve Eq. 3 we need to find the Cost finction's derivatives with respect to all layers' coeffcients. To make it, we will use the Backward propogation algorithm, as explained next.
 
 
-### Backwards Propogation Algorithm
+## Backwards Propogation Algorithm
 
 Our challenge is to find the derivatives of the Cost function derivatives with respect to all weight and bias. Let's start with finding the partial derivative of C with respect ot last layer's, (i.e. the output layer),  coefficents, i.e. find \\(\frac{\partial C}{\partial w^{[L]}}
 \\) and \\(\frac{\partial C}{\partial b^{[L]}}\\). (L is of course last layer's index). 
 For convinience, let's re-write Eq.1, layer's equations, for layer L:
+
 
  ### Eq. 4a: Layer L Weighted input
  $$
@@ -110,7 +111,30 @@ Since \\(C(y,\hat{y})\\) is obviously a function of \\(\hat{y}\\), and \\(\hat{y
 
 
 Both Eq. 5a and Eq. 5b consist of a chain of 3 partial derivatives:
-1. \\(frac{\partial C}{\partial a^{[L]}}\\) - This derivatives depends on the cost function
+1. \\(frac{\partial C}{\partial a^{[L]}}\\) - This derivative depends on selected Cost function. Find 3 of the most common cost functions are listed in Eq. 2. Find detailed derivatives equation for commonly used Cost functions in appendix.
+2. \\(\frac{\partial a^{[L]}}{\partial z^{[L]}}\\) - This derivative depends on activation function. Find detailed derivatives equation for commonly used activation function in appendix.
+3. \\(\frac{\partial z^{[L]}}{\partial w^{[L]}}\\) - Pluging in Eq. 4a gives: \\(\frac{\partial z^{[L]}}{\partial w^{[L]}}\\)=\\(\frac{\bar{w}^{[L]}\bar{a}^{[L-1]}+\bar{b}^{[L]}}{\partial w^{[L]}}= \bar{a}^{[L-1]}\\)
+4. \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\) - Pluging in Eq. 4b gives: \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\)=\\(\frac{\bar{w}^{[L]}\bar{a}^{[L-1]}+\bar{b}^{[L]}}{\partial \bar{b^{[L]}}}= 1
+
+Let's sum up the current  equation :
+
+
+
+### Eq. 6: Cost Function Derivative for Layer L
+### Eq. 6a: Cost Function Derivative with respect to weights
+\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}*g^{'[L]}*\bar{a}^{[L-1]}\\)
+### Eq. 6b: Cost Function Derivative with respect to bias
+\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}*g^{'[L]}\\)
+
+
+Let's continue the stepping backwards to Layer L-1:
+
+### Eq. 5: Cost Derivatives for l=L-1
+
+\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* \frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
+
+
+
 
 
 
