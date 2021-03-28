@@ -100,26 +100,10 @@ g^{[L]}(z^{[L]})$$
 Since \\(C(y,\hat{y})\\) is obviously a function of \\(\hat{y}\\), and \\(\hat{y}=a^{[L]}\\), we can use the derivative chain rule and write the following derivative equations:
 
  ### Eq. 5: Cost Derivatives with respect to layer L parameters
- \\(\frac{\partial C}{\partial w^{[L]}}=\\)
- 
- \\(\frac{\partial C}{\partial a^{[L]}}\\)
- 
- \\(\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
- \\(\frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
- 
- \\(\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
-  
- \\(\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
 
- \\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
+ \\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* \frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
 
- \\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}} *\frac{\partial a^{[L]}} {\partial z^{[L]}}*\frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
- 
- \\(\frac{\partial C}{\partial b^{[L]}}=\frac{\partial C}{\partial a^{[L]}} *\frac{\partial a^{[L]}}{\partial z^{[L]}}*\frac{\partial z^{[L]}}{\partial b^{[L]}}\\)
- 
-
-
-\\(\frac{\partial C}{\partial b^{[L]}}=\frac{\partial C}{\partial a^{[L]}} *\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial b^{[L]}}\\).
+\\(\frac{\partial C}{\partial b^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* \frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial b^{[L]}}\\)
 
 
 function is a function of 
