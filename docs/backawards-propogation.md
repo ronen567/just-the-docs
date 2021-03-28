@@ -101,13 +101,16 @@ Since \\(C(y,\hat{y})\\) is obviously a function of \\(\hat{y}\\), and \\(\hat{y
 
  ### Eq. 5: Cost Derivatives with respect to layer L parameters
 
- \\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* \frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
+ ### Eq. 5a: Cost Derivatives with respect to weights
+\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* \frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
+
+ ### Eq. 5b: Cost Derivatives with respect to bias
 
 \\(\frac{\partial C}{\partial b^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* \frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial b^{[L]}}\\)
 
 
-function is a function of 
-
+Both Eq. 5a and Eq. 5b consist of a chain of 3 partial derivatives:
+1. \\(frac{\partial C}{\partial a^{[L]}}\\) - This derivatives depends on the cost function
 
 
 
