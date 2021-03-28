@@ -23,14 +23,14 @@ To recap the Feed Forward equation, Figure 1 taken from the previous post is pos
 ![neuron_cascaded_operator](../assets/images/neural-networks/forwarding-vectorized-flow.png)
 
 
-Eq. 1a presents the Forwarding Equation for any layer l.
+As Figure 1 shows, each layer consists of 2 cascaded operators, the first calculates the sum of the weighted input and the bias, and the second is a non linear activation function. Eq. 1 presents the above 2 functions expressed for any layer l.
 
- ### Eq. 1a: Vectorized Equation for Layer l Weighted input
+ ### Eq. 1a: Layer l Weighted input
  $$
  \bar{z}^{[l]}=\bar{w}^{[l]}\bar{a}^{[l-1]}+\bar{b}^{[l]}
  $$
  
- ### Eq. 2b: Vectorized Equation Layer l activation
+ ### Eq. 1b: Layer l activation
 
 $$a^{[l]}=
 g^{[l]}(z^{[l]})$$
@@ -41,19 +41,19 @@ g^{[l]}(z^{[l]})$$
 
 We will find the set of coefficients which minimizes a cost function - a function which measures the difference between the true values and the model's prediction results. Just as a side note - by **Loss** Function, we reffer to the difference between true (or some may call it 'expected') value and the model's prediction results, while **Cost** function is the average of a batch of m Losses, caluclated for the whole training sequence of for a partial batch of it.
 
-We already met 3 types of cost functions as shown in Eq. 1:
+We already met 3 types of cost functions as shown in Eq. 2:
 
-### Eq 1a: MSE Cost Function
+### Eq. 2a: MSE Cost Function
 
 $$C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left \| y-\hat{y} \right \|^2
 $$
 
-### Eq 2a: Abs Diefference Cost Function
+### Eq. 2b: Abs Diefference Cost Function
 
 $$C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left | y-\hat{y} \right |^2
 $$
 
-### Eq 3a: Logistic Regression Cost Function
+### Eq. 2c: Logistic Regression Cost Function
 
 $$J(b,w) =\sum_{i=1}^{m}[-y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]$$
 
@@ -64,7 +64,7 @@ If you're not familiar with Gradient Descent, it is suggested you read the posts
 
 The equations for determining the coefficients are:
 
-### Eq 4: Gradient Descent Recursive Equations
+### Eq 3: Gradient Descent Recursive Equations
 
 $$
 w^{[l]}=w^{[l]}-\alpha\frac{\partial C}{\partial w^{[l]}}
@@ -76,13 +76,46 @@ $$
 
 Where the superscript [l], l=[1,L], denotes the layer, and \\(\alpha\\) is the learning reate.
 
-To solve Eq. 4 we need to find the Cost finction's derivatives with respect to all layers' coeffcients. To make it, we will use the Backward propogation algorithm, as explained next.
+To solve Eq. 3 we need to find the Cost finction's derivatives with respect to all layers' coeffcients. To make it, we will use the Backward propogation algorithm, as explained next.
 
 
 ### Backwards Propogation Algorithm
 
-Our challenge is to find the derivatives of the Cost function derivatives with respect to all weight and bias. Let's start with finding the partial derivative of C with respect ot last layer's coefficents, i.e. find \\(\frac{\partial C}{\partial w^{[L]}}
-\\) and \\(\frac{\partial C}{\partial b^{[L]}}\\). (L is of course last layer's index). Let's examine layer L equations - look at Figure 2 (extracted from Figure 1).
+Our challenge is to find the derivatives of the Cost function derivatives with respect to all weight and bias. Let's start with finding the partial derivative of C with respect ot last layer's, (i.e. the output layer),  coefficents, i.e. find \\(\frac{\partial C}{\partial w^{[L]}}
+\\) and \\(\frac{\partial C}{\partial b^{[L]}}\\). (L is of course last layer's index). 
+For convinience, let's re-write Eq.1, layer's equations, for layer L:
+
+ ### Eq. 4a: Layer L Weighted input
+ $$
+ \bar{z}^{[L]}=\bar{w}^{[L]}\bar{a}^{[L-1]}+\bar{b}^{[L]}
+ $$
+ 
+ ### Eq. 4b: Layer L activation
+
+$$a^{[L]}=
+g^{[L]}(z^{[L]})$$
+
+
+
+Since \\(C(y\hat{y})\\) is obviously a function of \\(\hat{y}\\), and \\(\hat{y}=a^{[L]}\\), we can use the derivative chain rule and write the following derivative equations:
+
+ ### Eq. 5: Cost Derivatives with respect to layer L parameters
+ 
+\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}} *\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}
+
+\\) 
+
+\\(\frac{\partial C}{\partial b^{[L]}}=\frac{\partial C}{\partial a^{[L]}} *\frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial b^{[L]}}\\).
+
+
+function is a function of 
+
+
+
+
+
+
+Let's examine layer L equations - look at Figure 2 (extracted from Figure 1).
 
 
 
