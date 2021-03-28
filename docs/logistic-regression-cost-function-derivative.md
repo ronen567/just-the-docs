@@ -3,7 +3,7 @@ layout: default
 nav_order: 6
 title: Logistic Regression cost Function Derivation Equation Development
 ---
-## Appendix B:  Development of Cost Function Partial Derivative
+## Appendix B: Development of Cost Function Partial Derivative
 
 The Cost function's partial derivatives are needed for the Gradient Descent calculation. The derivative equation is presented in Eq. 14, as the sum of Loss function derivatives
 
@@ -117,7 +117,7 @@ re-Combining the 3 parts of the chain we get the Loss function for a single exam
 
 #### Eq 21:  Recombining the 3 chained derivatives:
 
-$$\frac{\partial }{\partial w_i}L=(-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}) \cdot \sigma(z)(1-\sigma(z)) \cdot x^{(i)}=(\sigma(z)-y^{(i)})x^{(i)}=(\hat{y}^{(i)}-y^{(i)}$$
+$$\frac{\partial }{\partial w_i}L=(-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}) \cdot \sigma(z)(1-\sigma(z)) \cdot x^{(i)}=(\sigma(z)-y^{(i)})x^{(i)}=(\hat{y}^{(i)}-y^{(i)})x^{(i)}$$
 
 
 #### Eq 22:  Derivative of Loss Function
