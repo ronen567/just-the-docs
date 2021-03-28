@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 6
-title: Introduction to Backwards Propogation
+title: Backwards Propogation
 ---
 # Backwards Propogation
 
@@ -58,14 +58,30 @@ $$
 b^{[l]}=b^{[l]}-\alpha\frac{\partial C}{\partial b^{[l]}}
 $$
 
-Where the superscript [l], l=[1,L], denotes the layer.
+Where the superscript [l], l=[1,L], denotes the layer, and \\(\alpha\\) is the learning reate.
 
 To solve Eq. 4 we need to find the Cost finction's derivatives with respect to all layers' coeffcients. To make it, we will use the Backward propogation algorithm, as explained next.
 
 
 ## Backwards Propogation Algorithm
 
-Our challenge is to find the derivatives of the Cost function derivatives with respect to all weight and bias. To do that, we will use the derivative chain rule. Let's start with the last layer, denoted by l=L.
+Our challenge is to find the derivatives of the Cost function derivatives with respect to all weight and bias. Let's start with finding the partial derivative of C with respect ot last layer's coefficents, i.e. find \\(\frac{\partial C}{\partial w^{[L]}}
+\\) and \\(\frac{\partial C}{\partial b^{[L]}}\\). (L is of course last layer's index). Let's examine layer L equations - look at Figure 2 (extracted from Figure 1).
+
+
+
+
+
+To do that, we will use the derivative chain rule. 
+
+
+
+
+denoted by l=L:
+
+We need to find 
+
+The cost function is Since  \\(\hat{y}=a^{[L])\\) - see that in the last section of F_gure 1, _ \\(C(y,\hat{y})\\) is a function of \\(\hat{y})\\) i
 
 
 
