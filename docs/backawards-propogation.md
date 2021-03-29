@@ -43,17 +43,18 @@ We will find the set of coefficients which minimizes a cost function - a functio
 
 We already met 3 types of cost functions as shown in Eq. 2:
 
-### Eq. 2a: MSE (Mean Squared Error) Cost Function
+### Eq. 2: Cost Functions
+#### Eq. 2a: MSE (Mean Squared Error) Cost Function
 
 $$C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left \| y-\hat{y} \right \|^2
 $$
 
-### Eq. 2b: MAE (Mean Absolute Error) Cost Function
+#### Eq. 2b: MAE (Mean Absolute Error) Cost Function
 
 $$C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left | y-\hat{y} \right |^2
 $$
 
-### Eq. 2c: Cross Entropy Cost Function - Used for Logistic Regression
+#### Eq. 2c: Cross Entropy Cost Function - Used for Logistic Regression
 
 $$J(b,w) =-sum_{i=1}^{m}[y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]$$
 
@@ -65,10 +66,11 @@ If you're not familiar with Gradient Descent, it is suggested you read the posts
 The equations for determining the coefficients are:
 
 ### Eq 3: Gradient Descent Recursive Equations
-
+#### Eq 3a: Weight Recursive Equation
 $$
 w^{[l]}=w^{[l]}-\alpha\frac{\partial C}{\partial w^{[l]}}
 $$
+#### Eq 3b: Bias Recursive Equation
 
 $$
 b^{[l]}=b^{[l]}-\alpha\frac{\partial C}{\partial b^{[l]}}
