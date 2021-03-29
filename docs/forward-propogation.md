@@ -368,7 +368,7 @@ a_1^{[3]}  \\\\\\
 a_2^{[3]} \\\\\\
 a_3^{[3]} \\\\\\
 a_3^{[3]}
-\end{bmatrix}
+\end{bmatrix}\\)
 
 
 Now let's have the entire composition:
