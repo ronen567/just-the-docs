@@ -292,8 +292,8 @@ Eq. 6a and Eq. 6b are the forwarding equations for a single data input vector. T
  
  #### Eq. 7b: Vectorized Feed Forward Equations Across m Examples - activation
 
-$$A^{[l]}=
-g^{[l]}(Z^{[l]})$$
+$$\bar{A}^{[l]}=
+g^{[l]}(\bar{Z}^{[l]})$$
 
 
 Where \\(A^{[l]}\\) and  \\(Z^{[l]}\\) are now matrices, each column of which relates to an input data example \\(m\epsilon{M}\\) , like so:
