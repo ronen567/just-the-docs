@@ -148,12 +148,12 @@ Following that, the expressions for Cost derivatives for layer L are now:
 
 Let's continue the stepping backwards to Layer L-1, keeping up with the derivative chain rules:
 
-\\(\frac{\partial C}{\partial a^{[L-1]}}=\frac{\partial C}{\partial z^{[L]}} * frac{\partial z^{[L]}}}{\partial a^{[L-1]}}\\) 
+\\(\frac{\partial C}{\partial a^{[L-1]}}=\frac{\partial C}{\partial z^{[L]}} * \frac{\partial z^{[L]}}{\partial a^{[L-1]}}\\) 
 
-Derivating Eq. 5a with respect to \\(a^{[L-1]}}\\) :
+Derivating Eq. 5a with respect to \\(a^{[L-1]}\\) :
 
 
- \\(frac{\partial z^{[L]}}}{\partial a^{[L-1]}} = \bar{w}^{[L]}\\)
+ \\(\frac{\partial z^{[L]}}{\partial a^{[L-1]}} = \bar{w}^{[L]}\\)
 
 
 
@@ -185,7 +185,7 @@ denoted by l=L:
 
 We need to find 
 
-The cost function is Since  \\(\hat{y}=a^{[L])\\) - see that in the last section of F_gure 1, _ \\(C(y,\hat{y})\\) is a function of \\(\hat{y})\\) i
+The cost function is Since  \\(\hat{y}=a^{[L]}\\) - see that in the last section of F_gure 1, _ \\(C(y,\hat{y})\\) is a function of \\(\hat{y})\\) i
 
 
 
