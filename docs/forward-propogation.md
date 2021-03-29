@@ -206,8 +206,8 @@ z_1^{[4]} \\\\\\
 z_2^{[4]}
 \end{bmatrix}=
 \begin{bmatrix}
-w_{11}^{[4]}  & w_{21}^{[1]} & w_{31}^{[1]} & w_{41}^{[1]} \\\\\\ 
-w_{12}^{[4]}  & w_{22}^{[1]} & w_{32}^{[1]} & w_{42}^{[1]}
+w_{11}^{[4]}  & w_{21}^{[4]} & w_{31}^{[4]} & w_{41}^{[4]} \\\\\\ 
+w_{12}^{[4]}  & w_{22}^{[4]} & w_{32}^{[4]} & w_{42}^{[4]}
 \end{bmatrix} \begin{bmatrix}
 a_1^{[3]}  \\\\\\ 
 a_2^{[3]} \\\\\\
@@ -250,46 +250,47 @@ a_2^{[4]}
 \\(a_1^{[5]}=
 g^{[5]}(z_1^{[5]})\\)
 
+Next section extends Eq. 5: while the above section regards to the Feed Forwarding of a single Neuron, next section presents the Feed Forward equations for an entire layer l.
 
- ## Generalized Forwarding Propogation with Vector (Matrix) Equations
+ ## Vectorized Feed Forward Equations
  
  Eq. 6 shows the Feed Forwarding epressions for any layer l, 0<l<L, and a single data exempale vector \\(\bar(x)\\) denoted here by \\(\bar(a)^{[0]}\\) 
  
- ### Eq. 6a: Vectorized Equation for Layer l Weighted input
+ ### Eq. 6: Vectorized Feed Forward Equations for Layer l 
+ 
+ #### Eq. 6a: Vectorized Feed Forward Equations  - Weighted input
  $$
  \bar{z}^{[l]}=\bar{w}^{[l]}\bar{a}^{[l-1]}+\bar{b}^{[l]}
  $$
  
- ### Eq. 6b: Vectorized Equation Layer l activation
+ #### Eq. 6b: Vectorized Feed Forward Equations - activation
 
 $$a^{[l]}=
 g^{[l]}(z^{[l]})$$
 
 
 Eq.6 vectors and matrix dimenssions are:
- - \\(\bar{z}^{[l]}\\) : 1 x n(l)
- - \\(\bar{w}^{[l]}\\) : n(l-1) x n(l)
- - \\(\bar{a}^{[l-1]}\\) : 1 x n(l-1)
- - \\(\bar{b}^{[l]}\\) : 1 x n(l)
+ - \\(\bar{z}^{[l]}\\) : n(l) x 1
+ - \\(\bar{w}^{[l]}\\) : n(l) x n(l-1)
+ - \\(\bar{a}^{[l-1]}\\) : n(l-1) x 1
+ - \\(\bar{b}^{[l]}\\) : n(l) x 1
 
 Where n(l) is the number of neurons in layer l.
  
-In a recursive form, we can \\(\bar{z}^{[l]}\\) and \\(a^{[l]}\\) for any layer can be expressed as:
-$$
-\bar{z}^{[l]}=\bar{w}^{[l]}\bar{a}^{[l-1]}+\bar{b}^{[l]}
-$$
+Next section extends Eq. 6 a bit more: while the above section regarded the input vector as a vector of size 1 x n(l-1), next section presents the Feed Forward equations for an input data set with m examples.
 
- ## Generalized Forwarding Propogation with Vector (Matrix) Equations across multiple examples
+## Vectorized Feed Forward for Layer l Across Multiple Examples
 
 Eq. 6a and Eq. 6b are the forwarding equations for a single data input vector. To even more generalized case is the forwarding equation for all training exam or any batch of examples. These multi-examples equations are basically the same as Eq. 6, except the dimensions of the various vector change to a matrix structure as shown in Eq. 7a and Eq. 7b. Accordingly, we the matrix will be denoted in capital letters
 
+### Eq. 7: Vectorized Feed Forward Equations for Layer l Across m Examples
 
-### Eq. 7a: Vectorized Equation Layer l Weighted input with m data examples
+#### Eq. 7a: Vectorized Feed Forward Equations Across m Examples - Weighted input
  $$
  \bar{Z}^{[l]}=\bar{w}^{[l]}\bar{A}^{[l-1]}+\bar{b}^{[l]}
  $$
  
- ### Eq. 7b: Vectorized Equation for Layer l activation with m data examples
+ #### Eq. 7b: Vectorized Feed Forward Equations Across m Examples - activation
 
 $$A^{[l]}=
 g^{[l]}(A^{[l]})$$
@@ -315,15 +316,19 @@ Where \\(A^{[l]}\\) and  \\(Z^{[l]}\\) are now matrices, each column of which re
 
 Eq.7 matrix dimenssions are:
 
- - \\(\bar{Z}^{[l]}\\) : m x n(l)
- - \\(\bar{w}^{[l]}\\) : n(l-1) x n(l)
- - \\(\bar{A}^{[l-1]}\\) : m x n(l-1)
- - \\(\bar{b}^{[l]}\\) : 1 x n(l)
+ - \\(\bar{Z}^{[l]}\\) : n(l) x m
+ - \\(\bar{w}^{[l]}\\) : n(l) x n(l-1)
+ - \\(\bar{A}^{[l-1]}\\) : n(l-1) x m 
+ - \\(\bar{b}^{[l]}\\) : n(l) x 1
 
-Where n(l) is the number of neurons in layer l, m is the number of examples, and \\(z_2^{[l]{(m)}}\\) means z of second neuron, lth layer and mth example.
+Where:
+- n(l) is the number of neurons in layer l, 
+- m is the number of training examples, 
+
+So, as an example, \\(z_2^{[l]{(m)}}\\) means: z of second neuron in lth layer and mth example.
 
 
-Note that the dimensions of the first term of Eq. 7a is  m x n(l-1), so the 1 x n(l) vector \\(\bar{b}^{[l]}\\) is added to it using broadcasting addition, i.e. \\(\bar{b}^{[l]}\\) is duplicated m times.
+Note about matrix addition:   In Eq. 7a, the dimensions of first summand In Eq. 7a n(l) x m, so the n(l) x 1  vector \\(\bar{b}^{[l]}\\) is added us broadcasting, i.e. it is added to each of the m columns.
 
 ### Next steps
  
