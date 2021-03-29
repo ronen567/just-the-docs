@@ -39,31 +39,34 @@ g^{[l]}(z^{[l]})$$
 
 ## Cost Function and Gradeint Descent
 
-We will find the set of coefficients which minimizes a cost function - a function which measures the difference between the true values and the model's prediction results. Just as a side note - by **Loss** Function, we reffer to the difference between true (or some may call it 'expected') value and the model's prediction results, while **Cost** function is the average of a batch of m Losses, caluclated for the whole training sequence of for a partial batch of it.
+Here we start the journey of finding the optimized network's parameters. 
 
-We already met 3 types of cost functions as shown in Eq. 2:
+
+Given the input-output set (x,y) and the orediction result \\(\hat{y}\\), a cost function measures the difference between the true values and the model's prediction results. The criteria for the network's set of parameter we search for is minimizing a cost function.
+
+Just as a side note, to prevent confusion between Loss and Cost functions - by **Loss** Function, we reffer to the difference between true (or some may call it 'expected') value and the model's prediction results, while **Cost** function is the average of a batch of m Losses, caluclated for the whole training sequence of for a partial batch of it.
+
+We already met 3 types of Cost functions as shown in Eq. 2:
 
 ### Eq. 2: Cost Functions
 #### Eq. 2a: MSE (Mean Squared Error) Cost Function
 
-$$C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left \| y-\hat{y} \right \|^2
-$$
+\\C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left \| y-\hat{y} \right \|^2\\)
 
 #### Eq. 2b: MAE (Mean Absolute Error) Cost Function
 
-$$C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left | y-\hat{y} \right |^2
-$$
+\\C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left | y-\hat{y} \right |^2\\)
 
 #### Eq. 2c: Cross Entropy Cost Function - Used for Logistic Regression
 
-$$J(b,w) =-sum_{i=1}^{m}[y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]$$
+\\(C(b,w) =-\sum_{i=1}^{m}[y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]\\)
 
 
-To  find the optimized set of parameters we will use Gradient Descent. There are more common variants of GradientDescent such as tochastic gradient descent and ADAM which are discussed in an exclusive post.
+Having selected a cost function, we will use Gradient Descent to find the set of parameters which minimize it. Note that Gradient Descent has some commonly used variants such as tochastic gradient descent and ADAM. we will cover those algorithms in an exclusive post.
 
 If you're not familiar with Gradient Descent, it is suggested you read the posts on Gradient descent before.
 
-The equations for determining the coefficients are:
+The equations for determining the coefficients are presented by Eq. 3, Where the superscript [l], l=[1,L], denotes the layer, and \\(\alpha\\) is the learning rate.
 
 ### Eq 3: Gradient Descent Recursive Equations
 #### Eq 3a: Weight Recursive Equation
@@ -76,14 +79,26 @@ $$
 b^{[l]}=b^{[l]}-\alpha\frac{\partial C}{\partial b^{[l]}}
 $$
 
-Where the superscript [l], l=[1,L], denotes the layer, and \\(\alpha\\) is the learning reate.
 
-To solve Eq. 3 we need to find the Cost finction's derivatives with respect to all layers' coeffcients. To make it, we will use the Backward propogation algorithm, as explained next.
+As Eq. 3 shows, we need to find the Cost function's derivatives, with respect to all layers' coeffcients. 
+
+
+
+
+
+
+
+To do that, we will use the Backward propogation algorithm, as explained next.
 
 
 ## Backwards Propogation Algorithm
 
-Our challenge is to find the derivatives of the Cost function derivatives with respect to all weight and bias. Let's start with finding the partial derivative of C with respect ot last layer's, (i.e. the output layer),  coefficents, i.e. find \\(\frac{\partial C}{\partial w^{[L]}}
+Our challenge is to find the derivatives of the Cost function with respect to all weight and bias. 
+
+
+
+
+Let's start with finding the partial derivative of C with respect ot last layer's, (i.e. the output layer),  coefficents, i.e. find \\(\frac{\partial C}{\partial w^{[L]}}
 \\) and \\(\frac{\partial C}{\partial b^{[L]}}\\). (L is of course last layer's index). 
 For convinience, let's re-write Eq.1, layer's equations, for layer L:
 
@@ -131,9 +146,18 @@ Following that, the expressions for Cost derivatives for layer L are now:
 
 
 
-Let's continue the stepping backwards to Layer L-1:
+Let's continue the stepping backwards to Layer L-1, keeping up with the derivative chain rules:
 
-\\(\frac{\partial C}{\partial a^{[L-1]}}\\) 
+\\(\frac{\partial C}{\partial a^{[L-1]}}=\frac{\partial C}{\partial z^{[L]}} * frac{\partial z^{[L]}}}{\partial a^{[L-1]}}\\) 
+
+Derivating Eq. 4a with respect to \\(a^{[L-1]}}\\):
+
+
+ \\(frac{\partial z^{[L]}}}{\partial a^{[L-1]}} = \bar{w}^{[L]}\\)
+
+
+
+
 
 ### Eq. 5: Cost Derivatives for l=L-1
 
