@@ -332,13 +332,52 @@ Note about matrix addition:   In Eq. 7a, the dimensions of first summand In Eq. 
 
 ## Overall Feed Forward
 
-Eq. 7b expresses the value of the activation matrix \\(A^{[l]}\\) as a function of \\(Z^{[l]}\\). The latter, \\(Z^{[l]}\\), is expressed as a function of \\(A^{[l-1]}\\), i.e. previous layer's activation matrix. and so forth. So, express in a single eqaution the expression for \\(A^{[l]}\\) as a composition of all its predecessor layers: 
+Eq. 7b expresses the value of the activation matrix \\(A^{[l]}\\) as a function of \\(Z^{[l]}\\). The latter, \\(Z^{[l]}\\), is expressed as a function of \\(A^{[l-1]}\\), i.e. previous layer's activation matrix. and so forth. So, express in a single eqaution the expression for \\(A^{[l]}\\) as a composition of all its predecessor layers.
 
-\\(A^{[l]}=\\)
+Just one cosmetic modification to simplify the equation: Assume the bias in Eq. 7b is included in the weights matrix w (the first row holds the l biases), and accordingly the first row of A matrxis all 1s.
+Example:
+\\(\begin{bmatrix}
+z_1^{[4]} \\\\\\ 
+z_2^{[4]}
+\end{bmatrix}=
+\begin{bmatrix}
+w_{11}^{[4]}  & w_{21}^{[4]} & w_{31}^{[4]} & w_{41}^{[4]} \\\\\\ 
+w_{12}^{[4]}  & w_{22}^{[4]} & w_{32}^{[4]} & w_{42}^{[4]}
+\end{bmatrix} \begin{bmatrix}
+a_1^{[3]}  \\\\\\ 
+a_2^{[3]} \\\\\\
+a_3^{[3]} \\\\\\
+a_3^{[3]}
+\end{bmatrix}+\begin{bmatrix}
+b_1^{[4]} \\\\\\ 
+b_2^{[4]}
+\end{bmatrix}\\)
 
-Here we'll extend Eq.7, Here we'll present the 
-Plugging LFollowing Eq. 7, p
+Will now be:
 
+\\(\begin{bmatrix}
+z_1^{[4]} \\\\\\ 
+z_2^{[4]}
+\end{bmatrix}=
+\begin{bmatrix}
+b_{1}^{[4]}  & w_{11}^{[4]}  & w_{21}^{[4]} & w_{31}^{[4]} & w_{41}^{[4]} \\\\\\ 
+w_{2}^{[4]}  & w_{22}^{[4]} & w_{32}^{[4]} & w_{42}^{[4]}
+\end{bmatrix} \begin{bmatrix}
+1  \\\\\\ 
+a_1^{[3]}  \\\\\\ 
+a_2^{[3]} \\\\\\
+a_3^{[3]} \\\\\\
+a_3^{[3]}
+\end{bmatrix}
+
+
+Now let's have the entire composition:
+
+### Eq. 8: Vectorized Feed Forward Combined Equation
+
+\\(A^{[l]}=g^{[l]}(w^{[l]}g^{[l-1]}(w^{[l-1]}g^{[l-2]}(w^{[l-2]}g^{[l-3]}(......g^{[1]}(w^{[1]}A^{[0]}))))\)
+
+We will get to Eq. 8 in the Backwards Propogation post.
 
 ## Next steps
  
