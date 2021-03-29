@@ -15,9 +15,9 @@ In this post we will examine the forwarding equations of the input data through 
 
 ## Network Schemes 
 
-Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely interconnected Neurons. 
+Figure 1 illustrates a Neural Network. The data is forwarded through 15 densely interconnected nodes. 
 
-The forwarding propogation journey is executed in a layer by layer order, so neurons of layer l calculate their activation output, which is the input data of layer (l+1). 
+The forwarding propogation journey is executed in a layer by layer order, so nodes of layer l calculate their activation output, which is the input data of layer (l+1). 
 Throughut this post we will present the forwarding equations based on Figure 1 as an example network.
  
  
@@ -32,12 +32,12 @@ Throughut this post we will present the forwarding equations based on Figure 1 a
 Based on the network exapmple of Figure 1, this section presents the forwarding equations of each of the 5 layers, where the input of layer l is the output of layer l-1, for l=2-5. 
 Note that the subscripts and superscript conventions are as the following:
 - Superscript index in square brackets: Layer index
-- Subscript index: Neuron index within the layer
-- 2 Subscripts (used for weights indexing): First index is the source Neuron index, and second index is of the destination Neuron.
+- Subscript index: node index within the layer
+- 2 Subscripts (used for weights indexing): First index is the source node index, and second index is of the destination node.
 
 The goal of this detailed description is to give a detailed forwarding example, with a detailed notations of all the parameters involved and their assigned indices.
 
-So here are the 5 layers equations, listed within the cascaded neurons' sketches:
+So here are the 5 layers equations, listed within the cascaded nodes' sketches:
 
 
 
@@ -250,7 +250,7 @@ a_2^{[4]}
 \\(a_1^{[5]}=
 g^{[5]}(z_1^{[5]})\\)
 
-Next section extends Eq. 5: while the above section regards to the Feed Forwarding of a single Neuron, next section presents the Feed Forward equations for an entire layer l.
+Next section extends Eq. 5: while the above section regards to the Feed Forwarding of a single node, next section presents the Feed Forward equations for an entire layer l.
 
  ## Vectorized Feed Forward Equations
  
@@ -275,7 +275,7 @@ Eq.6 vectors and matrix dimenssions are:
  - \\(\bar{a}^{[l-1]}\\) : n(l-1) x 1
  - \\(\bar{b}^{[l]}\\) : n(l) x 1
 
-Where n(l) is the number of neurons in layer l.
+Where n(l) is the number of nodes in layer l.
  
 Next section extends Eq. 6 a bit more: while the above section regarded the input vector as a vector of size 1 x n(l-1), next section presents the Feed Forward equations for an input data set with m examples.
 
@@ -322,10 +322,10 @@ Eq.7 matrix dimenssions are:
  - \\(\bar{b}^{[l]}\\) : n(l) x 1
 
 Where:
-- n(l) is the number of neurons in layer l, 
+- n(l) is the number of nodes in layer l, 
 - m is the number of training examples, 
 
-So, as an example, \\(z_2^{[l]{(m)}}\\) means: z of second neuron in lth layer and mth example.
+So, as an example, \\(z_2^{[l]{(m)}}\\) means: z of second nodes in lth layer and mth example.
 
 
 Note about matrix addition:   In Eq. 7a, the dimensions of first summand In Eq. 7a n(l) x m, so the n(l) x 1  vector \\(\bar{b}^{[l]}\\) is added us broadcasting, i.e. it is added to each of the m columns.
