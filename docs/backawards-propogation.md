@@ -123,21 +123,11 @@ Following that, the expressions for Cost derivatives for layer L are now:
 
 ### Eq. 6: Cost Function Derivative for Layer L
 #### Eq. 6a: Cost Function Derivative with respect to weights
-rr1
-\\(g^{'[L]}\\)
-rr2
-\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}*g^{{'}} * \bar{a}^{[L-1]}\\)
-
-space after asterik
-
-\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* g^{'[L]}* \bar{a}^{[L-1]}\\)
-
-space both sides asterik
 
 \\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}} * g^{'[L]} * \bar{a}^{[L-1]}\\)
 
 #### Eq. 6b: Cost Function Derivative with respect to bias
-\\(\frac{\partial C}{\partial w^{[b]}}=\frac{\partial C}{\partial a^{[L]}}*g^{'[L]}\\)
+\\(\frac{\partial C}{\partial b^{[L]}}=\frac{\partial C}{\partial a^{[L]}}*g^{'[L]}\\)
 
 
 
