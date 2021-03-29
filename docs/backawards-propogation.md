@@ -130,14 +130,14 @@ rr2
 
 space after asterik
 
-\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* g^{{'}[L]}* \bar{a}^{[L-1]}\\)
+\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* g^{'[L]}* \bar{a}^{[L-1]}\\)
 
 space both sides asterik
 
-\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}} * g^{{'}[L]} * \bar{a}^{[L-1]}\\)
+\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}} * g^{'[L]} * \bar{a}^{[L-1]}\\)
 
 #### Eq. 6b: Cost Function Derivative with respect to bias
-\\(\frac{\partial C}{\partial w^{[b]}}=\frac{\partial C}{\partial a^{[L]}}*g^{{'}[L]}\\)
+\\(\frac{\partial C}{\partial w^{[b]}}=\frac{\partial C}{\partial a^{[L]}}*g^{'[L]}\\)
 
 
 
