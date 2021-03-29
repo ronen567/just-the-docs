@@ -375,7 +375,7 @@ Now let's have the entire composition:
 
 ### Eq. 8: Vectorized Feed Forward Combined Equation
 
-\\(A^{[l]}=g^{[l]}(w^{[l]}g^{[l-1]}(w^{[l-1]}g^{[l-2]}(w^{[l-2]}g^{[l-3]}(......g^{[1]}(w^{[1]}A^{[0]}))))\)
+\\(A^{[l]}=g^{[l]}(w^{[l]}g^{[l-1]}(w^{[l-1]}g^{[l-2]}(w^{[l-2]}g^{[l-3]}(......g^{[1]}(w^{[1]}A^{[0]}))))\\)
 
 We will get to Eq. 8 in the Backwards Propogation post.
 
