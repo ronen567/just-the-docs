@@ -279,7 +279,7 @@ Where n(l) is the number of neurons in layer l.
  
 Next section extends Eq. 6 a bit more: while the above section regarded the input vector as a vector of size 1 x n(l-1), next section presents the Feed Forward equations for an input data set with m examples.
 
-## Vectorized Feed Forward for Layer l Across Multiple Examples
+## Vectorized Feed Forward Across Multiple Examples
 
 Eq. 6a and Eq. 6b are the forwarding equations for a single data input vector. To even more generalized case is the forwarding equation for all training exam or any batch of examples. These multi-examples equations are basically the same as Eq. 6, except the dimensions of the various vector change to a matrix structure as shown in Eq. 7a and Eq. 7b. Accordingly, we the matrix will be denoted in capital letters
 
@@ -293,7 +293,7 @@ Eq. 6a and Eq. 6b are the forwarding equations for a single data input vector. T
  #### Eq. 7b: Vectorized Feed Forward Equations Across m Examples - activation
 
 $$A^{[l]}=
-g^{[l]}(A^{[l]})$$
+g^{[l]}(Z^{[l]})$$
 
 
 Where \\(A^{[l]}\\) and  \\(Z^{[l]}\\) are now matrices, each column of which relates to an input data example \\(m\epsilon{M}\\) , like so:
@@ -330,7 +330,17 @@ So, as an example, \\(z_2^{[l]{(m)}}\\) means: z of second neuron in lth layer a
 
 Note about matrix addition:   In Eq. 7a, the dimensions of first summand In Eq. 7a n(l) x m, so the n(l) x 1  vector \\(\bar{b}^{[l]}\\) is added us broadcasting, i.e. it is added to each of the m columns.
 
-### Next steps
+## Overall Feed Forward
+
+Eq. 7b expresses the value of the activation matrix \\(A^{[l]}\\) as a function of \\(Z^{[l]}\\). The latter, \\(Z^{[l]}\\), is expressed as a function of \\(A^{[l-1]}\\), i.e. previous layer's activation matrix. and so forth. So, express in a single eqaution the expression for \\(A^{[l]}\\) as a composition of all its predecessor layers: 
+
+\\(A^{[l]}=\\)
+
+Here we'll extend Eq.7, Here we'll present the 
+Plugging LFollowing Eq. 7, p
+
+
+## Next steps
  
 The next post in this series is about Backwards propogation, which is activated durimg the traing phase, aka fitting, to calculate optimized values for the network's wheights and biases.
 
