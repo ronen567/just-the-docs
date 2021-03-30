@@ -100,15 +100,15 @@ Let's start:
 
 Following Eq. 1b:
 
-\\(\frac{\mathrm{d} A^{[L]}{\mathrm{d} Z^{[L]}} = g^{[L]}\\)
+\\(\frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}} = g^{'[L]}(Z^{[L]})\\)
 
 Following Eq. 1a, 
 
-\\(\frac{\mathrm{d} Z^{[L]}{\mathrm{d} W^{[L]}} = w^{[L]}\\)
+\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}} = A^{[L-1]}\\)
 
 and:
 
-\\(\frac{\mathrm{d} Z^{[L]}{\mathrm{d} b^{[L]}} = 1\\)
+\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d} b^{[L]}} = 1\\)
 
 
 According to the above, using the derivative chain rule we get:
@@ -117,7 +117,7 @@ According to the above, using the derivative chain rule we get:
  ### Eq. 5: Cost Derivatives with respect to layer L parameters
 
  ### Eq. 5a: Cost Derivatives with respect to weights
-\\(\frac{\mathrm C}{\mathrm w^{[L]}}=\frac{\mathrm C}{\mathrm a^{[L]}}* \frac{\mathrm a^{[L]}}{\mathrm z^{[L]}}* \frac{\mathrm z^{[L]}}{\mathrm w^{[L]}}\\)
+\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}=   \frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * g^{'[L]}(Z^{[L]} * A^{[L-1]}\\)
 
  ### Eq. 5b: Cost Derivatives with respect to bias
 
