@@ -104,17 +104,23 @@ Figure 2 illustrates the Feed Forward in the output layer. This illustration is 
 
 
  ### Eq. 4: Cost Derivatives in output layer - chain rule.
- #### Eq. 4a: 
+
+#### Eq. 4a: Derivative with respect to Z
 
  \\(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\)
  
-#### Eq. 4b: 
+#### Eq. 4b: Derivative with respect to weights
 
 \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
 
-#### Eq. 4c: 
+#### Eq. 4c: Derivative with respect to Bias
  
-\\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} b^{[L]}}\\)
+\\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} b^{[L]}}\\)
+
+#### Eq. 4d: Prepare for Back Propogate
+
+\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=\frac{\mathrm{d}  Z^{[L]}}{\mathrm{d} w^{[L]}}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+
 
 
 A note before we continue the work of derivation. 
