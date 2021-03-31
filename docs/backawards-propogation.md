@@ -48,15 +48,15 @@ We already met 3 types of Cost functions as shown in Eq. 2:
 ### Eq. 2: Cost Functions
 #### Eq. 2a: MSE (Mean Squared Error) Cost Function
 
-\\(C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left \| y-\hat{y} \right \|^2\\)
+\\(C(w,b)=\frac{1}{m}\sum_{j=1}^{m}\left \| y-\hat{y} \right \|^2\\)
 
 #### Eq. 2b: MAE (Mean Absolute Error) Cost Function
 
-\\(C(w,b)=\frac{1}{2m}\sum_{j=1}^{m}\left | y-\hat{y} \right |^2\\)
+\\(C(w,b)=\frac{1}{m}\sum_{j=1}^{m}\left | y-\hat{y} \right |\\)
 
 #### Eq. 2c: Cross Entropy Cost Function - Used for Logistic Regression
 
-\\(C(b,w) =-\sum_{i=1}^{m}[y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]\\)
+\\(C(b,w) =-\frac{1}{m}\sum_{i=1}^{m}[y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]\\)
 
 **Just a side note to prevent confusion between Loss and Cost functions** - **Loss** Function measures the difference between true value (y), and the model's prediction results (\\(\hat{y}\\)), while **Cost** function is the average over a batch of m Losses, e.g.  avarage over the entire training sequence of over a partial batch of it.
 
@@ -87,15 +87,65 @@ How can \\(\frac{\partial C}{\partial w^{[l]}}\\) and \\(\frac{\partial C}{\part
 
 ## Back Propogation Algorithm
 
-As stated at last paragraph of previous section, we need to find the partial derivatives of the Cost function with respect to all layer's coefficients. To acomplish that, we will use the derivative chain rule, while propogating backwards through all the layers, starting with the output layer L, striding 1 layer back till reasching layer 1.
+As stated at last paragraph of previous section, our objective is to find the partial derivatives of the Cost function with respect to all layer's coefficients. To acomplish that, we will use the derivative chain rule, while propogating backwards through all the layers, starting with the output layer L, striding 1 layer back till reasching layer 1.
 
 The rest of this section details and explains the Back Propogation in details.
-We start with the output Layer L, which has some nuance wrt all other layers. After that, the process while striding through the layers will be a routine.
+We start with the output Layer L, which has some nuance wrt hidden layers. After that, for all hidden layers, the back propogation will be a routine.
 
 
 ### Layer L Calculation
 
-Here we need to find \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}\\) and \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}\\). 
+Figure 2 illustrates the Feed Forward in the output layer. This illustration is similar to the output layer of Figure 1, except it now illustrate vectorized components, with m columns of input data. The figure depicts the computational chain which, so that the derivative equation expressed in Eq. 4, based on the chain rule, should be clear.
+
+
+### Figure 2: Vectorized Feed Forward Output Layer
+
+![neuron_cascaded_operator](../assets/images/neural-networks/Layer-L-Feed-Forwad.png)
+
+
+ ### Eq. 4: Cost Derivatives in output layer - chain rule.
+ 
+ #### Eq. 4a: Cost Derivatives with respect to \\(w^{[L]}\\)
+ 
+\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
+
+ ### Eq. 4b: Cost Derivatives with respect to bias  \\(b^{[L]}\\)
+ 
+\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
+
+
+Let's examine the chained 3 derivatives of Eq. 4a:
+1. \\(\frac{\partial C}{\partial a^{[L]}}\\) - Derivation of cost function. Note that 3 of the most common cost functions are listed in Eq. 2. Find expressions for Cost Functions derivatives and their detailed development in the appendix..
+2. \\(\frac{\partial a^{[L]}}{\partial z^{[L]}}\\) - This is the derivative of the activation fuction with respect z^{[L]}. to derivative depends on activation function. Find expressions for activation functions derivativess and their detailed development in the appendix..
+3. \\(\frac{\partial z^{[L]}}{\partial w^{[L]}}\\) - The last element in the chain, is with resepect to the weights.
+
+The first 3 derivatives of Eq. 4b ar eidentical to that of Eq. 4a. The third one is with respect to the bias.
+
+1. \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\)
+2.
+
+4.   
+5.     - Pluging in Eq. 4b gives: \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\)=\\(\frac{\bar{w}^{[L]}\bar{a}^{[L-1]}+\bar{b}^{[L]}}{\partial \bar{b^{[L]}}}=1\\)
+
+Following that, the expressions for Cost derivatives for layer L are now:
+
+
+
+
+
+ ### Eq. 5b: Cost Derivatives with respect to bias  \\(b^{[L]}\\)
+
+\\(\frac{\mathrm C}{\mathrm b^{[L]}}=\frac{\mathrml C}{\mathrm a^{[L]}}* \frac{\mathrm a^{[L]}}{\mathrm z^{[L]}}* \frac{\mathrm z^{[L]}}{\mathrm b^{[L]}}\\)
+
+
+\\(\frac{\mathrm C}{\mathrm b^{[L]}}=\frac{\mathrml C}{\mathrm a^{[L]}}* \frac{\mathrm a^{[L]}}{\mathrm z^{[L]}}* \frac{\mathrm z^{[L]}}{\mathrm b^{[L]}}\\)
+
+
+
+
+
+
+
 Let's start:
 
 Following Eq. 1b:
