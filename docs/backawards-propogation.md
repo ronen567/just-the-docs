@@ -135,12 +135,12 @@ Eq. 5b is the Cost's gradient expression with respect to the input data. Note th
 
 
 Note that:
-### Eq. 7: \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d w^{[L]}}}\\)
+### Eq. 6: 
 
 \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d w^{[L]}}}=A^{[L-1]}\\)
 And
 
-### Eq. 6: \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d b^{[L]}}}\\)
+### Eq. 7: \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d b^{[L]}}}\\)
 \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d b^{[L]}}}=\begin{bmatrix}
 1\\\\\\ 
 1\\\\\\ 
@@ -151,16 +151,16 @@ And
 
 
 
-### Eq. 8: \\ \frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+### Eq. 8: 
  \\(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[L]}}} \odot g^{'[L]}\\)
  
  Plug Eq. 7 to Eq. 4b: 
-### Eq. 9: \\( \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}\\)
+### Eq. 9: 
  \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{1}{m}{A^{[L-1]T}}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
  
  Plug Eq. 8 to Eq. 4c: 
 
-### Eq. 10: \\( \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}\\)
+### Eq. 10: 
  \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=np.sum(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}},axis=0,keepdims=True)
 \\)
 
