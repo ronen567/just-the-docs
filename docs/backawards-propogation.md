@@ -140,7 +140,7 @@ Note that:
 \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d w^{[L]}}}=A^{[L-1]}\\)
 And
 
-### Eq. 7: \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d b^{[L]}}}\\)
+### Eq. 7: 
 \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d b^{[L]}}}=\begin{bmatrix}
 1\\\\\\ 
 1\\\\\\ 
