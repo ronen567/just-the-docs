@@ -104,25 +104,100 @@ Figure 2 illustrates the Feed Forward in the output layer. This illustration is 
 
 
  ### Eq. 4: Cost Derivatives in output layer - chain rule.
+ #### Eq. 4a: 
+
+ \\(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\)
  
- #### Eq. 4a: Cost Derivatives with respect to \\(w^{[L]}\\)
+#### Eq. 4b: 
+
+\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
+
+#### Eq. 4c: 
  
-\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
+\\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} b^{[L]}}\\)
 
- ### Eq. 4b: Cost Derivatives with respect to bias  \\(b^{[L]}\\)
+
+A note before we continue the work of derivation. 
+
+Eq. 5a presents the cost function, expressing the output of the last activation in terms of the networks weight matrices and activations. (The bias coefficients are ommitted for the sake of simplicity).
+Eq. 5b is the Cost's gradient expression with respect to the input data. Note that the matrices are transposed and the order of multiplication is reversed. That explains the transposed matrix in the coming expressions.
+
+ ### Eq. 5: Cost Function and Cost Gradient 
  
-\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
+ #### Eq. 5a: Cost Function with respect to \\(A^{[0]}\\)
+\\(C(y,A^{[L]})=g^{[L]}(w^{[L]}g^{[L-1]}(w^{[L-1]}g^{[L-2]}(......g^{[1]}(w^{[1]}A^{[0]}))))
+\\)
+
+ #### Eq. 5a: Gradient of Cost Function with respect to \\(A^{[0]}\\)
+
+\\(\nabla _{A^{[0]}}C=W^{[1]T} g^{'[1]}.....W^{[L-1]T} g^{'[L-1]}W^{[L]T} g^{'[L]}\nabla _{A^{[L]}}C
+\\)
 
 
-Let's examine the chained 3 derivatives of Eq. 4a:
-1. \\(\frac{\partial C}{\partial a^{[L]}}\\) - Derivation of cost function. Note that 3 of the most common cost functions are listed in Eq. 2. Find expressions for Cost Functions derivatives and their detailed development in the appendix..
-2. \\(\frac{\partial a^{[L]}}{\partial z^{[L]}}\\) - This is the derivative of the activation fuction with respect z^{[L]}. to derivative depends on activation function. Find expressions for activation functions derivativess and their detailed development in the appendix..
-3. \\(\frac{\partial z^{[L]}}{\partial w^{[L]}}\\) - The last element in the chain, is with resepect to the weights.
+Note that:
+### Eq. 7: \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d w^{[L]}}}\\)
 
-The first 3 derivatives of Eq. 4b ar eidentical to that of Eq. 4a. The third one is with respect to the bias.
+\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d w^{[L]}}}=A^{[L-1]}\\)
+And
 
-1. \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\)
-2.
+### Eq. 6: \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d b^{[L]}}}\\)
+\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d b^{[L]}}}=\begin{bmatrix}
+1\\\\\\ 
+1\\\\\\ 
+.\\\\\\ 
+.\\\\\\
+1\\\\
+\end{bmatrix}\\)
+
+
+
+### Eq. 8: \\ \frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+ \\(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[L]}}} \odot g^{'[L]}\\)
+ 
+ Plug Eq. 7 to Eq. 4b: 
+### Eq. 9: \\( \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}\\)
+ \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{1}{m}{A^{[L-1]T}}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+ 
+ Plug Eq. 8 to Eq. 4c: 
+
+### Eq. 10: \\( \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}\\)
+ \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=np.sum(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}},axis=0,keepdims=True)
+\\)
+
+Now preparing to propogate back to layer L-1:
+### Eq. 11:
+\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=\frac{\mathrm{d}  Z^{[L]}}{\mathrm{d} w^{[L]}}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+
+Derivating Eq. 1a and plugin result to Eq. 11 gives:
+### Eq. 12
+\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=W^{[L]T}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+
+
+Note that the weight derivative matrix is scaled by the number of examples m.
+
+
+
+
+
+\odot 
+
+
+
+Let's arrange some of the derivatives:
+\\(\frac{\partial a^{[L]}}{\partial z^{[L]}} =  g^{'[L]} \\) 
+
+
+\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}} = A^{[L-1]}\\)
+
+
+
+
+
+We can 
+
+Before we calculating  derivatives, here's a note:
+derivating 
+
 
 4.   
 5.     - Pluging in Eq. 4b gives: \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\)=\\(\frac{\bar{w}^{[L]}\bar{a}^{[L-1]}+\bar{b}^{[L]}}{\partial \bar{b^{[L]}}}=1\\)
