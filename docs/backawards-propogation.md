@@ -173,7 +173,7 @@ Derivate Eq. 1a with respect to b^{[L]} and get:
 The derivative result is an all 1s m x 1 column. Multiplying a matrix by this column, is equivalent to row axis summationm - find that few equations below.
 
 Derivate Eq. 1a with respect to A^{[L-1]} and get:
-### Eq. 8 
+### Eq. 8:
 
 \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d A^{[L-1]}}}=W^{[L]}\\)
 
@@ -202,7 +202,7 @@ Plug Eq. 6  Eq. 9 into Eq. 4, to have a clearer set of equations:
  To get normalized results, independent of number of examples m, the integration of m examples requires a scaling down by m.
 
 ### Eq. 10c: 
- \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{1}{m}np.sum(\delta^{[L]}},axis=0,keepdims=True)
+ \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{1}{m}np.sum(\delta^{[L]},axis=0,keepdims=True)
 \\)
 
 Multiplication of by an all 1s vector sums each row's m entries. To get normalized results, independent of number of examples m, it is followed by a scaling down by m.
@@ -211,171 +211,31 @@ Multiplication of by an all 1s vector sums each row's m entries. To get normaliz
 
 \\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=W^{[L]T}\delta^{[L]}\\)
 
-
-**So mission acomplished with this 4 equations set**
 Note that:
 Eq. 10a is just a pre-computation which prepares \\(\delta^{[L]}\\) for the other equations.
 Eq. 10b and Eq. 10c are the ones which produce the required derivatives for this layer.
-Eq. 10d prepares the input needed for the next layer (or better say previous layer, as we will propogate back in layers)
+Eq. 10d prepares the input needed by L-1, the next layer in the back propogation process
 
-We will now continue towards having these 4 equations notjust for layer L but to any layer l. I can disclose that the same 4 equations are valid to any l.
+**Mission acomplished for layer L: Qirg Eq. 10a-Eq. 10c we can find the required derivatives!**
 
+Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l. So let's re-write the equations again, substituting L by l, where 1<=1<=L
 
-We can 
+### Eq. 11: Back Propogation Equations - Layer l
+#### Eq. 11a: 
+ \\(\delta^{[l]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[l]}}} \odot g^{'[l]}\\)
+ 
+### Eq. 11b: 
+ \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[l]}}=\frac{1}{m}{A^{[l-1]T}}\delta^{[l]}\\)
+ 
+ To get normalized results, independent of number of examples m, the integration of m examples requires a scaling down by m.
 
-Before we calculating  derivatives, here's a note:
-derivating 
+### Eq. 11c: 
+ \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[l]}}=\frac{1}{m}np.sum(\delta^{[l]},axis=0,keepdims=True)
+\\)
 
+### Eq. 11d:
 
-4.   
-5.     - Pluging in Eq. 4b gives: \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\)=\\(\frac{\bar{w}^{[L]}\bar{a}^{[L-1]}+\bar{b}^{[L]}}{\partial \bar{b^{[L]}}}=1\\)
-
-Following that, the expressions for Cost derivatives for layer L are now:
-
-
-
-
-
- ### Eq. 5b: Cost Derivatives with respect to bias  \\(b^{[L]}\\)
-
-\\(\frac{\mathrm C}{\mathrm b^{[L]}}=\frac{\mathrml C}{\mathrm a^{[L]}}* \frac{\mathrm a^{[L]}}{\mathrm z^{[L]}}* \frac{\mathrm z^{[L]}}{\mathrm b^{[L]}}\\)
-
-
-\\(\frac{\mathrm C}{\mathrm b^{[L]}}=\frac{\mathrml C}{\mathrm a^{[L]}}* \frac{\mathrm a^{[L]}}{\mathrm z^{[L]}}* \frac{\mathrm z^{[L]}}{\mathrm b^{[L]}}\\)
-
-
-
-
-
-
-
-Let's start:
-
-Following Eq. 1b:
-
-\\(\frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}} = g^{'[L]}(Z^{[L]})\\)
-
-Following Eq. 1a, 
-
-\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}} = A^{[L-1]}\\)
-
-and:
-
-\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d} b^{[L]}} = 1\\)
-
-
-According to the above, using the derivative chain rule we get:
-
-
- ### Eq. 5: Cost Derivatives with respect to layer L parameters
-
- ### Eq. 5a: Cost Derivatives with respect to weights
-\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}=   \frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * g^{'[L]}(Z^{[L]} * A^{[L-1]}\\)
-
- ### Eq. 5b: Cost Derivatives with respect to bias
-
-\\(\frac{\mathrm C}{\mathrm b^{[L]}}=\frac{\mathrml C}{\mathrm a^{[L]}}* \frac{\mathrm a^{[L]}}{\mathrm z^{[L]}}* \frac{\mathrm z^{[L]}}{\mathrm b^{[L]}}\\)
-
-
-
-Both Eq. 5a and Eq. 5b consist of a chain of 3 partial derivatives:
-1. \\(\frac{\partial C}{\partial a^{[L]}}\\) - This derivative depends on selected Cost function. Find 3 of the most common cost functions are listed in Eq. 2. Find detailed derivatives equation for commonly used Cost functions in appendix.
-2. \\(\frac{\partial a^{[L]}}{\partial z^{[L]}}\\) - This derivative depends on activation function. Find detailed derivatives equation for commonly used activation function in appendix.
-3. \\(\frac{\partial z^{[L]}}{\partial w^{[L]}}\\) - Pluging in Eq. 4a gives: \\(\frac{\partial z^{[L]}}{\partial w^{[L]}}\\)=\\(\frac{\bar{w}^{[L]}\bar{a}^{[L-1]}+\bar{b}^{[L]}}{\partial w^{[L]}}= \bar{a}^{[L-1]}\\)
-4. \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\) - Pluging in Eq. 4b gives: \\(\frac{\partial z^{[L]}}{\partial b^{[L]}}\\)=\\(\frac{\bar{w}^{[L]}\bar{a}^{[L-1]}+\bar{b}^{[L]}}{\partial \bar{b^{[L]}}}=1\\)
-
-Following that, the expressions for Cost derivatives for layer L are now:
-
-
-### Eq. 6: Cost Function Derivative for Layer L
-#### Eq. 6a: Cost Function Derivative with respect to weights
-
-\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}} * g^{'[L]} * \bar{a}^{[L-1]}\\)
-
-#### Eq. 6b: Cost Function Derivative with respect to bias
-\\(\frac{\partial C}{\partial b^{[L]}}=\frac{\partial C}{\partial a^{[L]}}*g^{'[L]}\\)
-
-
-
-Let's continue the stepping backwards to Layer L-1, keeping up with the derivative chain rules:
-
-\\(\frac{\partial C}{\partial a^{[L-1]}}=\frac{\partial C}{\partial z^{[L]}} * \frac{\partial z^{[L]}}{\partial a^{[L-1]}}\\) 
-
-Derivating Eq. 4a with respect to \\(a^{[L-1]}\\) :
-
-
- \\(\frac{\partial z^{[L]}}{\partial a^{[L-1]}} = \bar{w}^{[L]}\\)
-
-
-
-
-
-### Eq. 5: Cost Derivatives for l=L-1
-
-\\(\frac{\partial C}{\partial w^{[L]}}=\frac{\partial C}{\partial a^{[L]}}* \frac{\partial a^{[L]}}{\partial z^{[L]}}* \frac{\partial z^{[L]}}{\partial w^{[L]}}\\)
-
-
-
-
-
-
-
-
-Let's examine layer L equations - look at Figure 2 (extracted from Figure 1).
-
-
-
-
-
-To do that, we will use the derivative chain rule. 
-
-
-
-
-denoted by l=L:
-
-We need to find 
-
-The cost function is Since  \\(\hat{y}=a^{[L]}\\) - see that in the last section of F_gure 1, _ \\(C(y,\hat{y})\\) is a function of \\(\hat{y})\\) i
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Eq. 1 presents a cost function general expression. It is denoted as a function of the network's coefficients w,b, which are the variable parameters, and g-the activation function, x - input data, and y-the expected output, which are given constants.
-
-
-### Eq. 1: Cost Function
-
-J(w,b,g,x,y) 
-
-
-
-
-
-
-
-
-
-
-
-
-
+\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[l-1]}}=W^{[l]T}\delta^{[l]}\\)
 
 
 
