@@ -116,21 +116,21 @@ Following Figure 2's equations chain, using the derivatives chain rule, we get t
 
  ### Eq. 4: Cost Derivatives in output layer - chain rule.
 
-#### Eq. 4a: Derivative with respect to Z
+#### Eq. 4a: Cost Derivative with respect to Z - Commonly denoted by \\(\delta\\)
 
- \\(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} * \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\)
+\delta^{[L]}=\\(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} \cdot \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\)
  
 #### Eq. 4b: Derivative with respect to weights
 
-\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
+\\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\delta^{[L]} \cdot  \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
 
 #### Eq. 4c: Derivative with respect to Bias
  
-\\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}} * \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} b^{[L]}}\\)
+\\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\delta^{[L]} \cdot  \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} b^{[L]}}\\)
 
 #### Eq. 4d: Prepare for Back Propogate
 
-\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=\frac{\mathrm{d}  Z^{[L]}}{\mathrm{d} w^{[L]}}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=\frac{\mathrm{d}  Z^{[L]}}{\mathrm{d} w^{[L]}}\delta^{[L]}\\)
 
 
 A note before we continue the work of derivation. 
@@ -150,11 +150,16 @@ Eq. 5b is the Cost's gradient expression with respect to the input data. Note th
 \\)
 
 
-Note that:
+Let's simplify Eq. 4, and have it better presented.
+
+Derivate Eq. 1a with respect to \\( w^{[L]}\\) and get:
+
 ### Eq. 6: 
 
 \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d w^{[L]}}}=A^{[L-1]}\\)
-And
+
+
+Derivate Eq. 1a with respect to b^{[L]} and get:
 
 ### Eq. 7: 
 \\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d b^{[L]}}}=\begin{bmatrix}
@@ -165,48 +170,55 @@ And
 1\\\\
 \end{bmatrix}\\)
 
+The derivative result is an all 1s m x 1 column. Multiplying a matrix by this column, is equivalent to row axis summationm - find that few equations below.
+
+Derivate Eq. 1a with respect to A^{[L-1]} and get:
+### Eq. 8 
+
+\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d A^{[L-1]}}}=W^{[L]}\\)
+
+Denote the activation derivative by \\(g^{'[L]}\\)
+
+### Eq. 9:
+
+\\g^{'[L]}=(\frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\\).
 
 
-### Eq. 8: 
- \\(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[L]}}} \odot g^{'[L]}\\)
+Where g() is the activation function.
+
+(We will detail the derivative of the various activation functions in a following post).
+
+
+Plug Eq. 6  Eq. 9 into Eq. 4, to have a clearer set of equations:
+
+
+### Eq. 10: Back Propogation Equations - Layer L
+#### Eq. 10a: 
+ \\(\delta^{[L]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[L]}}} \odot g^{'[L]}\\)
  
- Plug Eq. 7 to Eq. 4b: 
-### Eq. 9: 
- \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{1}{m}{A^{[L-1]T}}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+### Eq. 10b: 
+ \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{1}{m}{A^{[L-1]T}}\delta^{[L]}\\)
  
- Plug Eq. 8 to Eq. 4c: 
+ To get normalized results, independent of number of examples m, the integration of m examples requires a scaling down by m.
 
-### Eq. 10: 
- \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=np.sum(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}},axis=0,keepdims=True)
+### Eq. 10c: 
+ \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{1}{m}np.sum(\delta^{[L]}},axis=0,keepdims=True)
 \\)
 
-Now preparing to propogate back to layer L-1:
-### Eq. 11:
-\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=\frac{\mathrm{d}  Z^{[L]}}{\mathrm{d} w^{[L]}}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+Multiplication of by an all 1s vector sums each row's m entries. To get normalized results, independent of number of examples m, it is followed by a scaling down by m.
 
-Derivating Eq. 1a and plugin result to Eq. 11 gives:
-### Eq. 12
-\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=W^{[L]T}\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}\\)
+### Eq. 10d:
+
+\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=W^{[L]T}\delta^{[L]}\\)
 
 
-Note that the weight derivative matrix is scaled by the number of examples m.
+**So mission acomplished with this 4 equations set**
+Note that:
+Eq. 10a is just a pre-computation which prepares \\(\delta^{[L]}\\) for the other equations.
+Eq. 10b and Eq. 10c are the ones which produce the required derivatives for this layer.
+Eq. 10d prepares the input needed for the next layer (or better say previous layer, as we will propogate back in layers)
 
-
-
-
-
-\odot 
-
-
-
-Let's arrange some of the derivatives:
-\\(\frac{\partial a^{[L]}}{\partial z^{[L]}} =  g^{'[L]} \\) 
-
-
-\\(\frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}} = A^{[L-1]}\\)
-
-
-
+We will now continue towards having these 4 equations notjust for layer L but to any layer l. I can disclose that the same 4 equations are valid to any l.
 
 
 We can 
