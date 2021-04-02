@@ -224,20 +224,20 @@ Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l
 
 ### Eq. 11: Back Propogation Equations - Layer l
 #### Eq. 11a: 
- \\(\delta^{[l]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[l]}}} \odot g^{'[l]}\\)
+> \\(\delta^{[l]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[l]}}} \odot g^{'[l]}\\)
  
 ### Eq. 11b: 
- \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[l]}}=\frac{1}{m}{A^{[l-1]T}}\delta^{[l]}\\)
+> \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[l]}}=\frac{1}{m}{A^{[l-1]T}}\delta^{[l]}\\)
  
  To get normalized results, independent of number of examples m, the integration of m examples requires a scaling down by m.
 
 ### Eq. 11c: 
- \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[l]}}=\frac{1}{m}np.sum(\delta^{[l]},axis=0,keepdims=True)
+> \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[l]}}=\frac{1}{m}np.sum(\delta^{[l]},axis=0,keepdims=True)
 \\)
 
 ### Eq. 11d:
 
-\\(\frac{\mathrm{d} C}{\mathrm{d} A^{[l-1]}}=W^{[l]T}\delta^{[l]}\\)
+> \\(\frac{\mathrm{d} C}{\mathrm{d} A^{[l-1]}}=W^{[l]T}\delta^{[l]}\\)
 
 
 > ooooo
