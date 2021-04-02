@@ -118,7 +118,7 @@ Following Figure 2's equations chain, using the derivatives chain rule, we get t
 
 #### Eq. 4a: Cost Derivative with respect to Z - Commonly denoted by \\(\delta\\)
 
-\delta^{[L]}=\\(\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} \cdot \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\)
+\\(\delta^{[L]}=\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} \cdot \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\)
  
 #### Eq. 4b: Derivative with respect to weights
 
@@ -181,7 +181,7 @@ Denote the activation derivative by \\(g^{'[L]}\\)
 
 ### Eq. 9:
 
-\\g^{'[L]}=(\frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\\).
+\\(g^{'[L]}=\frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\\).
 
 
 Where g() is the activation function.
@@ -195,6 +195,8 @@ Plug Eq. 6  Eq. 9 into Eq. 4, to have a clearer set of equations:
 ### Eq. 10: Back Propogation Equations - Layer L
 #### Eq. 10a: 
  \\(\delta^{[L]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[L]}}} \odot g^{'[L]}\\)
+ 
+ Where \\(\odot\\) denotes element wise multiplication.
  
 ### Eq. 10b: 
  \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{1}{m}{A^{[L-1]T}}\delta^{[L]}\\)
@@ -238,7 +240,9 @@ Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l
 \\(\frac{\mathrm{d} C}{\mathrm{d} A^{[l-1]}}=W^{[l]T}\delta^{[l]}\\)
 
 
-
+> ooooo
+> jkkjkj
+> 
 
 
 
