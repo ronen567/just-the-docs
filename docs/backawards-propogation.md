@@ -193,6 +193,12 @@ Plug Eq. 6  Eq. 9 into Eq. 4, to have a clearer set of equations:
 
 
 ### Eq. 10: Back Propogation Equations - Layer L
+{: .d-inline-block }
+
+New
+{: .label .label-green }
+
+
 #### Eq. 10a: 
  \\(\delta^{[L]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[L]}}} \odot g^{'[L]}\\)
  
