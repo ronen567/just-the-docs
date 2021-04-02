@@ -26,12 +26,12 @@ In this section we recap Feed Forward equations, which are needed as a backgroun
 
 
 ### Eq. 1: Feed Forwarding Equations Layer l
-#### Eq. 1a: Feed Forwarding Equations - Weighted input
+### Eq. 1a: Feed Forwarding Equations - Weighted input
  $$
  \bar{Z}^{[l]}=\bar{w}^{[l]}\bar{A}^{[l-1]}+\bar{b}^{[l]}
  $$
  
-#### Eq. 1b: Feed Forwarding Equations - activation
+### Eq. 1b: Feed Forwarding Equations - activation
 
 $$A^{[l]}=
 g^{[l]}(Z^{[l]})$$
@@ -46,15 +46,15 @@ Given the input-output set (x,y) and the prediction result \\(\hat{y}\\), a cost
 We already met 3 types of Cost functions as shown in Eq. 2:
 
 ### Eq. 2: Cost Functions
-#### Eq. 2a: MSE (Mean Squared Error) Cost Function
+### Eq. 2a: MSE (Mean Squared Error) Cost Function
 
 \\(C(w,b)=\frac{1}{m}\sum_{j=1}^{m}\left \| y-\hat{y} \right \|^2\\)
 
-#### Eq. 2b: MAE (Mean Absolute Error) Cost Function
+### Eq. 2b: MAE (Mean Absolute Error) Cost Function
 
 \\(C(w,b)=\frac{1}{m}\sum_{j=1}^{m}\left | y-\hat{y} \right |\\)
 
-#### Eq. 2c: Cross Entropy Cost Function - Used for Logistic Regression
+### Eq. 2c: Cross Entropy Cost Function - Used for Logistic Regression
 
 \\(C(b,w) =-\frac{1}{m}\sum_{i=1}^{m}[y_i^{(i)}log(\hat{y}^{(i)})+(1-y^{(i)})log(1-\hat{y}^{(i)})]\\)
 
@@ -70,11 +70,11 @@ If you're not familiar with Gradient Descent, it is suggested you read the posts
 The Gradient Descet equations are presented by Eq. 3, Where the superscript [l], l=[1,L], denotes the layer, and \\(\alpha\\) is the learning rate.
 
 ### Eq. 3: Gradient Descent Recursive Equations
-#### Eq. 3a: Weight Recursive Equation
+### Eq. 3a: Weight Recursive Equation
 $$
 w^{[l]}=w^{[l]}-\alpha\frac{\partial C}{\partial w^{[l]}}
 $$
-#### Eq. 3b: Bias Recursive Equation
+### Eq. 3b: Bias Recursive Equation
 
 $$
 b^{[l]}=b^{[l]}-\alpha\frac{\partial C}{\partial b^{[l]}}
@@ -114,21 +114,21 @@ Figure 2 illustrates the Feed Forward in the output layer. This illustration is 
 Following Figure 2's equations chain, using the derivatives chain rule, we get the following 4 derivatives equations Eq. 4a-Eq.4d. Note that Eq. 4b and Eq. 4c are bassically the equations we are after! We now just need to generalize the eqauations to all layers, and, translate the derivatives to a more detailed form.
 
 
- ### Eq. 4: Cost Derivatives in output layer - chain rule.
+### Eq. 4: Cost Derivatives in output layer - chain rule.
 
-#### Eq. 4a: Cost Derivative with respect to Z - Commonly denoted by \\(\delta\\)
+### Eq. 4a: Cost Derivative with respect to Z - Commonly denoted by \\(\delta\\)
 
 \\(\delta^{[L]}=\frac{\mathrm{d} C}{\mathrm{d} Z^{[L]}}=\frac{\mathrm{d} C}{\mathrm{d} A^{[L]}} \cdot \frac{\mathrm{d} A^{[L]}}{\mathrm{d} Z^{[L]}}\\)
  
-#### Eq. 4b: Derivative with respect to weights
+### Eq. 4b: Derivative with respect to weights
 
 \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\delta^{[L]} \cdot  \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} w^{[L]}}\\)
 
-#### Eq. 4c: Derivative with respect to Bias
+### Eq. 4c: Derivative with respect to Bias
  
 \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\delta^{[L]} \cdot  \frac{\mathrm{d} Z^{[L]}}{\mathrm{d} b^{[L]}}\\)
 
-#### Eq. 4d: Prepare for Back Propogate
+### Eq. 4d: Prepare for Back Propogate
 
 \\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=\frac{\mathrm{d}  Z^{[L]}}{\mathrm{d} w^{[L]}}\delta^{[L]}\\)
 
@@ -194,7 +194,7 @@ Plug Eq. 6  Eq. 9 into Eq. 4, to have a clearer set of equations:
 
 ### Eq. 10: Back Propogation Equations - Layer L
 
-#### Eq. 10a: 
+### Eq. 10a: 
  \\(\delta^{[L]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[L]}}} \odot g^{'[L]}\\)
  
  Where \\(\odot\\) denotes element wise multiplication.
@@ -224,7 +224,7 @@ Eq. 10d prepares the input needed by L-1, the next layer in the back propogation
 Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l. So let's re-write the equations again, substituting L by l, where 1<=1<=L
 
 ### Eq. 11: Back Propogation Equations - Layer l
-#### Eq. 11a: 
+### Eq. 11a: 
 \\(\mathbf{\delta^{[l]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[l]}}} \odot g^{'[l]}}\\)
  
 ### Eq. 11b: 
