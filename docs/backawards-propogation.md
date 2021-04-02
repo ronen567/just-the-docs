@@ -228,17 +228,20 @@ Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l
 \\(\mathbf{\delta^{[l]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[l]}}} \odot g^{'[l]}}\\)
  
 ### Eq. 11b: 
-\\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} w^{[l]}}=\frac{1}{m}{A^{[l-1]T}}\delta^{[l]}}\\)
+\\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} w^{[l]}}=\frac{1}m{A^{[l-1]T}}\cdot\delta^{[l]}}\\)
  
 
 ### Eq. 11c: 
-\\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} b^{[l]}}=\frac{1}{m}np.sum(\delta^{[l]},axis=0,keepdims=True})
+\\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} b^{[l]}}=\frac{1}{m}np.sum(\delta^{[l]},\textbf{axis=0,keepdims=True}})
 \\)
 
 ### Eq. 11d:
 
-\\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} A^{[l-1]}}=W^{[l]T}\delta^{[l]}}\\)
+\\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} A^{[l-1]}}=W^{[l]T}\cdot\delta^{[l]}}\\)
 
+
+
+![](../assets/images/neural-networks/Backward-Propogation-Eq.png)
 
 
 
