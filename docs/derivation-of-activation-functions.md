@@ -65,7 +65,11 @@ undefined &if& x==0
 
 ### Eq. 4a: Leaky Relu
 
-\\(leakyRelu(x)= \text{max ? x : c} \cdot x
+\\(leakyRelu(x)= \begin{Bmatrix}
+cx & if &x <0\\\\\\ 
+x & if& x >0
+\end{Bmatrix}
+$$
 \\)
 ### Eq. 4b: Leaky Relu Derivative
 $$\frac{\mathrm{d} }{\mathrm{d} x}[leakyRelu(x)]=\begin{Bmatrix}
