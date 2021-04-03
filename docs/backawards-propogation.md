@@ -248,7 +248,7 @@ Figure 3 illustrates Forward Propogation and Back Propogation. Some Notes on the
 
 ### Figure 3: Forward and Backward Propogation
 
-![](../assets/images/neural-networks/Backward-Propogation-Eq.png)
+![](../assets/images/neural-networks/Backward-Propogation-FW-BW.png)
 
 
 
