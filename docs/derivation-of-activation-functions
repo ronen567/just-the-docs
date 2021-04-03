@@ -1,4 +1,9 @@
-# Appendix: Derivation of Various Activation Functions
+---
+layout: default
+nav_order: 16
+title: Activation Functions Derivation
+---
+# Appendix: Activation Functions Derivation
 
 ##Sigmoid
 
