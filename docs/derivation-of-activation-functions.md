@@ -19,7 +19,8 @@ $$\sigma{x}=\frac{1}{1+e^{-x}}}$$
 
 ### Eq. 1a: Sigmoid Derivative 
 
-$$\frac{\partial }{\partial \sigma(z)}L(z) =\frac{\partial }{\partial \sigma(z)} (-ylog \sigma(z) + (1-y)log(1- \sigma(z))$$
+$$$$\frac{\partial }  {\partial z}\sigma(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
+-\frac{-e^{-z}}{(1+e^{-z})^2}=-\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=-\sigma(z)^2+\sigma(z)=\sigma(z)(1-\sigma(z))$$
 
 
 ## Parabolic Tangent - tanh
