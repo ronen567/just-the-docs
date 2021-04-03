@@ -1,7 +1,7 @@
 ---
 layout: default
 nav_order: 6
-title: Backw Propogation
+title: Back Propogation
 ---
 # Back Propogation
 
