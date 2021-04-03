@@ -99,7 +99,7 @@ Note: The equations developemnt in this post are for a batch of m training examp
 We start with eamination of the outputlayer, i.e. layer L, and then generalize the resultant equations to all layers.
 
 
-### Layer L Calculation
+## Back Propogation - Starting with Layer L
 
 Figure 2 illustrates the Feed Forward in the output layer. This illustration is similar to the output layer of Figure 1, except it now illustrate vectorized components, with m columns of input data. The figure depicts output layer's Feed Forward computational chained 3 equations.
 
@@ -133,7 +133,7 @@ Following Figure 2's equations chain, using the derivatives chain rule, we get t
 \\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=\frac{\mathrm{d}  Z^{[L]}}{\mathrm{d} w^{[L]}}\delta^{[L]}\\)
 
 
-**A note before we continue the work of derivation. 
+**A note before we continue the work of derivation.** 
 
 Eq. 5a presents the cost function, expressing the output of the last activation in terms of the networks weight matrices and activations. (The bias coefficients are ommitted for the sake of simplicity).
 Eq. 5b is the Cost's gradient expression with respect to the input data. Note that the matrices are transposed and the order of multiplication is reversed. That explains the transposed matrix in the coming expressions.
@@ -149,9 +149,9 @@ Eq. 5b is the Cost's gradient expression with respect to the input data. Note th
 \\(\nabla _{A^{[0]}}C=W^{[1]T} g^{'[1]}.....W^{[L-1]T} g^{'[L-1]}W^{[L]T} g^{'[L]}\nabla _{A^{[L]}}C
 \\)
 
-
-Let's simplify Eq. 4, and have it better presented.
-
+## Back Propogation Layer L - Some Epressions Arrangements
+In this section, we'll arrange Eq. 4, in order to produce simpler expressions.
+ 
 Derivate Eq. 1a with respect to \\( w^{[L]}\\) and get:
 
 ### Eq. 6: 
@@ -191,6 +191,7 @@ Where g() is the activation function.
 
 Plug Eq. 6  Eq. 9 into Eq. 4, to have a clearer set of equations:
 
+## Back Propogation Equations Layer L - Final Version
 
 ### Eq. 10: Back Propogation Equations - Layer L
 
@@ -221,7 +222,11 @@ Eq. 10d prepares the input needed by L-1, the next layer in the back propogation
 
 **Mission acomplished for layer L: Qirg Eq. 10a-Eq. 10c we can find the required derivatives!**
 
+## Back Propogation - Any Layer l
+
 Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l. So let's re-write the equations again, substituting L by l, where 1<=1<=L
+
+## Back Propogation Equations Any Layer l, 1<l<L
 
 ### Eq. 11: Back Propogation Equations - Layer l
 ### Eq. 11a: 
@@ -239,6 +244,9 @@ Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l
 
 \\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} A^{[l-1]}}=W^{[l]T}\cdot\delta^{[l]}}\\)
 
+
+
+## Back Propogation - Schematic Illustration
 
 Figure 3 illustrates Forward Propogation and Back Propogation. Some Notes on the diagram:
 - Feed Forward process caches \\(Z^{[l]}\\) and \\(A^{[l-1]}\\) for the Backward Propogation process, thus avoiding re-calculation of these values.
