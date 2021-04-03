@@ -55,6 +55,13 @@ $$\frac{\mathrm{d}}{\mathrm{d} x}relu(x)=\left\{\begin{matrix}
 1 & \textup{if x} >0\\\\\\
 undefined &x==0 \end{matrix}\right.$$
 
+33333
+\\(\frac{\mathrm{d}}{\mathrm{d} x}relu(x)=\begin{Bmatrix}
+0 & \textup{if x} <0\\\\\\ 
+1 & \textup{if x} >0\\\\\\
+undefined &x==0 
+\end{Bmatrix}\\)
+
 ## Leaky RelU
 
 ### Figure 4: Leaky RelU
