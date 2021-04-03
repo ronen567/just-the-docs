@@ -80,6 +80,8 @@ b_{1}^{[3]}
 
 ## Feed Forward:
 
+### Feed Forward L1:
+
 \\(Z^{[1]}=w^{[1]} \cdot A^{[0]} + b^{[1]}= \begin{bmatrix}
 w_{11}^{[1]} & w_{21}^{[1]} & w_{31}^{[1]}\\\\\\
 w_{12}^{[1]} & w_{22}^{[1]} & w_{32}^{[1]}\\\\\\
@@ -104,6 +106,10 @@ z_{31}^{[1]} & z_{32}^{[1]} & z_{33}^{[1]}\\\\\\
 z_{41}^{[1]} & z_{42}^{[1]} & z_{43}^{[1]}
 \end{bmatrix}
 \\)
+
+Dimensions of Z are n[l=1] x m, i.e. 4*3
+
+Note that \\(b^{[1]\\) is broadcasted across all columns for the above addition.
 
 
 
