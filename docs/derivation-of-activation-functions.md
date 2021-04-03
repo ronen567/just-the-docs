@@ -50,17 +50,13 @@ $$
 $$relu(x)=max(0,x)
 $$
 ### Eq. 3b: RelU Derivative
-$$\frac{\mathrm{d}}{\mathrm{d} x}relu(x)=\left\{\begin{matrix}
-0 & \textup{if x} <0\\\\\\ 
-1 & \textup{if x} >0\\\\\\
-undefined &x==0 \end{matrix}\right.$$
+$$\frac{\mathrm{d}}{\mathrm{d} x}relu(x)=\begin{Bmatrix}
+0 & if&x <0\\\\\\ 
+1 & if& x >0\\\\\\
+undefined &if& x==0 
+\end{Bmatrix}$$
 
-33333
-\\(\frac{\mathrm{d}}{\mathrm{d} x}relu(x)=\begin{Bmatrix}
-0 & \textup{if x} <0\\\\\\ 
-1 & \textup{if x} >0\\\\\\
-undefined &x==0 
-\end{Bmatrix}\\)
+
 
 ## Leaky RelU
 
