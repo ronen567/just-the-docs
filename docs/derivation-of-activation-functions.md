@@ -61,11 +61,11 @@ undefined &x==0 \end{matrix}\right.$$
 ![Supervise Learning Outlines](../assets/images/neural-networks/leaky_relu.png)
 
 
-### Eq. 5a: Leaky Relu
+### Eq. 4a: Leaky Relu
 
 leaky_relu(x)= max ? x: c*x
 
-### Eq. 5b: Leaky Relu Derivative
+### Eq. 4b: Leaky Relu Derivative
 $$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix}
 c & \textup{if x} <0\\\\\\ 
 1 & \textup{if x} >0\\\\\\
