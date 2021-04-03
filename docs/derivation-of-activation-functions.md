@@ -63,10 +63,10 @@ undefined &x==0 \end{matrix}\right.$$
 
 ### Eq. 4a: Leaky Relu
 
-leaky_relu(x)= max ? x: c*x
-
+\\(leakyRelu(x)= \text{max ? x : c} \cdot x
+\\)
 ### Eq. 4b: Leaky Relu Derivative
-$$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix}
+$$\frac{\mathrm{d} }{\mathrm{d} x}[leakyRelu(x)]=\left\{\begin{matrix}
 c & \textup{if x} <0\\\\\\ 
 1 & \textup{if x} >0\\\\\\
 undefined \text{ (unless c=1)} &x==0  
@@ -74,11 +74,11 @@ undefined \text{ (unless c=1)} &x==0
 $$
 
 2
-$$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]$$
+$$\frac{\mathrm{d} }{\mathrm{d} x}[leakyRelu(x)]$$
 
 3
 
-$$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix}
+$$\frac{\mathrm{d} }{\mathrm{d} x}[leakyRelu(x)]=\left\{\begin{matrix}
 c & \textup{if x} <0\\\\\\ 
 1 & \textup{if x} >0\\\\\\
 undefined \text{ (unless c=1)} &x==0  
@@ -86,7 +86,7 @@ undefined \text{ (unless c=1)} &x==0
 $$
 
 4
-$$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix} 
+$$\frac{\mathrm{d} }{\mathrm{d} x}[leakyRelu(x)]=\left\{\begin{matrix} 
 \\\\\\
 \\\\\\
 \end{matrix}\right.$$
@@ -94,17 +94,15 @@ $$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix}
 
 5.1
 
-$$\left\{\begin{matrix}
+\\(\left\{\begin{matrix}
 c & \textup{if x} <0 \\\\\\ 
 1 & \textup{if x} >0 \\\\\\
 undefined \text{ (unless c=1)} &x==0  
-\end{matrix}\right.
-$$
+\end{matrix}\right.\\)
 
 6
 
-$$\left \{ \begin{matrix} \end{matrix}\right.
-$$
+\\(\left \{ \begin{matrix} \end{matrix}\right.\\)
 
 
 
