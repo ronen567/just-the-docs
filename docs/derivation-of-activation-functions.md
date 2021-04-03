@@ -65,12 +65,11 @@ undefined &if& x==0
 
 ### Eq. 4a: Leaky Relu
 
-\\(leakyRelu(x)= \begin{Bmatrix}
+$$leakyRelu(x)= \begin{Bmatrix}
 cx & if &x <0\\\\\\ 
 x & if& x >0
 \end{Bmatrix}
 $$
-\\)
 ### Eq. 4b: Leaky Relu Derivative
 $$\frac{\mathrm{d} }{\mathrm{d} x}[leakyRelu(x)]=\begin{Bmatrix}
 c & if &x <0\\\\\\ 
