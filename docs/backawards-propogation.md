@@ -240,6 +240,13 @@ Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l
 \\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} A^{[l-1]}}=W^{[l]T}\cdot\delta^{[l]}}\\)
 
 
+Figure 3 illustrates Forward Propogation and Back Propogation. Some Notes on the diagram:
+- Feed Forward process caches \\(Z^{[l]}\\) and \\(A^{[l-1]}\\) for the Backward Propogation process, thus avoiding re-calculation of these values.
+- Each Back Propogation layer process, receives \\(\frac{\mathrm{d} C}{\mathrm{d}{A^{[l]}}}\\) from its predecessor.
+- Output of each Back Propogation layer process, is, as we already well know, \\\frac{\mathrm{d} C}{\mathrm{d}{W^{[l]}}}\\) and \\(\frac{\mathrm{d} C}{\mathrm{d}{b^{[l]}}}\\).
+
+
+### Figure 3: Forward and Backward Propogation
 
 ![](../assets/images/neural-networks/Backward-Propogation-Eq.png)
 
