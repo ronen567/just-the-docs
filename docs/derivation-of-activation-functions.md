@@ -103,8 +103,7 @@ $$
 
 6
 
-$$\left\{\begin{matrix}
-\end{matrix}\right.
+$$\left \{ \begin{matrix} \end{matrix}\right.
 $$
 
 
