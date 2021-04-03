@@ -15,11 +15,11 @@ title: Activation Functions Derivation
 
 ### Eq. 1a: Sigmoid Function 
 
-$$\sigma{x}=\frac{1}{1+e^{-x}}}$$
+$$\sigma{x}=\frac{1}{1+e^{-x}}$$
 
 ### Eq. 1a: Sigmoid Derivative 
 
-$$$$\frac{\partial }  {\partial z}\sigma(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
+$$\frac{\partial }  {\partial z}\sigma(z)=\frac{\partial }  {\partial z}\frac{1}{1+e^{-z}}=
 -\frac{-e^{-z}}{(1+e^{-z})^2}=-\frac{1-(1+e^{-z})}{(1+e^{-z})^2}=-\sigma(z)^2+\sigma(z)=\sigma(z)(1-\sigma(z))$$
 
 
@@ -50,15 +50,10 @@ $$
 $$relu(x)=max(0,x)
 $$
 ### Eq. 3b: RelU Derivative
-$$
-\frac{\mathrm{d}}{\mathrm{d} x}relu(x)=\left\{\begin{matrix}
-0 & \textup{if x} <0\\
-\\ 
-1 & \textup{if x} >0\\
-\\
-undefined &x==0
-\end{matrix}\right.
-$$
+$$\frac{\mathrm{d}}{\mathrm{d} x}relu(x)=\left\{\begin{matrix}
+0 & \textup{if x} <0\\\\\\ 
+1 & \textup{if x} >0\\\\\\
+undefined &x==0 \end{matrix}\right.$$
 
 ## Leaky RelU
 
@@ -71,15 +66,11 @@ $$
 leaky_relu(x)= max ? x: c*x
 
 ### Eq. 5b: Leaky Relu Derivative
-$$
-\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix}
-c & \textup{if x} <0\\
-\\ 
-1 & \textup{if x} >0\\
-\\
+$$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix}
+c & \textup{if x} <0\\\\\\ 
+1 & \textup{if x} >0\\\\\\
 undefined \text{ (unless c=1)} &x==0  
-\end{matrix}\right.
-$$
+\end{matrix}\right.$$
 
 
 
