@@ -133,7 +133,7 @@ Following Figure 2's equations chain, using the derivatives chain rule, we get t
 \\(\frac{\mathrm{d} C}{\mathrm{d} A^{[L-1]}}=\frac{\mathrm{d}  Z^{[L]}}{\mathrm{d} w^{[L]}}\delta^{[L]}\\)
 
 
-A note before we continue the work of derivation. 
+**A note before we continue the work of derivation. 
 
 Eq. 5a presents the cost function, expressing the output of the last activation in terms of the networks weight matrices and activations. (The bias coefficients are ommitted for the sake of simplicity).
 Eq. 5b is the Cost's gradient expression with respect to the input data. Note that the matrices are transposed and the order of multiplication is reversed. That explains the transposed matrix in the coming expressions.
