@@ -72,7 +72,17 @@ c & \textup{if x} <0\\\\\\
 undefined \text{ (unless c=1)} &x==0  
 \end{matrix}\right.$$
 
-
+2
+$$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]$$
+4
+$$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix}
+c & \textup{if x} <0\\\\\\ 
+1 & \textup{if x} >0\\\\\\
+undefined \text{ (unless c=1)} &x==0  
+\end{matrix}\right.$$
+4
+$$\frac{\mathrm{d} }{\mathrm{d} x}[leaky_relu(x)]=\left\{\begin{matrix} 
+\end{matrix}\right.$$
 
 
 
