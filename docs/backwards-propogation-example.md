@@ -14,10 +14,27 @@ The network is depicted In Figure 1.
 The input data x, consists of m examples, where m=3. (Note that the examples are stacked in columns).
 
 \\(A^{[0]}=\begin{bmatrix}
-a_1^{[0](1)}& a_1^{[0](2)}&  a_1^{[0](3)} \\\\\\
-a_2^{[0](1)}& a_2^{[0](2)}& a_2^{[0](3)} \\\\\\
-a_3^{[0](1)}& a_3^{[0](2)}& a_3^{[0](3)}\end{bmatrix}\\)
+a_1^{[0](1)}& a_1^{[0](2)} & a_1^{[0](3)} \\\\\\
+a_2^{[0](1)}& a_2^{[0](2)} & a_2^{[0](3)} \\\\\\
+a_3^{[0](1)}& a_3^{[0](2)} & a_3^{[0](3)}\end{bmatrix}\\)
 
+2
+\\(A^{[0]}=\begin{bmatrix}
+a_3^{[0](1)}& a_3^{[0](2)} & a_3^{[0](3)}\end{bmatrix}\\)
+
+3
+\\(A^{[0]}=\begin{bmatrix}
+a_3^{[0]{(2)}}& a_3^{[0]{(2)}} & a_3^{[0]{(2)}}\end{bmatrix}\\)
+
+4
+\\(A^{[0]}=\begin{bmatrix}
+a_3^{[0]}& a_3^{[0]} & a_3^{[0]}\end{bmatrix}\\)
+
+
+\\(A^{[0]}=\begin{bmatrix}
+a_1^{[0](1)}& a_1^{[0](2)} & a_1^{[0](3)} \\\\\\
+a_2^{[0](1)}& a_2^{[0](2)} & a_2^{[0](3)} \\\\\\
+a_3^{[0](1)}& a_3^{[0](2)} & a_3^{[0](3)}\end{bmatrix}\\)
 
 ### Initial Paramerters
 
