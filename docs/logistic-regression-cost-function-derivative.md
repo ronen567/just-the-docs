@@ -112,7 +112,7 @@ re-Combining the 3 parts of the chain we get the Loss function for a single exam
 $$\frac{\partial }{\partial w_i}L=(-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1-\sigma(z)}) \cdot \sigma(z)(1-\sigma(z)) \cdot x^{(i)}=(\sigma(z)-y^{(i)})x^{(i)}=(\hat{y}^{(i)}-y^{(i)})x^{(i)}$$
 
 
-#### Eq. 11:  Derivative of Loss Function
+## Eq. 11:  Derivative of Loss Function
 
 $$\frac{\partial }{\partial w_i}L(b,w)=(\sigma(z)-y^{(i)})x^{(i)}=(\hat{y}^{(i)}-y^{(i)}$$
 
@@ -121,7 +121,7 @@ $$\frac{\partial }{\partial w_i}L(b,w)=(\sigma(z)-y^{(i)})x^{(i)}=(\hat{y}^{(i)}
 
 Summing the Loss for all m examples, to get the Cost function derivatives:
 
-#### Eq. 12a: Partial Derivative of Sum All Examples Losses:
+## Eq. 12a: Partial Derivative of Sum All Examples Losses:
 $$\frac{\partial }{\partial w_i}J(b,w)=\frac{1}{m}\sum_{i=1}^{m}(\hat{y}^{(i)} -y^{(i)})x^{(i)} $$
 
 Q.E.D
