@@ -114,7 +114,7 @@ $$\frac{\partial }{\partial w_i}L=(-\frac{y^{(i)}}{\sigma(z)}+\frac{1-y^{(i)}}{1
 
 ## Eq. 11:  Derivative of Loss Function
 
-$$\frac{\partial }{\partial w_i}L(b,w)=(\sigma(z)-y^{(i)})x^{(i)}=(\hat{y}^{(i)}-y^{(i)}$$
+$$\frac{\partial }{\partial w_i}L(b,w)=(\sigma(z)-y^{(i)})x^{(i)}=(\hat{y}^{(i)}-y^{(i)})$$
 
 
 
