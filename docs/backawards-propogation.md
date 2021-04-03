@@ -189,9 +189,11 @@ Where g() is the activation function.
 (We will detail the derivative of the various activation functions in a following post).
 
 
-Plug Eq. 6  Eq. 9 into Eq. 4, to have a clearer set of equations:
 
 ## Back Propogation Equations Layer L - Final Version
+
+Plug Eq. 6 - Eq. 9 into Eq. 4, to have a simpler set of Back Propogation equations:
+
 
 ### Eq. 10: Back Propogation Equations - Layer L
 
