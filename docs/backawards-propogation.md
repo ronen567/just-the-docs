@@ -170,7 +170,7 @@ Derivate Eq. 1a with respect to b^{[L]} and get:
 1\\\\
 \end{bmatrix}\\)
 
-The derivative result is an all 1s m x 1 column. Multiplying a matrix by this column, is equivalent to row axis summationm - find that few equations below.
+The derivative result is an all 1s m x 1 column.
 
 Derivate Eq. 1a with respect to A^{[L-1]} and get:
 ### Eq. 8:
@@ -211,7 +211,8 @@ Plug Eq. 6 - Eq. 9 into Eq. 4, to have a simpler set of Back Propogation equatio
  \\(\frac{\mathrm{d} C}{\mathrm{d} b^{[L]}}=\frac{1}{m}np.sum(\delta^{[L]},axis=0,keepdims=True)
 \\)
 
-Multiplication of by an all 1s vector sums each row's m entries. To get normalized results, independent of number of examples m, it is followed by a scaling down by m.
+The b matrix is squashed to a single column, by averaging the m columns - summing and dividing by m. Reason - gradient descent update runs once for every batch cycle, over the averaged values of \\(b^{[L]}}\\).
+
 
 ### Eq. 10d:
 
