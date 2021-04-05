@@ -19,10 +19,7 @@ a_2^{[0]{(1)}}& a_2^{[0]{(2)}} & a_2^{[0]{(3)}} \\\\\\
 a_3^{[0]{(1)}}& a_3^{[0]{(2)}} & a_3^{[0]{(3)}}
 \end{bmatrix}\\)
 
-\\(A^{[0]}=\begin{bmatrix}
-a_1^{[0](1)}& a_1^{[0](2)} & a_1^{[0](3)} \\\\\\
-a_2^{[0](1)}& a_2^{[0](2)} & a_2^{[0](3)} \\\\\\
-a_3^{[0](1)}& a_3^{[0](2)} & a_3^{[0](3)}\end{bmatrix}\\)
+\\(dim(A^{[0]})=n(0) \cdot m\\)
 
 ### Initial Paramerters
 
@@ -37,15 +34,21 @@ w_{13}^{[1]} & w_{23}^{[1]} & w_{33}^{[1]}\\\\\\
 w_{14}^{[1]} & w_{24}^{[1]} & w_{34}^{[1]}
 \end{bmatrix}\\)
 
+\\(dim(w^{[1]})=n(1) \cdot n(0)\\)
+
+
 #### Bias layer 1:
 
 
 \\(b^{[1]}=\begin{bmatrix}
 b_{1}^{[1]}\\\\\\
-w_{2}^{[1]}\\\\\\
-w_{3}^{[1]}\\\\\\
-w_{4}^{[1]}
+b_{2}^{[1]}\\\\\\
+b_{3}^{[1]}\\\\\\
+b_{4}^{[1]}
 \end{bmatrix}\\)
+
+\\(dim(b^{[1]})=n(1)\\)
+
 
 #### Weights layer 2:
 
@@ -54,6 +57,8 @@ w_{11}^{[2]} & w_{21}^{[2]} & w_{31}^{[2]} & w_{41}^{[2]}\\\\\\
 w_{12}^{[2]} & w_{22}^{[2]} & w_{32}^{[2]} & w_{42}^{[2]}\\\\\\
 w_{13}^{[2]} & w_{23}^{[2]} & w_{33}^{[2]} & w_{43}^{[2]}
 \end{bmatrix}\\)
+
+\\(dim(w^{[2]})=n(2) \cdot n(1)\\)
 
 #### Bias layer 2:
 
@@ -64,12 +69,16 @@ w_{2}^{[2]}\\\\\\
 w_{3}^{[2]} 
 \end{bmatrix}\\)
 
+\\(dim(b^{[2]})=n(2)\\)
 
-#### Weights layer 2:
+
+#### Weights layer 3:
 
 \\(w^{[3]}=\begin{bmatrix}
 w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}
 \end{bmatrix}\\)
+
+\\(dim(w^{[3]})=n(3) \cdot n(2)\\)
 
 #### Bias layer 3:
 
@@ -77,6 +86,9 @@ w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}
 \\(b^{[2]}=\begin{bmatrix}
 b_{1}^{[3]}
 \end{bmatrix}\\)
+
+\\(dim(b^{[3]})=n(3) \cdot n(2)\\)
+
 
 ## Feed Forward:
 
@@ -107,9 +119,9 @@ z_{41}^{[1]} & z_{42}^{[1]} & z_{43}^{[1]}
 \end{bmatrix}
 \\)
 
-Dimensions of Z are n[l=1] x m, i.e. 4*3
+\\(dim(z^{[1]})=n(1) \cdot m\\)
 
-Note that \\(b^{[1]\\) is broadcasted across all columns for the above addition.
+Note that \\(b^{[1]}\\) is broadcasted across all columns for the above addition.
 
 
 
