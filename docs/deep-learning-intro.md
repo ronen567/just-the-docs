@@ -25,7 +25,7 @@ Figure 1 depicts a Neural Network. Input Data is on the left side. The data is f
 ### Figure 1: Neural Network
 
 
-![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.svg)
+![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.png)
 
 Following Figure 1, here below are some commonly used terms:
 
