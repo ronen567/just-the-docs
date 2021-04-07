@@ -7,13 +7,16 @@ title: Introduction to Deep Learning
 
 This is the first in series of 3 deep learning intro posts:
 1. Introduction to Deep Learning which introduces the Deep Learning technology background, and presents network's building blocks and terms.
-2. Introduction to Forward Propogation, which presents the mathematical equations of the prediction path.
+2. Introduction to 
+rd Propogation, which presents the mathematical equations of the prediction path.
 3. Introduction to Backward Propogation which presents the mathematical equations for network's coefficents calculation, done during the training phase.
 
-## Introdcution
 
+
+## Introdcution
+This set of post introduces Deep Learning, in the context of Supervised Machine Learning. Starting top down, Figure 1 depicts a diagram which describes the 3 main modules of deep learning system modules, 
 To begin with speaking about Deep Learning, I have to recommend of the book named "Deep Learning Adaptive Computation and Machine Learning" by 
-goodfellow, Bengio and Courville, which is my reader book. DLAC&ML reviews briefly the history of deep learning technology and research, which dates long ago, already in the 1940s, though the names and popularity of this field had changed through the years. Deep Learning is quite a recent name. One of its anccestors is the Artificial Neural Networks (ANNs) which research tried to model the biological brain. The modern term Deep Learning has less pretension to mimic the brain or understand its operation, but is still inspired by neurosience and the brain like model of many simple computational elements interacting together, using a single algorithm, to create an intelligent unit which solves many kinds of different problems. We will see in this post that the Deep Learning network AKA Neural Network, is based on many instances of a simple elements named Neuron. The Neuron implements a simple non-linear algorithm - either a sigmoid, or n hyperbolic tangent or in the most commonnly in current implementation, using RelU (Rectified Linear Unit) algorithm.
+goodfellow, Bengio and Courville, which is my reader book. DLAC&ML reviews briefly the history of deep learning technology and research, which dates long ago, already in the 1940s, though the names and popularity of this field had changed through the years. Deep Learning is quite a recent name. One of its anccestors is the Artificial Neural Networks (ANNs) which research tried to model the biological brain. The modern term Deep Learning has less pretension to mimic the brain or understand its operation, but is still inspired by neurosience and the brain like model of many simple computational elements interacting together, using a single algorithm, to create an intelligent unit which solves many kinds of different problems. We will see in this post that the Deep Learning network AKA Neural Network, is based on many instances of a simple element named Neuron. 
 
 
 ## Neural Networks
@@ -161,6 +164,16 @@ Leaky Relue adds a slope to the negative values, preventing the 0 gradient issue
 ![Supervise Learning Outlines](../assets/images/neural-networks/leaky_relu.png)
 
 
+
+## The whole Picture
+
+Figure 9 depicts a diagram of Deep Learning's 2 operation modes: **Prediction** and **Training**. 
+In **Prediction** mode, depicted in Figure 9a, the system models a predicted output value of output decision for the input data. In this phase, the data is forwarded through nodes of the networks' layers, in a process called Feed Forward.
+In **Training** mode, depicted in Figure 9b, which precedes the Prediction mode, the **Gradient Descent** optimization algorithm caluclates the set of parameter which minimizes a pre-determined cost function. **Gradient Descent** works in conjunction with the **Back Propogation** algorithm, which while striding backwords through the network's layers, calculates the gradients needed by **Gradient Descent** equations.
+
+
+
+Feed Forward and Back PRopogation are detailed in next posts.
 
 
 
