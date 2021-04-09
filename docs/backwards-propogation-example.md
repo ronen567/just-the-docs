@@ -8,7 +8,7 @@ The example will run a single Back Propogation cycle, to produce 2 outputs: \\(\
 The network is depicted In Figure 1.
 
 ### Figure 1: The Network
-![](../assets/images/deep-neural-network-fw-bw-example.png)
+![](../assets/images/neural-networks/deep-neural-network-fw-bw-example.png)
 
 ### Input data set:
 The input data x, consists of m examples, where m=3. (Note that the examples are stacked in columns).
