@@ -249,7 +249,7 @@ Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l
 
 
 A conventional modification in equations' notaions:  Cost function derivatives are conventionally denoted in a compact notation which better suits the program code, so \\(\frac{\mathrm{d} C}{\mathrm{d}{A^{[l]}}}\\) is denoted by \\(dA^{[l]}\\), \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[l]}}\\) by 
-(\\dw^{[l]}\\) and so forth, as presented by Eq. 12.
+\\(dw^{[l]}\\) and so forth, as presented by Eq. 12.
 
 
 ### Eq. 12: Back Propogation Equations - Modified Format
