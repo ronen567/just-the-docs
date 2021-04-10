@@ -225,7 +225,7 @@ Having that we can develop the expression for \\(\delat^{[3]}\\)
 
 \\(\delat^{[3]}\\)=\begin{bmatrix} [\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}}][\sigma(z_{11}^{[3]})(1-\sigma(z_{11}^{[3]}))] & [\frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}}][\sigma(z_{12}^{[3]})(1-\sigma(z_{12}^{[3]}))] & [\frac{y ^{(3)}}{a_{1}^{[3]{(3)}}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3]{(3)}}}][\sigma(z_{13}^{[3]})(1-\sigma(z_{13}^{[3]}))]\end{bmatrix}\\)
 
-\\(dim(\delta^{[3]})=1 \cdot m\\)
+\\(dim(\delta^{[3]}) \cdot m\\)
 
 
 
@@ -254,7 +254,7 @@ db^{[3]}=\frac{1}{m}\delta^{[3]} \cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1
 And lastly for Layer l=3:
 
 \\(dA^{[2]}=W^{[3]T} \cdot \delta^{[3]}=\begin{bmatrix}
-w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}\end{bmatrix}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\\delta_{12}^{[3]}\\\\\\\delta_{13}^{[3]}
+w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}\end{bmatrix} \cdot \begin{bmatrix}\delta_{11}^{[3]}\\\\\\\delta_{12}^{[3]}\\\\\\\delta_{13}^{[3]}
 \end{bmatrix}\\)
 
 \\(dim(dA^{[2]})=n^{[3]} \cdot 1\\)
@@ -278,7 +278,7 @@ a^{[2]} \cdot g^{'}(z_{31}^{[2]})& a^{[2]} \cdot g^{'}(z_{32}^{[2]}) & a^{[2]} \
 \\(dim(\delta^{[2]})=n^{[2]} \cdot m\\)
 
 
-\\(dw^{[2]}=\frac{1}{m} A^{[1]T} \cdot \delta^{[2]}=\begin{bmatrix}
+\\(dw^{[2]}=\frac{1}{m} A^{[1]T} \cdot \delta^{[2]}=\frac{1}{m}\begin{bmatrix}
 a_1^{[1]{(1)}}& a_1^{[1]{(2)}} & a_1^{[1]{(3)}} \\\\\\
 a_2^{[1]{(1)}}& a_2^{[1]{(2)}} & a_2^{[1]{(3)}} \\\\\\
 a_3^{[1]{(1)}}& a_3^{[1]{(2)}} & a_3^{[1]{(3)}} \\\\\\
@@ -289,8 +289,43 @@ a_4^{[1]{(1)}}& a_4^{[1]{(2)}} & a_4^{[1]{(3)}}\end{bmatrix}^T \cdot
 \delta_{31}^{[2]} & \delta_{32}^{[2]} & \delta_{33}^{[2]}
 \end{bmatrix}\\)
 
-
 \\(dim(dw^{[2]})=n^{[3]} \cdot n^{[2]}\\)
+
+
+\\(db^{[2]}=\frac{1}{m} \delta^{[2]} \begin{bmatrix}1\\\\\\1\\\\\\1\\\\\\\end{bmatrix}=\frac{1}{m}\begin{bmatrix}
+\delta_{11}^{[2]}& \delta_{12}^{[2]} & \delta_{13}^{[2]}\\\\\\
+\delta_{21}^{[2]} & \delta_{21}^{[2]} & \delta_{23}^{[2]} \\\\\\
+\delta_{31}^{[2]} & \delta_{32}^{[2]} & \delta_{33}^{[2]}
+\end{bmatrix}\begin{bmatrix}1\\\\\\1\\\\\\1\\\\\\\end{bmatrix}=
+\frac{1}{m}\begin{bmatrix}
+\delta_{11}^{[2]} + \delta_{12}^{[2]} + \delta_{13}^{[2]}\\\\\\
+\delta_{21}^{[2]} + \delta_{21}^{[2]} + \delta_{23}^{[2]} \\\\\\
+\delta_{31}^{[2]} + \delta_{32}^{[2]} + \delta_{33}^{[2]}
+\end{bmatrix}
+
+\\(dim(dw^{[2]})=n^{[1]} \cdot 1\\)
+
+\\(dA^{[1]}=w^{[2]T} \cdot \delta^{[2]}=\begin{bmatrix}
+w_{11}^{[2]} & w_{21}^{[2]} & w_{31}^{[2]} & w_{41}^{[2]}\\\\\\
+w_{12}^{[2]} & w_{22}^{[2]} & w_{32}^{[2]} & w_{42}^{[2]}\\\\\\
+w_{13}^{[2]} & w_{23}^{[2]} & w_{33}^{[2]} & w_{43}^{[2]}
+\end{bmatrix}^T \cdot \begin{bmatrix}
+\delta_{11}^{[2]}& \delta_{12}^{[2]} & \delta_{13}^{[2]}\\\\\\
+\delta_{21}^{[2]} & \delta_{21}^{[2]} & \delta_{23}^{[2]} \\\\\\
+\delta_{31}^{[2]} & \delta_{32}^{[2]} & \delta_{33}^{[2]}
+\end{bmatrix}
+=\begin{bmatrix}
+w_{11}^{[2]} & w_{12}^{[2]} & w_{13}^{[2]}\\\\\\
+w_{21}^{[2]} & w_{22}^{[2]} & w_{23}^{[2]}\\\\\\
+w_{31}^{[2]} & w_{32}^{[2]} & w_{33}^{[2]}\\\\\\
+w_{41}^{[2]} & w_{42}^{[2]} & w_{43}^{[2]}
+\end{bmatrix} \cdot \begin{bmatrix}
+\delta_{11}^{[2]}& \delta_{12}^{[2]} & \delta_{13}^{[2]}\\\\\\
+\delta_{21}^{[2]} & \delta_{21}^{[2]} & \delta_{23}^{[2]} \\\\\\
+\delta_{31}^{[2]} & \delta_{32}^{[2]} & \delta_{33}^{[2]}
+\end{bmatrix}
+1\\)
+\\(dim(dA^{[1]})=n^{[1]} \cdot n^{[2]}\\) ???
 
 
 
