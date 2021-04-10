@@ -199,13 +199,35 @@ a_{1}^{[3]{(1)}} & a_{1}^{[3]{(2)}} & a_1^{[3]{(3)}}
 
 ### Back Propogation L3:
 
-Derivative of a cost function with a Sigmoid activation is:
+First we need to find \\(\delta^{[3]}\\) which equals to \\(dA^{[3]} \odot g^{'[3]}\\). 
+
+Starting with the first multipicand, then we already developed the expression for cost function deriative with respect to a Sigmoid, which is:
 
 \\(\frac{\mathrm{d} C}{\mathrm{d} \sigma(z)}=-\frac{y}{\sigma(z)}+\frac{1-y}{1-\sigma(z)}\\)
 
-where \\(\sigma(z)\\) is the Sigmoid's output, and y is the expected output i.e. training data label. In our notation, the vectorized activation output is denoted by \\(A^{[3]}\\), plugung it in to the derivation expression we get:
+where \\(\sigma(z)\\) is the Sigmoid's output, and y is the expected output i.e. training data label,  
+Let's plug that deriation into the vectorized derivative expression denoted by \\(A^{[3]}\\):
 
-\\(\delta^{3}=\begin{bmatrix}\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}} & \frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}} & \frac{y ^{(3)}}{a_{1}^{[3]{(3)}}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3]{(3)}}}\end{bmatrix}\\)
+\\(dA^{[3]} =
+\begin{bmatrix}\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}} & \frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}} & \frac{y ^{(3)}}{a_{1}^{[3]{(3)}}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3]{(3)}}}\end{bmatrix}\\)
+
+\\(dA^{[3]}=1 \cdot m\\)
+
+Next, let's find an expression for the second multipicand, i.e. \\(g^{'[3]}\\). We already developed the derivative for a Sigmoid:
+
+\\(\sigma^{'}(z)=\sigma(z)(1-\sigma(z))\\). Accordingly,
+
+g^{'[3]}=\begin{bmatrix}
+g(z_{11}^{[3]})(1-g(z_{11}^{[3]})) & g(z_{12}^{[3]})(1-g(z_{12}^{[3]})) & g(z_{13}^{[3]})(1-g(z_{13}^{[3]}))
+\end{bmatrix}
+
+Having that we can develop the expression for \\(\delat^{[3]}\\)
+
+\\(\delat^{[3]}\\)=\begin{bmatrix} [\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}}][\sigma(z_{11}^{[3]})(1-\sigma(z_{11}^{[3]}))] & [\frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}}][\sigma(z_{12}^{[3]})(1-\sigma(z_{12}^{[3]}))] & [\frac{y ^{(3)}}{a_{1}^{[3]{(3)}}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3]{(3)}}}][\sigma(z_{13}^{[3]})(1-\sigma(z_{13}^{[3]}))]\end{bmatrix}\\)
+
+\\(dim(\delata^{[3]})=1 \cdot m\\)
+
+
 
 
 
