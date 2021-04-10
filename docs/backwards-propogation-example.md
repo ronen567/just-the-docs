@@ -198,11 +198,29 @@ z_{11}^{[3]} & z_{12}^{[3]} & z_{13}^{[3]}
 
 \\(A^{[3]}=\begin{bmatrix}
 g(z_{11}^{[3]}) & g(z_{12}^{[3]}) & g(z_{13}^{[3]})
+\end{bmatrix} = \begin{bmatrix}
+a_{1}^{[3](1)} & a_{1}^{[3](2)} & a_1^{[3]}(3))
 \end{bmatrix}\\)
 
 ## Back Propogation:
 
 ### Back Propogation L3:
+
+Derivative of a cost function with a Sigmoid activation is:
+
+\\(\frac{\mathrm{d} C}{\mathrm{d} \sigma(z)}=-\frac{y}{\sigma(z)}+\frac{1-y}{1-\sigma(z)}\\)
+
+where \\(\sigma(z)\\) is the Sigmoid's output, and y is the expected output i.e. training data label. In our notation, the vectorized activation output is denoted by \\(A^{[3]}\\), plugung it in to the derivation expression we get:
+
+
+
+Activation of L3 is a sigmoid. In th
+
+
+
+Accordingly, the derivative of the Cost function is:
+
+
 
 
 
