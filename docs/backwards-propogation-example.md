@@ -177,17 +177,14 @@ g(z_{31}^{[2]})& g(z_{32}^{[2]}) & g(z_{33}^{[2]})
 
 \\(Z^{[3]}=w^{[3]} \cdot A^{[2]} + b^{[3]}= \begin{bmatrix}
 w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}
-\end{bmatrix} \cdot 
+\end{bmatrix} \cdot
 \begin{bmatrix}
 a_1^{[2]{(1)}}& a_1^{[2]{(2)}} & a_1^{[2]{(3)}} \\\\\\
 a_2^{[2]{(1)}}& a_2^{[2]{(2)}} & a_2^{[2]{(3)}} \\\\\\
-a_3^{[2]{(1)}}& a_3^{[2]{(2)}} & a_3^{[2]{(3)}} 
-
-
+a_3^{[2]{(1)}}& a_3^{[2]{(2)}} & a_3^{[2]{(3)}}
 \end{bmatrix} + 
 \begin{bmatrix}
 b_{1}^{[3]}
-
 \end{bmatrix}=
 \begin{bmatrix}
 z_{11}^{[3]} & z_{12}^{[3]} & z_{13}^{[3]}
@@ -212,9 +209,8 @@ Derivative of a cost function with a Sigmoid activation is:
 
 where \\(\sigma(z)\\) is the Sigmoid's output, and y is the expected output i.e. training data label. In our notation, the vectorized activation output is denoted by \\(A^{[3]}\\), plugung it in to the derivation expression we get:
 
-\\(\delta^{[3]}=\begin{bmatrix}
- \frac{y ^{(1)}}{a_{1}^{[3](1)}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3](1)}} &  \frac{y ^{(2)}}{a_{1}^{[3](2)}} +\frac{1-y ^{(2)}}{1-a_{1}^{[3](2)} }  &  \frac{y ^{(3)}}{a_{1}^{[3](3)}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3](3)} } 
-\end{bmatrix}\\)
+\\(\begin{bmatrix}\frac{y ^{(1)}}{a_{1}^{[3](1)}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3](1)}} &  
+\frac{y ^{(2)}}{a_{1}^{[3](2)}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3](2)}} & \frac{y ^{(3)}}{a_{1}^{[3](3)}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3](3)}}\end{bmatrix}\\)
 
 
 
