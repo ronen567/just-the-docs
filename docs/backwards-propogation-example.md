@@ -196,28 +196,7 @@ z_{11}^{[3]} & z_{12}^{[3]} & z_{13}^{[3]}
 \\(A^{[3]}=\begin{bmatrix}
 g(z_{11}^{[3]}) & g(z_{12}^{[3]}) & g(z_{13}^{[3]})
 \end{bmatrix} = \begin{bmatrix}
-a_{1}^{[3](1)} & a_{1}^{[3](2)} & a_1^{[3](3)}
-\end{bmatrix}\\)
-
-ok: 
-\\(A^{[3]}=\begin{bmatrix}
-g(z_{11}^{[3]}) & g(z_{12}^{[3]}) & g(z_{13}^{[3]})
-\end{bmatrix}\\)
-
-?:
-
-\\(\begin{bmatrix}
-a_{1}^{[3](1)} 
-\end{bmatrix}\\)
-??:
-
-a_{1}^{[3](1)} 
-
-
-\\(A^{[3]}=\begin{bmatrix}
-g(z_{11}^{[3]}) & g(z_{12}^{[3]}) & g(z_{13}^{[3]})
-\end{bmatrix} = \begin{bmatrix}
-a_{1}^{[3](1)} & a_{1}^{[3](2)} & a_1^{[3](3)}
+a_{1}^{[3]{(1)}} & a_{1}^{[3]{(2)}} & a_1^{[3]{(3)}}
 \end{bmatrix}\\)
 
 
@@ -230,17 +209,8 @@ Derivative of a cost function with a Sigmoid activation is:
 \\(\frac{\mathrm{d} C}{\mathrm{d} \sigma(z)}=-\frac{y}{\sigma(z)}+\frac{1-y}{1-\sigma(z)}\\)
 
 where \\(\sigma(z)\\) is the Sigmoid's output, and y is the expected output i.e. training data label. In our notation, the vectorized activation output is denoted by \\(A^{[3]}\\), plugung it in to the derivation expression we get:
-1: all
-\\(\delta^{3}=\begin{bmatrix}\frac{y ^{(1)}}{a_{1}^{[3](1)}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3](1)}} & \frac{y ^{(2)}}{a_{1}^{[3](2)}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3](2)}} & \frac{y ^{(3)}}{a_{1}^{[3](3)}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3](3)}}\end{bmatrix}\\)
 
-2 : 1st
-\\(\delta^{3}=\begin{bmatrix}\frac{y ^{(1)}}{a_{1}^{[3](1)}}\end{bmatrix}\\)
-3: 2nd
-\\(\delta^{3}=\begin{bmatrix}\frac{y ^{(1)}}{a_{1}^{[3](1)}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3](1)}}\end{bmatrix}\\)
-4 3rd
-
-\\(\delta^{3}=\begin{bmatrix}\frac{y ^{(1)}}{a_{1}^{[3](1)}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3](1)}} & \frac{y ^{(2)}}{a_{1}^{[3](2)}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3](2)}}\end{bmatrix}\\)
-
+\\(\delta^{3}=\begin{bmatrix}\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}} & \frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}} & \frac{y ^{(3)}}{a_{1}^{[3]{(3)}}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3]{(3)}}}\end{bmatrix}\\)
 
 
 
