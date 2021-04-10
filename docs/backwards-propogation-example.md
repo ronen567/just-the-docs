@@ -212,13 +212,9 @@ Derivative of a cost function with a Sigmoid activation is:
 
 where \\(\sigma(z)\\) is the Sigmoid's output, and y is the expected output i.e. training data label. In our notation, the vectorized activation output is denoted by \\(A^{[3]}\\), plugung it in to the derivation expression we get:
 
-
-
-Activation of L3 is a sigmoid. In th
-
-
-
-Accordingly, the derivative of the Cost function is:
+\\(\delta^{[3]}=\begin{bmatrix}
+ \frac{y ^{(1)}}{a_{1}^{[3](1)}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3](1)}} &  \frac{y ^{(2)}}{a_{1}^{[3](2)}} +\frac{1-y ^{(2)}}{1-a_{1}^{[3](2)} }  &  \frac{y ^{(3)}}{a_{1}^{[3](3)}} +\frac{1-y ^{(3)}}{1-a_{1}^{[3](3)} } 
+\end{bmatrix}\\)
 
 
 
