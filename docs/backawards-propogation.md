@@ -203,7 +203,7 @@ Plug Eq. 6 - Eq. 9 into Eq. 4, to have a simpler set of Back Propogation equatio
  Where \\(\odot\\) denotes element wise multiplication.
  
 ### Eq. 10b: 
- \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{1}{m}{A^{[L-1]T}}\delta^{[L]}\\)
+ \\(\frac{\mathrm{d} C}{\mathrm{d} w^{[L]}}=\frac{1}{m}\delta^{[L]}\cdot{A^{[L-1]T}}\\)
  
  To get normalized results, independent of number of examples m, the integration of m examples requires a scaling down by m.
 
@@ -236,7 +236,7 @@ Looking at the symetry of Eq. 1, it's easy to see that Eq. 10 is valid for any l
 \\(\mathbf{\delta^{[l]}=\frac{\mathrm{d} C}{\mathrm{d}{A^{[l]}}} \odot g^{'[l]}}\\)
  
 ### Eq. 11b: 
-\\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} w^{[l]}}=\frac{1}m{A^{[l-1]T}}\cdot\delta^{[l]}}\\)
+\\(\mathbf{\frac{\mathrm{d} C}{\mathrm{d} w^{[l]}}=\frac{1}{m}\delta^{[l]}\cdot{A^{[l-1]T}}\\)
  
 
 ### Eq. 11c: 
