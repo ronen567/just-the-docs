@@ -238,19 +238,19 @@ Having that we can develop the expression for \\(\delta^{[3]}\\)
 g(z_{11}^{[2]}) & g(z_{12}^{[2]})\\\\\\
 g(z_{21}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{31}^{[2]})& g(z_{32}^{[2]})
-\end{bmatrix}^{T}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\\delta_{12}^{[3]}\\\\\\\delta_{13}^{[3]}
+\end{bmatrix}^{T}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}\\\\\\ \delta_{13}^{[3]}
 \end{bmatrix}=\frac{1}{m}\begin{bmatrix}
 g(z_{11}^{[2]}) & g(z_{21}^{[2]})\\\\\\
 g(z_{12}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{13}^{[2]})& g(z_{23}^{[2]})
-\end{bmatrix}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\\delta_{12}^{[3]}\\\\\\\delta_{13}^{[3]}
+\end{bmatrix}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}\\\\\\ \delta_{13}^{[3]}
 \end{bmatrix}\\)
 
 \\(dim(dw^{[3]})=n^{[3]} \cdot n^{[2]}\\)
 
 
 \\(db^{[3]}=\frac{1}{m}\delta^{[3]} \cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1
-\end{bmatrix}=\frac{1}{m}\begin{bmatrix}\delta_{11}^{[3]}&delta_{12}^{[3]}&delta_{13}^{[3]}
+\end{bmatrix}=\frac{1}{m}\begin{bmatrix}\delta_{11}^{[3]}& \delta_{12}^{[3]}& \delta_{13}^{[3]}
 \end{bmatrix}\cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1\end{bmatrix}\\)
 
 \\(dim(db^{[3]})=n^{[3]} \cdot 1\\)
@@ -259,7 +259,7 @@ g(z_{13}^{[2]})& g(z_{23}^{[2]})
 And lastly for Layer l=3:
 
 \\(dA^{[2]}=W^{[3]T} \cdot \delta^{[3]}=\begin{bmatrix}
-w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}\end{bmatrix} \cdot \begin{bmatrix}\delta_{11}^{[3]}\\\\\\\delta_{12}^{[3]}\\\\\\\delta_{13}^{[3]}
+w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}\end{bmatrix} \cdot \begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}\\\\\\ \delta_{13}^{[3]}
 \end{bmatrix}\\)
 
 \\(dim(dA^{[2]})=n^{[3]} \cdot 1\\)
@@ -329,8 +329,7 @@ w_{41}^{[2]} & w_{42}^{[2]} & w_{43}^{[2]}
 \delta_{11}^{[2]}& \delta_{12}^{[2]} & \delta_{13}^{[2]}\\\\\\
 \delta_{21}^{[2]} & \delta_{21}^{[2]} & \delta_{23}^{[2]} \\\\\\
 \delta_{31}^{[2]} & \delta_{32}^{[2]} & \delta_{33}^{[2]}
-\end{bmatrix}
-1\\)
+\end{bmatrix}\\)
 \\(dim(dA^{[1]})=n^{[1]} \cdot n^{[2]}\\) ???
 
 
