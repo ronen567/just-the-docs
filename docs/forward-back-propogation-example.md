@@ -235,16 +235,17 @@ Having that we can develop the expression for \\(\delta^{[3]}\\)
 
 
 
-\\(dw^{[3]}=\frac{1}{m} A^{[2]T}\cdot\delta^{[3]}=\frac{1}{m}\begin{bmatrix}
+\\(dw^{[3]}=\frac{1}{m} \cdot\delta^{[3]} \cdot A^{[2]T}=\frac{1}{m} \cdot
+\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
+\end{bmatrix} \cdot \begin{bmatrix}
 g(z_{11}^{[2]}) & g(z_{12}^{[2]})\\\\\\
 g(z_{21}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{31}^{[2]})& g(z_{32}^{[2]})
-\end{bmatrix}^{T}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
-\end{bmatrix}=\frac{1}{m}\begin{bmatrix}
+\end{bmatrix}^{T}=\frac{1}{m} \cdot \begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
+\end{bmatrix} \cdot \begin{bmatrix}
 g(z_{11}^{[2]}) & g(z_{21}^{[2]})\\\\\\
 g(z_{12}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{13}^{[2]})& g(z_{23}^{[2]})
-\end{bmatrix}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
 \end{bmatrix}\\)
 
 \\(dim(dw^{[3]})=n^{[3]} \cdot n^{[2]}\\)
