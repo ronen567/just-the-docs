@@ -325,7 +325,9 @@ a_4^{[1]{(1)}}& a_4^{[1]{(2)}} & a_4^{[1]{(3)}}\end{bmatrix}^T \cdot
 
 441
 
-\\(db^{[2]}=\frac{1}{m} \delta^{[2]} \begin{bmatrix}1\\\\\\1\\\\\\1\\\\\\\end{bmatrix}=\frac{1}{m}\\)
+\\(db^{[2]}=\frac{1}{m} \delta^{[2]} \begin{bmatrix}1\\\\\\1\\\\\\1\\\\\\ \end{bmatrix}=\frac{1}{m}\\)
+55
+\\(db^{[2]}=\frac{1}{m} \delta^{[2]} \begin{bmatrix}\end{bmatrix}=\frac{1}{m}\\)
 
 
 
