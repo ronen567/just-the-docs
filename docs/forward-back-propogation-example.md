@@ -233,7 +233,7 @@ g(z_{11}^{[3]})(1-g(z_{11}^{[3]})) & g(z_{12}^{[3]})(1-g(z_{12}^{[3]}))
 
 Having that we can develop the expression for \\(\delta^{[3]}\\)
 
-\\(\delta^{[3]}=\begin{bmatrix} [\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}}][\sigma(z_{11}^{[3]})(1-\sigma(z_{11}^{[3]}))] & [\frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}}][\sigma(z_{12}^{[3]})(1-\sigma(z_{12}^{[3]}))]\end{bmatrix}\\)
+\\(\delta^{[3]}=\begin{bmatrix} [\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}}][\sigma(z_{11}^{[3]})(1-\sigma(z_{11}^{[3]}))] & [\frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}}][\sigma(z_{12}^{[3]})(1-\sigma(z_{12}^{[3]}))]\end{bmatrix}=\begin{bmatrix}  \delta_{11}^{[3]} & \delta_{12}^{[3]} \end{bmatrix}\\)
 
 \\(dim(\delta^{[3]}) \cdot m\\)
 
