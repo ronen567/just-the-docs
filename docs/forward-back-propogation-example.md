@@ -259,7 +259,7 @@ dw{11}^{[3]} & dw{12}^{[3]} & dw{13}^{[3]}
 
 \\(db^{[3]}=\frac{1}{m}\delta^{[3]} \cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1
 \end{bmatrix}=\frac{1}{m}\begin{bmatrix}\delta_{11}^{[3]} & \delta_{12}^{[3]}& \delta_{13}^{[3]}
-\end{bmatrix}\cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1\end{bmatrix}\\) =\begin{bmatrix}db_{11}^{[3]}\end{bmatrix}
+\end{bmatrix}\cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1\end{bmatrix} = \begin{bmatrix}db_{11}^{[3]}\end{bmatrix}\\)
 
 \\(dim(db^{[3]})=n^{[3]} \cdot 1\\)
 
