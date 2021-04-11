@@ -336,14 +336,17 @@ dw_{31}^{[2]} & dw_{32}^{[2]} & dw_{33}^{[2]} & dw_{34}^{[2]}
 \\(dim(dw^{[2]})=n^{[2]} \cdot n^{[1]}\\)
 
 
-\\(db^{[2]}=\frac{1}{m} \delta^{[2]} \begin{bmatrix}1 \\\\\\ 1 \\\\\\ 1\\\\\\ \end{bmatrix}=\frac{1}{m}\begin{bmatrix}
+\\(db^{[2]}=\frac{1}{m} \delta^{[2]} \begin{bmatrix}1 \\\\\\ 1 \end{bmatrix}=\frac{1}{m}\begin{bmatrix}
 \delta_{11}^{[2]} & \delta_{12}^{[2]} \\\\\\
 \delta_{21}^{[2]} & \delta_{21}^{[2]} \\\\\\
-\delta_{31}^{[2]} & \delta_{32}^{[2]} \end{bmatrix}\begin{bmatrix}1 \\\\\\ 1 \\\\\\ 1\end{bmatrix}=
+\delta_{31}^{[2]} & \delta_{32}^{[2]} \end{bmatrix}\begin{bmatrix}1 \\\\\\ 1 \end{bmatrix}=
 \frac{1}{m}\begin{bmatrix}
 \delta_{11}^{[2]} + \delta_{12}^{[2]} \\\\\\
 \delta_{21}^{[2]} + \delta_{21}^{[2]} \\\\\\
-\delta_{31}^{[2]} + \delta_{32}^{[2]}\end{bmatrix}\\)
+\delta_{31}^{[2]} + \delta_{32}^{[2]}\end{bmatrix}=\begin{bmatrix}
+db_{11}^{[2]} \\\\\\
+db_{21}^{[2]} \\\\\\
+db_{31}^{[2]}\end{bmatrix}\\)
 
 \\(dim(dw^{[2]})=n^{[2]} \cdot 1\\)
 
