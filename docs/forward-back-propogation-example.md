@@ -222,19 +222,19 @@ Next, let's find an expression for the second multipicand, i.e. \\(g^{'[3]}\\). 
 
 \\(\sigma^{'}(z)=\sigma(z)(1-\sigma(z))\\). Accordingly,
 
-g^{'[3]}=\begin{bmatrix}
+\\(g^{'[3]}=\begin{bmatrix}
 g(z_{11}^{[3]})(1-g(z_{11}^{[3]})) & g(z_{12}^{[3]})(1-g(z_{12}^{[3]}))
-\end{bmatrix}
+\end{bmatrix}\\)
 
 Having that we can develop the expression for \\(\delta^{[3]}\\)
 
-\\(\delat^{[3]}\\)=\begin{bmatrix} [\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}}][\sigma(z_{11}^{[3]})(1-\sigma(z_{11}^{[3]}))] & [\frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}}][\sigma(z_{12}^{[3]})(1-\sigma(z_{12}^{[3]}))]\end{bmatrix}\\)
+\\(\delta^{[3]}=\begin{bmatrix} [\frac{y ^{(1)}}{a_{1}^{[3]{(1)}}} + \frac{1-y ^{(1)}}{1-a_{1}^{[3]{(1)}}}][\sigma(z_{11}^{[3]})(1-\sigma(z_{11}^{[3]}))] & [\frac{y ^{(2)}}{a_{1}^{[3]{(2)}}} + \frac{1-y ^{(2)}}{1-a_{1}^{[3]{(2)}}}][\sigma(z_{12}^{[3]})(1-\sigma(z_{12}^{[3]}))]\end{bmatrix}\\)
 
 \\(dim(\delta^{[3]}) \cdot m\\)
 
 
 
-dw^{[3]}=\frac{1}{m} A^{[2]T}\cdot\delta^{[3]}=\frac{1}{m}\begin{bmatrix}
+\\(dw^{[3]}=\frac{1}{m} A^{[2]T}\cdot\delta^{[3]}=\frac{1}{m}\begin{bmatrix}
 g(z_{11}^{[2]}) & g(z_{12}^{[2]})\\\\\\
 g(z_{21}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{31}^{[2]})& g(z_{32}^{[2]})
@@ -244,14 +244,14 @@ g(z_{11}^{[2]}) & g(z_{21}^{[2]})\\\\\\
 g(z_{12}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{13}^{[2]})& g(z_{23}^{[2]})
 \end{bmatrix}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\\delta_{12}^{[3]}\\\\\\\delta_{13}^{[3]}
-\end{bmatrix}
+\end{bmatrix}\\)
 
 \\(dim(dw^{[3]})=n^{[3]} \cdot n^{[2]}\\)
 
 
-db^{[3]}=\frac{1}{m}\delta^{[3]} \cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1
+\\(db^{[3]}=\frac{1}{m}\delta^{[3]} \cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1
 \end{bmatrix}=\frac{1}{m}\begin{bmatrix}\delta_{11}^{[3]}&delta_{12}^{[3]}&delta_{13}^{[3]}
-\end{bmatrix}\cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1
+\end{bmatrix}\cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1\end{bmatrix}\\)
 
 \\(dim(db^{[3]})=n^{[3]} \cdot 1\\)
 
@@ -306,7 +306,7 @@ a_4^{[1]{(1)}}& a_4^{[1]{(2)}} & a_4^{[1]{(3)}}\end{bmatrix}^T \cdot
 \delta_{11}^{[2]} + \delta_{12}^{[2]} + \delta_{13}^{[2]}\\\\\\
 \delta_{21}^{[2]} + \delta_{21}^{[2]} + \delta_{23}^{[2]} \\\\\\
 \delta_{31}^{[2]} + \delta_{32}^{[2]} + \delta_{33}^{[2]}
-\end{bmatrix}
+\end{bmatrix}\\)
 
 \\(dim(dw^{[2]})=n^{[1]} \cdot 1\\)
 
