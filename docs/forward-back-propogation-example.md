@@ -313,7 +313,7 @@ a_4^{[1]{(1)}}& a_4^{[1]{(2)}} & a_4^{[1]{(3)}}\end{bmatrix}^T \cdot
 \delta_{11}^{[2]} & \delta_{12}^{[2]} & \delta_{13}^{[2]}\\\\\\
 \delta_{21}^{[2]} & \delta_{21}^{[2]} & \delta_{23}^{[2]} \\\\\\
 \delta_{31}^{[2]} & \delta_{32}^{[2]} & \delta_{33}^{[2]}\end{bmatrix}\begin{bmatrix}1\\\\\\1\\\\\\1\\\\\\\end{bmatrix}=
-\frac{1}{m}
+\frac{1}{m}\\)
 
 33
 
@@ -321,11 +321,11 @@ a_4^{[1]{(1)}}& a_4^{[1]{(2)}} & a_4^{[1]{(3)}}\end{bmatrix}^T \cdot
 \delta_{11}^{[2]} & \delta_{12}^{[2]} & \delta_{13}^{[2]}\\\\\\
 \delta_{21}^{[2]} & \delta_{21}^{[2]} & \delta_{23}^{[2]} \\\\\\
 \delta_{31}^{[2]} & \delta_{32}^{[2]} & \delta_{33}^{[2]}\end{bmatrix}
-\frac{1}{m}
+\frac{1}{m}\\)
 
-44
+441
 
-\\(db^{[2]}=\frac{1}{m} \delta^{[2]} \begin{bmatrix}1\\\\\\1\\\\\\1\\\\\\\end{bmatrix}=\frac{1}{m}
+\\(db^{[2]}=\frac{1}{m} \delta^{[2]} \begin{bmatrix}1\\\\\\1\\\\\\1\\\\\\\end{bmatrix}=\frac{1}{m}\\)
 
 
 
