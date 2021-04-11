@@ -1,3 +1,8 @@
+---
+layout: default
+nav_order: 6
+title: Forward Back Propogation Example
+---
 # Back Propogation Example
 In this post we will run a network Training (aka Fitting) example, based on the Back Propogation algorithm explained in the previous post.
 
