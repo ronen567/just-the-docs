@@ -236,35 +236,39 @@ Having that we can develop the expression for \\(\delta^{[3]}\\)
 
 
 \\(dw^{[3]}=\frac{1}{m} \cdot\delta^{[3]} \cdot A^{[2]T}=\frac{1}{m} \cdot
-\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
+\begin{bmatrix}\delta_{11}^{[3]} & \delta_{12}^{[3]}
 \end{bmatrix} \cdot \begin{bmatrix}
 g(z_{11}^{[2]}) & g(z_{12}^{[2]})\\\\\\
 g(z_{21}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{31}^{[2]})& g(z_{32}^{[2]})
-\end{bmatrix}^{T}=\frac{1}{m} \cdot \begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
+\end{bmatrix}^{T}=\frac{1}{m} \cdot \begin{bmatrix}\delta_{11}^{[3]} & \delta_{12}^{[3]}
 \end{bmatrix} \cdot \begin{bmatrix}
 g(z_{11}^{[2]}) & g(z_{21}^{[2]})\\\\\\
 g(z_{12}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{13}^{[2]})& g(z_{23}^{[2]})
-\end{bmatrix}\\)
+\end{bmatrix}\\)= \frac{1}{m}\begin{bmatrix}
+ \delta_{11}^{[3]} \cdot g(z_{11}^{[2]}) + \delta_{12}^{[3]} \cdot g(z_{21}^{[2]}) & \delta_{11}^{[3]} \cdot g(z_{12}^{[2]}) + \delta_{12}^{[3]} \cdot g(z_{22}^{[2]}) & delta_{11}^{[3]} \cdot g(z_{13}^{[2]}) + \delta_{12}^{[3]} \cdot g(z_{23}^{[2]}) = 
+\frac{1}{m}\begin{bmatrix}
+dw_11^{[3]} & dw_12^{[3]}) & dw_13^{[3]}\end{bmatrix}\\)
 
 \\(dim(dw^{[3]})=n^{[3]} \cdot n^{[2]}\\)
 
 
 \\(db^{[3]}=\frac{1}{m}\delta^{[3]} \cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1
-\end{bmatrix}=\frac{1}{m}\begin{bmatrix}\delta_{11}^{[3]}& \delta_{12}^{[3]}& \delta_{13}^{[3]}
-\end{bmatrix}\cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1\end{bmatrix}\\)
+\end{bmatrix}=\frac{1}{m}\begin{bmatrix}\delta_{11}^{[3]} & \delta_{12}^{[3]}& \delta_{13}^{[3]}
+\end{bmatrix}\cdot \begin{bmatrix}1\\\\\\\1\\\\\\\1\end{bmatrix}\\) =\begin{bmatrix}db_{11}^{[3]}\end{bmatrix}
 
 \\(dim(db^{[3]})=n^{[3]} \cdot 1\\)
 
 
-And lastly for Layer l=3:
 
 \\(dA^{[2]}=W^{[3]T} \cdot \delta^{[3]}=\begin{bmatrix}
-w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}\end{bmatrix} \cdot \begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}\\\\\\ \delta_{13}^{[3]}
-\end{bmatrix}\\)
+w_{11}^{[3]} & w_{21}^{[3]} & w_{31}^{[3]}\end{bmatrix}^T \cdot \begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
+\end{bmatrix}\\)=begin{bmatrix}
+w_{11}^{[3]} \\\\\\ w_{21}^{[3]} \\\\\\ w_{31}^{[3]}\end{bmatrix}^T \cdot \begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}\end{bmatrix}
+=\begin{bmatrix}da_{11}^{[2]} & da_{12}^{[3]}\end{bmatrix}\\)
 
-\\(dim(dA^{[2]})=n^{[3]} \cdot 1\\)
+\\(dim(dA^{[2]})=n^{[3]} \cdot m\\)
 
 
 
