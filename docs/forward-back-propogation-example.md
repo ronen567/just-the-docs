@@ -204,7 +204,8 @@ a_{1}^{[3]{(1)}} & a_{1}^{[3]{(2)}}
 
 ### Back Propogation Layer l=3:
 
-First we need to find \\(\delta^{[3]}\\) which equals to \\(dA^{[3]} \odot g^{'[3]}\\). 
+Starting from last layer, first objective is  to find \\(\delta^{[3]}\\): 
+\\(\delta^{[3]}=dA^{[3]} \odot g^{'[3]}\\). 
 
 Starting with the first multipicand, then we already developed the expression for cost function deriative with respect to a Sigmoid, which is:
 
@@ -238,12 +239,12 @@ Having that we can develop the expression for \\(\delta^{[3]}\\)
 g(z_{11}^{[2]}) & g(z_{12}^{[2]})\\\\\\
 g(z_{21}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{31}^{[2]})& g(z_{32}^{[2]})
-\end{bmatrix}^{T}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}\\\\\\ \delta_{13}^{[3]}
+\end{bmatrix}^{T}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
 \end{bmatrix}=\frac{1}{m}\begin{bmatrix}
 g(z_{11}^{[2]}) & g(z_{21}^{[2]})\\\\\\
 g(z_{12}^{[2]}) & g(z_{22}^{[2]})\\\\\\
 g(z_{13}^{[2]})& g(z_{23}^{[2]})
-\end{bmatrix}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}\\\\\\ \delta_{13}^{[3]}
+\end{bmatrix}\begin{bmatrix}\delta_{11}^{[3]}\\\\\\ \delta_{12}^{[3]}
 \end{bmatrix}\\)
 
 \\(dim(dw^{[3]})=n^{[3]} \cdot n^{[2]}\\)
