@@ -1,4 +1,38 @@
+# Back Propogation Example
+In this post we will run a network Training (aka Fitting) example, based on the Back Propogation algorithm explained in the previous post.
 
+The example will run a single Back Propogation cycle, to produce 2 outputs: \\(\frac{\mathrm{d} C}{\mathrm{d}{b^{[l]}}}\\) and \\(\frac{\mathrm{d} C}{\mathrm{d}{w^{[l]}}}\\) for 1<l<L.
+
+## Example Details:
+
+The network is depicted In Figure 1.
+
+### Figure 1: The Network
+![](../assets/images/neural-networks/deep-neural-network-fw-bw-example.png)
+
+### Input data set:
+The input data x, consists of m examples, where m=3. (Note that the examples are stacked in columns).
+
+\\(A^{[0]}=\begin{bmatrix}
+a_1^{[0]{(1)}}& a_1^{[0]{(2)}} & a_1^{[0]{(3)}} \\\\\\
+a_2^{[0]{(1)}}& a_2^{[0]{(2)}} & a_2^{[0]{(3)}} \\\\\\
+a_3^{[0]{(1)}}& a_3^{[0]{(2)}} & a_3^{[0]{(3)}}
+\end{bmatrix}\\)
+
+\\(dim(A^{[0]})=n^{[0]} \cdot m\\)
+
+### Initial Paramerters
+
+Here are the weights and bias of the 3 layers:
+
+#### Weights layer 1:
+
+\\(w^{[1]}=\begin{bmatrix}
+w_{11}^{[1]} & w_{21}^{[1]} & w_{31}^{[1]}\\\\\\
+w_{12}^{[1]} & w_{22}^{[1]} & w_{32}^{[1]}\\\\\\
+w_{13}^{[1]} & w_{23}^{[1]} & w_{33}^{[1]}\\\\\\
+w_{14}^{[1]} & w_{24}^{[1]} & w_{34}^{[1]}
+\end{bmatrix}\\)
 
 \\(dim(w^{[1]})=n^{[1]} \cdot n^{[0]}\\)
 
@@ -292,4 +326,7 @@ w_{41}^{[2]} & w_{42}^{[2]} & w_{43}^{[2]}
 \end{bmatrix}
 1\\)
 \\(dim(dA^{[1]})=n^{[1]} \cdot n^{[2]}\\) ???
+
+
+
 
