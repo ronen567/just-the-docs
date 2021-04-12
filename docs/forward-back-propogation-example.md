@@ -8,6 +8,7 @@ In this post we will run a network Training (aka Fitting) example, based on the 
 
 The example will run a single Back Propogation cycle, to produce 2 outputs: \\(\frac{\mathrm{d} C}{\mathrm{d}{b^{[l]}}}\\) and \\(\frac{\mathrm{d} C}{\mathrm{d}{w^{[l]}}}\\) for 1<l<L.
 
+
 ## Example Details:
 
 The network is depicted In Figure 1.
@@ -15,13 +16,24 @@ The network is depicted In Figure 1.
 ### Figure 1: The Network
 ![](../assets/images/neural-networks/deep-neural-network-fw-bw-example.png)
 
+Layers' Dimensions:
+
+\\n^{[0]} =5\\)
+\\n^{[1]} =4\\)
+\\n^{[2]} =3\\)
+\\n^{[3]} =1\\)
+
+
+
 ### Input data set:
 The input data x, consists of m examples, where m=2. (Note that the examples are stacked in columns).
 
 \\(A^{[0]}=\begin{bmatrix}
-a_1^{[0]{(1)}}& a_1^{[0]{(2)}} \\\\\\
-a_2^{[0]{(1)}}& a_2^{[0]{(2)}} \\\\\\
-a_3^{[0]{(1)}}& a_3^{[0]{(2)}}
+a_1^{[0]{(1)}} & a_1^{[0]{(2)}} \\\\\\
+a_2^{[0]{(1)}} & a_2^{[0]{(2)}} \\\\\\
+a_3^{[0]{(1)}} & a_3^{[0]{(2)}} \\\\\\
+a_4^{[0]{(1)}} & a_4^{[0]{(2)}} \\\\\\
+a_5^{[0]{(1)}} & a_5^{[0]{(2)}}
 \end{bmatrix}\\)
 
 \\(dim(A^{[0]})=n^{[0]} \cdot m\\)
@@ -312,7 +324,6 @@ da_{31}^{[2]} \cdot g^{'}(z_{31}^{[2]}) & da_{32}^{[2]} \cdot g^{'}(z_{32}^{[2]}
 
 \\(dim(\delta^{[2]})=n^{[2]} \cdot m\\)
 
-
 \\(dw^{[2]}=\frac{1}{m}\cdot \delta^{[2]}\cdot A^{[1]T}  =\frac{1}{m}\begin{bmatrix}
 \delta_{11}^{[2]} & \delta_{12}^{[2]} \\\\\\
 \delta_{21}^{[2]} & \delta_{22}^{[2]} \\\\\\
@@ -348,7 +359,7 @@ db_{11}^{[2]} \\\\\\
 db_{21}^{[2]} \\\\\\
 db_{31}^{[2]}\end{bmatrix}\\)
 
-\\(dim(dw^{[2]})=n^{[2]} \cdot 1\\)
+\\(dim(db^{[2]})=n^{[2]} \cdot 1\\)
 
 \\(dA^{[1]}= w^{[2]T} \cdot \delta^{[2]}=
 \begin{bmatrix}
@@ -371,13 +382,94 @@ w_{41}^{[2]} & w_{42}^{[2]} & w_{43}^{[2]}
 \delta_{21}^{[2]} & \delta_{22}^{[2]} \\\\\\
 \delta_{31}^{[2]} & \delta_{32}^{[2]}
 \end{bmatrix} = \begin{bmatrix}
-da_{11}^{[1]} & da_{12}^{[1]} & da_{13}^{[1]} & da_{14}^{[1]}\\\\\\
-da_{21}^{[1]} & da_{22}^{[1]} & da_{23}^{[1]} & da_{24}^{[1]}\\\\\\
-da_{31}^{[1]} & da_{32}^{[1]} &da_{33}^{[1]} & da_{34}^{[1]}
+da_{11}^{[1]} & da_{12}^{[1]}\\\\\\
+da_{21}^{[1]} & da_{22}^{[1]}\\\\\\
+da_{31}^{[1]} & da_{32}^{[1]}\\\\\\
+da_{41}^{[1]} & da_{42}^{[1]}
 \end{bmatrix}\\)
 
 
-\\(dim(dA^{[1]})=n^{[1]} \cdot n^{[2]}\\)
+\\(dim(dA^{[1]})=n^{[1]} \cdot m\\)
+
+### Back Propogation L=1
+
+\\(\delta^{[1]}=dA^{[1]} \odot g^{'[1]}\\)
+
+\\(\delta^{[1]}=dA^{[1]} \odot g^{'[1]}=\begin{bmatrix}
+da_{11}^{[1]} & da_{12}^{[1]}\\\\\\
+da_{21}^{[1]} & da_{22}^{[1]}\\\\\\
+da_{31}^{[1]} & da_{32}^{[1]}\\\\\\
+da_{41}^{[1]} & da_{42}^{[1]}
+\end{bmatrix} \odot \begin{bmatrix}
+g^{'}(z_{11}^{[1]}) & g^{'}z_{12}^{[1]})\\\\\\
+g^{'}(z_{21}^{[1]}) & g^{'}(z_{22}^{[1]})\\\\\\
+g^{'}(z_{31}^{[1]})& g^{'}(z_{32}^{[1]})\\\\\\
+g^{'}(z_{41}^{[1]})& g^{'}(z_{42}^{[1]})
+\end{bmatrix}=\begin{bmatrix}
+=\begin{bmatrix}
+\delta_{11}^{[1]} & \delta_{12}^{[1]} \\\\\\
+\delta_{21}^{[1]} & \delta_{22}^{[1]} \\\\\\
+\delta_{31}^{[1]} & \delta_{32}^{[1]} \\\\\\
+\delta_{41}^{[1]} & \delta_{42}^{[1]}
+\end{bmatrix}\\)
+
+\\(dim(\delta^{[1]})=n^{[1]} \cdot m\\)
+
+
+\\(dw^{[1]}=\frac{1}{m}\cdot \delta^{[1]}\cdot A^{[0]T}  =\frac{1}{m}\begin{bmatrix}
+\delta_{11}^{[1]} & \delta_{12}^{[1]} \\\\\\
+\delta_{21}^{[1]} & \delta_{22}^{[1]} \\\\\\
+\delta_{31}^{[1]} & \delta_{32}^{[1]} \\\\\\
+\delta_{41}^{[1]} & \delta_{42}^{[1]}
+\end{bmatrix} \cdot 
+\begin{bmatrix}
+a_{11}^{[0]}& a_{12}^{[0]} \\\\\\
+a_{21}^{[0]& a_{22}^{[0] \\\\\\
+a_{31}^{[0]& a_{32}^{[0]}\\\\\\
+a_{41}^{[0]& a_{42}^{[0]}\\\\\\
+a_{51}^{[0]& a_{52}^{[0]}
+\end{bmatrix}^T = \frac{1}{m}\begin{bmatrix}
+\delta_{11}^{[1]} & \delta_{12}^{[1]} \\\\\\
+\delta_{21}^{[1]} & \delta_{22}^{[1]} \\\\\\
+\delta_{31}^{[1]} & \delta_{32}^{[1]} \\\\\\
+\delta_{41}^{[1]} & \delta_{42}^{[1]}
+\end{bmatrix} \cdot \begin{bmatrix}
+a_{11}^{[0]} & a_{21}^{[0] & a_{31}^{[0]} & a_{41}^{[0] & a_{51}^{[0]}\\\\\\
+a_{12}^{[0]} & a_{22}^{[0] & a_{32}^{[0]} & a_{42}^{[0] & a_{52}^{[0]}
+\end{bmatrix}=
+\begin{bmatrix}
+dw_{11}^{[1]}& dw_{12}^{[1]}& dw_{13}^{[1]}& dw_{14}^{[1]} & dw_{15}^{[1]}\\\\\\
+dw_{21}^{[1]}& dw_{22}^{[1]}& dw_{23}^{[1]}& dw_{24}^{[1]} & dw_{25}^{[1]}\\\\\\
+dw_{31}^{[1]}& dw_{32}^{[1]}& dw_{33}^{[1]}& dw_{34}^{[1]} & dw_{35}^{[1]}\\\\\\
+dw_{31}^{[1]}& dw_{32}^{[1]}& dw_{33}^{[1]}& dw_{34}^{[1]} & dw_{35}^{[1]}
+
+
+\end{bmatrix}\\)
+
+\\(dim(dw^{[1]})=n^{[1]} \cdot n^{[0]}\\)
+
+
+\\(db^{[1]}=\frac{1}{m} \delta^{[1]} \begin{bmatrix}1 \\\\\\ 1 \end{bmatrix}=\frac{1}{m}\begin{bmatrix}
+\delta_{11}^{[1]} & \delta_{12}^{[1]} \\\\\\
+\delta_{21}^{[1]} & \delta_{22}^{[1]} \\\\\\
+\delta_{31}^{[1]} & \delta_{32}^{[1]} \\\\\\
+\delta_{41}^{[1]} & \delta_{42}^{[1]}
+\end{bmatrix}\begin{bmatrix}1 \\\\\\ 1 \end{bmatrix}=
+\frac{1}{m}\begin{bmatrix}
+\delta_{11}^{[1]} + \delta_{12}^{[1]} \\\\\\
+\delta_{21}^{[1]} + \delta_{21}^{[1]} \\\\\\
+\delta_{31}^{[1]} + \delta_{32}^{[1]}\\\\\\
+\delta_{41}^{[1]} + \delta_{42}^{[1]}
+\end{bmatrix}=\begin{bmatrix}
+db_{11}^{[1]} \\\\\\
+db_{21}^{[1]} \\\\\\
+db_{31}^{[1]} \\\\\\
+db_{41}^{[1]}
+\end{bmatrix}\\)
+
+\\(dim(db^{[1]})=n^{[1]} \cdot 1\\)
+
+
 
 
 
