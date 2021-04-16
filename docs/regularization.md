@@ -114,7 +114,10 @@ Which can be expressed as:
 \\( \frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w \\)
 
 \\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_i \\)
+\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{ij} \\)
 
+
+\\(\frac{\partial \begin{Vmatrix}w\end{Vmatrix}_1}{\partial w_{ij}} = w_{ij} \\)
 \\(\frac{\partial \begin{Vmatrix}w\end{Vmatrix}_1}{\partial w_{ij}} = w_i \\)
 
 
