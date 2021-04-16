@@ -95,7 +95,9 @@ Let's calculate the Gradient of the regularizing L1 norm. To find that, let's de
 
 Which can be expressed as:
 
-### Eq. 10: Derivative of L1 norm with respect to \\(w_{ij}\\)
+### Eq. 11: Derivative of L1 norm with respect to \\(w_{ij}\\)
+
+\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=sign(w_{ij})\\)
 
 ![](../assets/images/regularization/l1-derivative.svg)
 
@@ -103,7 +105,7 @@ Which can be expressed as:
 
 According to this, the L1 norm Gradient expression is given in Eq. 10.
 
-#### Eq. 10:  L1 norm Gradient
+### Eq. 11:  L1 norm Gradient
 
 ![](../assets/images/regularization/l1-gradient.svg)
 
