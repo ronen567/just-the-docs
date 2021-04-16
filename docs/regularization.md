@@ -89,6 +89,9 @@ The regularaizd cost function effects the Gradient Descent formula. Let's plug t
 
 \\(w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha(\frac{\partial C}{\partial w} + \lambda\triangledown_w  \begin{Vmatrix}w\end{Vmatrix}_1)\\)
 
+\\(\mathbf{w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha(\frac{\partial C}{\partial w} + \lambda\triangledown_w  \begin{Vmatrix}w\end{Vmatrix}_1)}\\)
+
+
 
 Let's calculate the Gradient of the regularizing L1 norm. To find that, let's derivate the L1 norm with respect to \\(w_{ij}\\):
 
@@ -100,80 +103,28 @@ Which can be expressed as:
 
 ### Eq. 11: Derivative of L1 norm with respect to \\(w_{ij}\\)
 
-\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=sign(w_{ij})}\\)
-
-\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1}\\)
-
-3
-
-\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=\text{sign}(w_{ij})}\\)
-
-41
-
-\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{ij}} \\)
-
-\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{ij} \\)
-
-\\( \frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = \\)
-
-\\(w_{ij} \\)
-
-
-\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{i,j} \\)
-
-\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{i, j} \\)
-
-\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{ij} \\)
-
-
-\\(\frac{\partial \begin{Vmatrix}w\end{Vmatrix}_1}{\partial w_{ij}} = w_{ij} \\)
-
-444
-
-\\(\frac{\partial \begin{Vmatrix}w\end{Vmatrix}_1}{\partial w_{ij}} = w_i \\)
-
-
-5
-
-\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=}\\)
-
-\\( w_{ij}\\)
-
-
-![](../assets/images/regularization/l1-derivative.svg)
-
-
-
-According to this, the L1 norm Gradient expression is given in Eq. 10.
-
-### Eq. 11:  L1 norm Gradient
-
-![](../assets/images/regularization/l1-gradient.svg)
-
-
-Noticing that the gradient of the L1 norm is:
-
-#### Eq. 5:  L1 norm Gradient
-
-
-![](../assets/images/regularization/l1-derivative.svg)
-
-Which can be expressed as the weights signs:
-
 
 ![](../assets/images/regularization/l1-gradient-sign.svg)
 
 
-Plugging the gradient back to the Gradient Descent equation we get:
+According to this, the L1 norm Gradient expression is given in Eq. 12.
 
-![](../assets/images/regularization/l1-gradient-descent.svg)
+### Eq. 12:  L1 norm Gradient
+
+![](../assets/images/regularization/l1-gradient.svg)
+
+\\(\triangledown_w \begin{Vmatrix}w\end{Vmatrix}_1=sign(w)
+\\)
 
 
-So we reached the formula, as expressed in Eq. 3:
+Pluging Eq. 12 into the L1 Regularized Gradient Descent expression (Eq.8) gives:
 
-### Eq. 3: Gradient Descent with L1 Regularization
+### Eq. 13: L1 Regularized Gradient Descent
 
-\\(\mathbf{\mathbf{w=w-\alpha \cdot \lambda \cdot sign(w)-\alpha \cdot \frac{\partial d }{\partial w}C}}\\)
+\\(\mathbf{w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha\lambda\ sign(w) -\alpha\frac{\partial C}{\partial w}\\)
+
+
+
 
 
 
