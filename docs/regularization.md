@@ -50,9 +50,6 @@ The regularaizd cost function effects the Gradient Descent formula for weights c
 
 Starting with L2 Regularization, let's plug the L2 regulated cost function to the Gradient Descent formula and get:
 
-\\(\mathbf{w=w-\alpha \cdot\frac{\partial \hat{C}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)}
-\\)
-
 ![](../assets/images/regularization/l2-gradient-descent-1.svg)
 
 
@@ -77,14 +74,12 @@ So we reached the formula, as expressed in Eq. 2:
 
 ### Eq. 2: Gradient Descent with L2 Regularization
 
-![](../assets/images/regularization/l1-gradient.svg)
+![](../assets/images/regularization/l2-gradient.svg)
 
 
 
 Now let's plug the L1 regulated cost function to the Gradient Descent formula and get:
 
-\\(\mathbf{w=w-\alpha \cdot\frac{\partial \hat{C}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)}
-\\)
 
 ![](../assets/images/regularization/l1-gradient.svg)
 
@@ -100,9 +95,6 @@ Which can be expressed as the weights signs:
 
 
 Plugging the gradient back to the Gradient Descent equation we get:
-
-todel:
-\\(\mathbf{w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)=w-\alpha \lambda \cdot sign(w)-\alpha \frac{\partial d }{\partial w}C}\\)
 
 ![](../assets/images/regularization/l1-gradient-descent.svg)
 
