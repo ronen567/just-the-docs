@@ -67,11 +67,14 @@ In L1 and L2 Regularizations, the cost function is incremented by a regularizati
 
 4
 
-\\(C(w, b)+\frac{1}{2} \lambda \sum_{i}^{}\sum_{j}^{}w_{i,j}^2\\)
+\\(C(w, b)+\frac{1}{2} \lambda \sum_{i=0}^{}\sum_{j=0}^{}w_{i,j}^2\\)
 
 3
 
-\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i}\sum_{j}w_{i,j}^2}\\)
+\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2 = C(w, b)+\frac{1}{2} \lambda \sum_{i}\sum_{j}w_{i,j}^2}\\)
+
+
+\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2 = C(w, b)+\frac{1}{2} \lambda}\\)
 
 #### Eq. 1b: L1 Regularization
 
