@@ -109,6 +109,8 @@ Which can be expressed as:
 
 \\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{ij}} \\)
 
+\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{ij} \\)
+
 5
 
 \\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=}\\)
