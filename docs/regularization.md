@@ -72,7 +72,7 @@ Plugging the L2 gradient back to the Regularized Gradient Descent equation(Eq. 3
 
 \\(\mathbf{w=w(1-\alpha \cdot \lambda)-\alpha \frac{\partial d }{\partial w}C}\\)
 
-/////////////
+
 ## L1 Regularization
 
 The cost function is regulated by a L1 norm as shown by Eq. 7.
@@ -83,9 +83,12 @@ The cost function is regulated by a L1 norm as shown by Eq. 7.
 
 The regularaizd cost function effects the Gradient Descent formula. Let's plug the L1 regulated cost function (Eq. 7), to the Gradient Descent formula (Eq. 2) and get:
 
-### Eq. 8: L1 L2 Regularized Gradient Descent (not final)
+### Eq. 8: L1 Regularized Gradient Descent (not final)
 
 ![](../assets/images/regularization/l1-gradient.svg)
+
+\\(w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha(\frac{\partial C}{\partial w} + \lambda\triangledown_w  \begin{Vmatrix}w\end{Vmatrix}_1)\\)
+
 
 Let's calculate the Gradient of the regularizing L1 norm. To find that, let's derivate the L1 norm with respect to \\(w_{ij}\\):
 
