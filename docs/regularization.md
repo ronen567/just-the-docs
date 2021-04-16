@@ -44,9 +44,7 @@ $$\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right
 $$\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda w_{i,j}^2}$$
 
 
-\\(\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2}} \lambda \\)
-
-\\(\mathbf{\sum_{i=4}^{3}\sum_{j}^{7}w_{i,j}^2}\\)
+\\(\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2}} \lambda \\) \\(\mathbf{\sum_{i}^{}\sum_{j}^{}w_{i,j}^2}\\)
 
 
 $$\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2}} \lambda $$
