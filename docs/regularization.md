@@ -113,7 +113,6 @@ Which can be expressed as:
 
 \\( \frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = \\) \\( w_{ij} \\)
 
-\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{{i}{j}} \\)
 
 \\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{i,j} \\)
 
