@@ -41,8 +41,7 @@ In L1 and L2 Regularizations, the cost function is incremented by a regularizati
 
 #### Eq. 1b: L1 Regularization
 
-![](../assets/images/regularization/12-regularization.svg)
-
+![](../assets/images/regularization/l1-regularization.svg)
 
 
 The regularaizd cost function effects the Gradient Descent formula for weights coefficents iterative calculation:
