@@ -5,13 +5,14 @@ Overfiting is one of the most common prediction problems in deep learning system
 Figure 1 illustrates underfitting rightfitting and overfitting of a 1D model. Figure 1a shows underfitting. Common reason for underfitting is a too simple model. Anyway, this post is about a set of algorithms used to avoid overfitting, named Regularization.
 
 Figure 1a: Underfitting
+
 ![](../assets/images/regularization/underfitting.png)
  
-Figure 2a: Goodfitting
+Figure 1b: Goodfitting
 
 ![](../assets/images/regularization/rightfitting.png)
   
-Figure 3a: Overfitting
+Figure 1c: Overfitting
 
 ![](../assets/images/regularization/overfitting.png)
 
@@ -36,72 +37,71 @@ In L1 and L2 Regularizations, the cost function is incremented by a regularizati
 
 #### Eq. 1a: L2 Regularization
 
-\\(C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2}\lambda \sum_{i=1}^{n^{(l))}}\sum_{i=1}^{n^{(l-1)}}w_{i,j}^2\\)
-
-Where \\(n^{(l))}\\) and n^{(l-1} denote the number of nodes in layer l and l-1 respectively.
+\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i}^{}\sum_{j}^{}w_{i,j}^2}\\)
 
 
 #### Eq. 1b: L1 Regularization
 
-\\((C(w, b)_{regularized} = C(w, b)+\lambda \left \| w \right \|_1= C(w, b)+\lambda \frac{1}{2}\sum_{i=1}^{n^{(l))}}\sum_{i=1}^{n^{(l-1)}}\left |w_{i,j}  \right |\\)
+\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\lambda \left \| w \right \|_1= C(w, b)+\lambda \sum_{i}^{}\sum_{j}^{}\left |w_{i,j}  \right |}\\)
 
 
 The regularaizd cost function effects the Gradient Descent formula for weights coefficents iterative calculation:
 
-\\(w=w-\alpha \cdot\frac{\partial C}{\partial w}\\)
+\\(\mathbf{w=w-\alpha \cdot\frac{\partial C}{\partial w}}\\)
 
 Starting with L2 Regularization, let's plug the L2 regulated cost function to the Gradient Descent formula and get:
 
-\\(w=w-\alpha \cdot\frac{\partial C_{regularized}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)
+\\(\mathbf{w=w-\alpha \cdot\frac{\partial C_{regularized}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)}
 \\)
 
 Let's calculate the gradient of the L2 norm. Noticing that:
-\\(\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}\\)
+
+\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}}\\)
 
 The gradient is accordingly:
 
-\\(\triangledown_w \left \| w \right \|_2^2 = 2w
+\\(\mathbf{\triangledown_w \left \| w \right \|_2^2 = 2w}
 \\)
 
 
 Plugging the gradient back to the Gradient Descent equation we get:
-\\(w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)=w(1-\lambda)-\alpha \frac{\partial d }{\partial w}C\\)
 
-Let's extract the expression for Gradient Descent with L2 Regularization:
+\\(\mathbf{w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)=w(1-\lambda)-\alpha \frac{\partial d }{\partial w}C}\\)
 
+So we reached the formula, as expressed in Eq. 2:
 
-Eq. 2: Gradient Descent with L2 Regularization
+### Eq. 2: Gradient Descent with L2 Regularization
 
 \\(\mathbf{w=w(1-\alpha \lambda)-\alpha \frac{\partial d }{\partial w}C}\\)
 
 
 Now let's plug the L1 regulated cost function to the Gradient Descent formula and get:
 
-\\(w=w-\alpha \cdot\frac{\partial C_{regularized}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)
+\\(\mathbf{w=w-\alpha \cdot\frac{\partial C_{regularized}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)}
 \\)
 
 Let's calculate the gradient of the L1 norm. Noticing that:
-\\(\frac{\partial }{\partial w_{ij} } \left \| w \right \|_1=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}\left |w_{i,j}  \right |=\begin{Bmatrix}
+
+\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_1=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}\left |w_{i,j}  \right |=\begin{Bmatrix}
 -1 \text{ if w} < 0 \\ 
 1 \text{ if w} > 0
+\end{Bmatrix}}\\)
 
-\end{Bmatrix}\\)
+The gradient accordingly equals the to the weights signs:
 
-The gradient is accordingly:
-
-\\(\triangledown_w \left \| w \right \|_1 = sign(w)
+\\(\mathbf{\triangledown_w \left \| w \right \|_1 = sign(w)}
 \\)
 
 
 Plugging the gradient back to the Gradient Descent equation we get:
-\\(w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)=w-\alpha \lambda)sign(w)-\alpha \frac{\partial d }{\partial w}C\\)
 
-Let's extract the expression for Gradient Descent with L1 Regularization:
+\\(\mathbf{w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)=w-\alpha \lambda)sign(w)-\alpha \frac{\partial d }{\partial w}C}\\)
 
+So we reached the formula, as expressed in Eq. 3:
 
 Eq. 3: Gradient Descent with L1 Regularization
 
-\\(\mathbf{w=w-\alpha\lambda)sign(w)-\alpha \frac{\partial d }{\partial w}C}\\)
+\\(\mathbf{\mathbf{w=w-\alpha\lambda)sign(w)-\alpha \frac{\partial d }{\partial w}C}}\\)
 
 
 
