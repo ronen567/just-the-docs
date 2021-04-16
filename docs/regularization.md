@@ -105,9 +105,9 @@ Which can be expressed as:
 
 \\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=\text{sign}(w_{ij})}\\)
 
-4
+41
 
-\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=w_{ij}}\\)
+\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{ij}} \\)
 
 5
 
