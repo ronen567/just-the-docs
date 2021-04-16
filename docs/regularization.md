@@ -84,7 +84,7 @@ Now let's plug the L1 regulated cost function to the Gradient Descent formula an
 \\(\mathbf{w=w-\alpha \cdot\frac{\partial \hat{C}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)}
 \\)
 
-![](../assets/images/regularization/l1-derivative.svg)
+![](../assets/images/regularization/l1-gradient.svg)
 
 
 Noticing that the gradient of the L1 norm is:
