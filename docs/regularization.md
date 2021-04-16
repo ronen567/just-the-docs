@@ -37,9 +37,9 @@ In L1 and L2 Regularizations, the cost function is incremented by a regularizati
 
 #### Eq. 1a: L2 Regularization
 
-\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}\sum_{j=4}^{3}w_{i,j}^2}\\)
+$$\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}\sum_{j=4}^{3}w_{i,j}^2}$$
 
-\\(\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}\sum_{j=4}^{3}w_{i,j}^2}\\)
+$$\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}\sum_{j=4}^{3}w_{i,j}^2}$$
 
 \\(\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda} \\)
 
