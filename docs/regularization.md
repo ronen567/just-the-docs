@@ -53,7 +53,7 @@ Starting with L2 Regularization, let's plug the L2 regulated cost function to th
 \\(\mathbf{w=w-\alpha \cdot\frac{\partial \hat{C}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)}
 \\)
 
-![](../assets/images/regularization/l2-gradient-descent.svg)
+![](../assets/images/regularization/l2-gradient-descent-1.svg)
 
 
 Let's calculate the gradient of the L2 norm. Noticing that:
