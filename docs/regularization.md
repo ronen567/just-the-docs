@@ -62,26 +62,13 @@ Starting with L2 Regularization, let's plug the L2 regulated cost function to th
 
 Let's calculate the gradient of the L2 norm. Noticing that:
 
-\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}}\\)
-
-1
-
-\\(\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}\\)
-
-2
-
-\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2}\\)
-
-\\(\mathbf{=2w_{i,j}}\\)
-
-
-
-3
-
-
 \\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=}\\)
 
 \\(\mathbf{\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}}\\)
+
+2
+
+\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}{w_{i,j}^2}=2w_{i,j}}\\)
 
 
 
