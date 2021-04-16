@@ -41,19 +41,19 @@ In L1 and L2 Regularizations, the cost function is incremented by a regularizati
 
 0
 
-\\(\mathbf{C(w, b)_{regularized}\\)
+\\(\mathbf{C(w, b)_{regularized}}\\)
 
 1
 
-\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \\)
+\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2}} \\)
 
 2
 
-\\(\mathbf{C(w, b)_{regularized} = C(w, b) + \frac{1}{2} \lambda \left \| w \right \|_2^2 \\)
+\\(\mathbf{C(w, b)_{regularized} = C(w, b) + \frac{1}{2} \lambda \left \| w \right \|_2^2 }\\)
 
 3
 
-\\(\mathbf{C(w, b)_{regularized} = C(w, b) + \frac{1}{2} \lambda \left \| w \right \|^2 \\)
+\\(\mathbf{C(w, b)_{regularized} = C(w, b) + \frac{1}{2} \lambda \left \| w \right \|^2} \\)
 
 
 #### Eq. 1b: L1 Regularization
