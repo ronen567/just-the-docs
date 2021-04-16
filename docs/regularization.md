@@ -111,6 +111,13 @@ Which can be expressed as:
 
 \\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_{ij} \\)
 
+\\( \frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w \\)
+
+\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1 = w_i \\)
+
+\\(\frac{\partial \begin{Vmatrix}w\end{Vmatrix}_1}{\partial w_{ij}} = w_i \\)
+
+
 5
 
 \\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=}\\)
