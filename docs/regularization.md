@@ -53,6 +53,8 @@ Let's plug the L2 regulated cost function (Eq. 1), to the Gradient Descent formu
 
 ![](../assets/images/regularization/l2-gradient-descent-1.svg)
 
+\\(\mathbf{w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha(\frac{\partial C}{\partial w} + \lambda\ \frac{1}{2}\triangledown_w  \begin{Vmatrix}w\end{Vmatrix}_2^2)}\\)
+
 
 Let's calculate the Gradient of the regularizing L2 norm. To find that, let's derivate the L2 norm with respect to \\(w_{ij}\\):
 
@@ -87,7 +89,6 @@ The regularaizd cost function effects the Gradient Descent formula. Let's plug t
 
 ![](../assets/images/regularization/l1-gradient.svg)
 
-\\(w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha(\frac{\partial C}{\partial w} + \lambda\triangledown_w  \begin{Vmatrix}w\end{Vmatrix}_1)\\)
 
 \\(\mathbf{w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha(\frac{\partial C}{\partial w} + \lambda\triangledown_w  \begin{Vmatrix}w\end{Vmatrix}_1)}\\)
 
