@@ -37,18 +37,12 @@ In L1 and L2 Regularizations, the cost function is incremented by a regularizati
 
 #### Eq. 1a: L2 Regularization
 
-\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2}\\)
-
-\\(\mathbf{= C(w, b)+\frac{1}{2} \lambda \sum_{i}^{} \sum_{j}^{} w_{i,j}^2}\\)
-
-
-
+![](../assets/images/regularization/l2-regularization.svg)
 
 #### Eq. 1b: L1 Regularization
 
-\\(\hat{C}(w, b) = C(w, b)+\lambda \left \| w \right \|_1\\)
+![](../assets/images/regularization/12-regularization.svg)
 
-\\(=\mathbf{C(w, b)+\lambda \sum_{i}^{}\sum_{j}^{}\left |w_{i,j} \right |}\\)
 
 
 The regularaizd cost function effects the Gradient Descent formula for weights coefficents iterative calculation:
@@ -62,10 +56,7 @@ Starting with L2 Regularization, let's plug the L2 regulated cost function to th
 
 Let's calculate the gradient of the L2 norm. Noticing that:
 
-\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=}\\)
-
-\\(\mathbf{\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}}\\)
-
+![](../assets/images/regularization/l2-derivative.svg)
 
 
 The gradient is accordingly:
@@ -87,17 +78,14 @@ So we reached the formula, as expressed in Eq. 2:
 
 Now let's plug the L1 regulated cost function to the Gradient Descent formula and get:
 
-\\(\mathbf{w=w-\alpha \cdot\frac{\partial C_{regularized}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)}
+\\(\mathbf{w=w-\alpha \cdot\frac{\partial \hat{C}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)}
 \\)
 
-Let's calculate the gradient of the L1 norm. Noticing that:
+Noticing that the gradient of the L1 norm is:
 
-\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_1=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}\left |w_{i,j}  \right |=\begin{Bmatrix}
--1 \text{ if w} < 0 \\ 
-1 \text{ if w} > 0
-\end{Bmatrix}}\\)
+![](../assets/images/regularization/l1-derivative.svg)
 
-The gradient accordingly equals the to the weights signs:
+Which can be expressed as the weights signs:
 
 \\(\mathbf{\triangledown_w \left \| w \right \|_1 = sign(w)}
 \\)
@@ -105,13 +93,13 @@ The gradient accordingly equals the to the weights signs:
 
 Plugging the gradient back to the Gradient Descent equation we get:
 
-\\(\mathbf{w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)=w-\alpha \lambda)sign(w)-\alpha \frac{\partial d }{\partial w}C}\\)
+\\(\mathbf{w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)=w-\alpha \lambda \cdot sign(w)-\alpha \frac{\partial d }{\partial w}C}\\)
 
 So we reached the formula, as expressed in Eq. 3:
 
-Eq. 3: Gradient Descent with L1 Regularization
+### Eq. 3: Gradient Descent with L1 Regularization
 
-\\(\mathbf{\mathbf{w=w-\alpha\lambda)sign(w)-\alpha \frac{\partial d }{\partial w}C}}\\)
+\\(\mathbf{\mathbf{w=w-\alpha\lambda \ cdot sign(w)-\alpha \frac{\partial d }{\partial w}C}}\\)
 
 
 
