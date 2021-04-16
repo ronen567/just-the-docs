@@ -79,11 +79,9 @@ Let's calculate the gradient of the L2 norm. Noticing that:
 3
 
 
-\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2}\\)
+\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=}\\)
 
-\\(\mathbf{=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2}\\)
-
-\\(\mathbf{=2w_{i,j}}\\)
+\\(\mathbf{\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}}\\)
 
 
 
