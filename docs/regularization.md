@@ -99,6 +99,10 @@ Which can be expressed as:
 
 \\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=sign(w_{ij})}\\)
 
+\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1}\\)
+
+
+
 ![](../assets/images/regularization/l1-derivative.svg)
 
 
