@@ -99,15 +99,8 @@ Let's calculate the Gradient of the regularizing L1 norm. To find that, let's de
 
 ![](../assets/images/regularization/l1-derivative.svg)
 
-Which can be expressed as:
 
-### Eq. 11: Derivative of L1 norm with respect to \\(w_{ij}\\)
-
-
-![](../assets/images/regularization/l1-gradient-sign.svg)
-
-
-According to this, the L1 norm Gradient expression is given in Eq. 12.
+According to this, the L1 norm Gradient expression is this:
 
 ### Eq. 12:  L1 norm Gradient
 
@@ -121,7 +114,7 @@ Pluging Eq. 12 into the L1 Regularized Gradient Descent expression (Eq.8) gives:
 
 ### Eq. 13: L1 Regularized Gradient Descent
 
-\\(\mathbf{w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha\lambda\ sign(w) -\alpha\frac{\partial C}{\partial w}\\)
+\\(\mathbf{w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha\lambda\ sign(w) -\alpha\frac{\partial C}{\partial w}}\\)
 
 
 
