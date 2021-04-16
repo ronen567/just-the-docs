@@ -103,15 +103,15 @@ Which can be expressed as:
 
 3
 
-\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=\text{sign}(w_{ij})}
+\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=\text{sign}(w_{ij})}\\)
 
 4
 
-\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=w_{ij}}
+\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=w_{ij}}\\)
 
 5
 
-\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=}\\)
+\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=}\\)
 
 \\( w_{ij}\\)
 
