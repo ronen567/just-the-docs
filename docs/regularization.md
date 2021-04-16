@@ -54,6 +54,9 @@ Starting with L2 Regularization, let's plug the L2 regulated cost function to th
 \\(\mathbf{w=w-\alpha \cdot\frac{\partial \hat{C}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)}
 \\)
 
+![](../assets/images/regularization/l2-gradient-descent.svg)
+
+
 Let's calculate the gradient of the L2 norm. Noticing that:
 
 ![](../assets/images/regularization/l2-derivative.svg)
@@ -61,19 +64,20 @@ Let's calculate the gradient of the L2 norm. Noticing that:
 
 The gradient is accordingly:
 
-\\(\mathbf{\triangledown_w \left \| w \right \|_2^2 = 2w}
-\\)
+![](../assets/images/regularization/l2-derivative.svg)
 
 
 Plugging the gradient back to the Gradient Descent equation we get:
 
 \\(\mathbf{w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)=w(1-\lambda)-\alpha \frac{\partial d }{\partial w}C}\\)
 
+
 So we reached the formula, as expressed in Eq. 2:
 
 ### Eq. 2: Gradient Descent with L2 Regularization
 
-\\(\mathbf{w=w(1-\alpha \lambda)-\alpha \frac{\partial d }{\partial w}C}\\)
+![](../assets/images/regularization/l1-gradient.svg)
+
 
 
 Now let's plug the L1 regulated cost function to the Gradient Descent formula and get:
@@ -81,25 +85,32 @@ Now let's plug the L1 regulated cost function to the Gradient Descent formula an
 \\(\mathbf{w=w-\alpha \cdot\frac{\partial \hat{C}}{\partial w}=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)}
 \\)
 
+![](../assets/images/regularization/l1-derivative.svg)
+
+
 Noticing that the gradient of the L1 norm is:
 
 ![](../assets/images/regularization/l1-derivative.svg)
 
 Which can be expressed as the weights signs:
 
-\\(\mathbf{\triangledown_w \left \| w \right \|_1 = sign(w)}
-\\)
+
+![](../assets/images/regularization/l1-gradient-sign.svg)
 
 
 Plugging the gradient back to the Gradient Descent equation we get:
 
+todel:
 \\(\mathbf{w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \triangledown_w \left \| w \right \|_1)=w-\alpha \lambda \cdot sign(w)-\alpha \frac{\partial d }{\partial w}C}\\)
+
+![](../assets/images/regularization/l1-gradient-descent.svg)
+
 
 So we reached the formula, as expressed in Eq. 3:
 
 ### Eq. 3: Gradient Descent with L1 Regularization
 
-\\(\mathbf{\mathbf{w=w-\alpha\lambda \ cdot sign(w)-\alpha \frac{\partial d }{\partial w}C}}\\)
+\\(\mathbf{\mathbf{w=w-\alpha \cdot \lambda \cdot sign(w)-\alpha \cdot \frac{\partial d }{\partial w}C}}\\)
 
 
 
