@@ -37,98 +37,18 @@ In L1 and L2 Regularizations, the cost function is incremented by a regularizati
 
 #### Eq. 1a: L2 Regularization
 
-$$\mathbf{\hat{C}(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i}^{} \sum_{j}^{} w_{i,j}^2}$$
-
-\\(\mathbf{\hat{C}(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2}\\)
+\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2}\\)
 
 \\(\mathbf{= C(w, b)+\frac{1}{2} \lambda \sum_{i}^{} \sum_{j}^{} w_{i,j}^2}\\)
 
-$$\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}}$$
-
-$$\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda w_{i,j}^2}$$
-
-
-\\(\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2}} \lambda \\) \\(\mathbf{\sum_{i}^{}\sum_{j}^{}w_{i,j}^2}\\)
-
-
-$$\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2}} \lambda $$
-
-$$\mathbf{\sum_{i=4}^{3}\sum_{j}^{}w_{i,j}^2}$$
-
-\\(\mathbf{C(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda} \\)
-
-\\( \mathbf{\sum_{i=4}^{3}}\\)
-
-\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2 = C(w, b)+\frac{1}{2} \lambda}\\)
-
-
-
-ok
-
-
-\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2 = C(w, b)+\frac{1}{2} \lambda}\\)
-
-
-
-\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}\sum_{j=4}^{3}}\\)
-
-\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}}\\)
-
-from start
-
-\\(\mathbf{ \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}}\\)
-
-\\( \mathbf{C(w, b)+\frac{1}{2} \lambda \sum_{i=4}^{3}}\\)
-
-j
-
-\\( \mathbf{ \lambda \sum_{i=4}^{3}}\\)
-
-
-ok:
-
-\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda }\\)
-
-
-
-
--2
-
-\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2 = C(w, b)+\frac{1}{2} \lambda \sum_{i}\sum_{j}w_{i,j}^2}\\)
-
--1
-
-\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2= C(w, b)+\frac{1}{2} \lambda \sum_{i}\sum_{j}w_{i,j}^2}\\)
-
-0
-
-\\(\mathbf{C(w, b)_{regularized}}\\)
-
-1
-
-\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\frac{1}{2}} \\)
-
-2
-
-\\(\mathbf{C(w, b)_{regularized} = C(w, b) + \frac{1}{2} \lambda \left \| w \right \|_2^2 }\\)
-
-3
-
-\\(\mathbf{C(w, b)_{regularized} = C(w, b) + \frac{1}{2} \lambda \left \| w \right \|^2} \\)
-
-4
-
-\\(C(w, b)+\frac{1}{2} \lambda \sum_{i=0}^{}\sum_{j=0}^{}w_{i,j}^2\\)
-
-3
-
-\\(\mathbf{\hat{C}(w, b) = C(w, b)+\frac{1}{2} \lambda  \left \| w \right \|_2^2 = C(w, b)+\frac{1}{2} \lambda \sum_{i}\sum_{j}w_{i,j}^2}\\)
 
 
 
 #### Eq. 1b: L1 Regularization
 
-\\(\mathbf{C(w, b)_{regularized} = C(w, b)+\lambda \left \| w \right \|_1= C(w, b)+\lambda \sum_{i}^{}\sum_{j}^{}\left |w_{i,j}  \right |}\\)
+\\(\mathbf{\hat{C}(w, b) = C(w, b)+\lambda \left \| w \right \|_1}\\)
+
+\\(=\mathbf{C(w, b)+\lambda \sum_{i}^{}\sum_{j}^{}\left |w_{i,j} \right |}\\)
 
 
 The regularaizd cost function effects the Gradient Descent formula for weights coefficents iterative calculation:
@@ -143,6 +63,30 @@ Starting with L2 Regularization, let's plug the L2 regulated cost function to th
 Let's calculate the gradient of the L2 norm. Noticing that:
 
 \\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}}\\)
+
+1
+
+\\(\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2=2w_{i,j}\\)
+
+2
+
+\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2}\\)
+
+\\(\mathbf{=2w_{i,j}}\\)
+
+
+
+3
+
+
+\\(\mathbf{\frac{\partial }{\partial w_{ij} } \left \| w \right \|_2^2}\\)
+
+\\(\mathbf{=\frac{\partial }{\partial w_{ij} } \sum_{i}^{}\sum_{j}^{}w_{i,j}^2}\\)
+
+\\(\mathbf{=2w_{i,j}}\\)
+
+
+
 
 The gradient is accordingly:
 
