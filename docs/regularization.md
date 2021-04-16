@@ -70,6 +70,8 @@ Plugging the gradient back to the Gradient Descent equation we get:
 
 \\(\mathbf{w=w-\alpha (\cdot \frac{\partial C}{\partial w} + \lambda \frac{1}{2} \triangledown_w \left \| w \right \|_2^2)=w(1-\lambda)-\alpha \frac{\partial d }{\partial w}C}\\)
 
+![](../assets/images/regularization/l2-gradient-descent.svg)
+
 
 So we reached the formula, as expressed in Eq. 2:
 
