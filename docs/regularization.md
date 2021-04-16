@@ -101,6 +101,8 @@ Which can be expressed as:
 
 \\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1}\\)
 
+3
+\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=\text{sign}(w_{ij})}
 
 
 ![](../assets/images/regularization/l1-derivative.svg)
