@@ -3,7 +3,7 @@
 ## Background: Overfitting
 Overfiting is one of the most common prediction problems in deep learning systems. An overfitted model fits well for the training sequence, but shows bad performance for validation data not seen in the training set. This behavior is a result of fitting to the model to the details of a particular set of training data. Reasons for overfitting may be a too complex prediction model (e.g. too many nodes or layers), and a too short training sequence. 
 
-Figure 1 illustrates underfitting rightfitting and overfitting of a 1D model. Figure 1a shows underfitting. Common reason for underfitting is a too simple model. Anyway, this post is about a set of algorithms used to avoid overfitting, named Regularization.
+Figure 1 illustrates underfitting rightfitting and overfitting of a 1D model. Figure 1a shows underfitting. Common reason for underfitting is a too simple model. Anyway, this post is about a set of techniques used to avoid overfitting, named Regularization.
 
 ### Figure 1a: Underfitting
 
@@ -19,9 +19,9 @@ Figure 1 illustrates underfitting rightfitting and overfitting of a 1D model. Fi
 
 
 
-## Regularization Algorithms
+## Regularization Techniques
 
-As mentioned above, Regularization applies to a set of algorithms which aim to prevent overfitting, by either simplify the system or increase the size of training system. The regularization algorithms presented here are:
+As mentioned above, Regularization applies to a set of techniques which aim to prevent overfitting, by either simplify the system or increase the size of training system. The regularization techniques presented here are:
 
 - L2 Regularization
 - L1 Regularization
@@ -51,8 +51,6 @@ Let's plug the L2 regulated cost function (Eq. 1), to the Gradient Descent formu
 
 #### Eq. 3: L2 Regularized Gradient Descent (not final)
 
-![](../assets/images/regularization/l2-gradient-descent-1.svg)
-
 \\(\mathbf{w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha(\frac{\partial C}{\partial w} + \lambda\ \frac{1}{2}\triangledown_w  \begin{Vmatrix}w\end{Vmatrix}_2^2)}\\)
 
 
@@ -64,9 +62,11 @@ Let's calculate the Gradient of the regularizing L2 norm. To find that, let's de
 
 According to this, the L2 norm Gradient expression is given in Eq. 5.
 
-#### Eq. 5:  L2 norm Gradient
+### Eq. 5:  L2 norm Gradient
 
-![](../assets/images/regularization/l2-gradient.svg)
+
+\\(\triangledown_w \begin{Vmatrix}w\end{Vmatrix}_2^2=2w\\)
+
 
 Plugging the L2 gradient back to the Regularized Gradient Descent equation(Eq. 3) we get:
 
@@ -74,6 +74,7 @@ Plugging the L2 gradient back to the Regularized Gradient Descent equation(Eq. 3
 
 \\(\mathbf{w=w(1-\alpha \cdot \lambda)-\alpha \frac{\partial d }{\partial w}C}\\)
 
+**Conclusions**:  Eq. 6 shows that the L2 Regularization factor diminishes the resultant weights by a factor of \\(w\alpha\lambda\\). The L2 regularization factor includes w as a multipicand, so the reduction of w is decremented as w decrements. That will provide smaller weights, but will not zero weights, i.e. will not make sparcy weight matrice. Reduced weights restrains overfitting, as large large changes in the input will be translated to less changes in the output. 
 
 ## L1 Regularization
 
@@ -105,9 +106,8 @@ According to this, the L1 norm Gradient expression is this:
 
 ### Eq. 12:  L1 norm Gradient
 
-![](../assets/images/regularization/l1-gradient.svg)
 
-\\(\triangledown_w \begin{Vmatrix}w\end{Vmatrix}_1=sign(w)
+\\(\mathbf{\triangledown_w \begin{Vmatrix}w\end{Vmatrix}_1=sign(w)}
 \\)
 
 
@@ -117,8 +117,9 @@ Pluging Eq. 12 into the L1 Regularized Gradient Descent expression (Eq.8) gives:
 
 \\(\mathbf{w=w-\alpha \frac{\partial \hat{C}}{\partial w}=w-\alpha\lambda\ sign(w) -\alpha\frac{\partial C}{\partial w}}\\)
 
+**Conclusions**:  Eq. 13 shows that the L1 Regularization factor diminishes the resultant weights by a factor of \\(\alpha\lambda\ sign(w)\\). Unlike L1 regularization, the  factor is dependent on w, so the reduction factor is not dectemening with w. Here some of the weights may be zeroed, making the weights matrix w sparsy. The effect of sparcy weights is of a simplified system, where a fraction of the nodes is not operative during some periods of the training session. 
 
-
+## Dropout
 
 
 
