@@ -97,7 +97,7 @@ Which can be expressed as:
 
 ### Eq. 11: Derivative of L1 norm with respect to \\(w_{ij}\\)
 
-\\(\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=sign(w_{ij})\\)
+\\(\mathbf{\frac{\partial}{\partial w_{ij}}\begin{Vmatrix}w\end{Vmatrix}_1=sign(w_{ij})}\\)
 
 ![](../assets/images/regularization/l1-derivative.svg)
 
