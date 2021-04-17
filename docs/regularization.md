@@ -121,6 +121,6 @@ Pluging Eq. 12 into the L1 Regularized Gradient Descent expression (Eq.8) gives:
 
 ## Dropout
 
-
+When implementing droput during the training session, a fraction of the DNN nodes is cancelled, which results in a simpler network, and thus may avoid overfitting. According to the determined droput probability, a different fraction of the nodes is canceled at evey fitting iteration, as illustrated in the 
 
 
