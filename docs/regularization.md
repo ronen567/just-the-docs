@@ -137,6 +137,23 @@ When implementing droput during the training session, a fraction of the DNN node
 
 ## Early Stopping
 
+Background: It is assumed that the coefficients learning procedure is carried by an iterative algorithm, e.g. Gradient Descent. In suc algorithms, the training data runs through the training procedure repeatedly till convergence. BTW, each itteration run of the entire training data is called an Epoch. 
+
+Problem is, although more training epochs seem to improve performance, the updated farther coefficients may actually be overfitted. To prevent that, part of the training data is kept for validation only. The prediction performance is tested now not only with the training data but also with validation data. When performance f validation data decreases, the training procedure stops, as depicted in Figure 3.
+
+Note that in Keras, the setup of EarylStop involves with some attributes such as: 
+- monitor: Quantity to be monitored, e.g. 'val_loss'
+- mode: Here ('auto', 'min', 'max'). Relates to monitored value. 'min' would stop if monitored value stops decreasing, 'max' if stops increasing, 'auto' - will stop according to nature of monitored value.
+- patience: The early stopping will still wait for some epochs before stopping. E.g. if patience=4, it will stop only if 4 consecutive epochs stop decreasing.
+-restore_best_weights: Whether to restore model weights from the epoch with the best value of the monitored quantity. If False, the model weights obtained at the last step of training are used.
+
+
+### Figure 3: Dropout Early Stopping
+
+![](../assets/images/regularization/early-stop.png)
+
+## Data Augmentation
+
 
 
 
