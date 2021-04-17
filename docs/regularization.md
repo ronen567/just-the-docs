@@ -135,7 +135,7 @@ When implementing droput during the training session, a fraction of the DNN node
 ![](../assets/images/regularization/dropout.gif)
 
 
-
+## Early Stopping
 
 
 
