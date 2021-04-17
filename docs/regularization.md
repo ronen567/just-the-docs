@@ -154,6 +154,12 @@ Note that in Keras, the setup of EarylStop involves with some attributes such as
 
 ## Data Augmentation
 
+Data Augmentation is one more regularization technique. Over fitting can be avoided by increasing the training sequence. As more training data is required, in many cases it is complicated or in some cases may be even not realistic to get more data. Augmenting the available training data may be helpful here. Augmentation is common in CDNs (Convolutioal Data Networks), which typical data set consists of images. The augmentation is done by applying various manipulations on the input data such as the geometrical transforms: rotations, translations, scaling, flipping, shearing.
+
+
+
+
+
 
 
 
