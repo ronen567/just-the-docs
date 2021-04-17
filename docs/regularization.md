@@ -1,9 +1,10 @@
 # Regularization
 
 ## Background: Overfitting
-Overfiting is one of the most common prediction problems in deep learning systems. An overfitted model fits well for the training sequence, but shows bad performance for validation data not seen in the training set. This behavior is a result of fitting to the model to the details of a particular set of training data. Reasons for overfitting may be a too complex prediction model (e.g. too many nodes or layers), and a too short training sequence. 
+Overfiting is one of the most common prediction problems in deep learning systems. Avoiding overfitting during the training phase is a key chalenge. An overfitted prediction model fits well for the training sequence, according to which it was fitted, but shows bad performance for validation data not seen in the training set. This behavior is a result of fitting to the model to the details of a particular set of training data. 
+Reasons for overfitting may be a too complex prediction model (e.g. too many nodes or layers), and a too short training sequence.
 
-Figure 1 illustrates underfitting rightfitting and overfitting of a 1D model. Figure 1a shows underfitting. Common reason for underfitting is a too simple model. Anyway, this post is about a set of techniques used to avoid overfitting, named Regularization.
+Figure 1 illustrates underfitting, goodfitting and overfitting. Figure 1a shows underfitting. Common reason for underfitting is a too simple model. Anyway, this post is about a set of techniques used to avoid overfitting, named **Regularization**.
 
 ### Figure 1a: Underfitting
 
@@ -21,13 +22,18 @@ Figure 1 illustrates underfitting rightfitting and overfitting of a 1D model. Fi
 
 ## Regularization Techniques
 
-As mentioned above, Regularization applies to a set of techniques which aim to prevent overfitting, by either simplify the system or increase the size of training system. The regularization techniques presented here are:
+As mentioned above, Regularization applies to a set of techniques which aim to prevent overfitting by simplifying the system, stopping the training when just when weights begin to overfit, and increasing the effective size of training system. 
+
+The regularization techniques presented here are:
 
 - L2 Regularization
 - L1 Regularization
 - Dropout
 - Early Stopping
 - Data Augmentation
+
+
+
 
 ## L2 Regularization
 
@@ -74,7 +80,7 @@ Plugging the L2 gradient back to the Regularized Gradient Descent equation(Eq. 3
 
 \\(\mathbf{w=w(1-\alpha \cdot \lambda)-\alpha \frac{\partial d }{\partial w}C}\\)
 
-**Conclusions**:  Eq. 6 shows that the L2 Regularization factor diminishes the resultant weights by a factor of \\(w\alpha\lambda\\). The L2 regularization factor includes w as a multipicand, so the reduction of w is decremented as w decrements. That will provide smaller weights, but will not zero weights, i.e. will not make sparcy weight matrice. Reduced weights restrains overfitting, as large large changes in the input will be translated to less changes in the output. 
+**Conclusions**:  Eq. 6 shows that the L2 Regularization factor diminishes the resultant weights by a factor of \\(w\alpha\lambda\\). The L2 regularization factor includes w as a multipicand, so the shrinkage of w is decremented as w decrements. That will provide smaller weights, but will not zero the weights, i.e. will not make sparcy weight matrice. Shrinking weights restrains overfitting, as large changes in the input will be translated to less changes in the output. 
 
 ## L1 Regularization
 
@@ -121,6 +127,20 @@ Pluging Eq. 12 into the L1 Regularized Gradient Descent expression (Eq.8) gives:
 
 ## Dropout
 
-When implementing droput during the training session, a fraction of the DNN nodes is cancelled, which results in a simpler network, and thus may avoid overfitting. According to the determined droput probability, a different fraction of the nodes is canceled at evey fitting iteration, as illustrated in the 
+When implementing droput during the training session, a fraction of the DNN nodes is cancelled, which results in a simpler network, and thus may avoid overfitting. The dropout rate P determines the drop probability, acording to which nodes are cancelled at every training phase's fitting iteration. Dropout can be applied to the input layer. the hidden layers but not to the output layer. Figure 2 illustrates dropout.
+
+### Figure 2: Dropout
+
+
+![](../assets/images/regularization/dropout.gif)
+
+
+
+
+
+
+
+
+
 
 
