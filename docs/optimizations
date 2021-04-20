@@ -1,0 +1,28 @@
+The objective of DNNs (Data Neural Networks) training, is to find the set of coefficents which minimizes a cost function. The cost expresses the error between the expected values and the actually predicted values. Gradient Descent, and its various variations, are the most commonly used algorithms to find that cost minimizing coefficents set. This post reviews the Gradient Descent and its variations.
+
+
+
+
+
+
+used for finding that set of minimizing coefficents. tech for finding the set of minimizing parameters is Gradient Descent, and function parameters are fitted during training, by minimizing a cost function which determines the error between the expected and predicted values. To most commonly used algorithm for finding the  minimum, is Gradient Descent, and its various variations. This post reviews the various optimization algorithms.
+
+
+
+
+
+
+
+fare traine, is by minimizing a cost functionGradieThe most common method to train a neural network is by using gradient descent (SGD). The way this works is you define a loss function 
+that expresses how well your weights & biases allow the network to fit your training data. A higher loss means that the network is bad and makes a lot of errors while a low loss generally means that the network performs well. You can then train your network by adjusting the network parameters in a way that reduces the loss.
+
+
+
+coursera:
+Mini Batch
+
+
+Training with batch of all m examples - 1 update (step of gradient descent) after each cycle
+Mini Batch - 1000 examples...runs faster for big training set
+
+
