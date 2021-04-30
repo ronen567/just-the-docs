@@ -1,4 +1,7 @@
-The objective of DNNs (Data Neural Networks) training, is to find the set of coefficents which minimizes a cost function. The cost expresses the error between the expected values and the actually predicted values. Gradient Descent, and its various variations, are the most commonly used algorithms to find that cost minimizing coefficents set. This post reviews the Gradient Descent and its variations.
+The objective of DNNs (Data Neural Networks) training, is to find the set of coefficents which minimizes a cost function. The cost expresses the error between the expected values and the actually predicted values. 
+Gradient Descent, and its various variations, are the most commonly used algorithms to find that cost minimizing coefficents set. This post reviews the Gradient Descent and its variations.
+
+
 
 
 
