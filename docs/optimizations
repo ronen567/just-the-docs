@@ -1,5 +1,25 @@
 The objective of DNNs (Data Neural Networks) training, is to find the set of coefficents which minimizes a cost function. The cost expresses the error between the expected values and the actually predicted values. 
-Gradient Descent, and its various variations, are the most commonly used algorithms to find that cost minimizing coefficents set. This post reviews the Gradient Descent and its variations.
+Gradient Descent, and its various variations, are the most commonly used algorithms to find that cost minimizing coefficents set. This post reviews the Gradient Descent and its variations listed below:
+
+Batch Gradient descent
+Stochastic Gradient Descent
+Minibatch Gradient Descent
+
+Momentum
+Adagrad
+RMSprop
+Adam
+tensorflow
+SGD algorithm
+SGD with Momentum algorithm
+Adagrad algorithm.
+Adadelta algorithm.
+Adam algorithm.
+Adamax algorithm.
+FTRL algorithm.
+NAdam algorithm.
+RMSprop algorithm.
+
 
 
 
