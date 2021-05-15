@@ -1,3 +1,9 @@
+---
+layout: default
+title: Batch and Mini Batch
+nav_order: 11
+---
+
 The  fitting algorithm executed during the Training phase is most commonly carried by the Gradient Descent optimization algorithm and its variations, presented in previous posts.
 
 Here's the basic formula of Gradient Descent:
