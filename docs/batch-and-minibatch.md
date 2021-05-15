@@ -7,10 +7,7 @@ nav_order: 11
 
 The  fitting algorithm executed during the Training phase is most commonly carried by the Gradient Descent optimization algorithm and its variations, presented in previous posts.
 
-
-## Stochastic Gradient Descent
-
-Here's the basic formula of Gradient Descent:
+The basic formula of Gradient Descent is presented in Eq. 1:
 
 ### Eq. 1 Gradient Descent
 
@@ -18,7 +15,9 @@ Here's the basic formula of Gradient Descent:
 
 Where \\(L(w)\\) is a Loss function, which expresses the prediction's accuracy calculated for a every Training data example.
 
-Eq. 1 expresses a single iteration of the optimization algorithm, at which the Gradient Descent update is calculated per each Training data example. This Gradient Descent variant, which runs and update iteration per a single training example is caleed **Stochastic Gradient Descent** abrivated to **SGD**. Why Stochastic? Because the gradient is calculated per a single sample and not for the entire m examples of the data set. As a result of that, the gradient convergence iterative process is expected to be noisy. Still, SGD proves to fastly converge. However that, current High Processing Computing (HPC) devices, e.g. GPUs, are tailored for vectorized computations. Otherwise they are not vey efficient. As an alternative to SGD, Batch algoritm, AKA Deterministic Methods (as oposed to Stochastic) are more efficient with vectorized computation machines. 
+Eq. 1 expresses an update of parameter w, according to the gradient of the loss function \\(L(w)\\) which is calculated per each Training data example. This Gradient Descent variant is called **Stochastic Gradient Descent**, abrivated to **SGD**. Naturally, The gradients of the Loss function may be noisy, as a result of noisy input data.
+To solve this problem, Loss function may be averaged over a batch of m samples. The Loss average is the Cost function.
+
 
 ## Batch and Minibatch Gradient Desent Computation
 
@@ -50,7 +49,7 @@ Let's see that:
 
 \\(SE(\hat{\mu}_m )=\sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma\\)
 
-- Multicore architecture, e.g. GPUs, are more underutilized by extremely small batches. This motivatess using some minimum batch size, otherwise there is no much gain in processing minibatches wrt SGD.
+- High Processing Computing (HPC) devices, e.g. GPUs, may be underutilized for extremely small batch sizes. This motivatess using some minimum batch size, otherwise there is no much gain in processing minibatches wrt SGD.
 - Amount of required memory grows with batch size, so batch size is limitted by memory requirements.
 - Some Hardware vectorized processors achieve better performance gain with power of 2 batch sizes.
 - Small batches can offer regularization effect, perheps due to noise they add to the learning process.
