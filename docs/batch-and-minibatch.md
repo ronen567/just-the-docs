@@ -40,13 +40,10 @@ The gradient claculated over the cost function rather than the loss function giv
 **Minibatch** is a compromise solution for the tradeoff between the SGD faster updates, and Batch algorithms accurate gradient estimaton. Normally, selected batch size would be a power of 2 number in the range of 32-512, which fits vectorized processors.
 
 
-Some considerations on chosing batch size (:
-- Larger batches provide a mode accurate estimate of the gradient but with less than a linear return (Goodfellow et al, ch. 8). Let's explain that: Generaly speaking, Standard error gives the accuracy of a variable's mean, by measuring it's variability. Eq. 4 shows the standard error of the Cost function, which is, by definition, the average of m loss functions.
+Some considerations on chosing batch size:
 
-
--The standard error of the mean loss, calculated over m loss values. is not decreased by a factor of \\(\frac{1}{m}\\) wrt the error of a none-batched sample, but only by a factor of \\(\frac{1}{\sqrt{m}}\\).
-
-so accordingly, a gradient based on averaging the loss of 100 samples requires 100 times more computations, but the standard error reduces by a factor of 10 only. 
+- Larger batches provide a mode accurate estimate of the gradient but, with less than a linear return (Goodfellow et al, ch. 8). Let's explain that: As shown by Eq. 4, the Standard error of the mean loss, calculated over m loss values, is not decreased by a factor of \\(\frac{1}{m}\\) wrt the error of a none-batched sample, but only by a factor of \\(\frac{1}{\sqrt{m}}\\).
+So accordingly, a gradient based on averaging the loss of 100 samples requires 100 times more computations, but the standard error reduces by a factor of 10 only. 
 Let's see that:
 
 ### Eq. 4: Standard error of the mean loss
