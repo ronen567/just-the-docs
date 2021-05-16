@@ -12,7 +12,7 @@ The basic formula of Gradient Descent parameter update is presented in Eq. 1:
 
 ### Eq. 1 Gradient Descent
 
-\\(w=w-\alpha \cdot \frac{\partial L(w)}{\partial w}\\)
+\\(w_{t+1}=w_t-\alpha \cdot \triangledown L(w)\\)
 
 Where \\(L(w)\\) is a Loss function. Loss function expresses the prediction's accuracy calculated for a every training data example.
 
