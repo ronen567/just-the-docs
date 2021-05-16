@@ -66,4 +66,3 @@ SE(\hat{\mu}_m )=\sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot 
 
 
 
-
