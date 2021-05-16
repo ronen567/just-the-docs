@@ -9,6 +9,7 @@ Adagrad
 Adamax
 Nadam
 Ftrl
+ss
 
 
 
