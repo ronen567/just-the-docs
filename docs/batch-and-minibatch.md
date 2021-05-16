@@ -19,7 +19,7 @@ Where \\(L(w)\\) is a Loss function. Loss function expresses the prediction's ac
 Eq. 1 shows the formula for the recursive update of the network weight coefficient w: The new coefficient value w equals to the current w, substructed by the Loss value \\(L(w)\\) multipied by learning rate \\(\alpha\\). 
 This variant of Gradient Descent, at which Eq. 1 is calculated for each data sample, is called **Stochastic Gradient Descent**, abrivated to **SGD**. Naturally, The gradients of the Loss function may be noisy, as a result of the random noise normally added to the input data samples.
 
-The noisy gradient slows down convergence, as a result of deflections from the path on the sgradient's slpe towards the gradient's minima.
+The noisy gradient slows down convergence, as a result of deflections from the path on the sgradient's slope towards the gradient's minima, and even oscilations.
 This noisy gradients problem may be solved by averaging the gradients over a batch of samples, so in case of an n -samples batch size, Eq. 1 is calculated once per n samples.  The rest of this post introduces the considerations involved in selecting the batch size.
 
 
