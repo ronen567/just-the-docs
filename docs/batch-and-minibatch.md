@@ -44,35 +44,15 @@ The gradient claculated over the cost function rather than the loss function giv
 **Minibatch** is a compromise solution for the tradeoff between the SGD faster updates, and Batch algorithms accurate gradient estimaton. Normally, selected batch size would be a power of 2 number in the range of 32-512, which fits vectorized processors.
 
 
-Some considerations on chosing batch size:
+Some considerations on chosing batch size: (Goodfellow et al, ch. 8)
 
-- Larger batches provide a mode accurate estimate of the gradient but, with less than a linear return (Goodfellow et al, ch. 8). Let's explain that: As shown by Eq. 4, the Standard error of the mean loss, calculated over m loss values, is not decreased by a factor of \\(\frac{1}{m}\\) wrt the error of a none-batched sample, but only by a factor of \\(\frac{1}{\sqrt{m}}\\).
+- Larger batches provide a mode accurate estimate of the gradient but, with less than a linear return. Let's explain that: As shown by Eq. 4, the Standard error of the mean loss, calculated over m loss values, is not decreased by a factor of \\(\frac{1}{m}\\) wrt the error of a none-batched sample, but only by a factor of \\(\frac{1}{\sqrt{m}}\\).
 So accordingly, a gradient based on averaging the loss of 100 samples requires 100 times more computations, but the standard error reduces by a factor of 10 only. 
 Let's see that:
 
 ### Eq. 4: Standard error of the mean loss
 
-\\(SE(\hat{\mu}_m ) = \sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\({\hat{\mu}}_m  = \sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\(SE({\hat{\mu}}_{m})  = \sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
 \\(SE({\hat{\mu}})  = \sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\(\hat{\mu} = \sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\(\mu = \sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\( = \sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\(\sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\(\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\(\frac{1}{\sqrt{m}} \cdot \sigma \\)
-
-\\(\frac{1}{m} \cdot \sqrt{m} \sigma\)
 
 
 - High Processing Computing (HPC) devices, e.g. GPUs, may be underutilized for extremely small batch sizes. This motivatess using some minimum batch size, otherwise there is no much gain in processing minibatches wrt SGD.
