@@ -4,19 +4,24 @@ title: Batch and Mini Batch
 nav_order: 11
 ---
 # Batch and Minibatch
+## Introduction
 
-The  fitting algorithm executed during the Training phase is most commonly carried by the Gradient Descent optimization algorithm and its variations, presented in previous posts.
+Gradient Descent and its variations are the most common algorithms used for fitting the DNN model during the Training phase. 
 
-The basic formula of Gradient Descent is presented in Eq. 1:
+The basic formula of Gradient Descent parameter update is presented in Eq. 1:
 
 ### Eq. 1 Gradient Descent
 
 \\(w=w-\alpha \cdot \frac{\partial L(w)}{\partial w}\\)
 
-Where \\(L(w)\\) is a Loss function, which expresses the prediction's accuracy calculated for a every Training data example.
+Where \\(L(w)\\) is a Loss function. Loss function expresses the prediction's accuracy calculated for a every Training data example.
 
-Eq. 1 expresses an update of parameter w, according to the gradient of the loss function \\(L(w)\\) which is calculated per each Training data example. This Gradient Descent variant is called **Stochastic Gradient Descent**, abrivated to **SGD**. Naturally, The gradients of the Loss function may be noisy, as a result of noisy input data.
-To solve this problem, Loss function may be averaged over a batch of m samples. The Loss average is the Cost function.
+Eq. 1 shows the formula for the recursive update of the network weight coefficient w, by substructing the Loss value  \\(L(w)\\) multipied by learning rate \\(\alpha\\).
+\\(L(w)\\) is calculated per each Training data example. This variant of Gradient Descent is called **Stochastic Gradient Descent**, abrivated to **SGD**. Naturally, The gradients of the Loss function may be noisy, as a result of the random noise normally added to the input data samples.
+
+The noisy gradient slows down convergence, as a result of deflections from the path on the sgradient's slpe towards the gradient's minima.
+Calculating an averaged value of the gradient, over a batch of samples, may solve this slow down in convergence. The rest of this post introduces the considerations involved in selecting the batch size.
+
 
 
 ## Batch and Minibatch Gradient Desent Computation
