@@ -21,3 +21,4 @@ Eq. 1 shows the formula for the recursive update of the network weight coefficie
 
 The noisy gradient slows down convergence, as a result of deflections from the path on the sgradient's slpe towards the gradient's minima.
 Calculating an averaged value of the gradient, over a batch of samples, may solve this slow down in convergence. The rest of this post introduces the considerations involved in selecting the batch size.
+o
