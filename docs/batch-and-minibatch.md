@@ -54,6 +54,15 @@ Let's see that:
 
 \\( SE(\hat{\mu}_m )=\sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
 
+\\(\sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
+
+\\(\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
+
+\\(\frac{1}{\sqrt{m}} \cdot \sigma \\)
+
+\\(\frac{1}{m} \cdot \sqrt{m} \sigma\)
+
+
 - High Processing Computing (HPC) devices, e.g. GPUs, may be underutilized for extremely small batch sizes. This motivatess using some minimum batch size, otherwise there is no much gain in processing minibatches wrt SGD.
 - Amount of required memory grows with batch size, so batch size is limitted by memory requirements.
 - Some Hardware vectorized processors achieve better performance gain with power of 2 batch sizes.
