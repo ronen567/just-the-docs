@@ -14,13 +14,13 @@ The basic formula of Gradient Descent parameter update is presented in Eq. 1:
 
 \\(w=w-\alpha \cdot \frac{\partial L(w)}{\partial w}\\)
 
-Where \\(L(w)\\) is a Loss function. Loss function expresses the prediction's accuracy calculated for a every Training data example.
+Where \\(L(w)\\) is a Loss function. Loss function expresses the prediction's accuracy calculated for a every training data example.
 
-Eq. 1 shows the formula for the recursive update of the network weight coefficient w, by substructing the Loss value  \\(L(w)\\) multipied by learning rate \\(\alpha\\).
-\\(L(w)\\) is calculated per each Training data example. This variant of Gradient Descent is called **Stochastic Gradient Descent**, abrivated to **SGD**. Naturally, The gradients of the Loss function may be noisy, as a result of the random noise normally added to the input data samples.
+Eq. 1 shows the formula for the recursive update of the network weight coefficient w: The new coefficient value w equals to the current w, substructed by the Loss value \\(L(w)\\) multipied by learning rate \\(\alpha\\). 
+This variant of Gradient Descent, at which Eq. 1 is calculated for each data sample, is called **Stochastic Gradient Descent**, abrivated to **SGD**. Naturally, The gradients of the Loss function may be noisy, as a result of the random noise normally added to the input data samples.
 
 The noisy gradient slows down convergence, as a result of deflections from the path on the sgradient's slpe towards the gradient's minima.
-Calculating an averaged value of the gradient, over a batch of samples, may solve this slow down in convergence. The rest of this post introduces the considerations involved in selecting the batch size.
+This noisy gradients problem may be solved by averaging the gradients over a batch of samples, so in case of an n -samples batch size, Eq. 1 is calculated once per n samples.  The rest of this post introduces the considerations involved in selecting the batch size.
 
 
 
@@ -52,7 +52,7 @@ Let's see that:
 
 ### Eq. 4: Standard error of the mean loss
 
-SE(\hat{\mu}_m )=\sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma
+\\( SE(\hat{\mu}_m )=\sqrt{var[\frac{1}{m}\sum_{i=1}^{m}L^{(i)}]}=\frac{1}{m} \cdot \sqrt{m} \sigma=\frac{1}{\sqrt{m}} \cdot \sigma \\)
 
 - High Processing Computing (HPC) devices, e.g. GPUs, may be underutilized for extremely small batch sizes. This motivatess using some minimum batch size, otherwise there is no much gain in processing minibatches wrt SGD.
 - Amount of required memory grows with batch size, so batch size is limitted by memory requirements.
