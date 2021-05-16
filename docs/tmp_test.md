@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Batch and Mini Batch
+title: test tmp
 nav_order: 11
 ---
-# Batch and Minibatch
+# test tmp and Minibatch
 ## Introduction
 
 Gradient Descent and its variations are the most common algorithms used for fitting the DNN model during the Training phase. 
