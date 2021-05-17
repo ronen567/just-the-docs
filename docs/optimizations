@@ -9,6 +9,13 @@ nav_order: 2
 ## Introduction
 
 Gradient Descent and its variations are the most common algorithms used for fitting the DNN model during the Training phase.
+
+Eq. 1 presents the formula for Gradient Descent recursive coefficient updates:
+
+### Eq. 1 Gradient Descent
+
+\\(w_{t+1}=w_t-\alpha \cdot \triangledown L(w)\\)
+
 This post reviews some of the Gradient Descent algorithms as listed below:
 
 **Stochastic Gradient Descent**
@@ -29,34 +36,21 @@ This post reviews some of the Gradient Descent algorithms as listed below:
 
 
 ## Stochastic Gradient Descent
-This Gradient Descent variant, which runs and update iteration per a single training example is caleed **Stochastic Gradient Descent** abrivated to **SGD**
-Why Stochastic? Because the gradient is calculated per a single sample and not for the entire m examples of the data set. As a result of that, the gradient convergence iterative process is expected to be noisy. Still, SGD proves to fastly converge. However that, current High Processing Computing (HPC) devices, e.g. GPUs, are tailored for vectorized computations. Otherwise they are not vey efficient. As an alternative to SGD, Batch algoritm, AKA Deterministic Methods (as oposed to Stochastic) are more efficient with vectorized computation machines. 
+Stochastic Gradient Descent (SGD) is the Gradient Descent variant which runs a coeffcients update iteration, using Eq. 1, for every single training example. 
+Why is it called Stochastic? Because the gradient is calculated per a single sample, which is expected to consist of random noise. The noisy gradient slows down convergence, as a result of deflections from the path on the sgradient's slope towards the gradient's minima, the progress towards the optimum is more hesitant and slow.
+
+This is as oposed to Batch algoritms, AKA Deterministic Methods, which gradients used for Eq. 1 are the average value of m samples. Accordingly, the gradients are less noisy, i.e. more deterministic.
+Still, SGD proves to fastly converge. However that, current High Processing Computing (HPC) devices, e.g. GPUs, are tailored for vectorized computations, and are not efficients for scalar computations.
 
 
 
-
-Here's the basic formula of Gradient Descent:
-
-### Eq. 1 Gradient Descent
-
-\\(w=w-\alpha \cdot \frac{\partial L(w)}{\partial w}\\)
-
-Where \\(L(w)\\) is a Loss function, which expresses the prediction's accuracy calculated for a every Training data example.
-
-Eq. 1 expresses a single iteration of the optimization algorithm, at which the Gradient Descent update is calculated per each Training data example. This Gradient Descent variant, which runs and update iteration per a single training example is caleed **Stochastic Gradient Descent** abrivated to **SGD**. Why Stochastic? Because the gradient is calculated per a single sample and not for the entire m examples of the data set. As a result of that, the gradient convergence iterative process is expected to be noisy. Still, SGD proves to fastly converge. However that, current High Processing Computing (HPC) devices, e.g. GPUs, are tailored for vectorized computations. Otherwise they are not vey efficient. As an alternative to SGD, Batch algoritm, AKA Deterministic Methods (as oposed to Stochastic) are more efficient with vectorized computation machines. 
-
-
-
-
-The objective of DNNs (Data Neural Networks) training, is to find the set of coefficents which minimizes a cost function. The cost expresses the error between the expected values and the actually predicted values. 
-Gradient Descent, and its various variations, are the most commonly used algorithms to find that cost minimizing coefficents set. This post reviews the Gradient Descent and its variations listed below.
-
-## Stochastic Gradient Descent
 
 
 
 
 ## Momentum
+
+
 ## Adagrad
 ## RMSprop
 ## Adam
