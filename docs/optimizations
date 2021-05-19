@@ -37,7 +37,7 @@ This post reviews some of the Gradient Descent algorithms as listed below:
 
 ## Stochastic Gradient Descent
 Stochastic Gradient Descent (SGD) is the Gradient Descent variant which runs a coeffcients update iteration, using Eq. 1, for every single training example. 
-Why is it called Stochastic? Because the gradient is calculated per a single sample, which is expected to consist of random noise. The noisy gradient slows down convergence, as a result of deflections from the path on the sgradient's slope towards the gradient's minima, the progress towards the optimum is more hesitant and slow.
+Why is it called Stochastic? Because the gradient is calculated per a single sample, which is expected to consist of random noise. The noisy gradient slows down convergence, as a result of deflections from the path on the gradient's slope towards the gradient's minima, the progress towards the optimum is more hesitant and slow.
 
 This is as oposed to Batch algoritms, AKA Deterministic Methods, which gradients used for Eq. 1 are the average value of m samples. Accordingly, the gradients are less noisy, i.e. more deterministic.
 Still, SGD proves to fastly converge. However that, current High Processing Computing (HPC) devices, e.g. GPUs, are tailored for vectorized computations, and are not efficients for scalar computations.
@@ -49,6 +49,20 @@ Still, SGD proves to fastly converge. However that, current High Processing Comp
 
 
 ## Momentum
+
+The Momentum method aims to stabilize and thus acceleration of learning, in the following scenarios:
+
+- High curvutures - High curvutures may lead to overshooting the Gradient Descent updates as depicted in Figure 1. 
+
+- Overshooting as a result of moving to fast along the gradient direction: Overshooting could be avoided by setting a smaller learning rate, but that would slow the convergence process down.
+- Local Minimun trap: 
+
+Getting trapped in a local minimum, which is a direct consequence of this algorithm being greedy
+
+Overshooting and missing the global optimum, this is a direct result of moving too fast along the gradient direction
+
+Oscillation, this is a phenomenon that occurs when the function's value doesn't change significantly no matter the direction it advances. You can think of it as navigating a plateau, you're at the same height no matter where you go
+
 
 
 ## Adagrad
