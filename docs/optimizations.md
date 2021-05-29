@@ -73,9 +73,11 @@ Figure 1 illustrates graphically the effect of momentum on SGD convergence. The 
 
 
 
-### Figure 1b: SGD with Momrntun
+### Figure 1b: SGD with Momentum
 
 ![Momrntum SGD](../assets/images/gd_optimizations/sgd-momentum.gif)
+
+![Momrntum SGD](../assets/images/gd_optimizations/sgd-momentum.mp4)
 
 
 
