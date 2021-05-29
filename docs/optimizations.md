@@ -65,19 +65,24 @@ Figure 1 illustrates graphically the effect of momentum on SGD convergence. The 
 
 (Number of coefficients was limitted to permit the graphical presentation, but results can be generalized to any number of prediction dimensions.)
 
+Figure 1a presents SGD with oscilation - the gradient in the y axis is stip, so the gradient update is oscilating from side to side, never converging. A small er learning rate might have avoid the oscilations, but on the other hand, that would have slowed down conversion.
+
+Instead...
+
+
+
 ### Figure 1: The effect of momentum on SGD convergence
 
 ### Figure 1a: Plain SGD
 
-![Oscilating SGD](../assets/images/gd_optimizations/gd-oscilations.gif)
+![Oscilating SGD](../assets/images/gd_optimizations/sgd-oscilations.gif)
 
 
 
 ### Figure 1b: SGD with Momentum
 
-![Momrntum SGD](../assets/images/gd_optimizations/sgd-momentum.gif)
+![Momentum SGD](../assets/images/gd_optimizations/sgd-momentum.gif)
 
-![Momrntum SGD](../assets/images/gd_optimizations/sgd-momentum.mp4)
 
 
 
