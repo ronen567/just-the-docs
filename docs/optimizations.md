@@ -54,15 +54,33 @@ The Momentum method aims to stabilize and thus acceleration of learning, in the 
 
 - High curvutures - High curvutures may lead to overshooting the Gradient Descent updates as depicted in Figure 1. 
 
-- Overshooting as a result of moving to fast along the gradient direction: Overshooting could be avoided by setting a smaller learning rate, but that would slow the convergence process down.
-- Local Minimun trap: 
+- Overshooting as a result of moving too fast along the gradient direction: Overshooting could be avoided by setting a smaller learning rate, but that would slow the convergence process down.
+- Local Minimun trap: Getting trapped in a local minimum, which is a direct consequence of SGD algorithm being greedy.
 
-Getting trapped in a local minimum, which is a direct consequence of this algorithm being greedy
+-Oscillation, this is a phenomenon that occurs when the function's value doesn't change significantly no matter the direction it advances. You can think of it as navigating a plateau, you're at the same height no matter where you go
 
-Overshooting and missing the global optimum, this is a direct result of moving too fast along the gradient direction
+Figure 1 illustrates graphically the effect of momentum on SGD convergence. The predictor here has 2 coefficients:
 
-Oscillation, this is a phenomenon that occurs when the function's value doesn't change significantly no matter the direction it advances. You can think of it as navigating a plateau, you're at the same height no matter where you go
+\\(\hat{y}=w_1x+b\\)
 
+(Number of coefficients was limitted to permit the graphical presentation, but results can be generalized to any number of prediction dimensions.)
+
+### Figure 1: The effect of momentum on SGD convergence
+
+### Figure 1a: Plain SGD
+
+![Oscilating SGD](../assets/images/gd_optimizations/gd-oscilations.gif)
+
+
+
+### Figure 1b: SGD with Momrntun
+
+![Momrntum SGD](../assets/images/gd_optimizations/sgd-momentum.gif)
+
+
+
+
+graph is limitted 
 
 
 ## Adagrad
@@ -108,3 +126,5 @@ Training with batch of all m examples - 1 update (step of gradient descent) afte
 Mini Batch - 1000 examples...runs faster for big training set
 
 
+Referances:
+- Deep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville 
