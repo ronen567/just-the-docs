@@ -8,14 +8,19 @@ nav_order: 2
 
 ## Introduction
 
-Gradient Descent and its variations are the most common algorithms used for fitting the DNN model during the Training phase.
+This post is reviews some various commonly used Gradient Descent algorithm variations. Gradient Descent is a recursive algorithm for finding values of function's coefficients which minimize it. It is used for fitting DNNs (Deep Neural Network), by finiding the set of coefficiens which minimize a Loss function. (Loss Function expresses the difference between the network's predicted value and the real expected value). This optimization is executed during the Training phase (ofcourse). 
 
-Eq. 1 presents the formula for Gradient Descent recursive coefficient updates:
+Eq. 1 presents the basic Gradient Descent formula. It is a recursive formula, where the value the of a coefficient \\(a coefficient \\)Gradient Descent is a recursive formula Eq. 1 presents the basic Gradient Descent formula, recursive coefficient updates:
 
 ### Eq. 1 Gradient Descent
 
-\\(w_{t+1}=w_t-\alpha \cdot \triangledown L(w)\\)
+\\(w_{t}=w_{t-1} -\alpha \cdot \triangledown L(w_{t-1})\\)
 
+Where \\(\alpha\\) is the learning rate. (The learning rate is a parameter which determines how much should the gradient effect the newly calculated value).
+
+The Gradient Descent converges when the gradient reaces 0, i.e. at a minima.  
+
+the amount of change the gradient the gradient should imposeweight the amount of change 
 This post reviews some of the Gradient Descent algorithms as listed below:
 
 **Stochastic Gradient Descent**
