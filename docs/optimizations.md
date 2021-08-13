@@ -39,6 +39,13 @@ while abs(gradient) < \\(\epsilon\\) do:
   weights(t) = weights(t-1) - learning_rate * weights(t-1)
 
 
+Here's a graphical illustration of a one variable loss equation, specified in Eq 1.c
+
+### Eq. 1.c Example of a single variable loss equation
+
+
+\\(f(x) =(a-2)x^2\\)
+
 
 
 
