@@ -23,10 +23,29 @@ Eq. 1.a presents the basic Gradient Descent formula. It is a recursive formula, 
 Where:
 \\(w_{t}\\) is the set of resultant wheight coefficients, calculated at iteration t.
 \\(w_{t-1}\\) is the set of wheight coefficients, calculated at iteration t-1.
-\\)\triangledown L(w_{t-1})
+\\)\triangledown L(w_{t-1}) is the gradient of the Cost (or sometimes Loss) function.
 \\(\alpha\\) is the learning rate, which determines how much should the gradient effect the newly calculated value.
 
-The Gradient Descent converges when the gradient reaches 0, i.e. at a minima.  
+The Gradient Descent should be calculated recursively, until it converges to the point of zero gradient. This is the point where Loss function is minimal.
+
+Eq. 1b describes the algorithm:
+
+### Eq. 1.b Gradient Descent Algorithm
+t = 0
+weights(0) = weights_init_val
+while abs(gradient) < \\(\epsilon\\) do:
+  t = t+1
+  gradient = eval_gradient(loss_func, data, weights(t-1))
+  weights(t) = weights(t-1) - learning_rate * weights(t-1)
+
+
+
+
+
+
+
+
+con when the gradient reaches 0, i.e. at a minima.  
 Here below are some graphical illustrations: Suppose we have m
 
 
