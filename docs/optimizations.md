@@ -8,19 +8,29 @@ nav_order: 2
 
 ## Introduction
 
-This post is reviews some various commonly used Gradient Descent algorithm variations. Gradient Descent is a recursive algorithm for finding values of function's coefficients which minimize it. It is used for fitting DNNs (Deep Neural Network), by finiding the set of coefficiens which minimize a Loss function. (Loss Function expresses the difference between the network's predicted value and the real expected value). This optimization is executed during the Training phase (ofcourse). 
+This post reviews commonly used variations of Gradient Descent algorithm. 
+What Gradient Descent is, and why is it needed for Deep Neural Network (DNNs)? 
+In short, suppose you have a parametarized function, say:
+\\
+Gradient Descent is a recursive optimization algorithm which is used to optimize Deep Neural Networks, by fitting it with the set of weight coefficients which minimize the output of the given cost function. Cost Function, btw, expresses the difference between the network's predicted value and the real expected value). This optimization, is executed during the Training phase (ofcourse). 
 
-Eq. 1 presents the basic Gradient Descent formula. It is a recursive formula, where the value the of a coefficient \\(a coefficient \\)Gradient Descent is a recursive formula Eq. 1 presents the basic Gradient Descent formula, recursive coefficient updates:
+Eq. 1.a presents the basic Gradient Descent formula. It is a recursive formula, where the value the of a coefficient \\(a coefficient \\)Gradient Descent is a recursive formula Eq. 1 presents the basic Gradient Descent formula, recursive coefficient updates:
 
-### Eq. 1 Gradient Descent
+### Eq. 1.a Gradient Descent Formula
 
 \\(w_{t}=w_{t-1} -\alpha \cdot \triangledown L(w_{t-1})\\)
 
-Where \\(\alpha\\) is the learning rate. (The learning rate is a parameter which determines how much should the gradient effect the newly calculated value).
+Where:
+\\(w_{t}\\) is the set of resultant wheight coefficients, calculated at iteration t.
+\\(w_{t-1}\\) is the set of wheight coefficients, calculated at iteration t-1.
+\\)\triangledown L(w_{t-1})
+\\(\alpha\\) is the learning rate, which determines how much should the gradient effect the newly calculated value.
 
-The Gradient Descent converges when the gradient reaces 0, i.e. at a minima.  
+The Gradient Descent converges when the gradient reaches 0, i.e. at a minima.  
+Here below are some graphical illustrations: Suppose we have m
 
-the amount of change the gradient the gradient should imposeweight the amount of change 
+
+
 This post reviews some of the Gradient Descent algorithms as listed below:
 
 **Stochastic Gradient Descent**
