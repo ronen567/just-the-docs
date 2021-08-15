@@ -39,12 +39,20 @@ while abs(gradient) < \\(\epsilon\\) do:
   weights(t) = weights(t-1) - learning_rate * weights(t-1)
 
 
-Here's a graphical illustration of a one variable loss equation, specified in Eq 1.c
+Here's a graphical illustration of a 2 variables loss equation, specified in Eq 1.c
 
 ### Eq. 1.c Example of a single variable loss equation
 
 
-\\(f(x) =(a-2)x^2\\)
+\\(f(x) =const1 * (w1-offset_1)x^2 + const2 * (w2-offset_2)x^2\\)
+
+
+Figure 1 depict gif diagrams of Gradient Descent Algorithm in action, in various animated perspectives.
+
+
+
+
+
 
 
 
