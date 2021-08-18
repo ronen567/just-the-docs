@@ -4,15 +4,17 @@ title: Optimization Algorithms
 nav_order: 2
 ---
 
-# Optimization Algorithms - Gradient Descent Variations Algorithms
-<img src = "../assets/images/gd_optimizations/gradient_descent_momentum_3d_animation.gif" width ="200" />
-kjhkjhk
-![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.png)(../assets/images/neural-networks/deep-neural-network.png)
-
-
 ## Introduction
 
-This post reviews commonly used variations of Gradient Descent algorithm. 
+This post reviews commonly used Gradient Descent algorithms. 
+**Gradient Descent** is a recursive optimization algorithm which is used to optimize Deep Neural Networks. It helps to find the optimized set of weight coefficients which minimizes the given cost function.
+Example: Suppose we have a Neural Network s depicted by Figure 1:
+
+
+
+by fitting it with the set of weight coefficients which minimize the output of the given cost function. Cost Function, btw, expresses the difference between the network's predicted value and the real expected value). This optimization, is executed during the Training phase (ofcourse). 
+
+
 What Gradient Descent is, and why is it needed for Deep Neural Network (DNNs)? 
 In short, suppose you have a parametarized function, say:
 \\
