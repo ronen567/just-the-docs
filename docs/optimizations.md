@@ -5,6 +5,10 @@ nav_order: 2
 ---
 
 # Optimization Algorithms - Gradient Descent Variations Algorithms
+<img src = "../assets/images/gd_optimizations/gradient_descent_momentum_3d_animation.gif" width ="200" />
+kjhkjhk
+![Supervise Learning Outlines](../assets/images/neural-networks/deep-neural-network.png)(../assets/images/neural-networks/deep-neural-network.png)
+
 
 ## Introduction
 
