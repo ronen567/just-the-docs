@@ -1,13 +1,49 @@
 ---
 layout: default
 title: Optimization Algorithms
-nav_order: 2
+nav_order: 4
 ---
 
 ## Introduction
 
-This post reviews commonly used Gradient Descent algorithms. 
-**Gradient Descent** is a recursive optimization algorithm which is used to optimize Deep Neural Networks. It helps to find the optimized set of weight coefficients which minimizes the given cost function.
+
+**Gradient Descent** is a recursive algorithm, which finds the minimum of a function. The minimum is located by striding in the oposite direction of the function's gradient, with a step size according to the gradient size, as expressed in Eq. 1.
+
+## Eq. 1: Gradient Descent Equation
+
+\\(x_{t} = x_{t-1}-\alpha \cdot \bigtriangledown_xf(x)) \\)
+
+Where \\\alpha\\) is constant known as the learning rate.
+
+Figure 1 illustrates gradient descent convergence for a single variable function \\(f(x) = (x-w_1)^2\\). In this single variable example, the gradient degenerates to:
+\\(x_{t} = x_{t-1}-\alpha \cdot \frac{d}{dx}f(x) \\)
+
+![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
+
+Here are some more graphical illustration for Gradient Descent convergence, this time for a 2 dimensional function of the form  \\(f(x) = (x-w_1)^2 (y-w_2)^2\\)
+
+
+
+
+In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular optimization algorithm, used to find the optimized set of weight coefficients which minimizes the cost function, (i.e. a function which expresses the error between the expected DNN output and the model's predicted output). Figure 2 depicts a schematic diagram of DNNs Training phase functionality. 
+
+Figure 1 depicts Gradient Descent module in the context of of DNNs coefficient fitting.
+
+
+![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
+
+
+
+
+
+
+
+
+dimensional function  is done so by For Deep Neural Networksa (DNNs), it 
+
+
+
+Deep Neural Networks. It helps to find the optimized set of weight coefficients which minimizes the given cost function. In this cose
 Example: Suppose we have a Neural Network s depicted by Figure 1:
 
 
