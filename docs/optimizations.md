@@ -11,132 +11,70 @@ nav_order: 4
 
 ## Eq. 1: Gradient Descent Equation
 
-\\(x_{t} = x_{t-1}-\alpha \cdot \bigtriangledown_xf(x)) \\)
+\\(X(t) = X(t-1)-\alpha \cdot \bigtriangledown f(X)) \\)
+**Where**:
+**t** is the iteration index
+\\(X = {x_j} j =1:n\\) the n dimensional parameter searched for.
+\\(\alpha\\) is constant known as the learning rate.
 
-Where \\\alpha\\) is constant known as the learning rate.
+The recursive algorithm goes as follows:
+
+0. Init \\(X={x_j}\\), j=1:n to an arbitrary value. (A bad values selection may delay convergance. Check if so by trial and error.)
+1. Calculate gradient of f(X)
+2. Calculate new X(t) using Eq. 1
+3. Continue to step 1 if \\(\bigtriangledown f(X) > \epsilon \\)
+
+
+**Gradient Descent in Deep Neural Networks*** 
+In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular optimization algorithm, used to find the optimized set of weight coefficients which minimizes the cost function, (i.e. a function which expresses the error between the expected DNN output and the model's predicted output). Figure 2 depicts a schematic diagram of DNNs Training phase functionality. 
+
+![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
+
+
+**Illustrative Examples**
 
 Figure 1 illustrates gradient descent convergence for a single variable function \\(f(x) = (x-w_1)^2\\). In this single variable example, the gradient degenerates to:
 \\(x_{t} = x_{t-1}-\alpha \cdot \frac{d}{dx}f(x) \\)
 
-![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
+![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro.gif)
 
-Here are some more graphical illustration for Gradient Descent convergence, this time for a 2 dimensional function of the form  \\(f(x) = (x-w_1)^2 (y-w_2)^2\\)
+Figure 2 is a contour graph which illustrates gradient descent convergence for a 2 variable function of the type \\(f(x) = a \cdot (x-w_1)^2 + b \cdot (x-w_1)^2\\)
 
+**Figure 2: Gradient Descent Asymetric GRadients
 
-
-
-In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular optimization algorithm, used to find the optimized set of weight coefficients which minimizes the cost function, (i.e. a function which expresses the error between the expected DNN output and the model's predicted output). Figure 2 depicts a schematic diagram of DNNs Training phase functionality. 
-
-Figure 1 depicts Gradient Descent module in the context of of DNNs coefficient fitting.
+![gradient decent example](../assets/images/gd_optimizations/2d.gif)
 
 
-![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
+Now look at Figure 3, which is similar to figure 1 except that the gradient is stipper in one direction. That leads to some oscilations,but the gradient descent converges eventually.
+
+**Figure 3: Gradient Descent Asymetric GRadients
+
+![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif)
 
 
+Figre 4 however presents an even stipper gradient in one direction. Now Gradient Descent oscilates in one direction and never converge. 
+
+**Figure 4: Gradient Descent Oscilations
+![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_oscilations.gif)
 
 
-
-
-
-
-dimensional function  is done so by For Deep Neural Networksa (DNNs), it 
-
-
-
-Deep Neural Networks. It helps to find the optimized set of weight coefficients which minimizes the given cost function. In this cose
-Example: Suppose we have a Neural Network s depicted by Figure 1:
+The oscliations could be avoided by decreasing the learning rate coefficient. But this would increase convergence time. Anyway, Figure 4 illustrates one of Gradient Descent problems. This post reviews some of the most popular Gradient Descent variants which aim to answer such performance issues.
 
 
 
-by fitting it with the set of weight coefficients which minimize the output of the given cost function. Cost Function, btw, expresses the difference between the network's predicted value and the real expected value). This optimization, is executed during the Training phase (ofcourse). 
-
-
-What Gradient Descent is, and why is it needed for Deep Neural Network (DNNs)? 
-In short, suppose you have a parametarized function, say:
-\\
-Gradient Descent is a recursive optimization algorithm which is used to optimize Deep Neural Networks, by fitting it with the set of weight coefficients which minimize the output of the given cost function. Cost Function, btw, expresses the difference between the network's predicted value and the real expected value). This optimization, is executed during the Training phase (ofcourse). 
-
-Eq. 1.a presents the basic Gradient Descent formula. It is a recursive formula, where the value the of a coefficient \\(a coefficient \\)Gradient Descent is a recursive formula Eq. 1 presents the basic Gradient Descent formula, recursive coefficient updates:
-
-### Eq. 1.a Gradient Descent Formula
-
-\\(w_{t}=w_{t-1} -\alpha \cdot \triangledown L(w_{t-1})\\)
-
-Where:
-\\(w_{t}\\) is the set of resultant wheight coefficients, calculated at iteration t.
-\\(w_{t-1}\\) is the set of wheight coefficients, calculated at iteration t-1.
-\\)\triangledown L(w_{t-1}) is the gradient of the Cost (or sometimes Loss) function.
-\\(\alpha\\) is the learning rate, which determines how much should the gradient effect the newly calculated value.
-
-The Gradient Descent should be calculated recursively, until it converges to the point of zero gradient. This is the point where Loss function is minimal.
-
-Eq. 1b describes the algorithm:
-
-### Eq. 1.b Gradient Descent Algorithm
-t = 0
-weights(0) = weights_init_val
-while abs(gradient) < \\(\epsilon\\) do:
-  t = t+1
-  gradient = eval_gradient(loss_func, data, weights(t-1))
-  weights(t) = weights(t-1) - learning_rate * weights(t-1)
-
-
-Here's a graphical illustration of a 2 variables loss equation, specified in Eq 1.c
-
-### Eq. 1.c Example of a single variable loss equation
-
-
-\\(f(x) =const1 * (w1-offset_1)x^2 + const2 * (w2-offset_2)x^2\\)
-
-
-Figure 1 depict gif diagrams of Gradient Descent Algorithm in action, in various animated perspectives.
-
-
-
-
-
-
-
-
-
-
-
-
-con when the gradient reaches 0, i.e. at a minima.  
-Here below are some graphical illustrations: Suppose we have m
-
-
+ 
 
 This post reviews some of the Gradient Descent algorithms as listed below:
 
-**Stochastic Gradient Descent**
 **Momentum**
 **Adagrad**
 **RMSprop**
 **Adam**
-**tensorflow**
-**SGD algorithm**
-**SGD with Momentum algorithm**
-**Adagrad algorithm**
-**Adadelta algorithm**
-**Adam algorithm**
-**Adamax algorithm**
-**FTRL algorithm**
-**NAdam algorithm**
-**RMSprop algorithm**
-
-
-## Stochastic Gradient Descent
-Stochastic Gradient Descent (SGD) is the Gradient Descent variant which runs a coeffcients update iteration, using Eq. 1, for every single training example. 
-Why is it called Stochastic? Because the gradient is calculated per a single sample, which is expected to consist of random noise. The noisy gradient slows down convergence, as a result of deflections from the path on the gradient's slope towards the gradient's minima, the progress towards the optimum is more hesitant and slow.
-
-This is as oposed to Batch algoritms, AKA Deterministic Methods, which gradients used for Eq. 1 are the average value of m samples. Accordingly, the gradients are less noisy, i.e. more deterministic.
-Still, SGD proves to fastly converge. However that, current High Processing Computing (HPC) devices, e.g. GPUs, are tailored for vectorized computations, and are not efficients for scalar computations.
-
-
-
-
-
+**Adadelta**
+**Adam**
+**Adamax**
+**FTR**
+**NAdam**
 
 
 ## Momentum
