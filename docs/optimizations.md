@@ -26,7 +26,7 @@ The recursive algorithm goes as follows:
 
 
 **Gradient Descent in Deep Neural Networks*** 
-In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular optimization algorithm, used to find the optimized set of weight coefficients which minimizes the cost function, (i.e. a function which expresses the error between the expected DNN output and the model's predicted output). Figure 2 depicts a schematic diagram of DNNs Training phase functionality. 
+In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular optimization algorithm, used to find the optimized set of weight coefficients which minimizes the cost function J, (i.e. a function which expresses the error between the expected DNN output and the model's predicted output). Figure 2 depicts a schematic diagram of DNNs Training phase functionality. 
 
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
@@ -40,7 +40,7 @@ Figure 1 illustrates gradient descent convergence for a single variable function
 
 Figure 2 is a contour graph which illustrates gradient descent convergence for a 2 variable function of the type \\(f(x) = a \cdot (x-w_1)^2 + b \cdot (x-w_1)^2\\)
 
-**Figure 2: Gradient Descent Asymetric GRadients
+**Figure 2: Gradient Descent Asymetric Gradients
 
 ![gradient decent example](../assets/images/gd_optimizations/2d.gif)
 
@@ -58,15 +58,21 @@ Figre 4 however presents an even stipper gradient in one direction. Now Gradient
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_oscilations.gif)
 
 
-The oscliations could be avoided by decreasing the learning rate coefficient. But this would increase convergence time. Anyway, Figure 4 illustrates one of Gradient Descent problems. This post reviews some of the most popular Gradient Descent variants which aim to answer such performance issues.
+Some phenomenas/Performance issues Gradient Descent suffers from are:
+- Overshooting: As depicted by Figures 3 and 4, high curvutures may lead to overshooting. Overshooting is a result of moving too fast along the gradient direction, while it changes signs. 
 
+- Local Minimun trap: Getting trapped in a local minimum, not reaching the global minima.
 
+- Oscillations: this phenomenon can occure not only when gradient changes significantly in high curvuturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
 
- 
+Overshooting could be avoided by setting a smaller learning rate, but that would slow the convergence process down.
+Some of these phenomanas, e.g. overshooting, could be avoided by etting a smaller learning rate. But would have increased convergence time.
+This post reviews some of the most popular Gradient Descent variants which aim to answer Gradient Descent issues.
 
-This post reviews some of the Gradient Descent algorithms as listed below:
+This algorithms reviewd in this post as listed below:
 
 **Momentum**
+**Nesterov momentum**
 **Adagrad**
 **RMSprop**
 **Adam**
@@ -79,28 +85,28 @@ This post reviews some of the Gradient Descent algorithms as listed below:
 
 ## Momentum
 
-The Momentum method aims to stabilize and thus acceleration of learning, in the following scenarios:
+The Momentum method aims to stabilize and thus accelerate Gradiennt Descent. As depicted in the above overshoot oscilation illustrated plots, step size would preferably become smaller inside the curveture, where gradient change directions, and would become larger when gradient sign does not change.  
+The Momenentum method was first posted in the paper "Some Methods of speeding up convergence of iteration methods", USSR Computational Mathematics and Mathematical Physics, 1964 by B.T. Poylak. 
 
-- High curvutures - High curvutures may lead to overshooting the Gradient Descent updates as depicted in Figure 1. 
+The Polyak momentum step adds a momentum term to the gradient descent fortmula:
+\\(w(t+1)=w(t)-\alpha \cdot \bigtriangledown f(w(t)) + \beta(w(t)-w(t-1))\\)
 
-- Overshooting as a result of moving too fast along the gradient direction: Overshooting could be avoided by setting a smaller learning rate, but that would slow the convergence process down.
-- Local Minimun trap: Getting trapped in a local minimum, which is a direct consequence of SGD algorithm being greedy.
+The momentum term is the previous gradient descent step size, so intuition can already interpret that momenutum increases or decreases current step, if it is has the same direction or oposite direction, respectively.
+\\(\beta\\) is a hyperparameter, often set to \\(\beta = 0.9\\).
+So clearly, \\(w(t)-w(t-1))\\) is the value changed step in the previous iteration. If the current gradient is in the same direction, it has the same s \\(\\) if the gradinet \\(\cdot \bigtriangledown f(w(t\\) is negative, 
 
--Oscillation, this is a phenomenon that occurs when the function's value doesn't change significantly no matter the direction it advances. You can think of it as navigating a plateau, you're at the same height no matter where you go
 
-Figure 1 illustrates graphically the effect of momentum on SGD convergence. The predictor here has 2 coefficients:
+Figure 5 depicts a plot of Figure 4 oscliative Gradient Descent, now with Momentum.
 
-\\(\hat{y}=w_1x+b\\)
 
-(Number of coefficients was limitted to permit the graphical presentation, but results can be generalized to any number of prediction dimensions.)
-
-Figure 1a presents SGD with oscilation - the gradient in the y axis is stip, so the gradient update is oscilating from side to side, never converging. A small er learning rate might have avoid the oscilations, but on the other hand, that would have slowed down conversion.
-
-Instead...
+### Figure 5: Momentum
 
 
 
-### Figure 1: The effect of momentum on SGD convergence
+**Nesterov momentum**
+
+Nesterov momentum algorithm is a variation of different from Polyak, 
+
 
 ### Figure 1a: Plain SGD
 
