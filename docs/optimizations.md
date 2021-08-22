@@ -52,7 +52,7 @@ Now look at Figure 3, which is similar to figure 1 except that the gradient is s
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif)
 
 
-Figre 4 however presents an even stipper gradient in one direction. Now Gradient Descent oscilates in one direction and never converge. 
+Figure 4 however presents an even stipper gradient in one direction. Now Gradient Descent oscilates in one direction and never converge. 
 
 **Figure 4: Gradient Descent Oscilations
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_oscilations.gif)
@@ -65,7 +65,7 @@ Some phenomenas/Performance issues Gradient Descent suffers from are:
 
 - Oscillations: this phenomenon can occure not only when gradient changes significantly in high curvuturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
 
-Overshooting could be avoided by setting a smaller learning rate, but that would slow the convergence process down.
+Overshooting could be avoided by setting a smaller learning rate, but that would slow the convergence process down for other stable scenarios.
 Some of these phenomanas, e.g. overshooting, could be avoided by etting a smaller learning rate. But would have increased convergence time.
 This post reviews some of the most popular Gradient Descent variants which aim to answer Gradient Descent issues.
 
@@ -85,27 +85,42 @@ This algorithms reviewd in this post as listed below:
 
 ## Momentum
 
-The Momentum method aims to stabilize and thus accelerate Gradiennt Descent. As depicted in the above overshoot oscilation illustrated plots, step size would preferably become smaller inside the curveture, where gradient change directions, and would become larger when gradient sign does not change.  
-The Momenentum method was first posted in the paper "Some Methods of speeding up convergence of iteration methods", USSR Computational Mathematics and Mathematical Physics, 1964 by B.T. Poylak. 
+A smaller learning rate coefficient at gradient change of sign regions, could improve Gradient Descent's performance in overshoot and oscilation scenarios. In other scenarios, where gradient's direction does not change, a larger learning rate would have increase convergance rate. The Momentum algorithm aims to achieve that by adding another term to the Gradient Descent correction factor, denoted by \\(v\\). Here's the momentum formula:
 
-The Polyak momentum step adds a momentum term to the gradient descent fortmula:
-\\(w(t+1)=w(t)-\alpha \cdot \bigtriangledown f(w(t)) + \beta(w(t)-w(t-1))\\)
+## Eq. 2: Momentum
 
-The momentum term is the previous gradient descent step size, so intuition can already interpret that momenutum increases or decreases current step, if it is has the same direction or oposite direction, respectively.
-\\(\beta\\) is a hyperparameter, often set to \\(\beta = 0.9\\).
-So clearly, \\(w(t)-w(t-1))\\) is the value changed step in the previous iteration. If the current gradient is in the same direction, it has the same s \\(\\) if the gradinet \\(\cdot \bigtriangledown f(w(t\\) is negative, 
+## Eq. 2a
+\\(v =\beta \cdot v + \bigtriangledown_w f(X)\\)
+## Eq. 2b
+\\(w = w-\alpha \cdot v\\)
 
+The hyperparameter values are \\(\alpha \epsilon(0,1)\\) and \\(\beta\\) is typically 0.9.
+As Eq. 2 shows, the updated value w, is dependent not only on the recent gradient, but also on \\(v\\), an exponentially decaying moving average of past gradients.
+So, update step size will be increased if sign of \\(v\\) is same as the current gradient's, and decreased otherwise, i.e. when gradient has changed direction with regard to averaged gradient direction.
 
-Figure 5 depicts a plot of Figure 4 oscliative Gradient Descent, now with Momentum.
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;Delta T=1\\), where the velocity \\(v\\) at time t, equals to the sum of velocity at \\(t-1)\\ and accelaration term. In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+
+Figure 5 depicts a plot of overshoot and oscilations along one axis, which better converge when momentum is applied, but still, converge is not smooth here.
 
 
 ### Figure 5: Momentum
+![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_oscilations.gif)
 
 
 
 **Nesterov momentum**
 
-Nesterov momentum algorithm is a variation of different from Polyak, 
+Nesterov momentum algorithm is a variation of the Polyak momentum, but here the momentum calculated differently: rather than \\(\beta(w(t)-w(t-1))\\), it is now \\(\beta(w(t+1)-w(t))\\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
+
+## Eq. 3: Nesterov momentum
+### 3.a
+\\(v(t+1)=w(t)-\alpha \cdot \bigtriangledown f(w(t))\\)
+### 3.b
+\\(w(t+1)=v(t+1) + \beta(v(t+1)-v(t))\\)
+
+
+
+slightly different a variation of different from Polyak, 
 
 
 ### Figure 1a: Plain SGD
