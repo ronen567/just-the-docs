@@ -31,6 +31,9 @@ In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
 
+
+![Linear Predictiopn 2d](../assets/images/linear-regression/linear_prediction_2d.gif)
+
 **Illustrative Examples**
 
 Figure 1 illustrates gradient descent convergence for a single variable function \\(f(x) = (x-w_1)^2\\). In this single variable example, the gradient degenerates to:
