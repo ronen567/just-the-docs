@@ -31,8 +31,8 @@ In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
 
+![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
 
-![Linear Predictiopn 2d](../assets/images/linear-regression/linear_prediction_2d.gif)
 
 **Illustrative Examples**
 
