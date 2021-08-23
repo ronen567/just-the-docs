@@ -100,7 +100,7 @@ The reason for naming it momentum, is the analogy to Newtonian motion model: \\(
 
 Figure 5 depicts plots of re-running the presented above Gradient Descent scenarios, now with momentum. True for all algorithms - it is not guaranteed that an algorithm considered as improved, will give good or better results for all scenarios. 
 
-### Figure 5.a: Momentum on 'Easy Convergence' scenario 
+### Figure 5.a: Momentum, 'Easy Convergence' scenario 
 
 M point is reached out promptly (10 frames), but overshoots due to momentum slow down convergence. Fastly reaching location of convergence point, 
 
