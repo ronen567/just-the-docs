@@ -49,9 +49,7 @@ Now look at Figure 3, which is similar to figure 1 except that the gradient is s
 
 **Figure 3: Gradient Descent - Slight Oscilations
 
-![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif) ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif)
-
-
+![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif) 
 Figure 4 however presents an even stipper gradient in one direction. Now Gradient Descent oscilates in one direction and never converge. 
 
 **Figure 4: Gradient Descent - Oscilations
@@ -103,15 +101,25 @@ The reason for naming it momentum, is the analogy to Newtonian motion model: \\(
 Figure 5 depicts plots of re-running the presented above Gradient Descent scenarios, now with momentum. True for all algorithms - it is not guaranteed that an algorithm considered as improved, will give good or better results for all scenarios. 
 
 ### Figure 5.a: Momentum on 'Easy Convergence' scenario 
+
 M point is reached out promptly (10 frames), but overshoots due to momentum slow down convergence. Fastly reaching location of convergence point, 
+
 ### Figure 5.a.1: 2D Contour
+
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_momentum_sgd.gif)
+
 ### Figure 5.a.2: 3D Contour. Camera location: azimuth 0, elevation 0
+
 ![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_0_elev_0.gif)
+
 ### Figure 5.a.3: 3D Contour. Camera location: azimuth 0, elevation 0
+
 ![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_0.gif)
+
 ### Figure 5.a.4: 3D Contour. Camera location: azimuth 30, elevation 90
-![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_90.gif)
+
+![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_90.gif)![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_90.gif)
+
 
 
 ### Figure 5.b: Momentum on 'Slight Oscilations' scenario 
