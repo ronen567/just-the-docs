@@ -40,21 +40,21 @@ Figure 1 illustrates gradient descent convergence for a single variable function
 
 Figure 2 is a contour graph which illustrates gradient descent convergence for a 2 variable function of the type \\(f(x) = a \cdot (x-w_1)^2 + b \cdot (x-w_1)^2\\)
 
-**Figure 2: Gradient Descent Asymetric Gradients
+**Figure 2: Gradient Descent - Easy Convergence
 
 ![gradient decent example](../assets/images/gd_optimizations/2d.gif)
 
 
 Now look at Figure 3, which is similar to figure 1 except that the gradient is stipper in one direction. That leads to some oscilations,but the gradient descent converges eventually.
 
-**Figure 3: Gradient Descent Asymetric GRadients
+**Figure 3: Gradient Descent - Slight Oscilations
 
-![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif)
+![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif) ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif)
 
 
 Figure 4 however presents an even stipper gradient in one direction. Now Gradient Descent oscilates in one direction and never converge. 
 
-**Figure 4: Gradient Descent Oscilations
+**Figure 4: Gradient Descent - Oscilations
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_oscilations.gif)
 
 
@@ -90,9 +90,9 @@ A smaller learning rate coefficient at gradient change of sign regions, could im
 ## Eq. 2: Momentum
 
 ## Eq. 2a
-\\(v =\beta \cdot v + \bigtriangledown_w f(X)\\)
+\\(v =\beta \cdot v - \alpha \cdot \bigtriangledown_w f(w)\\)
 ## Eq. 2b
-\\(w = w-\alpha \cdot v\\)
+\\(w = w+v\\)
 
 The hyperparameter values are \\(\alpha \epsilon(0,1)\\) and \\(\beta\\) is typically 0.9.
 As Eq. 2 shows, the updated value w, is dependent not only on the recent gradient, but also on \\(v\\), an exponentially decaying moving average of past gradients.
@@ -100,12 +100,30 @@ So, update step size will be increased if sign of \\(v\\) is same as the current
 
 The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;Delta T=1\\), where the velocity \\(v\\) at time t, equals to the sum of velocity at \\(t-1)\\ and accelaration term. In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
-Figure 5 depicts a plot of overshoot and oscilations along one axis, which better converge when momentum is applied, but still, converge is not smooth here.
+Figure 5 depicts plots of re-running the presented above Gradient Descent scenarios, now with momentum. True for all algorithms - it is not guaranteed that an algorithm considered as improved, will give good or better results for all scenarios. 
+
+### Figure 5.a: Momentum on 'Easy Convergence' scenario 
+M point is reached out promptly (10 frames), but overshoots due to momentum slow down convergence. Fastly reaching location of convergence point, 
+### Figure 5.a.1: 2D Contour
+![gradient decent example](../assets/images/gd_optimizations/2d_contour_momentum_sgd.gif)
+### Figure 5.a.2: 3D Contour. Camera location: azimuth 0, elevation 0
+![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_0_elev_0.gif)
+### Figure 5.a.3: 3D Contour. Camera location: azimuth 0, elevation 0
+![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_0.gif)
+### Figure 5.a.4: 3D Contour. Camera location: azimuth 30, elevation 90
+![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_90.gif)
 
 
-### Figure 5: Momentum
-![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_oscilations.gif)
-
+### Figure 5.b: Momentum on 'Slight Oscilations' scenario 
+ point is reached out promptly (10 frames), but overshoots due to momentum slow down convergence. Fastly reaching location of convergence point, 
+### Figure 5.b.1: 2D Contour
+![gradient decent example](../assets/images/gd_optimizations/2d_contour_momentum_sgd.gif)
+### Figure 5.a.2: 3D Contour. Camera location: azimuth 0, elevation 0
+![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_0_elev_0.gif)
+### Figure 5.a.3: 3D Contour. Camera location: azimuth 0, elevation 0
+![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_0.gif)
+### Figure 5.a.4: 3D Contour. Camera location: azimuth 30, elevation 90
+![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_90.gif)
 
 
 **Nesterov momentum**
@@ -114,13 +132,15 @@ Nesterov momentum algorithm is a variation of the Polyak momentum, but here the 
 
 ## Eq. 3: Nesterov momentum
 ### 3.a
-\\(v(t+1)=w(t)-\alpha \cdot \bigtriangledown f(w(t))\\)
+\\(v(t+1)=/beta \cdot v - \alpha \cdot \bigtriangledown f(w+\beta v(t))\\)
 ### 3.b
-\\(w(t+1)=v(t+1) + \beta(v(t+1)-v(t))\\)
+\\(w=w+ \beta \cdot v + v(t+1)\\)
 
 
 
-slightly different a variation of different from Polyak, 
+Figure 5 depicts plots of re-running the presented above Gradient Descent scenarios, now with momentum. True for all algorithms - it is not guaranteed that an algorithm considered as improved, will give good or better results for all scenarios. 
+
+
 
 
 ### Figure 1a: Plain SGD
