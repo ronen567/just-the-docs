@@ -113,38 +113,63 @@ Nesterov momentum algorithm is a variation of the momentum, but with a slight di
 **Adagrad**
 "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011), Duchi et. al.
 
-The name Adagrad stands from **Adaptive Gradient** Algorithm. The idea is to modify the learning rate, based on past gradients. The Gradient Descent step update formula now becomes :
+The name Adagrad stands from **Adaptive Gradient** Algorithm. The idea is to modify the learning rate, based on past gradients. Still, a "Global Learning Rate" value should be selected. The Gradient Descent step update formula now becomes :
 
-## Eq. 4: Adagrad
+### Eq. 4: Adagrad
 
 \\(w_{t+1}=w_t-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)\\)
 
 Where:
+\\(\alpha\\) is the "Global Learning Rate".
 \\(g(t)=\bigtriangledown_w J(w_t)\\)
 -\\(odot means elementwise multiplication\\)
 -G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w)\\). 
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
--\\(\epsilon\\) is a small value used to maintain stability, normally \\(10^{-7}\\).
+-\\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7}\\).
 
-Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Anyway, since the squared gradients accumulation starts from the very begining of the traning sequence, the learning rate is higher at the begining of the training, and may be very small in later update cycles. 
+Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Still, since Avagard accumulates squared gradients from the begining of the training, the the adaptive learning rate coefficient can excessively decrease as the training continues.
+
 
 **AdaDelta**
 
 ADADELTA: An Adaptive Learning Rate Method, Zeiler
 
-Avagard accumulates squares of squared gradients from the begining of the training. As result, the adaptive learning rate coefficient can excessively decrease as the training continues. Adadelta is a modification of Adagrad, where accumulation of all past gradients is replaced by an exponentially decaying average, restricted to a limitted size window.
+AdaDelta's idea was derived from AdaGrad, which parameter updating term is (See Eq. 4):
+\\(\Delta{w_{t}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)\\)
 
-AdaDelta update formula is quite similar to Adagrad's, expressed by Eq.4, but G is now replaced with an avaraging entity E[g]:
+AdaDelta aims to improve the 2 drawbacks of that updating term: 1. the continual decay of learning rate. 2. the need to select a global learning rate.
+
+To improve the first drawback, Avagard's denominator is replaced by an exponentially decaying average of squared gradients \\(E(g^2)\\) :
+
+\\(E(g^2)_t=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+
+where \\(\gamma\\) is a constant controlling the decay of the gradients average.
+
+The term required in the denominator is the square root of this quantity, which is denoted as the RMS (Root Mean Square) of previous squared gradients, up to time t, so:
+
+\\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon}\\)
+
+Where \\(\epsilon}\\) is a small value used to maintain stability, commonly set to \\(10^{-7}\\). So that's for improving the decaying learning rate issue.
 
 
+To improve the second drawback, i.e. avoid the need to determine a global learning rate, the nominator is taken as an exponentially decaying average of the past parameters updates:
 
+\\(E(\Delta{w}^2)_{t-1}=\gamma E(g^2)_{t-2}+(1-\gamma)\Delta{w^2}_{t-1}\\)
 
-is still valid for AdaDelta, 
+And same as with the denominator, the square root of the avarage is taken for the nominator:
 
+\\(RMS(\Delta{w}^2)_{t-1}=\sqrt {E(\Delta{w}^2)_{t-1} + \epsilon}\\)
 
-restricted to a limited fixed size window, and 
+Integrating all the components the updating term formula becomes:
 
-instead of all past the accumulation of past squared gradients. This algorithm 
+\\(\Delta{w}_t=-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_t}\cdot\bigtriangledown f(w_t)\\)
+
+Finally we have it all:
+
+### Eq. 5: AdaDelta
+
+\\(w_{t+1}=w_t-\Delta w_t = w_t-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_t}\cdot\bigtriangledown f(w_t)\\)
+
 
 **RMSprop**
 
