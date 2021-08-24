@@ -73,7 +73,6 @@ This algorithms reviewd in this post are:
 **Adagrad**
 **Adadelta**
 **RMSprop**
-**Adam**
 
 **Adam**
 **Adamax**
@@ -135,6 +134,7 @@ Adagrad gives lower learning rates to parameters with higher gradients, and high
 ADADELTA: An Adaptive Learning Rate Method, Zeiler
 
 AdaDelta's idea was derived from AdaGrad, which parameter updating term is (See Eq. 4):
+
 \\(\Delta{w_{t}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)\\)
 
 AdaDelta aims to improve the 2 drawbacks of that updating term: 1. the continual decay of learning rate. 2. the need to select a global learning rate.
@@ -173,9 +173,17 @@ Finally we have it all:
 
 **RMSprop**
 
+RMSprop was presented in a Coursera course lecture.
+
+Like AdaDelta, RMSprop is an improvement of AdaGrad. It aims to solve AdaGrad drwaback regarding the continual decay of learning rate. It does so by replacing the denominator of AdaGrad (Eq. 4), by an exponentially decaying average of squared gradients \\(E(g^2)\\), exactly as done by AdaDelta. Unlike AdaDelta, RMSprop leaves AdaGrad's global learning rate coefficient in place, so the updating formula becomes:
+
+### Eq. 6: RMSprop
+
+\\(w_{t+1}= w_t-\frac{\alpha}{RMS(g^2)_t}\cdot\bigtriangledown f(w_t)\\)
+
+Where recommended values for the global learning rate \\(\alpha\)) and the decay constant \\(\gamma\)) are 0.001 and 0.9 respectively.
 
 
-, the par\\({w_i}\\) values which gives frequntly occuring features, i.e.  is to dynamically incorporate knowledge of the geometry of the data observed in earlier iterations to perform more informative gradient based learning.  
 
 
 ## Adagrad
