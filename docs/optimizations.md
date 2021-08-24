@@ -115,6 +115,7 @@ Nesterov momentum algorithm is a variation of the momentum, but with a slight di
 
 The name Adagrad stands from **Adaptive Gradient** Algorithm. The idea is to modify the learning rate, based on past gradients. The Gradient Descent step update formula now becomes :
 
+## Eq. 4: Adagrad
 
 \\(w_{t+1}=w_t-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)\\)
 
@@ -125,11 +126,25 @@ Where:
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
 -\\(\epsilon\\) is a small value used to maintain stability, normally \\(10^{-7}\\).
 
-
 Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Anyway, since the squared gradients accumulation starts from the very begining of the traning sequence, the learning rate is higher at the begining of the training, and may be very small in later update cycles. 
 
 **AdaDelta**
-Avagard accumulates squares of squared gradients from the begining of the training. As result, the adaptive learning rate coefficient can excessively decrease as the training coninues. Adadelta is a modification of Adagrad, where the accumulation of past squared gradients. This algorithm 
+
+ADADELTA: An Adaptive Learning Rate Method, Zeiler
+
+Avagard accumulates squares of squared gradients from the begining of the training. As result, the adaptive learning rate coefficient can excessively decrease as the training continues. Adadelta is a modification of Adagrad, where accumulation of all past gradients is replaced by an exponentially decaying average, restricted to a limitted size window.
+
+AdaDelta update formula is quite similar to Adagrad's, expressed by Eq.4, but G is now replaced with an avaraging entity E[g]:
+
+
+
+
+is still valid for AdaDelta, 
+
+
+restricted to a limited fixed size window, and 
+
+instead of all past the accumulation of past squared gradients. This algorithm 
 
 **RMSprop**
 
