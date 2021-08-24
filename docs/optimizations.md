@@ -31,8 +31,6 @@ In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
 
-![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)![gradient_descent_1_iteration](../assets/images/gradient_descent/gradient_descent_2d.gif)
-
 
 **Illustrative Examples**
 
@@ -48,41 +46,41 @@ Figure 2 is a contour graph which illustrates gradient descent convergence for a
 ![gradient decent example](../assets/images/gd_optimizations/2d.gif)
 
 
-Now look at Figure 3, which is similar to figure 1 except that the gradient is stipper in one direction. That leads to some oscilations,but the gradient descent converges eventually.
+Now look at Figure 3, which is similar to Figure 2, except that the gradient is steepper in w2 direction. The resultant step size in the w2 direction at the begining is too large, which leads to some overshoots, but the algorithm converges eventually.
 
 **Figure 3: Gradient Descent - Slight Oscilations
 
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif) 
-Figure 4 however presents an even stipper gradient in one direction. Now Gradient Descent oscilates in one direction and never converge. 
+
+Figure 4 however, presents an even steepper gradient in w2 direction. Now we get oscilations in w2 direction, which never converge. 
 
 **Figure 4: Gradient Descent - Oscilations
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_oscilations.gif)
 
+A smaller learning rate would solve this, make the algorithm smoothly converge. A smaller learning rate would have slowed down convergance in all scenarios. This is a tradeoff. Chosing alpha is one of the chalenges of Gradient Descent, and it normally requires some trial and error iterations to find a suitable value. Overshoot is a one of the Gradient Descent performance issues, between them are:
+- ***Overshooting***: As depicted by Figures 3 and 4, high curvutures may lead to overshooting. Overshooting is a result of moving too fast along the gradient direction, while it changes signs. 
 
-Some phenomenas/Performance issues Gradient Descent suffers from are:
-- Overshooting: As depicted by Figures 3 and 4, high curvutures may lead to overshooting. Overshooting is a result of moving too fast along the gradient direction, while it changes signs. 
+- ***Local Minimun trap***: Getting trapped in a local minimum, not reaching the global minima.
 
-- Local Minimun trap: Getting trapped in a local minimum, not reaching the global minima.
+- ***Oscillations***: this phenomenon can occure not only when gradient changes significantly in high curvuturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
 
-- Oscillations: this phenomenon can occure not only when gradient changes significantly in high curvuturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
-
-Overshooting could be avoided by setting a smaller learning rate, but that would slow the convergence process down for other stable scenarios.
-Some of these phenomanas, e.g. overshooting, could be avoided by etting a smaller learning rate. But would have increased convergence time.
 This post reviews some of the most popular Gradient Descent variants which aim to answer Gradient Descent issues.
 
-This algorithms reviewd in this post as listed below:
+This algorithms reviewd in this post are:
 
 **Momentum**
 **Nesterov momentum**
 **Adagrad**
+**Adadelta**
 **RMSprop**
 **Adam**
-**Adadelta**
+
 **Adam**
 **Adamax**
 **FTR**
 **NAdam**
 
+The next paragraphs describe the principles of the various Gradient Descent algoritms. Following that are graphical illustrations of these algorithms when applied on a 3 "cost functions" presented above, i.e. "easy convergence, "slightly oscilated" and "oscilated".
 
 ## Momentum
 
@@ -101,45 +99,9 @@ So, update step size will be increased if sign of \\(v\\) is same as the current
 
 The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;Delta T=1\\), where the velocity \\(v\\) at time t, equals to the sum of velocity at \\(t-1)\\ and accelaration term. In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
-Figure 5 depicts plots of re-running the presented above Gradient Descent scenarios, now with momentum. True for all algorithms - it is not guaranteed that an algorithm considered as improved, will give good or better results for all scenarios. 
-
-### Figure 5.a: Momentum, 'Easy Convergence' scenario 
-
-M point is reached out promptly (10 frames), but overshoots due to momentum slow down convergence. Fastly reaching location of convergence point, 
-
-### Figure 5.a.1: 2D Contour
-
-![gradient decent example](../assets/images/gd_optimizations/2d_contour_momentum_sgd.gif)
-
-### Figure 5.a.2: 3D Contour. Camera location: azimuth 0, elevation 0
-
-![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_0_elev_0.gif)
-
-### Figure 5.a.3: 3D Contour. Camera location: azimuth 0, elevation 0
-
-![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_0.gif)
-
-### Figure 5.a.4: 3D Contour. Camera location: azimuth 30, elevation 90
-
-![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_90.gif)![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_90.gif)
-
-
-
-### Figure 5.b: Momentum on 'Slight Oscilations' scenario 
- point is reached out promptly (10 frames), but overshoots due to momentum slow down convergence. Fastly reaching location of convergence point, 
-### Figure 5.b.1: 2D Contour
-![gradient decent example](../assets/images/gd_optimizations/2d_contour_momentum_sgd.gif)
-### Figure 5.a.2: 3D Contour. Camera location: azimuth 0, elevation 0
-![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_0_elev_0.gif)
-### Figure 5.a.3: 3D Contour. Camera location: azimuth 0, elevation 0
-![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_0.gif)
-### Figure 5.a.4: 3D Contour. Camera location: azimuth 30, elevation 90
-![gradient decent example](../assets/images/gd_optimizations/3d_contour_momentum_sgd_azim_30_elev_90.gif)
-
-
 **Nesterov momentum**
 
-Nesterov momentum algorithm is a variation of the Polyak momentum, but here the momentum calculated differently: rather than \\(\beta(w(t)-w(t-1))\\), it is now \\(\beta(w(t+1)-w(t))\\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
+Nesterov momentum algorithm is a variation of the momentum, but with a slight difference: rather than \\(\beta(w(t)-w(t-1))\\), it is now \\(\beta(w(t+1)-w(t))\\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
 ## Eq. 3: Nesterov momentum
 ### 3.a
@@ -148,27 +110,32 @@ Nesterov momentum algorithm is a variation of the Polyak momentum, but here the 
 \\(w=w+ \beta \cdot v + v(t+1)\\)
 
 
+**Adagrad**
+"Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011), Duchi et. al.
 
-Figure 5 depicts plots of re-running the presented above Gradient Descent scenarios, now with momentum. True for all algorithms - it is not guaranteed that an algorithm considered as improved, will give good or better results for all scenarios. 
-
-
-
-
-### Figure 1a: Plain SGD
-
-![Oscilating SGD](../assets/images/gd_optimizations/sgd-oscilations.gif)
+The name Adagrad stands from **Adaptive Gradient** Algorithm. The idea is to modify the learning rate, based on past gradients. The Gradient Descent step update formula now becomes :
 
 
+\\(w_{t+1}=w_t-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)\\)
 
-### Figure 1b: SGD with Momentum
+Where:
+\\(g(t)=\bigtriangledown_w J(w_t)\\)
+-\\(odot means elementwise multiplication\\)
+-G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w)\\). 
+-\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
+-\\(\epsilon\\) is a small value used to maintain stability, normally \\(10^{-7}\\).
 
-![Momentum SGD](../assets/images/gd_optimizations/sgd-momentum.gif)
+
+Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Anyway, since the squared gradients accumulation starts from the very begining of the traning sequence, the learning rate is higher at the begining of the training, and may be very small in later update cycles. 
+
+**AdaDelta**
+Avagard accumulates squares of squared gradients from the begining of the training. As result, the adaptive learning rate coefficient can excessively decrease as the training coninues. Adadelta is a modification of Adagrad, where the accumulation of past squared gradients. This algorithm 
+
+**RMSprop**
 
 
 
-
-
-graph is limitted 
+, the par\\({w_i}\\) values which gives frequntly occuring features, i.e.  is to dynamically incorporate knowledge of the geometry of the data observed in earlier iterations to perform more informative gradient based learning.  
 
 
 ## Adagrad
