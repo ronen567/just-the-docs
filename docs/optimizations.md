@@ -83,48 +83,48 @@ The next paragraphs describe the principles of the various Gradient Descent algo
 
 ## Momentum
 
-A smaller learning rate coefficient at gradient change of sign regions, could improve Gradient Descent's performance in overshoot and oscilation scenarios. In other scenarios, where gradient's direction does not change, a larger learning rate would have increase convergance rate. The Momentum algorithm aims to achieve that by adding another term to the Gradient Descent correction factor, denoted by \\(v\\). Here's the momentum formula:
+A smaller learning rate coefficient at gradient change of sign regions, could improve Gradient Descent's performance in overshoot and oscilation scenarios. In other scenarios, where gradient's direction does not change, a larger learning rate would have increase convergance rate. The Momentum algorithm aims to achieve that by adding another term to the Gradient Descent correction factor, denoted by \\(v \\). Here's the momentum formula:
 
 ## Eq. 2: Momentum
 
 ## Eq. 2a
-\\(v =\beta \cdot v - \alpha \cdot \bigtriangledown_w f(w)\\)
+\\( v =\beta \cdot v - \alpha \cdot \bigtriangledown_w f(w) \\)
 ## Eq. 2b
-\\(w = w+v\\)
+\\( w = w+v \\)
 
-The hyperparameter values are \\(\alpha \epsilon(0,1)\\) and \\(\beta\\) is typically 0.9.
+The hyperparameter values are \\( \alpha \epsilon(0,1) \\) and \\( \beta \\) is typically 0.9.
 As Eq. 2 shows, the updated value w, is dependent not only on the recent gradient, but also on \\(v\\), an exponentially decaying moving average of past gradients.
-So, update step size will be increased if sign of \\(v\\) is same as the current gradient's, and decreased otherwise, i.e. when gradient has changed direction with regard to averaged gradient direction.
+So, update step size will be increased if sign of \\( v \\) is same as the current gradient's, and decreased otherwise, i.e. when gradient has changed direction with regard to averaged gradient direction.
 
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;Delta T=1\\), where the velocity \\(v\\) at time t, equals to the sum of velocity at \\(t-1)\\ and accelaration term. In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;Delta T=1\\), where the velocity \\(v \\) at time t, equals to the sum of velocity at \\( t-1 )\\ and accelaration term. In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
 **Nesterov momentum**
 
-Nesterov momentum algorithm is a variation of the momentum, but with a slight difference: rather than \\(\beta(w(t)-w(t-1))\\), it is now \\(\beta(w(t+1)-w(t))\\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
+Nesterov momentum algorithm is a variation of the momentum, but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
 ## Eq. 3: Nesterov momentum
 ### 3.a
-\\(v(t+1)=/beta \cdot v - \alpha \cdot \bigtriangledown f(w+\beta v(t))\\)
+\\(v(t+1)=/beta \cdot v - \alpha \cdot \bigtriangledown f(w+\beta v(t)) \\)
 ### 3.b
-\\(w=w+ \beta \cdot v + v(t+1)\\)
+\\(w=w+ \beta \cdot v + v(t+1) \\)
 
 
 **Adagrad**
 "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011), Duchi et. al.
 
-The name Adagrad stands from **Adaptive Gradient** Algorithm. The idea is to modify the learning rate, based on past gradients. Still, a "Global Learning Rate" value should be selected. The Gradient Descent step update formula now becomes :
+The name Adagrad derived from **Adaptive Gradient** Algorithm. The idea is to modify the learning rate, based on past gradients. Still, a "Global Learning Rate" value should be selected. The Gradient Descent step update formula now becomes :
 
 ### Eq. 4: Adagrad
 
-\\(w_{t+1}=w_t-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)\\)
+\\(w_{t+1}=w_t-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t) \\)
 
 Where:
-\\(\alpha\\) is the "Global Learning Rate".
-\\(g(t)=\bigtriangledown_w J(w_t)\\)
--\\(odot means elementwise multiplication\\)
--G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w)\\). 
+\\(\alpha \\) is the "Global Learning Rate".
+\\(g(t)=\bigtriangledown_w J(w_t) \\)
+-\\(odot means elementwise multiplication \\)
+-G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w) \\). 
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
--\\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7}\\).
+-\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
 
 Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Still, since Avagard accumulates squared gradients from the begining of the training, the the adaptive learning rate coefficient can excessively decrease as the training continues.
 
@@ -135,89 +135,164 @@ ADADELTA: An Adaptive Learning Rate Method, Zeiler
 
 AdaDelta's idea was derived from AdaGrad, which parameter updating term is (See Eq. 4):
 
-\\(\Delta{w_{t}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)\\)
+\\(\Delta{w_{t}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t) \\)
+
+Where
+\\(g_t = \bigtriangledown f(w_t) \\)
 
 AdaDelta aims to improve the 2 drawbacks of that updating term: 1. the continual decay of learning rate. 2. the need to select a global learning rate.
 
-To improve the first drawback, Avagard's denominator is replaced by an exponentially decaying average of squared gradients \\(E(g^2)\\) :
+To improve the first drawback, Avagard's denominator is replaced by an exponentially decaying average of squared gradients \\(E(g^2) \\) :
 
-\\(E(g^2)_t=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+\\(E(g^2)_t=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t} \\)
 
 where \\(\gamma\\) is a constant controlling the decay of the gradients average.
+and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
 The term required in the denominator is the square root of this quantity, which is denoted as the RMS (Root Mean Square) of previous squared gradients, up to time t, so:
 
-\\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon}\\)
+\\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon} \\)
 
-Where \\(\epsilon}\\) is a small value used to maintain stability, commonly set to \\(10^{-7}\\). So that's for improving the decaying learning rate issue.
+Where \\(\epsilon}\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). So that's for improving the decaying learning rate issue.
 
 
-To improve the second drawback, i.e. avoid the need to determine a global learning rate, the nominator is taken as an exponentially decaying average of the past parameters updates:
+To improve the second drawback, i.e. avoid the need to determine a global learning rate, the numerator is taken as an exponentially decaying average of the past parameters updates:
 
-\\(E(\Delta{w}^2)_{t-1}=\gamma E(g^2)_{t-2}+(1-\gamma)\Delta{w^2}_{t-1}\\)
+\\(E(\Delta{w}^2)_{t-1}=\gamma E(g^2)_{t-2}+(1-\gamma)\Delta{w^2}_{t-1} \\)
 
-And same as with the denominator, the square root of the avarage is taken for the nominator:
+And same as with the denominator, the square root of the avarage is taken for the numerator:
 
-\\(RMS(\Delta{w}^2)_{t-1}=\sqrt {E(\Delta{w}^2)_{t-1} + \epsilon}\\)
+\\(RMS(\Delta{w}^2)_{t-1}=\sqrt {E(\Delta{w}^2)_{t-1} + \epsilon} \\)
 
 Integrating all the components the updating term formula becomes:
 
-\\(\Delta{w}_t=-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_t}\cdot\bigtriangledown f(w_t)\\)
+\\(\Delta{w}_t=-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_t}\cdot\bigtriangledown f(w_t) \\)
+
 
 Finally we have it all:
 
 ### Eq. 5: AdaDelta
 
-\\(w_{t+1}=w_t-\Delta w_t = w_t-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_t}\cdot\bigtriangledown f(w_t)\\)
+\\(w_{t+1}=w_t-\Delta w_t = w_t-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_t} \cdot g_t \\)
+
+Where
+\\(g_t = \bigtriangledown f(w_t) \\)
+and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
 
 **RMSprop**
 
 RMSprop was presented in a Coursera course lecture.
 
-Like AdaDelta, RMSprop is an improvement of AdaGrad. It aims to solve AdaGrad drwaback regarding the continual decay of learning rate. It does so by replacing the denominator of AdaGrad (Eq. 4), by an exponentially decaying average of squared gradients \\(E(g^2)\\), exactly as done by AdaDelta. Unlike AdaDelta, RMSprop leaves AdaGrad's global learning rate coefficient in place, so the updating formula becomes:
+The name RMSprop derived from RMS (**R**oot **M**ean **S**quare) + **Prop**agation.
+Like AdaDelta, RMSprop is an improvement of AdaGrad. It aims to solve AdaGrad drwaback regarding the continual decay of learning rate. It does so by replacing the denominator of AdaGrad (Eq. 4), by an exponentially decaying average of squared gradients \\(E(g^2) \\), exactly as done by AdaDelta. Unlike AdaDelta, RMSprop leaves AdaGrad's global learning rate coefficient in place, so the updating formula becomes:
 
 ### Eq. 6: RMSprop
 
-\\(w_{t+1}= w_t-\frac{\alpha}{RMS(g^2)_t}\cdot\bigtriangledown f(w_t)\\)
+\\(w_{t+1}= w_t-\frac{\alpha}{RMS(g^2)_t}\cdot g_t \\)
 
-Where recommended values for the global learning rate \\(\alpha\)) and the decay constant \\(\gamma\)) are 0.001 and 0.9 respectively.
+Where
+\\(g_t = \bigtriangledown f(w_t) \\)
+and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
+
+
+Recommended values for the global learning rate \\(\alpha \\) and the decay constant \\(\gamma \\) hyperparameters are 0.001 and 0.9 respectively.
 
 
 
-
-## Adagrad
-## RMSprop
 ## Adam
-tensorflow
-SGD algorithm
-SGD with Momentum algorithm
-Adagrad algorithm.
-Adadelta algorithm.
-Adam algorithm.
-Adamax algorithm.
-FTRL algorithm.
-NAdam algorithm.
-RMSprop algorithm.
+
+ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
+
+The name Adam derived from Adaptive Moment Estimation. The algorithm was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\m_t(\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\v_t \\) . Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. Let's see all that.
+
+Here is the moment estimate at time t, calculated as an exponantial decay moving average of past gradients.
+
+### Eq. 7: moment estimate 
+
+\\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \\)
+
+where:
+\\( g_t = \bigtriangledown f(w_t) \\)
+\\(\beta_1 \epsilon [0,1) \\) is a hyper parameter which controls the exponential decay rate of the moving average.
+
+Here's the second raw moment estimate at time t, calculated as an exponantial decay moving average of past squared gradients.
+
+### Eq. 8: Second raw moment estimate
+
+\\(v_t=\beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2 \\)
+
+\\( g_t = g_t \odot g_t\\) is an elementwise square.
+\\(\beta_2 \epsilon \left [0,1 \right ) \\) is a hyper parameter which controls the exponential decay rate of the moving average.
+
+Now let's consider the initialization bias issue and its correction: moving averages \((m_t\)) and \((v_t\)) vectors are initialized to all 0s. That leads Eq.7 and Eq. 8 to bias towards zero, especially in the first iteration steps. To compensate that, Adam sets bias correction to the first and second raw  moments and second raw moment estimates.
+
+### Eq. 9: Bias corrected moment estimate 
+
+\\(\hat{m}_t=\frac{m_t}{1-\beta_1^t} \\)
+
+Where:
+\\(\  With beta_1^t we denote \beta_1 to the power of t \\)
+
+\\(1-\beta_1^t} \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
+
+### Eq. 9: Bias corrected second raw moment estimate 
+
+\\(\hat{v}_t=\frac{v_t}{1-\beta_2^t} \\)
+
+Where:
+\\(  With beta_2^t we denote \beta_2 to the power of t \\)
+
+\\(1-\beta_2^t} \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
+
+
+Finally Adam's update forula is:
+
+
+### Eq. 9: Adam  
+
+\\(w_{t+1}= w_t-\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon} \\)
+
+Where proposed hyperparameter values are:
+\\(\alpha=0.001 \\)
+
+\\(\beta_1=0.9 \\)
+
+\\(\beta_2=0.999 \\)
+
+\\(\epsilon=10^{-8} \\)
+
+
+## Adamax
+
+ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
+
+
+A variant of Adam, proposed in same paper, suggests to replace \\( v_t \\) , the second raw moment, by \\( u_t \\):
+
+### Eq. 10: Adam  
+
+\\( u_t = max(\beta_2 \cdot  u_{t-1}, \left | g_t \right | \\)
+
+Bias correction is not needed for \\( u_t \\) anymore. The numerator is same as in Adam. Consequently, the Aadamax update formula is:
+
+### Eq. 10: Adamax
+
+\\( w_{t+1}= w_t-\frac{\alpha \cdot {m}_t}{(1-\beta_1^t) \cdot u_t} \\)
+
+
+Where proposed hyperparameter values are:
+
+\\(\alpha=0.002 \\)
+
+\\(\beta_1=0.9 \\)
+
+\\(\beta_2=0.999 \\)
 
 
 
 
 
-
-
-
-
-used for finding that set of minimizing coefficents. tech for finding the set of minimizing parameters is Gradient Descent, and function parameters are fitted during training, by minimizing a cost function which determines the error between the expected and predicted values. To most commonly used algorithm for finding the  minimum, is Gradient Descent, and its various variations. This post reviews the various optimization algorithms.
-
-
-
-
-
-
-
-fare traine, is by minimizing a cost functionGradieThe most common method to train a neural network is by using gradient descent (SGD). The way this works is you define a loss function 
-that expresses how well your weights & biases allow the network to fit your training data. A higher loss means that the network is bad and makes a lot of errors while a low loss generally means that the network performs well. You can then train your network by adjusting the network parameters in a way that reduces the loss.
 
 
 
