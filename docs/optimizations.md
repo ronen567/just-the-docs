@@ -121,7 +121,7 @@ The name Adagrad derived from **Adaptive Gradient** Algorithm. The idea is to mo
 Where:
 \\(\alpha \\) is the "Global Learning Rate".
 \\(g(t)=\bigtriangledown_w J(w_t) \\)
--\\(odot means elementwise multiplication \\)
+-\\(odot\\) stands for "elementwise multiplication".
 -G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w) \\). 
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
 -\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
@@ -135,7 +135,7 @@ ADADELTA: An Adaptive Learning Rate Method, Zeiler
 
 AdaDelta's idea was derived from AdaGrad, which parameter updating term is (See Eq. 4):
 
-\\(\Delta{w_{t}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t) \\)
+\\(\Delta{w_{t}}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t) \\)
 
 Where
 \\(g_t = \bigtriangledown f(w_t) \\)
@@ -149,7 +149,8 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 where \\(\gamma\\) is a constant controlling the decay of the gradients average.
 and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
-The term required in the denominator is the square root of this quantity, which is denoted as the RMS (Root Mean Square) of previous squared gradients, up to time t, so:
+The term required in the denominator is the square root of this quantity, which is denoted as the RMS (Root 
+Square) of previous squared gradients, up to time t, so:
 
 \\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon} \\)
 
@@ -208,7 +209,7 @@ The name Adam derived from Adaptive Moment Estimation. The algorithm was designe
 
 Here is the moment estimate at time t, calculated as an exponantial decay moving average of past gradients.
 
-### Eq. 7: moment estimate 
+### Eq. 7.a: moment estimate 
 
 \\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \\)
 
@@ -218,7 +219,7 @@ where:
 
 Here's the second raw moment estimate at time t, calculated as an exponantial decay moving average of past squared gradients.
 
-### Eq. 8: Second raw moment estimate
+### Eq. 7.b: Second raw moment estimate
 
 \\(v_t=\beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2 \\)
 
@@ -227,21 +228,22 @@ Here's the second raw moment estimate at time t, calculated as an exponantial de
 
 Now let's consider the initialization bias issue and its correction: moving averages \((m_t\)) and \((v_t\)) vectors are initialized to all 0s. That leads Eq.7 and Eq. 8 to bias towards zero, especially in the first iteration steps. To compensate that, Adam sets bias correction to the first and second raw  moments and second raw moment estimates.
 
-### Eq. 9: Bias corrected moment estimate 
+### Eq. 7.c: Bias corrected moment estimate 
 
 \\(\hat{m}_t=\frac{m_t}{1-\beta_1^t} \\)
 
 Where:
-\\(\  With beta_1^t we denote \beta_1 to the power of t \\)
+With \\(\beta_1^t\\) we denote \\(\beta_1\\) to the power of t 
 
 \\(1-\beta_1^t} \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
 
-### Eq. 9: Bias corrected second raw moment estimate 
+### Eq. 7.d Bias corrected second raw moment estimate 
 
 \\(\hat{v}_t=\frac{v_t}{1-\beta_2^t} \\)
 
 Where:
-\\(  With beta_2^t we denote \beta_2 to the power of t \\)
+
+With \\(\beta_2^t\\) we denote \\(\beta_2\\) to the power of t 
 
 \\(1-\beta_2^t} \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
 
@@ -249,7 +251,7 @@ Where:
 Finally Adam's update forula is:
 
 
-### Eq. 9: Adam  
+### Eq. 7.e: Adam  
 
 \\(w_{t+1}= w_t-\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon} \\)
 
@@ -263,6 +265,17 @@ Where proposed hyperparameter values are:
 \\(\epsilon=10^{-8} \\)
 
 
+#### Inspection  of updates bounderies and behavior.
+
+
+
+Notes on the Algorithm  Update Rule
+ Let's examine the bounderies of update step size.
+ 
+ 
+
+
+
 ## Adamax
 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
@@ -270,13 +283,13 @@ ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
 A variant of Adam, proposed in same paper, suggests to replace \\( v_t \\) , the second raw moment, by \\( u_t \\):
 
-### Eq. 10: Adam  
+### Eq. 8.a: Adam  
 
 \\( u_t = max(\beta_2 \cdot  u_{t-1}, \left | g_t \right | \\)
 
 Bias correction is not needed for \\( u_t \\) anymore. The numerator is same as in Adam. Consequently, the Aadamax update formula is:
 
-### Eq. 10: Adamax
+### Eq. 8.b: Adamax
 
 \\( w_{t+1}= w_t-\frac{\alpha \cdot {m}_t}{(1-\beta_1^t) \cdot u_t} \\)
 
