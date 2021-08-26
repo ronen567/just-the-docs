@@ -73,7 +73,6 @@ This algorithms reviewd in this post are:
 **Adagrad**
 **Adadelta**
 **RMSprop**
-
 **Adam**
 **Adamax**
 **FTR**
@@ -88,9 +87,9 @@ A smaller learning rate coefficient at gradient change of sign regions, could im
 ## Eq. 2: Momentum
 
 ## Eq. 2a
-\\( v =\beta \cdot v - \alpha \cdot \bigtriangledown_w f(w) \\)
+\\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w_{t-1} f(w_{t-1}) \\)
 ## Eq. 2b
-\\( w = w+v \\)
+\\( w_t = w_{t-1}+v_t \\)
 
 The hyperparameter values are \\( \alpha \epsilon(0,1) \\) and \\( \beta \\) is typically 0.9.
 As Eq. 2 shows, the updated value w, is dependent not only on the recent gradient, but also on \\(v\\), an exponentially decaying moving average of past gradients.
@@ -100,23 +99,25 @@ The reason for naming it momentum, is the analogy to Newtonian motion model: \\(
 
 **Nesterov momentum**
 
-Nesterov momentum algorithm is a variation of the momentum, but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
+Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm.  but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
 ## Eq. 3: Nesterov momentum
 ### 3.a
-\\(v(t+1)=/beta \cdot v - \alpha \cdot \bigtriangledown f(w+\beta v(t)) \\)
+\\(v_t=/beta \cdot_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1}+\beta v_{t-1}) \\)
 ### 3.b
-\\(w=w+ \beta \cdot v + v(t+1) \\)
+\\(w_{t}=w_{t-1}+ v_t \\)
 
 
 **Adagrad**
 "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011), Duchi et. al.
 
-The name Adagrad derived from **Adaptive Gradient** Algorithm. The idea is to modify the learning rate, based on past gradients. Still, a "Global Learning Rate" value should be selected. The Gradient Descent step update formula now becomes :
+Adagrad (Adaptive Gradient) algorithm modifies the value of learning rate, based on past gradients. 
+
+The parameter update expression is:
 
 ### Eq. 4: Adagrad
 
-\\(w_{t+1}=w_t-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t) \\)
+\\(w_{t}=w_{t-1}-\frac{\alpha}{\epsilon + \sqrt{G_{t-1}} \odot g_{t-1} \\)
 
 Where:
 \\(\alpha \\) is the "Global Learning Rate".
@@ -126,7 +127,9 @@ Where:
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
 -\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
 
-Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Still, since Avagard accumulates squared gradients from the begining of the training, the the adaptive learning rate coefficient can excessively decrease as the training continues.
+Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Still, it has 2 drawbacks:
+- "Global Learning Rate" value should be selected. 
+- Since sum of squared gradients grows increasingly, the the adaptive learning rate coefficient can excessively decrease as training continues.
 
 
 **AdaDelta**
@@ -174,7 +177,7 @@ Finally we have it all:
 
 ### Eq. 5: AdaDelta
 
-\\(w_{t+1}=w_t-\Delta w_t = w_t-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_t} \cdot g_t \\)
+\\(w_{t}=w_{t-1}-\Delta w_t = w_{t-1}-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_{t-1}} \cdot g_{t-1} \\)
 
 Where
 \\(g_t = \bigtriangledown f(w_t) \\)
@@ -185,8 +188,7 @@ and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square.
 
 RMSprop was presented in a Coursera course lecture.
 
-The name RMSprop derived from RMS (**R**oot **M**ean **S**quare) + **Prop**agation.
-Like AdaDelta, RMSprop is an improvement of AdaGrad. It aims to solve AdaGrad drwaback regarding the continual decay of learning rate. It does so by replacing the denominator of AdaGrad (Eq. 4), by an exponentially decaying average of squared gradients \\(E(g^2) \\), exactly as done by AdaDelta. Unlike AdaDelta, RMSprop leaves AdaGrad's global learning rate coefficient in place, so the updating formula becomes:
+RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to solve AdaGrad drwaback regarding the continual decay of learning rate. It does so by replacing the denominator of AdaGrad (Eq. 4), by an exponentially decaying average of squared gradients \\(E(g^2) \\), exactly as done by AdaDelta. Unlike AdaDelta, RMSprop leaves AdaGrad's global learning rate coefficient in place, so the updating formula becomes:
 
 ### Eq. 6: RMSprop
 
@@ -205,7 +207,10 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
-The name Adam derived from Adaptive Moment Estimation. The algorithm was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\(m_t(\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\(v_t \\) . Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. Let's see all that.
+Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
+Adam's update step size is bounded by the learning rate coefficient, i.e. \\(\\  \left | Delta_t  \right | < \alpha\). The step size is also invariant to scaling of the gradient.
+
+Let's see all that.
 
 Here is the moment estimate at time t, calculated as an exponantial decay moving average of past gradients.
 
@@ -256,34 +261,101 @@ Finally Adam's update forula is:
 \\(w_{t+1}= w_t-\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon} \\)
 
 Where proposed hyperparameter values are:
-\\(\alpha=0.001 \\)
 
-\\(\beta_1=0.9 \\)
-
-\\(\beta_2=0.999 \\)
-
-\\(\epsilon=10^{-8} \\)
+\\(\alpha=0.001 \\),\\(\beta_1=0.9 \\),\\(\beta_2=0.999 \\),\\(\epsilon=10^{-8} \\)
 
 
 #### Inspection of updates bounderies and behavior.
 
+In this section we'll find bounderies for update step size. We will show bounderies for 2 types of scenarios: 
+1. A completely sparsey scenario, where gradient has been 0 for all timesteps except the current time step. 
+2. The most common scenarios, for which we will get a tighter boundery.
+
+Let's start simplifying the expression for 
+######  #1
+
+\\(\Delta_t = -\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon}\\)
+
+Neglecting \\(\epsilon}\\), it reduces to:
+
+######  #2
+
+\\(\Delta_t \leq \left |\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)} \right|\\)
 
 
-Notes on the Algorithm  Update Rule
- Let's examine the bounderies of update step size.
+Unrolling the bias correction factors:
+######  #3
+
+\\(\Delta_t \leq \left |\frac{\sqrt{1-\beta_2^t} \cdot \alpha \cdot m_t}{(1-\beta_1^t)\sqrt{v_t}} \right|\\)
+
+Assuming \\(\beta_2,\beta_2<1\\) and \\(\beta_2 >\beta_2<1\\) then the bias correction factors quotient is bounded by 1:
+######  #4
+
+\\\frac{\sqrt{1-\beta_2^t}{1-\beta_1^t} \leq 1\\)
+
+so we'll plug it in as 1, i.e. cancel, expression
+Plugging 4 to 3:
+######  #5
+
+\\(\Delta_t \leq \left |\frac{ \alpha \cdot m_t}{\sqrt{v_t}} \right|\\)
+
+
+######  A Boundery for the completely sparsey scenario
+
+We recall that:
+
+\\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \\)
+
+and 
+
+\\(v_t=\beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2 \\)
+
+Pluggin the above into 5 we get:
+
+######  a.1
+
+\\(\Delta_t \leq \left |\frac{\sqrt{1-\beta_2^t} \cdot \alpha \cdot (\beta_1 \cdot m_{t-1}+(1-\beta_1) g_t)}{(1-\beta_1^t)\sqrt{\beta_2 v_{t-1}+(1-\beta_2)g_t^2)}} \right|\\)
+
+
+In the completely sparsey scenario, gradients have been 0 for all timesteps except the current time step, so a.1 reduces to:
+
+######  a.2
+
+\\(\Delta_t \leq \left | \frac{\alpha (1-\beta_1) g_t}{\sqrt{(1-\beta_2)g_t^2} } \right|\\)
+
+Which leads to the boundery:
+######  a.3
+
+\\(\Delta_t \leq \left | \frac{\alpha (1-\beta_1)}{\sqrt{(1-\beta_2)} } \right|\\)
+
+
+######  A Boundery for the most common scenarios
+
+
+Back to #5, let's examine the quotient \\( \left |\frac{ m_t}{\sqrt{v_t}} \right|\\).
+It is well known that:  (\\{E(g^2)}-{E(g)}^2 \geq 0\\)). 
+Swappings sides we get:  
+######  b.1
+
+\\( \left |\frac{E(g)}{\sqrt{E(g^2)}} \right| \leq 1\\) 
+
+Similarly, we assume the same for the estimated \\(m_t\\) and \\(v_t\\) values, so accordingly:
+######  b.2
+
+ \\(\left |\frac{ m_t}{\sqrt{v_t}}  \leq 1 \right|\\)
  
- 
+Finally, plugging b.2 into #5 we get:
 
+##### Update step size boundery
 
+\\(\Delta_t \leq \alpha \\)
 
 ## Adamax
 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
 
-A variant of Adam, proposed in same paper, suggests to replace \\( v_t \\) , the second raw moment, by \\( u_t \\):
-
-##### Adam  
+A variant of Adam, proposed in same paper, suggests to replace Adam's  second raw moment \\( v_t \\) , by \\( u_t \\), an :
 
 \\( u_t = max(\beta_2 \cdot  u_{t-1}, \left | g_t \right | \\)
 
@@ -304,8 +376,9 @@ Where proposed hyperparameter values are:
 
 
 
-
-
+**NAdam**
+INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016, Timothy Dozat
+The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm with Nesterov momentum. 
 
 
 
