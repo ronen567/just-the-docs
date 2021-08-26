@@ -205,11 +205,11 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
-The name Adam derived from Adaptive Moment Estimation. The algorithm was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\m_t(\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\v_t \\) . Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. Let's see all that.
+The name Adam derived from Adaptive Moment Estimation. The algorithm was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\(m_t(\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\(v_t \\) . Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. Let's see all that.
 
 Here is the moment estimate at time t, calculated as an exponantial decay moving average of past gradients.
 
-### Eq. 7.a: moment estimate 
+##### moment estimate 
 
 \\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \\)
 
@@ -219,7 +219,7 @@ where:
 
 Here's the second raw moment estimate at time t, calculated as an exponantial decay moving average of past squared gradients.
 
-### Eq. 7.b: Second raw moment estimate
+##### Second raw moment estimate
 
 \\(v_t=\beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2 \\)
 
@@ -228,30 +228,30 @@ Here's the second raw moment estimate at time t, calculated as an exponantial de
 
 Now let's consider the initialization bias issue and its correction: moving averages \((m_t\)) and \((v_t\)) vectors are initialized to all 0s. That leads Eq.7 and Eq. 8 to bias towards zero, especially in the first iteration steps. To compensate that, Adam sets bias correction to the first and second raw  moments and second raw moment estimates.
 
-### Eq. 7.c: Bias corrected moment estimate 
+##### Bias corrected moment estimate 
 
 \\(\hat{m}_t=\frac{m_t}{1-\beta_1^t} \\)
 
 Where:
-With \\(\beta_1^t\\) we denote \\(\beta_1\\) to the power of t 
+-With \\(\beta_1^t\\) we denote \\(\beta_1\\) to the power of t 
 
-\\(1-\beta_1^t} \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
+-\\( 1-\beta_1^t \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
 
-### Eq. 7.d Bias corrected second raw moment estimate 
+##### Bias corrected second raw moment estimate 
 
 \\(\hat{v}_t=\frac{v_t}{1-\beta_2^t} \\)
 
 Where:
 
-With \\(\beta_2^t\\) we denote \\(\beta_2\\) to the power of t 
+-With \\(\beta_2^t\\) we denote \\(\beta_2\\) to the power of t 
 
-\\(1-\beta_2^t} \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
+-\\(1-\beta_2^t \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
 
 
 Finally Adam's update forula is:
 
 
-### Eq. 7.e: Adam  
+### Eq. 7: Adam  
 
 \\(w_{t+1}= w_t-\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon} \\)
 
@@ -265,7 +265,7 @@ Where proposed hyperparameter values are:
 \\(\epsilon=10^{-8} \\)
 
 
-#### Inspection  of updates bounderies and behavior.
+#### Inspection of updates bounderies and behavior.
 
 
 
@@ -283,13 +283,13 @@ ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
 A variant of Adam, proposed in same paper, suggests to replace \\( v_t \\) , the second raw moment, by \\( u_t \\):
 
-### Eq. 8.a: Adam  
+##### Adam  
 
 \\( u_t = max(\beta_2 \cdot  u_{t-1}, \left | g_t \right | \\)
 
 Bias correction is not needed for \\( u_t \\) anymore. The numerator is same as in Adam. Consequently, the Aadamax update formula is:
 
-### Eq. 8.b: Adamax
+### Eq. 8: Adamax
 
 \\( w_{t+1}= w_t-\frac{\alpha \cdot {m}_t}{(1-\beta_1^t) \cdot u_t} \\)
 
