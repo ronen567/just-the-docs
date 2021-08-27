@@ -113,7 +113,7 @@ chine Learning, 2013, Sutskever et al
 Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm.  but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
 ### Eq. 3: Nesterov momentum
-#### 3.a: \\(v_t=/beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1}+/beta \cdot v_{t-1} ) \\)
+#### 3.a: \\(v_t=\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1}+\beta \cdot v_{t-1} ) \\)
 #### 3.b: \\(w_{t}=w_{t-1}+ v_t \\)
 
 
