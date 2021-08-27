@@ -82,28 +82,39 @@ The next paragraphs describe the principles of the various Gradient Descent algo
 
 ## Momentum
 
-A smaller learning rate coefficient at gradient change of sign regions, could improve Gradient Descent's performance in overshoot and oscilation scenarios. In other scenarios, where gradient's direction does not change, a larger learning rate would have increase convergance rate. The Momentum algorithm aims to achieve that by adding another term to the Gradient Descent correction factor, denoted by \\(v \\). Here's the momentum formula:
+The Momentum algorithm update formula, adds another term to the Gradient Descent correction factor. This term, denoted by \\(v \\), corresponds to past gradient, calculated at previopus update iterations.
+Here's the momentum formula:
 
 ## Eq. 2: Momentum
 
 ## Eq. 2a
-\\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w_{t-1} f(w_{t-1}) \\)
+\\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w f(w_{t-1}) \\)
+
 ## Eq. 2b
+
 \\( w_t = w_{t-1}+v_t \\)
 
-The hyperparameter values are \\( \alpha \epsilon(0,1) \\) and \\( \beta \\) is typically 0.9.
-As Eq. 2 shows, the updated value w, is dependent not only on the recent gradient, but also on \\(v\\), an exponentially decaying moving average of past gradients.
-So, update step size will be increased if sign of \\( v \\) is same as the current gradient's, and decreased otherwise, i.e. when gradient has changed direction with regard to averaged gradient direction.
+Where:
 
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;Delta T=1\\), where the velocity \\(v \\) at time t, equals to the sum of velocity at \\( t-1 )\\ and accelaration term. In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+- Learning rate \\( \alpha \epsilon(0,1) \\) 
+- \\( \beta \\) is typically 0.9.
+- 
+As Eq. 2 shows, the updated value w, is dependent not only on the recent gradient, but also on \\(v\\), an exponentially decaying moving average of past gradients. Accordingly, update step size will be increased if sign of \\( v_t \\) is same as the current gradient's, and decreased otherwise, i.e. when gradient has changed direction with regard to averaged gradient direction. 
+
+This allows a faster move, i.e. larger update step size, when in low gradient zone,in which updates are small but in the same direction, and a slower update in areas where the direction of the update is oscillating.
+
+Just to note:
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\( t-1 )\\ an accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
 **Nesterov momentum**
+ref: On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
+chine Learning, 2013, Sutskever et al
 
 Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm.  but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
 ## Eq. 3: Nesterov momentum
 ### 3.a
-\\(v_t=/beta \cdot_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1}+\beta v_{t-1}) \\)
+\\(v_t=/beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1}+/beta \cdot v_{t-1} ) \\)
 ### 3.b
 \\(w_{t}=w_{t-1}+ v_t \\)
 
@@ -192,7 +203,7 @@ RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to
 
 ### Eq. 6: RMSprop
 
-\\(w_{t+1}= w_t-\frac{\alpha}{RMS(g^2)_t}\cdot g_t \\)
+\\(w_{t}= w_{t-1}-\frac{\alpha}{RMS(g^2)_{t-1}}\cdot g_{t-1} \\)
 
 Where
 \\(g_t = \bigtriangledown f(w_t) \\)
@@ -216,7 +227,7 @@ Here is the moment estimate at time t, calculated as an exponantial decay moving
 
 ##### moment estimate 
 
-\\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \\)
+\\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_{t-1} \\)
 
 where:
 \\( g_t = \bigtriangledown f(w_t) \\)
@@ -258,7 +269,7 @@ Finally Adam's update forula is:
 
 ### Eq. 7: Adam  
 
-\\(w_{t+1}= w_t-\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon} \\)
+\\(w_{t}= w_{t-1}-\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon} \\)
 
 Where proposed hyperparameter values are:
 
@@ -378,7 +389,55 @@ Where proposed hyperparameter values are:
 
 **NAdam**
 INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016, Timothy Dozat
-The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm with Nesterov momentum. 
+
+The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm with Nesterov momentum. Nesterov momentum modification over the plain momentum algorithm was the gradient calculation using the most recent momentum entity, achieving a "look ahead" gradient calculation. Nadam (Dozat) adopted this "look ahead" attitude, incorporated it with the Adam algorithm. Let's see that.
+
+We start by reviewing the related work, i.e. plain momentum and Nestorov:
+
+**** Plain Momentum:
+
+1. \\(g_t=\bigtriangledown f(w_{t-1})\\)
+2. \\(m_t=\beta \cdot m_{t-1} + \alpha \cdot g_t\\)
+3. \\(w_t=w_{t-1}-(\beta \cdot m_{t})\\)
+
+Where:
+\\(\alpha\\) is the learning rate
+\\(beta\\) is the exponential decay rate
+\\(m_t\\) is the momentum, sometimes denoted by \\(v_t\\)
+
+
+
+**** Nesterov Momentum:
+
+With regard to plain momentum, Nestorov modifies the gradient calculation (equation #1) only:
+
+1. \\(g_t=\bigtriangledown f(w_{t-1}-\beta \cdot m_{t-1})\\)
+2. \\(m_t=\beta \cdot m_{t-1} +\alpha \cdot g_t\\)
+3. \\(w_t=w_{t-1}-(\beta \cdot m_{t})\\)
+
+
+**** Nadam:
+
+NAdam equation borrows incorporate Nestorov's attitude into Adam. Here's are the formulas:
+
+
+\\(g_t=\bigtriangledown f(w_{t-1})\\)
+
+\\(m_t=\mu \cdot m_{t-1}+(1-\mu) \cdot g_t\\)
+
+\\(n_t=\nu \cdot n_{t-1}  + (1-\nu) g_t^2\\)
+
+\\(\hat{m} = \frac{\mu \cdot m_t}{1-\mu^{t+1}} + \frac{(1-\mu) \ cdot g_t}{1-\mu^t}\\)
+
+\\(\hat{n}=\frac{\nu \cdot n_t}{1-\nu^t}\\)
+
+\\(w_t = w_{t-1} - \frac{\alpha \cdot \hat{m_t}}{\sqrt{\hat{n_t}}+\epsilon}\\)
+
+
+
+
+
+the author Dozat Nada
 
 
 
