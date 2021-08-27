@@ -133,10 +133,10 @@ Where:
 \\(\alpha \\) is the "Global Learning Rate".
 \\(g(t)=\bigtriangledown_w J(w_t) \\)
 
--\\(odot\\) stands for "elementwise multiplication".
+- \\(\odot\\) stands for "elementwise multiplication".
 -G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w)\\)
 
--\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
+-\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w) \\)
 
 -\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
 
