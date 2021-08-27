@@ -227,7 +227,7 @@ Here is the moment estimate at time t, calculated as an exponantial decay moving
 
 ##### moment estimate 
 
-\\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_{t-1} \\)
+\\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_{t} \\)
 
 where:
 \\( g_t = \bigtriangledown f(w_t) \\)
@@ -390,54 +390,47 @@ Where proposed hyperparameter values are:
 **NAdam**
 INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016, Timothy Dozat
 
-The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm with Nesterov momentum. Nesterov momentum modification over the plain momentum algorithm was the gradient calculation using the most recent momentum entity, achieving a "look ahead" gradient calculation. Nadam (Dozat) adopted this "look ahead" attitude, incorporated it with the Adam algorithm. Let's see that.
+The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm, incorporating the Nesterov momentum principal into it. The prinicipal is of using a next step update, already in current iteration. According to this principal, Nesterov formula for gradient was this:
 
-We start by reviewing the related work, i.e. plain momentum and Nestorov:
+##### Nesterov Gradient Calculation Formula
 
-**** Plain Momentum:
+\\(g_t=\bigtriangledown f(w_{t-1} - \beta \cdot m_{t-1})\\)
 
-1. \\(g_t=\bigtriangledown f(w_{t-1})\\)
-2. \\(m_t=\beta \cdot m_{t-1} + \alpha \cdot g_t\\)
-3. \\(w_t=w_{t-1}-(\beta \cdot m_{t})\\)
+compairing to the conventional formula:
 
-Where:
-\\(\alpha\\) is the learning rate
-\\(beta\\) is the exponential decay rate
-\\(m_t\\) is the momentum, sometimes denoted by \\(v_t\\)
-
-
-
-**** Nesterov Momentum:
-
-With regard to plain momentum, Nestorov modifies the gradient calculation (equation #1) only:
-
-1. \\(g_t=\bigtriangledown f(w_{t-1}-\beta \cdot m_{t-1})\\)
-2. \\(m_t=\beta \cdot m_{t-1} +\alpha \cdot g_t\\)
-3. \\(w_t=w_{t-1}-(\beta \cdot m_{t})\\)
-
-
-**** Nadam:
-
-NAdam equation borrows incorporate Nestorov's attitude into Adam. Here's are the formulas:
-
+##### Common Gradient Calculation Formula
 
 \\(g_t=\bigtriangledown f(w_{t-1})\\)
 
-\\(m_t=\mu \cdot m_{t-1}+(1-\mu) \cdot g_t\\)
 
-\\(n_t=\nu \cdot n_{t-1}  + (1-\nu) g_t^2\\)
+Adopting this formula, NAdam modified Adam's formula as presented below. The modification wrt conventional Adam is only in one of the equations (#4)
 
-\\(\hat{m} = \frac{\mu \cdot m_t}{1-\mu^{t+1}} + \frac{(1-\mu) \ cdot g_t}{1-\mu^t}\\)
+**** Nadam Formula's equation set:
 
-\\(\hat{n}=\frac{\nu \cdot n_t}{1-\nu^t}\\)
+1. \\(g_t=\bigtriangledown f(w_{t-1})\\)
 
-\\(w_t = w_{t-1} - \frac{\alpha \cdot \hat{m_t}}{\sqrt{\hat{n_t}}+\epsilon}\\)
+2. \\(m_t=\mu \cdot m_{t-1}+(1-\mu) \cdot g_t\\)
+
+3. \\(n_t=\nu \cdot n_{t-1}  + (1-\nu) g_t^2\\)
+
+4. \\(\hat{m} = \frac{\mu \cdot m_t}{1-\mu^{t+1}} + \frac{(1-\mu) \cdot g_t}{1-\mu^t}\\)
+
+5. \\(\hat{n}=\frac{\nu \cdot n_t}{1-\nu^t}\\)
+
+6. \\(w_t = w_{t-1} - \frac{\alpha \cdot \hat{m_t}}{\sqrt{\hat{n_t}}+\epsilon}\\)
+
+
+Here is Adam's oroginal equation for the biased corrected momentum:
+
+
+**** Adam's Original Formula:
+
+4. \\(\hat{m} = \frac{m_t}{1-\mu^{t+1}} \\)
 
 
 
 
-
-the author Dozat Nada
+Nadam replaced usage of current \\({m_t}\\) by a "look ahead" next iteration value.
 
 
 
