@@ -161,7 +161,9 @@ AdaDelta aims to improve the 2 drawbacks of that updating term: 1. the continual
 
 To improve the first drawback, Avagard's denominator is replaced by an exponentially decaying average of squared gradients \\(E(g^2) \\) :
 
-\\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+\\(E(g^2)_{t}=\\)
+
+\\(\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
 
 #0 
 
