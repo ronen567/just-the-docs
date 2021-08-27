@@ -135,16 +135,16 @@ Where:
 
 - \\(\odot\\) stands for "elementwise multiplication".
 
--G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown{_w_i} f(w)\\)
+-G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_{w_{i}} f(w)\\)
 
 
--\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w) \\)
+-\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_{w_{i}} f(w) \\)
 
 #r2:
 
 -\\(G_{t,(i,i)}=\sum_{}^{t}\bigtriangledown_w{_{i}}f(w)\\)
 
-#r2.5x
+#r2.5xy
 
 -\\(G_{t,i,i}=\sum_{}^{t}\bigtriangledown_w{_i}f(w)\\)
 
