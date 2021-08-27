@@ -171,6 +171,13 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 
 \\(E(g^2)_{t}=\gamma E(g^2)_{t-1}\\)
 
+\\(E(g^2)_{t}=\gamma E(g^{2}_{t-1})\\)
+
+000
+
+\\(E(g^2)_{t}=\gamma E({g^{2}}_{t-1})\\)
+
+
 
 \\(E(g^2)_{t}=\gamma E(g^2)\\)
 
