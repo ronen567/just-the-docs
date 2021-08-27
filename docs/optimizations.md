@@ -419,6 +419,9 @@ Adopting this formula, NAdam modified Adam's formula as presented below. The mod
 
 6. \\(w_t = w_{t-1} - \frac{\alpha \cdot \hat{m_t}}{\sqrt{\hat{n_t}}+\epsilon}\\)
 
+Where:
+\\(\mu\\) and \\(\nu\\) are the exponentially decaying coefficients
+
 
 Here is Adam's oroginal equation for the biased corrected momentum:
 
@@ -428,19 +431,8 @@ Here is Adam's oroginal equation for the biased corrected momentum:
 4. \\(\hat{m} = \frac{m_t}{1-\mu^{t+1}} \\)
 
 
+ Nadam replaced usage of current \\({m_t}\\) by a "look ahead" \\(\mu\\).
 
 
-Nadam replaced usage of current \\({m_t}\\) by a "look ahead" next iteration value.
 
 
-
-coursera:
-Mini Batch
-
-
-Training with batch of all m examples - 1 update (step of gradient descent) after each cycle
-Mini Batch - 1000 examples...runs faster for big training set
-
-
-Referances:
-- Deep Learning by Ian Goodfellow, Yoshua Bengio, and Aaron Courville 
