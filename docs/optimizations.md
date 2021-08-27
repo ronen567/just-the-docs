@@ -134,9 +134,31 @@ Where:
 \\(g(t)=\bigtriangledown_w J(w_t) \\)
 
 - \\(\odot\\) stands for "elementwise multiplication".
+- 
 -G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w)\\)
 
+#2
+\\(\bigtriangledown_w_i f(w)\\)
+
+#3
+
+$$\bigtriangledown_w_i f(w)$$
+
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w) \\)
+
+#r2:
+
+-\\(G_{t,(i,i)}=\sum_{}^{t}\bigtriangledown_w_{i}f(w)\\)
+
+#r2.5
+
+-\\(G_{t,i,i}=\sum_{}^{t}\bigtriangledown_w_{i}f(w)\\)
+
+
+#r3:
+
+-$$G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)$$
+
 
 -\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
 
