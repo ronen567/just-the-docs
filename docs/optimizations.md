@@ -134,11 +134,22 @@ Where:
 \\(g(t)=\bigtriangledown_w J(w_t) \\)
 
 - \\(\odot\\) stands for "elementwise multiplication".
-- 
+
 -G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w)\\)
 
+
 #2
+
 \\(\bigtriangledown_w_i f(w)\\)
+
+#22
+
+\\(\bigtriangledown_{w{_i}} f(w)\\)
+
+#23
+
+\\(\bigtriangledown_{w_i} f(w)\\)
+
 
 #3
 
