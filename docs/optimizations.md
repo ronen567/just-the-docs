@@ -4,12 +4,12 @@ title: Optimization Algorithms
 nav_order: 4
 ---
 
-## Introduction
+# Introduction
 
 
 **Gradient Descent** is a recursive algorithm, which finds the minimum of a function. The minimum is located by striding in the oposite direction of the function's gradient, with a step size according to the gradient size, as expressed in Eq. 1.
 
-## Eq. 1: Gradient Descent Equation
+### Eq. 1: Gradient Descent Equation
 
 \\(X(t) = X(t-1)-\alpha \cdot \bigtriangledown f(X)) \\)
 **Where**:
@@ -80,17 +80,17 @@ This algorithms reviewd in this post are:
 
 The next paragraphs describe the principles of the various Gradient Descent algoritms. Following that are graphical illustrations of these algorithms when applied on a 3 "cost functions" presented above, i.e. "easy convergence, "slightly oscilated" and "oscilated".
 
-## Momentum
+# Momentum
 
 The Momentum algorithm update formula, adds another term to the Gradient Descent correction factor. This term, denoted by \\(v \\), corresponds to past gradient, calculated at previopus update iterations.
 Here's the momentum formula:
 
-## Eq. 2: Momentum
+### Eq. 2: Momentum
 
-## Eq. 2a
+#### Eq. 2a
 \\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w f(w_{t-1}) \\)
 
-## Eq. 2b
+#### Eq. 2b
 
 \\( w_t = w_{t-1}+v_t \\)
 
@@ -112,14 +112,15 @@ chine Learning, 2013, Sutskever et al
 
 Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm.  but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
-## Eq. 3: Nesterov momentum
-### 3.a
+### Eq. 3: Nesterov momentum
+#### 3.a
 \\(v_t=/beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1}+/beta \cdot v_{t-1} ) \\)
-### 3.b
+#### 3.b
 \\(w_{t}=w_{t-1}+ v_t \\)
 
 
-**Adagrad**
+# Adagrad
+
 "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011), Duchi et. al.
 
 Adagrad (Adaptive Gradient) algorithm modifies the value of learning rate, based on past gradients. 
@@ -143,7 +144,7 @@ Adagrad gives lower learning rates to parameters with higher gradients, and high
 - Since sum of squared gradients grows increasingly, the the adaptive learning rate coefficient can excessively decrease as training continues.
 
 
-**AdaDelta**
+# AdaDelta
 
 ADADELTA: An Adaptive Learning Rate Method, Zeiler
 
@@ -195,7 +196,7 @@ Where
 and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
 
-**RMSprop**
+# RMSprop
 
 RMSprop was presented in a Coursera course lecture.
 
@@ -214,7 +215,7 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 
 
 
-## Adam
+# Adam
 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
@@ -361,7 +362,7 @@ Finally, plugging b.2 into #5 we get:
 
 \\(\Delta_t \leq \alpha \\)
 
-## Adamax
+# Adamax
 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
@@ -387,7 +388,7 @@ Where proposed hyperparameter values are:
 
 
 
-**NAdam**
+# NAdam
 INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016, Timothy Dozat
 
 The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm, incorporating the Nesterov momentum principal into it. The prinicipal is of using a next step update, already in current iteration. According to this principal, Nesterov formula for gradient was this:
