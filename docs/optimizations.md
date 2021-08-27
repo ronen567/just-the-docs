@@ -171,9 +171,9 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 
 \\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma) \cdot g^2_{t}\\)
 
-#3x
+#3xy
 
-\\(E(g^{2})_{t}=\gamma E(g^{2})_{t-1}+(1-\gamma) \cdot g_{t}^{2}\\)
+\\(E(g^{2})_{t}=\gamma \cdot E({g}^{2})_{t-1}+(1-\gamma) \cdot {g_{t}}^{2}\\)
 
 
 where \\(\gamma\\) is a constant controlling the decay of the gradients average.
@@ -191,7 +191,11 @@ Square) of previous squared gradients, up to time t, so:
 
 #3
 
-\\(RMS(g^{2})_{t}=\sqrt {E(g^2)_{t} + \epsilon}\\)
+\\(RMS(g^{2}_{t})=\sqrt {E({{g}^2)}_{t} + \epsilon}\\)
+
+$4
+
+\\(RMS({g}^{2}_{t})=\sqrt {E({{g}^2)}_{t} + \epsilon}\\)
 
 
 Where \\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). So that's for improving the decaying learning rate issue.
