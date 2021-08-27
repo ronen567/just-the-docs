@@ -177,6 +177,12 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 
 \\(E(g^2)_{t}=\gamma E({g^{2}}_{t-1})\\)
 
+xxx
+
+\\(E({g^{2}}_{t-1})\\)
+
+\\(E({g^{2}}_{(t-1)})\\)
+
 
 
 \\(E(g^2)_{t}=\gamma E(g^2)\\)
@@ -227,7 +233,8 @@ Where \\(\epsilon\\) is a small value used to maintain stability, commonly set t
 
 To improve the second drawback, i.e. avoid the need to determine a global learning rate, the numerator is taken as an exponentially decaying average of the past parameters updates:
 
-\\(E(\Delta{w}^2)_{t-1}=\gamma E(g^2)_{t-2}+(1-\gamma)\Delta{w^2}_{t-1}\\)
+\\(E(\Delta{w}^2)_{t-1}=\gamma \\(E({g^{2}}_{t-1})\\)
+E(g^2)_{t-2}+(1-\gamma)\Delta{w^2}_{t-1}\\)
 
 And same as with the denominator, the square root of the avarage is taken for the numerator:
 
