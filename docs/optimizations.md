@@ -135,24 +135,9 @@ Where:
 
 - \\(\odot\\) stands for "elementwise multiplication".
 
--G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_{w_{i}} f(w)\\)
-
+-G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e.\\(\bigtriangledown_{w_{i}} f(w)\\)
 
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_{w_{i}} f(w) \\)
-
-#r2:
-
--\\(G_{t,(i,i)}=\sum_{}^{t}\bigtriangledown_w{_{i}}f(w)\\)
-
-#r2.5xy
-
--\\(G_{t,i,i}=\sum_{}^{t}\bigtriangledown_w{_i}f(w)\\)
-
-
-#r3:
-
--$$G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)$$
-
 
 -\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
 
@@ -176,7 +161,20 @@ AdaDelta aims to improve the 2 drawbacks of that updating term: 1. the continual
 
 To improve the first drawback, Avagard's denominator is replaced by an exponentially decaying average of squared gradients \\(E(g^2) \\) :
 
-\\(E(g^2)_t=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+\\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+
+# 1
+
+\\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+
+#2
+
+\\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma) \cdot g^2_{t}\\)
+
+#3
+
+\\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma) \cdot g_{t}^2\\)
+
 
 where \\(\gamma\\) is a constant controlling the decay of the gradients average.
 and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
@@ -185,6 +183,16 @@ The term required in the denominator is the square root of this quantity, which 
 Square) of previous squared gradients, up to time t, so:
 
 \\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon}\\)
+
+#2
+
+\\(RMS(g^2)_{t}=\sqrt {E(g^2)_{t} + \epsilon}\\)
+
+
+#3
+
+\\(RMS(g^{2})_{t}=\sqrt {E(g^2)_{t} + \epsilon}\\)
+
 
 Where \\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). So that's for improving the decaying learning rate issue.
 
