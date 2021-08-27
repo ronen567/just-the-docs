@@ -191,11 +191,11 @@ Square) of previous squared gradients, up to time t, so:
 
 #3
 
-\\(RMS(g^{2}_{t})=\sqrt {E({{g}^2)}_{t} + \epsilon}\\)
+\\(RMS(g^{2}_{t})=\sqrt {E{({g}^2)}_{t} + \epsilon}\\)
 
-$4
+$4x
 
-\\(RMS({g}^{2}_{t})=\sqrt {E({{g}^2)}_{t} + \epsilon}\\)
+\\(RMS({g}^{2}_{t})=\sqrt {E{({g}^2)}_{t} + \epsilon}\\)
 
 
 Where \\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). So that's for improving the decaying learning rate issue.
