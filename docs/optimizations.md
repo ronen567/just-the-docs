@@ -104,7 +104,7 @@ As Eq. 2 shows, the updated value w, is dependent not only on the recent gradien
 This allows a faster move, i.e. larger update step size, when in low gradient zone,in which updates are small but in the same direction, and a slower update in areas where the direction of the update is oscillating.
 
 Just to note:
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\( t-1 )\\ an accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\(t-1)\\ an accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
 **Nesterov momentum**
 ref: On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
@@ -132,9 +132,12 @@ The parameter update expression is:
 Where:
 \\(\alpha \\) is the "Global Learning Rate".
 \\(g(t)=\bigtriangledown_w J(w_t) \\)
+
 -\\(odot\\) stands for "elementwise multiplication".
--G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w) \\) . 
+-G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w)\\)
+
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
+
 -\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
 
 Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Still, it has 2 drawbacks:
@@ -148,7 +151,7 @@ ADADELTA: An Adaptive Learning Rate Method, Zeiler
 
 AdaDelta's idea was derived from AdaGrad, which parameter updating term is (See Eq. 4):
 
-\\(\Delta{w_{t}}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)} \\)
+\\(\Delta{w_{t}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)} \\)
 
 Where
 \\(g_t = \bigtriangledown f(w_t) \\)
@@ -157,7 +160,7 @@ AdaDelta aims to improve the 2 drawbacks of that updating term: 1. the continual
 
 To improve the first drawback, Avagard's denominator is replaced by an exponentially decaying average of squared gradients \\(E(g^2) \\) :
 
-\\(E(g^2)_t=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t} \\)
+\\(E(g^2)_t=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
 
 where \\(\gamma\\) is a constant controlling the decay of the gradients average.
 and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
@@ -165,7 +168,7 @@ and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square.
 The term required in the denominator is the square root of this quantity, which is denoted as the RMS (Root 
 Square) of previous squared gradients, up to time t, so:
 
-\\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon} \\)
+\\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon}\\)
 
 Where \\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). So that's for improving the decaying learning rate issue.
 
