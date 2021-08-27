@@ -171,9 +171,9 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 
 \\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma) \cdot g^2_{t}\\)
 
-#3
+#3x
 
-\\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma) \cdot g_{t}^2\\)
+\\(E(g^{2})_{t}=\gamma E(g^{2})_{t-1}+(1-\gamma) \cdot g_{t}^{2}\\)
 
 
 where \\(\gamma\\) is a constant controlling the decay of the gradients average.
