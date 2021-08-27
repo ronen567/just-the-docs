@@ -104,7 +104,7 @@ As Eq. 2 shows, the updated value w, is dependent not only on the recent gradien
 This allows a faster move, i.e. larger update step size, when in low gradient zone,in which updates are small but in the same direction, and a slower update in areas where the direction of the update is oscillating.
 
 Just to note:
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\( t-1 )\\ an accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\( t-1 )\\ an accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
 **Nesterov momentum**
 ref: On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
@@ -113,10 +113,8 @@ chine Learning, 2013, Sutskever et al
 Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm.  but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
 ### Eq. 3: Nesterov momentum
-#### 3.a
-\\(v_t=/beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1}+/beta \cdot v_{t-1} ) \\)
-#### 3.b
-\\(w_{t}=w_{t-1}+ v_t \\)
+#### 3.a: \\(v_t=/beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1}+/beta \cdot v_{t-1} ) \\)
+#### 3.b: \\(w_{t}=w_{t-1}+ v_t \\)
 
 
 # Adagrad
@@ -129,13 +127,13 @@ The parameter update expression is:
 
 ### Eq. 4: Adagrad
 
-\\(w_{t}=w_{t-1}-\frac{\alpha}{\epsilon + \sqrt{G_{t-1}} \odot g_{t-1} \\)
+\\(w_{t}=w_{t-1}-\frac{\alpha}{\epsilon + \sqrt{G_{t-1}} \odot g_{t-1}}\\)
 
 Where:
 \\(\alpha \\) is the "Global Learning Rate".
 \\(g(t)=\bigtriangledown_w J(w_t) \\)
 -\\(odot\\) stands for "elementwise multiplication".
--G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w) \\). 
+-G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e. \\(\bigtriangledown_w_i f(w) \\) . 
 -\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_w_{i} f(w)) \\)
 -\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
 
@@ -150,7 +148,7 @@ ADADELTA: An Adaptive Learning Rate Method, Zeiler
 
 AdaDelta's idea was derived from AdaGrad, which parameter updating term is (See Eq. 4):
 
-\\(\Delta{w_{t}}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t) \\)
+\\(\Delta{w_{t}}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)} \\)
 
 Where
 \\(g_t = \bigtriangledown f(w_t) \\)
@@ -169,16 +167,16 @@ Square) of previous squared gradients, up to time t, so:
 
 \\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon} \\)
 
-Where \\(\epsilon}\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). So that's for improving the decaying learning rate issue.
+Where \\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). So that's for improving the decaying learning rate issue.
 
 
 To improve the second drawback, i.e. avoid the need to determine a global learning rate, the numerator is taken as an exponentially decaying average of the past parameters updates:
 
-\\(E(\Delta{w}^2)_{t-1}=\gamma E(g^2)_{t-2}+(1-\gamma)\Delta{w^2}_{t-1} \\)
+\\(E(\Delta{w}^2)_{t-1}=\gamma E(g^2)_{t-2}+(1-\gamma)\Delta{w^2}_{t-1}\\)
 
 And same as with the denominator, the square root of the avarage is taken for the numerator:
 
-\\(RMS(\Delta{w}^2)_{t-1}=\sqrt {E(\Delta{w}^2)_{t-1} + \epsilon} \\)
+\\(RMS(\Delta{w}^2)_{t-1}=\sqrt {E(\Delta{w}^2)_{t-1} + \epsilon}\\)
 
 Integrating all the components the updating term formula becomes:
 
@@ -204,7 +202,7 @@ RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to
 
 ### Eq. 6: RMSprop
 
-\\(w_{t}= w_{t-1}-\frac{\alpha}{RMS(g^2)_{t-1}}\cdot g_{t-1} \\)
+\\(w_{t}= w_{t-1}-\frac{\alpha}{RMS(g^2)_{t-1}}\cdot g_{t-1}\\)
 
 Where
 \\(g_t = \bigtriangledown f(w_t) \\)
