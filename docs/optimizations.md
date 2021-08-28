@@ -175,9 +175,29 @@ The exponentially decaying average of squared gradients equation is:
 
 \\(E[g^{2}]_t=\gamma E[g^2]_{t-1}+(1-\gamma)g^2_{t} \\)
 
-\\(E[g^{2}]_t=\gamma E[g^2]_{t}+(1-\gamma)g^2_{t} \\)
+\\(E[g^2]_t=\gamma E[g^2]_{t}+(1-\gamma)g^2_{t} \\)
 
-\\(E[g^2}]_t=\gamma E[g{^2}]_{t}+(1-\gamma)g{^2}_{t} \\)
+\\(E[g2]_t=\gamma E[g2]_{t}+(1-\gamma)g2_{t} \\)
+
+
+\\(E[g{^2}]_t=\gamma E[g{^2}]_{t}+(1-\gamma)g{^2}_{t} \\)
+
+
+\\(E[g^2}]_t = \gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
+
+\\(E[ g^2 }]_t = \gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
+
+\\(E[ g^2 }]_t = \gamma cdot E[g{ ^2 }]_{ t }+1-\gammag{ ^2 }_{ t } \\)
+
+
+\\(E[ g^2 }]_t = \\) 
+
+\\(\gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
+
+\\(\gamma cdot E[g{ ^2 }]_{ t }+ \\)
+
+\\((1-\gamma)g{ ^2 }_{ t } \\)
+
 
 
 
