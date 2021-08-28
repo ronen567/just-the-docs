@@ -195,6 +195,18 @@ The exponentially decaying average of squared gradients equation is:
 
 \\((1-\gamma)g^2_{t} \\)
 
+
+\\(E(g^{2})_t=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+
+\\(E(g^2)_t=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_t\\)
+
+\\(E(g^2)_t=\\)
+
+\\(\gamma E(g^2)_{t-1}+(1-\gamma)g^2_t\\)
+
+
+
+
 Using that we now denote:
 
 \\(RMS[g]_t = \sqrt{E[g^{2}]_t + \epsilon} \\)
