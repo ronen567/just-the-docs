@@ -176,9 +176,19 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 \\((1-\gamma)g^2_{t}\\)
 
 
-\\(E(g^2)_{t} = \gamma E(g^2)_{t-1} +\\)
+\\(e(g^2)_{t} = \gamma e(g^2)_{t-1} +\\)
 
 \\((1-\gamma)g^2_{t}\\)
+
+
+\\(e[g^2]_{t} = \gamma e[g^2]_{t-1} +\\)
+
+\\((1-\gamma)g^2_{t}\\)
+
+\\(eg^2_{t} = \gamma e[g^2]_{t-1} +\\)
+
+\\((1-\gamma)g^2_{t}\\)
+
 
 \\(E(g^2)_{t} = \gamma \cdot E(g^2)_{t-1} +\\)
 
