@@ -280,6 +280,17 @@ Adam's update step size is bounded, where for common scenarios bound is learning
 
 #2  \\( \left | \Delta_{w_}t  \right | leq \alpha\\) . 
 
+#2  \\( \left | {\Delta_w}_t  \right | leq \alpha\\) . 
+
+
+ \\( | \Delta_{w}_t | leq \alpha\\) . 
+ 
+  \\( | \Delta_{w_}t | leq \alpha\\) . 
+
+ 
+  \\( | \Delta_{w} | leq \alpha\\) . 
+
+
 The step size is also invariant to scaling of the gradient.
 
 Let's see all that.
