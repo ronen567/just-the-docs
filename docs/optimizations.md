@@ -219,20 +219,25 @@ where:
 
 \\(\rho\\) is a constant controlling the decay of the average.
 
-\\( \Delta w{_t}{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
-
-\\( \Delta {w_t}{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
-
-\\( \Delta w_{t}{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
-
-\\( \Delta {w_{t}}{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
+\\( \Delta w{_t}{^2} = \Delta w_t \odot \Delta w_t \\) , i.e. an element-wise square. 
 
 
 Using that we now denote:
 
 \\(RMS[\Delta w]_{t}=\sqrt {E[\Delta w{^2}]_{t}}\\)
 
-Note: Algorithm uses RMS[\Delta w]_{t-1} for the calculation of \Delta w_t
+\\(RMS[\Delta w]_{t}=\sqrt {E[\Delta w^2]_{t}}\\)
+
+\\(RMS[\Delta w]_{t}=\sqrt {E[\Delta w^{2}]_{t}}\\)
+
+\\(RMS[\Delta w]_{ t } = \sqrt { E[\Delta w^{ 2 }]_{ t }}\\)
+
+\\(RMS[\Delta w]_{ t } = \sqrt { E[\Delta w]_{ t }}\\)
+
+
+
+
+Note: Algorithm uses \\(RMS[\Delta w]_{t-1}\\) for the calculation of \\(\Delta w_t\\)
 
 
 Having the numerator and denominator blocks, here the update algorithm:
@@ -243,7 +248,7 @@ Having the numerator and denominator blocks, here the update algorithm:
 
 1. ***for t=1:T do:***
 2. \\(g_t = \bigtriangledown f(w_t) \\)
-3. \\(\Delta w_t = -frac{RMS[\Delta w]_{t-1}}{RMS[g]_t}\\)
+3. \\(\Delta w_t = -\frac{RMS[\Delta w]_{t-1}}{RMS[g]_t}\\)
 4. \\(w_{t+1} = w_t + (\Delta w_t\\)
 
 
