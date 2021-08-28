@@ -219,13 +219,13 @@ where:
 
 \\(\rho\\) is a constant controlling the decay of the average.
 
-\\( \Delta w{_t}{_^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
+\\( \Delta w{_t}{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
 
-\\( \Delta {w_t}_{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
+\\( \Delta {w_t}{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
 
-\\( \Delta w_{t}_{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
+\\( \Delta w_{t}{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
 
-\\( \Delta {w_{t}}_{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
+\\( \Delta {w_{t}}{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
 
 
 Using that we now denote:
