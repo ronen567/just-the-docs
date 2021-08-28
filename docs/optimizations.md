@@ -183,14 +183,17 @@ The exponentially decaying average of squared gradients equation is:
 \\(E[g{^2}]_t=\gamma E[g{^2}]_{t}+(1-\gamma)g{^2}_{t} \\)
 
 
-\\(E[g^2}]_t = \gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
+\\(E[g^2]_t = \gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
 
-\\(E[ g^2 }]_t = \gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
+\\(E[ g^2 ]_t = \gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
 
-\\(E[ g^2 }]_t = \gamma cdot E[g{ ^2 }]_{ t }+1-\gammag{ ^2 }_{ t } \\)
+\\(E[ g^2 ]_t = \gamma cdot E[g{ ^2 }]_{ t }+1-\gammag{ ^2 }_{ t } \\)
 
 
-\\(E[ g^2 }]_t = \\) 
+\\(E[ g ]_t = \gamma cdot E g_{ t }+1-\gamma g_{ t } \\)
+
+
+\\(E[ g^2 ]_t = \\) 
 
 \\(\gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
 
@@ -198,7 +201,7 @@ The exponentially decaying average of squared gradients equation is:
 
 \\((1-\gamma)g{ ^2 }_{ t } \\)
 
-
+uuu
 
 
 Using that we now denote:
