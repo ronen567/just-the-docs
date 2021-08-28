@@ -173,33 +173,33 @@ To improve the first drawback, Avagard's denominator is replaced by root of expo
 
 The exponentially decaying average of squared gradients equation is:
 
-E[g^{2}]_t=\gamma E[g^2]_{t-1}+(1-\gamma)g^2_{t}
+\\(E[g^{2}]_t=\gamma E[g^2]_{t-1}+(1-\gamma)g^2_{t} \\)
 
 Using that we now denote:
 
-RMS[g]_t = \sqrt{E[g^{2}]_t}
+\\(RMS[g]_t = \sqrt{E[g^{2}]_t} \\)
 
-RMS[g]_t = \sqrt{Eg^{2}_t}
+\\(RMS[g]_t = \sqrt{Eg^{2}_t} \\)
 
-RMS[g]_t = \sqrt{E\left [  g^{2}\right ]_t}
+\\(RMS[g]_t = \sqrt{E\left [  g^{2}\right ]_t} \\)
 
 
 #1
 
-RMS[g]_t = \sqrt{E[g{2}]_t}
+\\(RMS[g]_t = \sqrt{E[g{2}]_t} \\)
 
 
-RMS[g]_t = \sqrt{E[g{^2}]_t}
+\\(RMS[g]_t = \sqrt{E[g{^2}]_t} \\)
 
-RMS[g]_t = \sqrt{ E[g{^2}]_t }
+\\(RMS[g]_t = \sqrt{ E[g{^2}]_t } \\)
 
-RMS[g]_t = \sqrt{ E[g{ ^2 }]_t }
+\\(RMS[g]_t = \sqrt{ E[g{ ^2 }]_t } \\)
 
-RMS[g]_t = \sqrt{ E[g{ ^{2} }]_t }
+\\(RMS[g]_t = \sqrt{ E[g{ ^{2} }]_t } \\)
 
-RMS[g]_t = \sqrt{ E[g{ ^ 2 }]_t }
+\\(RMS[g]_t = \sqrt{ E[g{ ^ 2 }]_t } \\)
 
-RMS[g]_t = \sqrt { E[g{  2 }]_t }
+\\(RMS[g]_t = \sqrt { E[g{  2 }]_t } \\)
 
 
 
