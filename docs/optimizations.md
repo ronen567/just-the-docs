@@ -57,6 +57,7 @@ The Gradient Decsent iterative algorithm runs as follows:
 
 ![gradient decent diagram](../assets/images/gd_optimizations/gradient-descent-flow.png)
 
+The termination criteria can vary between implementations: In  the above, the update step size is compared to a an absolute threshold value. Criteria can be number of iterations, variation of update size wrt to previous updates, etc.
 
 **Illustrative Examples**
 
