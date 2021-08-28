@@ -223,8 +223,16 @@ where:
 
 
 Using that we now denote:
+\\(RMS[g]_t = \sqrt{E[g^{2}]_t + \epsilon} \\)
 
-\\(RMS[\Delta w]_{t}=\sqrt {E[\Delta w{^2}]_{t}}\\)
+
+\\(RMS[\Delta w]_t=\sqrt{E[\Delta w^{2}]_t}\\)
+
+
+\\(RMS[\Delta w]_t=\\)
+
+\\(\sqrt{E[\Delta w^{2}]_t}\\)
+
 
 \\(RMS[\Delta w]_{t}=\sqrt {E[\Delta w^2]_{t}}\\)
 
