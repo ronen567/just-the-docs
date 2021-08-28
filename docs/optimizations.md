@@ -250,11 +250,11 @@ RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to
 
 \\(w_{t}= w_{t-1}-\\)
 
-\\(\frac{\alpha}{RMS(g^2)_{t-1}}\cdot g_{t-1}\\)
+\\(\frac{\alpha}{RMS(g^2)_{t-1}} \cdot g_{t}\\)
 
 Where:
 
-\\(g_t = \bigtriangledown f(w_t) \\)
+\\(g_t = \bigtriangledown f(w_{t-1}) \\)
 
 and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
