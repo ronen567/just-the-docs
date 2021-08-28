@@ -180,14 +180,14 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 \\((E(g^2))_{t}=\\)
 
 
-\\(\gamma (Eg^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+\\(\gamma (Eg^{ 2 })_{ t-1 } + (1-\gamma)g^{2}_{ t }\\)
 
 
 
-\\((Eg^2)_{t}=\gamma (Eg^2)_{t-1}+(1-\gamma)g^2_{t}\\)
+\\((Eg^2)_{ t }=\gamma (Eg^2)_{ t-1 }+(1-\gamma)g^2_{ t }\\)
 
 
-
+tgt
 
 
 \\((E(g^2))_{t} = \gamma e(g^2)_{t-1} +\\)
