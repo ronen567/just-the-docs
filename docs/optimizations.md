@@ -173,7 +173,9 @@ To improve the first drawback, Avagard's denominator is replaced by root of expo
 
 The exponentially decaying average of squared gradients equation is:
 
-\\(E[g^{2}]_t=\gamma E[g^2]_{t-1}+(1-\gamma)g^2_{t} \\)
+\\(E[g^{2}]_t=\\)
+\\(\gamma E[g^2]_{t-1}+\\)
+\\((1-\gamma)g^2_{t} \\)
 
 \\(E[g^2]_t=\gamma E[g^2]_{t}+(1-\gamma)g^2_{t} \\)
 
