@@ -7,11 +7,40 @@ nav_order: 4
 # Introduction
 
 
-**Gradient Descent** is a recursive algorithm, for finding a minimum of a function. It does so by striding along the gradient's opposite direction, untill reaching the gradient 0 - this is the function's minima.
+**Gradient Descent** Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. The optimization algorithm is activated on the cost function J, during the training phase, searching for the sets of weights which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
 
-Strding step size is according to gradient, as expressed in Eq. 1:
+Diagram below presents DNN's functionality during training phase: The Gradient Descent module, (located on top-right),  is fed with 
+\\( \bigtriangledown_w J\\) , the cost function gradient, according to which it calculates the updated \\(w_t\\).
 
-### Eq. 1: Gradient Descent Equation
+**Figure 0: Deep Neural Network Block Diagram - Training Phase
+
+![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
+
+
+Next chapters of this post are:
+
+- Gradient Descent Prinicipals
+- Illustrative Examples
+- Review of Gradient Descent Variants:
+**Momentum**
+**Nesterov momentum**
+**Adagrad**
+**Adadelta**
+**RMSprop**
+**Adam**
+**Adamax**
+**FTR**
+**NAdam*
+
+# Gradient Descent Principals
+
+Gradient Descent finds a minimum of either a function or a set of data points, by striding along the gradient's opposite direction, untill it reaches the point where gradient is  - this where the minima is.
+
+Gradient Descent is an iterative algorithm, at which the output at each iteration equals the output of the previous iteration, minus an update, as shown in Eq. 1
+
+### Eq. 1: Gradient Descent Equation 
+
+A new \\(w_t\\) is calculated based on \\(w_{t-1}\\): 
 
 \\(w_t = w_{t-1}-\alpha \cdot \bigtriangledown f(w_{t-1} \\)
 
@@ -20,28 +49,13 @@ Strding step size is according to gradient, as expressed in Eq. 1:
 
 \\(w is the parameter (or vector of parameters) searched for.
 
-\\(\alpha\\) is a hyperparameter known as the learning rate.
+\\(\alpha\\) is a hyperparameter known as the "learning rate".
 
-The Gradient Decsent algorithm steps are as follows:
+The Gradient Decsent iterative algorithm runs as follows:
 
-0. Init w to an arbitrary value. (A bad values selection may delay convergance. Check if so by trial and error.)
-1. Calculate \\(\bigtriangledown f(w_{t-1} \\), gradient of f(w)
-2. Calculate new w(t) using Eq. 1: \\(w_t = w_{t-1}-\alpha \cdot \bigtriangledown f(w_{t-1}) \\)
-3. Continue to step 1 if \\(\bigtriangledown f(w) > \epsilon \\) or according to any termination criteria.
+### Gradient Descent Flow Diagram
 
-
-**Gradient Descent in Deep Neural Networks*** 
-
-Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. The optimization algorithm is activated on the cost function J, during the training phase, searching for the sets of weights which minimizes the cost (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
-
-Diagram below presents DNN's functionality during training phase: The Gradient Descent module, (located on top-right),  is fed with 
-\\( \bigtriangledown_w J\\) , the cost function gradient, according to which it calculates the updated \\(w_t\\). 
-
-**Figure 0: Deep Neural Network Block Diagram - Training Phase
-
-
-![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
-
+![gradient decent diagram](../assets/images/gd_optimizations/gradient-descent-flow.png)
 
 
 **Illustrative Examples**
@@ -82,18 +96,6 @@ A smaller learning rate would solve this, make the algorithm smoothly converge. 
 
 This post reviews some of the most popular Gradient Descent variants which aim to answer Gradient Descent issues.
 
-This algorithms reviewd in this post are:
-
-**Momentum**
-**Nesterov momentum**
-**Adagrad**
-**Adadelta**
-**RMSprop**
-**Adam**
-**Adamax**
-**FTR**
-**NAdam**
-
 The next paragraphs describe the principles of the various Gradient Descent algoritms. Following that are graphical illustrations of these algorithms when applied on a 3 "cost functions" presented above, i.e. "easy convergence, "slightly oscilated" and "oscilated".
 
 # Momentum
@@ -133,11 +135,9 @@ chine Learning, 2013, Sutskever et al
 Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm.  but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
 ### Eq. 3: Nesterov momentum
-#### 3.a: 
-\\(v_t=\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1} + \beta \cdot v_{t-1} ) \\)
+#### 3.a: \\(v_t=\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1} + \beta \cdot v_{t-1} ) \\)
 
-#### 3.b: 
-\\(w_{t}=w_{t-1}+ v_t \\)
+#### 3.b: \\(w_{t}=w_{t-1}+ v_t \\)
 
 
 # Adagrad
@@ -200,12 +200,15 @@ Using that we now denote:
 
 \\(RMS[g]_t = \sqrt{E[g^{2}]_t + \epsilon} \\)
 
-where:
+**where**:
 
 \\(\gamma\\) is a constant controlling the decay of the gradients average.
 
+**and**: 
+
 \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an element-wise square. 
 
+**and also**:
 \\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). 
 
 
@@ -214,22 +217,15 @@ To improve the second drawback, i.e. avoid the need to determine a global learni
 
 The exponentially decaying average of the past updates is:
 
-\\(E[\Delta w{^2}]_{t} = \\)
-
-\\(\rho E[\Delta w{^2}]_{t-1}+\\)
-
-\\( (1-\rho) \Delta w_t{^2}\\)
-
-
 \\(E[\Delta w^2]_{t} = \\)
 
 \\(\rho E[\Delta w^2]_{t-1}+(1-\rho)\Delta w_t^2\\)
 
-\\(E[\Delta w^2]_{t} = \rho E[\Delta w^2]_{t-1}+(1-\rho)\Delta w_t^2\\)
-
-where:
+**where:**
 
 \\(\rho\\) is a constant controlling the decay of the average.
+
+**and**:
 
 \\( \Delta w{_t}{^2} = \Delta w_t \odot \Delta w_t \\) , i.e. an element-wise square. 
 
