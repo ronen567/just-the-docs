@@ -179,6 +179,11 @@ Using that we now denote:
 
 RMS[g]_t = \sqrt{E[g^{2}]_t}
 
+RMS[g]_t = \sqrt{Eg^{2}_t}
+
+RMS[g]_t = \sqrt{E\left [  g^{2}\right ]_t}
+
+
 #1
 
 RMS[g]_t = \sqrt{E[g{2}]_t}
