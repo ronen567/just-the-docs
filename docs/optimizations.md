@@ -179,40 +179,9 @@ The exponentially decaying average of squared gradients equation is:
 
 \\((1-\gamma)g^2_{t} \\)
 
-\\(E[g^2]_t=\gamma E[g^2]_{t}+(1-\gamma)g^2_{t} \\)
-
-\\(E[g2]_t=\gamma E[g2]_{t}+(1-\gamma)g2_{t} \\)
-
-
-\\(E[g{^2}]_t=\gamma E[g{^2}]_{t}+(1-\gamma)g{^2}_{t} \\)
-
-
-\\(E[g^2]_t = \gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
-
-\\(E[ g^2 ]_t = \gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
-
-\\(E[ g^2 ]_t = \gamma cdot E[g{ ^2 }]_{ t }+1-\gammag{ ^2 }_{ t } \\)
-
-
-\\(E[ g ]_t = \gamma cdot E g_{ t }+1-\gamma g_{ t } \\)
-
-
-\\(E[ g^2 ]_t = \\) 
-
-\\(\gamma cdot E[g{ ^2 }]_{ t }+(1-\gamma)g{ ^2 }_{ t } \\)
-
-\\(\gamma cdot E[g{ ^2 }]_{ t }+ \\)
-
-\\((1-\gamma)g{ ^2 }_{ t } \\)
-
-uuu
-
-
 Using that we now denote:
 
-\\(RMS[g]_t = \sqrt{E[g^{2}]_t} \\)
-
-
+\\(RMS[g]_t = \sqrt{E[g^{2}]_t + \epsilon} \\)
 
 where:
 
@@ -220,16 +189,43 @@ where:
 
 \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an element-wise square. 
 
+\\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). 
+
 
 
 To improve the second drawback, i.e. avoid the need to determine a global learning rate, the numerator is taken the RMS of an exponentially decaying average of the past updates:
 
 The exponentially decaying average of the past updates is:
 
-\\(E[\Delta{w}{^2}]_{t} = \rho E[\Delta{w}{^2}]_{t-1}+(1-\rho)\Delta{_i}{^2}\\)
+\\(E[\Delta w{^2}]_{t} = \\)
+
+\\(\rho E[\Delta w{^2}]_{t-1}+\\)
+
+\\((1-\rho) \Delta w_t_{^2}\\)
+
+where:
+
+\\(\rho\\) is a constant controlling the decay of the average.
+
+\\\Delta w_t_{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
 
 
-\\(RMS[\Delta{w}]_{t}=\sqrt {E[\Delta{w}{^2}]_{t}}
+Using that we now denote:
+
+\\(RMS[\Delta w]_{t}=\sqrt {E[\Delta w{^2}]_{t}}
+
+Note: Algorithm uses RMS[\Delta w]_{t-1} for the calculation of \Delta w_t
+
+
+Having the numerator and denominator blocks, here the update algorithm:
+
+
+1. for \\(t=1:T\\) do:
+2. \\(g_t = \bigtriangledown f(w_t) \\)
+3. \\(\Delta w_t = -frac{RMS[\Delta w]_{t-1}}{RMS[g]_t}\\)
+4. \\(w_{t+1} = w_t + (\Delta w_t\\)
+
+
 
 
 
@@ -250,7 +246,6 @@ Where
 and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
 
-\\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). 
 
 # RMSprop
 
