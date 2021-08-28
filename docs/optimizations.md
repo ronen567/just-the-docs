@@ -165,174 +165,40 @@ Where:
 
 \\(g_t = \bigtriangledown f(w_t) \\)
 
-AdaDelta aims to improve the 2 drawbacks of that updating term: 1. the continual decay of learning rate. 2. the need to select a global learning rate.
+AdaDelta aims to improve the 2 drawbacks of that updating term: 
+1. the continual decay of learning rate. 
+2. the need to select a global learning rate.
 
-To improve the first drawback, Avagard's denominator is replaced by an exponentially decaying average of squared gradients \\(E(g^2) \\) :
+To improve the first drawback, Avagard's denominator is replaced by root of exponentially decaying average of squared gradients \\(E(g^2) \\), denoted by RMS (Root Mean Square_:
 
-\\((E(g^2))_{t}=\\)
+The exponentially decaying average of squared gradients equation is:
 
-\\(\gamma (E(g^2))_{t-1}+\\)
+(E(g^{2}))_t=\gamma (E(g^2))_{t-1}+(1-\gamma)g^2_{t}
 
-\\((1-\gamma)g^2_{t}\\)
+Using that we now denote:
 
+(RMS(g))_t = \sqrt{(E(g^{2}))_t}
 
 
-\\((E(g^2))_{t}=\\)
+where:
 
+\\(\gamma\\) is a constant controlling the decay of the gradients average.
 
-\\(\gamma (Eg^{ 2 })_{ t-1 } + (1-\gamma)g^{2}_{ t }\\)
+\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an element-wise square. 
 
 
 
-\\((Eg^2)_{ t }=\gamma (Eg^2)_{ t-1 }+(1-\gamma)g^2_{ t }\\)
+To improve the second drawback, i.e. avoid the need to determine a global learning rate, the numerator is taken the RMS of an exponentially decaying average of the past updates:
 
+The exponentially decaying average of the past updates is:
 
-tgt
+\\(E[\Delta{w}{^2}]_{t} = \rho E[\Delta{w}{^2}]_{t-1}+(1-\rho)\Delta{_i}{^2}\\)
 
 
-\\((E(g^2))_{t} = \gamma e(g^2)_{t-1} +\\)
+\\((RMS(\Delta{w}))_{t}=\sqrt {E[\Delta{w}{^2}]_{t}}
 
-\\((1-\gamma)g^2_{t}\\)
 
 
-\\((Eleft \( g^2 \right \))_{t} = \\)
-
-\\((E \left \( g^2 \right \))_{t} = \\)
-
-\\(\gamma (E \left \( g^2 \right \))_{t-1} + \left \(1-\gamma \right \) \cdot g^2_{t}\\)
-
-\\(\gamma (E  g^2)_{t-1} + \left \(1-\gamma \right \) \cdot g^2_{t}\\)
-
-\\(\gamma (E  g^2)_{t-1} + 1-\gamma  \cdot g^2_{t}\\)
-
-
-\\(eg^2_{t} = \gamma e[g^2]_{t-1} +\\)
-
-\\((1-\gamma)g^2_{t}\\)
-
-
-\\(E(g^2)_{t} = \gamma \cdot E(g^2)_{t-1} +\\)
-
-\\((1-\gamma)g^2_{t}\\)
-
-
-#0 
-
-\\(E(g^2)_{t}=\\)
-
-\\(\beta E(g^2)_{t-1}+(1-\beta)g^2_{t}\\)
-
-\\(E(g^2)_{t}=\beta E(g^2)_{t-1}+(1-\beta)g^2_{t}\\)
-
-
-
-#22
-
-\\(E(g^2)_{t}\\)
-
-
-
-
-000uchyttx
-
-\\(E(g^2)_{t}=\\)
-
-\\( \gamma \cdot (E({g^{2}}_{t-1})\\)
-
-
-$$E(g^2)_{t}= \gamma \cdot (E({g^{2}}_{t-1})$$
-
-$$E(g^2)_{t}$$
-
-
-
-\\(E(g^2)_{t}=\gamma \cdot \\)
-\\(E({g^{2}}_{t-1})\\)
-
-
-
-
-
-\\(E(g^2)_{t}=\gamma E( {g^{2}}_{t} )\\)
-
-
-
-\\(E(g^2)_{t}=\gamma E({g^{2}}_{t-1})\\)
-
-\\(E(g^2)_{t}=\gamma\\) \\(E(g^{2}_{t-1})\\)
-
-\\(E(g^2)_{t}=\gamma \cdot E(g^{2}_{t-1})\\)
-
-\\(E(g^2)_{t}={\gamma} \cdot E(g^{2}_{t-1})\\)
-
-\\(E(g^2)_{t}={\gamma} \cdot {E(g^{2}_{t-1})}\\)
-
-
-
-\\(E(g^2)_{t}=\gamma E(g^2)\\)
-
-\\(E(g^2)_{t}=\gamma E(g^2)\\)
-
-
-xxx
-
-\\(E({g^{2}}_{t-1})\\)
-
-
-
-
-
-
-
-# 1
-
-\\(E(g^{2})_{t}=\gamma \cdot E({g}^{2})_{t-1}+(1-\gamma) \cdot {g_{t}}^{2}\\)
-
-
-\\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma)g^2_{t}\\)
-
-#2
-
-\\(E(g^2)_{t}=\gamma E(g^2)_{t-1}+(1-\gamma) \cdot g^2_{t}\\)
-
-#3xy
-
-\\(E(g^{2})_{t}=\gamma \cdot E({g}^{2})_{t-1}+(1-\gamma) \cdot {g_{t}}^{2}\\)
-
-
-where \\(\gamma\\) is a constant controlling the decay of the gradients average.
-and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
-
-The term required in the denominator is the square root of this quantity, which is denoted as the RMS (Root 
-Square) of previous squared gradients, up to time t, so:
-
-\\(RMS(g^2)_t=\sqrt {E(g^2)_{t} + \epsilon}\\)
-
-#2
-
-\\(RMS(g^2)_{t}=\sqrt {E(g^2)_{t} + \epsilon}\\)
-
-
-#3
-
-\\(RMS(g^{2}_{t})=\sqrt {E{({g}^2)}_{t} + \epsilon}\\)
-
-$4x
-
-\\(RMS({g}^{2}_{t})=\sqrt {E{({g}^2)}_{t} + \epsilon}\\)
-
-
-Where \\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). So that's for improving the decaying learning rate issue.
-
-
-To improve the second drawback, i.e. avoid the need to determine a global learning rate, the numerator is taken as an exponentially decaying average of the past parameters updates:
-
-\\(E(\Delta{w}^2)_{t-1}=\gamma \\(E({g^{2}}_{t-1})\\)
-E(g^2)_{t-2}+(1-\gamma)\Delta{w^2}_{t-1}\\)
-
-And same as with the denominator, the square root of the avarage is taken for the numerator:
-
-\\(RMS(\Delta{w}^2)_{t-1}=\sqrt {E(\Delta{w}^2)_{t-1} + \epsilon}\\)
 
 Integrating all the components the updating term formula becomes:
 
@@ -349,6 +215,8 @@ Where
 \\(g_t = \bigtriangledown f(w_t) \\)
 and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
+
+\\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). 
 
 # RMSprop
 
