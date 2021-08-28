@@ -406,18 +406,7 @@ Which leads to the boundery:
 
 Back to #5, let's examine the quotient \\( \left |\frac{ m_t}{\sqrt{v_t}} \right|\\).
 
-Variance is never negative, so:  (\\ E[g^2]-E[g]^2 \geq 0\\). 
-
-(\\ E[g^2]-E[g]^2 \\)
-
-(\\\geq 0\\). 
-
-(\\ E[g^2] - E[g]^2 \geq 0 \\)
-
-(\\ E[g] - E[g] \geq 0 \\)
-
-(\\ E[g] - E[g]^2 \geq 0 \\)
-
+Variance is never negative, so: \\( E(g^2)-E(g)^2 \geq 0\\). 
 
 Swappings sides we get:  
 ######  b.1
@@ -479,7 +468,7 @@ compairing to the conventional formula:
 
 Adopting this formula, NAdam modified Adam's formula as presented below. The modification wrt conventional Adam is only in one of the equations (#4)
 
-**** Nadam Formula's equation set:****
+****Nadam Formula's equation set:****
 
 1. \\(g_t=\bigtriangledown f(w_{t-1})\\)
 
@@ -500,7 +489,7 @@ Where:
 Here is Adam's oroginal equation for the biased corrected momentum:
 
 
-**** Adam's Original Formula:****
+****Adam's Original Formula:****
 
 4. \\(\hat{m} = \frac{m_t}{1-\mu^{t+1}} \\)
 
