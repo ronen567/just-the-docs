@@ -87,10 +87,11 @@ Here's the momentum formula:
 
 ### Eq. 2: Momentum
 
-#### Eq. 2a
+Eq. 2a
+
 \\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w f(w_{t-1}) \\)
 
-#### Eq. 2b
+Eq. 2b
 
 \\( w_t = w_{t-1}+v_t \\)
 
@@ -174,6 +175,16 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 \\((1-\gamma)g^2_{t}\\)
 
 #0 
+
+\\(E(g^2)_{t}=\\)
+
+\\(\beta E(g^2)_{t-1}+(1-\beta)g^2_{t}\\)
+
+\\(E(g^2)_{t}=\beta E(g^2)_{t-1}+(1-\beta)g^2_{t}\\)
+
+
+
+#22
 
 \\(E(g^2)_{t}\\)
 
