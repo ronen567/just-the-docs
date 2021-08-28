@@ -406,7 +406,18 @@ Which leads to the boundery:
 
 Back to #5, let's examine the quotient \\( \left |\frac{ m_t}{\sqrt{v_t}} \right|\\).
 
-Variance is never negative, so:  (\\ E[g]-E[g]^2 \geq 0\\). 
+Variance is never negative, so:  (\\ E[g^2]-E[g]^2 \geq 0\\). 
+
+(\\ E[g^2]-E[g]^2 \\)
+
+(\\\geq 0\\). 
+
+(\\ E[g^2] - E[g]^2 \geq 0 \\)
+
+(\\ E[g] - E[g] \geq 0 \\)
+
+(\\ E[g] - E[g]^2 \geq 0 \\)
+
 
 Swappings sides we get:  
 ######  b.1
