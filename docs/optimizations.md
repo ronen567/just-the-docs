@@ -123,13 +123,20 @@ This allows a faster move, i.e. larger update step size, when in low gradient zo
 Just to note:
 The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
-\\(w_t=w_t_{-1}-\frac{\alpha}{RMS[g^2]_t_{-1} }\cdot g_t\\)
+\\(w_t=w_t_{-1}-\frac{\alpha}{RMS[g]_t_{-1} }\cdot g_t\\)
 
-\\(w_t=w_t_{-1}-\frac{\alpha}{RMS(g^2)_t_{-1} }\cdot g_t\\)
 
-\\(w_t=w_t_{-1}-\frac{\alpha \cdot g_t}{RMS(g^2)_t_{-1} }\\)
+\\(w_t=w_{t-1}-\frac{\alpha}{RMS[g]_t_{-1} }\cdot g_t\\)
 
-\\(w_t=w_t_{-1}-\frac{\alpha g_t}{RMS(g^2)_t_{-1} }\\)
+
+\\(w_t=w_t_{-1}-\frac{\alpha}{RMS(g)_t_{-1} }\cdot g_t\\)
+
+\\(w_t=w_t_{-1}-\frac{\alpha \cdot g_t}{RMS(g)_t_{-1} }\\)
+
+\\(w_t=w_t_{-1}-\frac{\alpha g_t}{RMS(g)_t_{-1} }\\)
+
+\\(w_t=w_{t-1}-\frac{\alpha g_t}{RMS(g)_t_{-1} }\\)
+
 
 
 # Nesterov momentum
