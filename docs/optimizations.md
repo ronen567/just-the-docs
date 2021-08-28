@@ -121,9 +121,19 @@ As Eq. 2 shows, the updated value w, is dependent not only on the recent gradien
 This allows a faster move, i.e. larger update step size, when in low gradient zone,in which updates are small but in the same direction, and a slower update in areas where the direction of the update is oscillating.
 
 Just to note:
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.w_t= w_t_{-1}-\frac{\alpha}{RMS[g^2]_t_{-1} }\cdot g_t
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
-**Nesterov momentum**
+\\(w_t=w_t_{-1}-\frac{\alpha}{RMS[g^2]_t_{-1} }\cdot g_t\\)
+
+\\(w_t=w_t_{-1}-\frac{\alpha}{RMS(g^2)_t_{-1} }\cdot g_t\\)
+
+\\(w_t=w_t_{-1}-\frac{\alpha \cdot g_t}{RMS(g^2)_t_{-1} }\\)
+
+\\(w_t=w_t_{-1}-\frac{\alpha g_t}{RMS(g^2)_t_{-1} }\\)
+
+
+# Nesterov momentum
+
 ref: On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
 chine Learning, 2013, Sutskever et al
 
@@ -276,23 +286,7 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
 Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
-Adam's update step size is bounded, where for common scenarios bound is learning rate coefficient, i.e. \\( \left | \Delta_w_t  \right | leq \alpha\\) .
-
-#2  \\( \left | \Delta w_t  \right | \leq \alpha\\) . 
-
-#2  \\( \left | \Delta w  \right | \leq \alpha\\) . 
-
-
- \\( | \Delta w_t | \leq \alpha\\) . 
- 
-  \\( | \Delta w | \leq \alpha\\) . 
-
- 
-  \\( | \Delta_{w_}t | \leq \alpha\\) . 
-
- 
-  \\( | \Delta_{w} | \leq \alpha\\) . 
-
+Adam's update step size is bounded, where for common scenarios bound is learning rate coefficient, i.e.  \\( \left | \Delta w_t  \right | \leq \alpha\\) . 
 
 The step size is also invariant to scaling of the gradient.
 
