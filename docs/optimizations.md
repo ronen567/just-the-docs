@@ -201,13 +201,15 @@ The exponentially decaying average of the past updates is:
 
 \\(\rho E[\Delta w{^2}]_{t-1}+\\)
 
-\\((1-\rho) \Delta w_t_{^2}\\)
+\\( (1-\rho) \Delta w_t{^2}\\)
+
+\\( (1-\rho) \Delta w_t{^2}\\)
 
 where:
 
 \\(\rho\\) is a constant controlling the decay of the average.
 
-\\\Delta w_t_{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
+\\(\Delta w_t_{^2} = Delta w_t \odot Delta w_t \\) , i.e. an element-wise square. 
 
 
 Using that we now denote:
@@ -220,31 +222,12 @@ Note: Algorithm uses RMS[\Delta w]_{t-1} for the calculation of \Delta w_t
 Having the numerator and denominator blocks, here the update algorithm:
 
 
-1. for \\(t=1:T\\) do:
+### Eq. 5: AdaDelta
+
+1. ***for t=1:T do:***
 2. \\(g_t = \bigtriangledown f(w_t) \\)
 3. \\(\Delta w_t = -frac{RMS[\Delta w]_{t-1}}{RMS[g]_t}\\)
 4. \\(w_{t+1} = w_t + (\Delta w_t\\)
-
-
-
-
-
-
-Integrating all the components the updating term formula becomes:
-
-\\(\Delta{w}_t=-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_t}\cdot\bigtriangledown f(w_t) \\)
-
-
-Finally we have it all:
-
-### Eq. 5: AdaDelta
-
-\\(w_{t}=w_{t-1}-\Delta w_t = w_{t-1}-\frac{RMS(\Delta{w}^2)_{t-1}}{RMS(g^2)_{t-1}} \cdot g_{t-1} \\)
-
-Where
-\\(g_t = \bigtriangledown f(w_t) \\)
-and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
-
 
 
 # RMSprop
@@ -255,10 +238,14 @@ RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to
 
 ### Eq. 6: RMSprop
 
-\\(w_{t}= w_{t-1}-\frac{\alpha}{RMS(g^2)_{t-1}}\cdot g_{t-1}\\)
+\\(w_{t}= w_{t-1}-\\)
 
-Where
+\\(\frac{\alpha}{RMS(g^2)_{t-1}}\cdot g_{t-1}\\)
+
+Where:
+
 \\(g_t = \bigtriangledown f(w_t) \\)
+
 and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
 
@@ -271,7 +258,8 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
 Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
-Adam's update step size is bounded by the learning rate coefficient, i.e. \\(\\  \left | Delta_t  \right | < \alpha\). The step size is also invariant to scaling of the gradient.
+Adam's update step size is bounded, where for common scenarios bound is learning rate coefficient, i.e. \\( \left | Delta w_t  \right | < \alpha\\). 
+The step size is also invariant to scaling of the gradient.
 
 Let's see all that.
 
@@ -339,7 +327,7 @@ Let's start simplifying the expression for
 
 \\(\Delta_t = -\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon}\\)
 
-Neglecting \\(\epsilon}\\), it reduces to:
+Neglecting \\(\epsilon\\), it reduces to:
 
 ######  #2
 
@@ -354,7 +342,7 @@ Unrolling the bias correction factors:
 Assuming \\(\beta_2,\beta_2<1\\) and \\(\beta_2 >\beta_2<1\\) then the bias correction factors quotient is bounded by 1:
 ######  #4
 
-\\\frac{\sqrt{1-\beta_2^t}{1-\beta_1^t} \leq 1\\)
+\\\frac{\sqrt{1-\beta_2^t}}{1-\beta_1^t} \leq 1\\)
 
 so we'll plug it in as 1, i.e. cancel, expression
 Plugging 4 to 3:
@@ -457,7 +445,7 @@ compairing to the conventional formula:
 
 Adopting this formula, NAdam modified Adam's formula as presented below. The modification wrt conventional Adam is only in one of the equations (#4)
 
-**** Nadam Formula's equation set:
+**** Nadam Formula's equation set:****
 
 1. \\(g_t=\bigtriangledown f(w_{t-1})\\)
 
@@ -478,7 +466,7 @@ Where:
 Here is Adam's oroginal equation for the biased corrected momentum:
 
 
-**** Adam's Original Formula:
+**** Adam's Original Formula:****
 
 4. \\(\hat{m} = \frac{m_t}{1-\mu^{t+1}} \\)
 
