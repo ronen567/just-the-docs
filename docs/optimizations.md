@@ -7,26 +7,37 @@ nav_order: 4
 # Introduction
 
 
-**Gradient Descent** is a recursive algorithm, which finds the minimum of a function. The minimum is located by striding in the oposite direction of the function's gradient, with a step size according to the gradient size, as expressed in Eq. 1.
+**Gradient Descent** is a recursive algorithm, for finding a minimum of a function. It does so by striding along the gradient's opposite direction, untill reaching the gradient 0 - this is the function's minima.
+
+Strding step size is according to gradient, as expressed in Eq. 1:
 
 ### Eq. 1: Gradient Descent Equation
 
-\\(X(t) = X(t-1)-\alpha \cdot \bigtriangledown f(X)) \\)
+\\(w_t = w_{t-1}-\alpha \cdot \bigtriangledown f(w_{t-1} \\)
+
 **Where**:
-**t** is the iteration index
-\\(X = {x_j} j =1:n\\) the n dimensional parameter searched for.
-\\(\alpha\\) is constant known as the learning rate.
+**t** is the iteration step index, 0<t.
 
-The recursive algorithm goes as follows:
+\\(w is the parameter (or vector of parameters) searched for.
 
-0. Init \\(X={x_j}\\), j=1:n to an arbitrary value. (A bad values selection may delay convergance. Check if so by trial and error.)
-1. Calculate gradient of f(X)
-2. Calculate new X(t) using Eq. 1
-3. Continue to step 1 if \\(\bigtriangledown f(X) > \epsilon \\)
+\\(\alpha\\) is a hyperparameter known as the learning rate.
+
+The Gradient Decsent algorithm steps are as follows:
+
+0. Init w to an arbitrary value. (A bad values selection may delay convergance. Check if so by trial and error.)
+1. Calculate \\(\bigtriangledown f(w_{t-1} \\), gradient of f(w)
+2. Calculate new w(t) using Eq. 1: \\(w_t = w_{t-1}-\alpha \cdot \bigtriangledown f(w_{t-1} \\)
+3. Continue to step 1 if \\(\bigtriangledown f(w) > \epsilon \\) or according to any termination criteria.
 
 
 **Gradient Descent in Deep Neural Networks*** 
-In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular optimization algorithm, used to find the optimized set of weight coefficients which minimizes the cost function J, (i.e. a function which expresses the error between the expected DNN output and the model's predicted output). Figure 2 depicts a schematic diagram of DNNs Training phase functionality. 
+
+Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. The optimization algorithm is activated on the cost function J, during the training phase, searching for the sets of weights which minimizes the cost (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
+
+Diagram below presents DNN's functionality during training phase: The Gradient Descent module, (located on top-right),  is fed with \\( \bigtriangledown_w_t J\\) , the cost function gradient, according to which it calculates the updated \\(w_t\\). 
+
+**Figure 0: Deep Neural Network Block Diagram - Training Phase
+
 
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
@@ -34,14 +45,18 @@ In the context Deep Neural Networks (DNNs), Gradient Descent is the most popular
 
 **Illustrative Examples**
 
-Figure 1 illustrates gradient descent convergence for a single variable function \\(f(x) = (x-w_1)^2\\). In this single variable example, the gradient degenerates to:
+To illustrate Gradient Desent graphically, let's take \\(f(w) = (w-w_1) ^2 \\) .  Figure 1 illustrates gradient descent convergence for this single variable function, for which the gradient's dimenssion is 1, so the update formula here is:
+
 \\(x_{t} = x_{t-1}-\alpha \cdot \frac{d}{dx}f(x) \\)
+
+**Figure 1: Gradient Descent 1D
+
 
 ![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro.gif)
 
 Figure 2 is a contour graph which illustrates gradient descent convergence for a 2 variable function of the type \\(f(x) = a \cdot (x-w_1)^2 + b \cdot (x-w_1)^2\\)
 
-**Figure 2: Gradient Descent - Easy Convergence
+**Figure 2: Gradient Descent 2D - Easy Convergence
 
 ![gradient decent example](../assets/images/gd_optimizations/2d.gif)
 
