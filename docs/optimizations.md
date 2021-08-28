@@ -161,7 +161,8 @@ AdaDelta's idea was derived from AdaGrad, which parameter updating term is (See 
 
 \\(\Delta{w_{t}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)} \\)
 
-Where
+Where:
+
 \\(g_t = \bigtriangledown f(w_t) \\)
 
 AdaDelta aims to improve the 2 drawbacks of that updating term: 1. the continual decay of learning rate. 2. the need to select a global learning rate.
@@ -173,6 +174,16 @@ To improve the first drawback, Avagard's denominator is replaced by an exponenti
 \\(\gamma E(g^2)_{t-1}+\\)
 
 \\((1-\gamma)g^2_{t}\\)
+
+
+\\(E(g^2)_{t} = \gamma E(g^2)_{t-1} +\\)
+
+\\((1-\gamma)g^2_{t}\\)
+
+\\(E(g^2)_{t} = \gamma \cdot E(g^2)_{t-1} +\\)
+
+\\((1-\gamma)g^2_{t}\\)
+
 
 #0 
 
