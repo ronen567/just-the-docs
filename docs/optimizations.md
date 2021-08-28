@@ -105,7 +105,7 @@ As Eq. 2 shows, the updated value w, is dependent not only on the recent gradien
 This allows a faster move, i.e. larger update step size, when in low gradient zone,in which updates are small but in the same direction, and a slower update in areas where the direction of the update is oscillating.
 
 Just to note:
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\(t-1)\\ an accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
 **Nesterov momentum**
 ref: On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
@@ -114,14 +114,11 @@ chine Learning, 2013, Sutskever et al
 Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm.  but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
 
 ### Eq. 3: Nesterov momentum
-
-#### 3.a: \\(v_t=\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1} + \beta \cdot v_{t-1} ) \\)
-
 #### 3.a: 
 \\(v_t=\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1} + \beta \cdot v_{t-1} ) \\)
 
-
-#### 3.b: \\(w_{t}=w_{t-1}+ v_t \\)
+#### 3.b: 
+\\(w_{t}=w_{t-1}+ v_t \\)
 
 
 # Adagrad
@@ -200,8 +197,6 @@ The exponentially decaying average of the past updates is:
 \\(E[\Delta w{^2}]_{t} = \\)
 
 \\(\rho E[\Delta w{^2}]_{t-1}+\\)
-
-\\( (1-\rho) \Delta w_t{^2}\\)
 
 \\( (1-\rho) \Delta w_t{^2}\\)
 
