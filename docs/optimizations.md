@@ -278,17 +278,20 @@ ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
 Adam's update step size is bounded, where for common scenarios bound is learning rate coefficient, i.e. \\( \left | \Delta_w_t  \right | leq \alpha\\) .
 
-#2  \\( \left | \Delta_{w_}t  \right | leq \alpha\\) . 
+#2  \\( \left | \Delta w_t  \right | \leq \alpha\\) . 
 
-#2  \\( \left | {\Delta_w}_t  \right | leq \alpha\\) . 
+#2  \\( \left | \Delta w  \right | \leq \alpha\\) . 
 
 
- \\( | \Delta_{w}_t | leq \alpha\\) . 
+ \\( | \Delta w_t | \leq \alpha\\) . 
  
-  \\( | \Delta_{w_}t | leq \alpha\\) . 
+  \\( | \Delta w | \leq \alpha\\) . 
 
  
-  \\( | \Delta_{w} | leq \alpha\\) . 
+  \\( | \Delta_{w_}t | \leq \alpha\\) . 
+
+ 
+  \\( | \Delta_{w} | \leq \alpha\\) . 
 
 
 The step size is also invariant to scaling of the gradient.
