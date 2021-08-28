@@ -226,18 +226,6 @@ Using that we now denote:
 
 \\(RMS[\Delta w]_t=\sqrt{E[\Delta w^{2}]_t}\\)
 
-\\(RMS[\Delta w]_{t}=\sqrt{E[\Delta w^2]_{t}}\\)
-
-
-\\(RMS[\Delta w]_{t}=\sqrt{E[\Delta w^2]_{t}}\\)
-
-\\(RMS[\Delta w]_{t}=\sqrt{E[\Delta w^{2}]_{t}}\\)
-
-\\(RMS[\Delta w]_{ t } = \sqrt{ E[\Delta w^{ 2 }]_{ t }}\\)
-
-\\(RMS[\Delta w]_{ t } = \sqrt{ E[\Delta w]_{ t }}\\)
-
-
 
 
 Note: Algorithm uses \\(RMS[\Delta w]_{t-1}\\) for the calculation of \\(\Delta w_t\\)
@@ -252,7 +240,7 @@ Having the numerator and denominator blocks, here the update algorithm:
 1. ***for t=1:T do:***
 2. \\(g_t = \bigtriangledown f(w_t) \\)
 3. \\(\Delta w_t = -\frac{RMS[\Delta w]_{t-1}}{RMS[g]_t}\\)
-4. \\(w_{t+1} = w_t + (\Delta w_t\\)
+4. \\(w_{t+1} = w_t + \Delta w_t\\)
 
 
 # RMSprop
@@ -265,7 +253,13 @@ RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to
 
 \\(w_{t}= w_{t-1}-\\)
 
-\\(\frac{\alpha}{RMS(g^2)_{t-1}} \cdot g_{t}\\)
+\\(\frac{\alpha}{RMS(g^2)_{t-1}} \cdot g_t\\)
+
+\\(\frac{\alpha}{RMS(g^2)_t_{-1} \cdot g_t\\)
+
+\\(w_t=w_t_{-1}-\frac{\alpha}{RMS(g^2)_t_{-1}} \cdot g_t\\)
+
+
 
 Where:
 
