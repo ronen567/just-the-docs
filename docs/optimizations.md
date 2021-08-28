@@ -138,6 +138,18 @@ The reason for naming it momentum, is the analogy to Newtonian motion model: \\(
 \\(w_t=w_{t-1}-\frac{\alpha g_t}{RMS(g)_t_{-1} }\\)
 
 
+\\(w_t=w_{t-1}-\frac{\alpha g_t}{RMS(g)_{t-1} }\\)
+
+\\(w_t=\\)
+
+\\(w_{t-1}-\frac{\alpha g_t}{RMS(g)_{t-1} }\\)
+
+
+\\(w_t=\\)
+
+\\(w_{t-1}-\\)
+
+\\(\frac{\alpha g_t}{RMS(g)_{t-1} }\\)
 
 # Nesterov momentum
 
