@@ -121,14 +121,9 @@ As Eq. 2 shows, the updated value w, is dependent not only on the recent gradien
 This allows a faster move, i.e. larger update step size, when in low gradient zone,in which updates are small but in the same direction, and a slower update in areas where the direction of the update is oscillating.
 
 Just to note:
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian physics (mechanics), the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
 \\(w_t=w_{t-1}-\frac{\alpha}{RMS[g]_{t-1} }\cdot g_t\\)
-
-\\(w_t=w_{t-1}-\frac{\alpha}{RMS(g)_{t-1} }\cdot g_t\\)
-
-\\(w_t=w_{t-1}-\frac{\alpha g_t}{RMS(g)_{t-1} }\\)
-
 
 # Nesterov momentum
 
@@ -349,38 +344,33 @@ In this section we'll find bounderies for update step size. We will show bounder
 1. A completely sparsey scenario, where gradient has been 0 for all timesteps except the current time step. 
 2. The most common scenarios, for which we will get a tighter boundery.
 
-Let's start simplifying the expression for 
-######  #1
+Let's start simplifying the expression for \\(\Delta w_t\\). Starting with step update - see Eq. 7:
 
-\\(\Delta_t = -\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon}\\)
+######  #1 \\(\Delta w_t = -\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon}\\)
 
 Neglecting \\(\epsilon\\), it reduces to:
 
-######  #2
-
-\\(\Delta_t \leq \left |\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)} \right|\\)
-
+######  #2 \\(\Delta w_t \leq \left |\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)} \right|\\)
 
 Unrolling the bias correction factors:
-######  #3
 
-\\(\Delta_t \leq \left |\frac{\sqrt{1-\beta_2^t} \cdot \alpha \cdot m_t}{(1-\beta_1^t)\sqrt{v_t}} \right|\\)
+######  #3 \\(\Delta_t \leq \left |\frac{\sqrt{1-\beta_2^t} \cdot \alpha \cdot m_t}{(1-\beta_1^t)\sqrt{v_t}} \right|\\)
 
 Assuming \\(\beta_2,\beta_2<1\\) and \\(\beta_2 >\beta_2<1\\) then the bias correction factors quotient is bounded by 1:
-######  #4
 
-\\(\frac{\sqrt{1-\beta_2^t}}{1-\beta_1^t} \leq 1\\)
+######  #4 \\(\frac{\sqrt{1-\beta_2^t}}{1-\beta_1^t} \leq 1\\)
 
-so we'll plug it in as 1, i.e. cancel, expression
-Plugging 4 to 3:
-######  #5
+so we'll plug expression #4 as 1 into #3,m and get (actually cancel it):
 
-\\(\Delta_t \leq \left |\frac{ \alpha \cdot m_t}{\sqrt{v_t}} \right|\\)
+######  #5 \\(\Delta_t \leq \left |\frac{ \alpha \cdot m_t}{\sqrt{v_t}} \right|\\)
 
+Now let's examine bounderis in 2 cases:
+1. Completely sparsey scenario, i.e. gradient is always zero, till iteration t.
+2. A normal non-sparsey scenatio
 
-######  A Boundery for the completely sparsey scenario
+######  Scenario 1: A Boundery for the completely sparsey scenario
 
-We recall that:
+First, we recall that:
 
 \\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \\)
 
@@ -388,41 +378,30 @@ and
 
 \\(v_t=\beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2 \\)
 
-Pluggin the above into 5 we get:
+Plugging the above into 5 we get:
 
-######  a.1
-
-\\(\Delta_t \leq \left |\frac{\sqrt{1-\beta_2^t} \cdot \alpha \cdot (\beta_1 \cdot m_{t-1}+(1-\beta_1) g_t)}{(1-\beta_1^t)\sqrt{\beta_2 v_{t-1}+(1-\beta_2)g_t^2)}} \right|\\)
+######  a.1 \\(\Delta_t \leq \left |\frac{\sqrt{1-\beta_2^t} \cdot \alpha \cdot (\beta_1 \cdot m_{t-1}+(1-\beta_1) g_t)}{(1-\beta_1^t)\sqrt{\beta_2 v_{t-1}+(1-\beta_2)g_t^2)}} \right|\\)
 
 
 In the completely sparsey scenario, gradients have been 0 for all timesteps except the current time step, so a.1 reduces to:
 
-######  a.2
-
-\\(\Delta_t \leq \left | \frac{\alpha (1-\beta_1) g_t}{\sqrt{(1-\beta_2)g_t^2} } \right|\\)
+######  a.2 \\(\Delta_t \leq \left | \frac{\alpha (1-\beta_1) g_t}{\sqrt{(1-\beta_2)g_t^2} } \right|\\)
 
 Which leads to the boundery:
-######  a.3
-
-\\(\Delta_t \leq \left | \frac{\alpha (1-\beta_1)}{\sqrt{(1-\beta_2)} } \right|\\)
+######  a.3 \\(\Delta_t \leq \left | \frac{\alpha (1-\beta_1)}{\sqrt{(1-\beta_2)} } \right|\\)
 
 
 ######  A Boundery for the most common scenarios
-
 
 Back to #5, let's examine the quotient \\( \left |\frac{ m_t}{\sqrt{v_t}} \right|\\).
 
 Variance is never negative, so: \\( E(g^2)-E(g)^2 \geq 0\\). 
 
 Swappings sides we get:  
-######  b.1
-
-\\( \left |\frac{E(g)}{\sqrt{E(g^2)}} \right| \leq 1\\) 
+######  b.1 \\( \left |\frac{E(g)}{\sqrt{E(g^2)}} \right| \leq 1\\) 
 
 Similarly, we assume the same for the estimated \\(m_t\\) and \\(v_t\\) values, so accordingly:
-######  b.2
-
- \\(\left |\frac{ m_t}{\sqrt{v_t}}  \leq 1 \right|\\)
+######  b.2 \\(\left |\frac{ m_t}{\sqrt{v_t}}  \leq 1 \right|\\)
  
 Finally, plugging b.2 into #5 we get:
 
