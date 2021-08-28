@@ -26,7 +26,7 @@ The Gradient Decsent algorithm steps are as follows:
 
 0. Init w to an arbitrary value. (A bad values selection may delay convergance. Check if so by trial and error.)
 1. Calculate \\(\bigtriangledown f(w_{t-1} \\), gradient of f(w)
-2. Calculate new w(t) using Eq. 1: \\(w_t = w_{t-1}-\alpha \cdot \bigtriangledown f(w_{t-1} \\)
+2. Calculate new w(t) using Eq. 1: \\(w_t = w_{t-1}-\alpha \cdot \bigtriangledown f(w_{t-1}) \\)
 3. Continue to step 1 if \\(\bigtriangledown f(w) > \epsilon \\) or according to any termination criteria.
 
 
@@ -34,7 +34,8 @@ The Gradient Decsent algorithm steps are as follows:
 
 Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. The optimization algorithm is activated on the cost function J, during the training phase, searching for the sets of weights which minimizes the cost (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
 
-Diagram below presents DNN's functionality during training phase: The Gradient Descent module, (located on top-right),  is fed with \\( \bigtriangledown_w_t J\\) , the cost function gradient, according to which it calculates the updated \\(w_t\\). 
+Diagram below presents DNN's functionality during training phase: The Gradient Descent module, (located on top-right),  is fed with 
+\\( \bigtriangledown_w J\\) , the cost function gradient, according to which it calculates the updated \\(w_t\\). 
 
 **Figure 0: Deep Neural Network Block Diagram - Training Phase
 
@@ -120,7 +121,7 @@ As Eq. 2 shows, the updated value w, is dependent not only on the recent gradien
 This allows a faster move, i.e. larger update step size, when in low gradient zone,in which updates are small but in the same direction, and a slower update in areas where the direction of the update is oscillating.
 
 Just to note:
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian phisics (mechanics),the momentum is the product of velocity and mass (denoted by m), so assume m=1.w_t= w_t_{-1}-\frac{\alpha}{RMS[g^2]_t_{-1} }\cdot g_t
 
 **Nesterov momentum**
 ref: On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
@@ -253,11 +254,7 @@ RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to
 
 \\(w_{t}= w_{t-1}-\\)
 
-\\(\frac{\alpha}{RMS(g^2)_{t-1}} \cdot g_t\\)
-
-\\(\frac{\alpha}{RMS(g^2)_t_{-1} \cdot g_t\\)
-
-\\(w_t=w_t_{-1}-\frac{\alpha}{RMS(g^2)_t_{-1}} \cdot g_t\\)
+\\(\frac{\alpha}{RMS[g^2]_{t-1}} \cdot g_t\\)
 
 
 
@@ -265,7 +262,9 @@ Where:
 
 \\(g_t = \bigtriangledown f(w_{t-1}) \\)
 
-and \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
+and:
+
+\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
 
 Recommended values for the global learning rate \\(\alpha \\) and the decay constant \\(\gamma \\) hyperparameters are 0.001 and 0.9 respectively.
@@ -277,7 +276,7 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
 Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
-Adam's update step size is bounded, where for common scenarios bound is learning rate coefficient, i.e. \\( \left | Delta w_t  \right | < \alpha\\). 
+Adam's update step size is bounded, where for common scenarios bound is learning rate coefficient, i.e. \\( \left | \Delta_w_t  \right | leq \alpha\\). 
 The step size is also invariant to scaling of the gradient.
 
 Let's see all that.
@@ -361,7 +360,7 @@ Unrolling the bias correction factors:
 Assuming \\(\beta_2,\beta_2<1\\) and \\(\beta_2 >\beta_2<1\\) then the bias correction factors quotient is bounded by 1:
 ######  #4
 
-\\\frac{\sqrt{1-\beta_2^t}}{1-\beta_1^t} \leq 1\\)
+\\(\frac{\sqrt{1-\beta_2^t}}{1-\beta_1^t} \leq 1\\)
 
 so we'll plug it in as 1, i.e. cancel, expression
 Plugging 4 to 3:
@@ -403,7 +402,8 @@ Which leads to the boundery:
 
 
 Back to #5, let's examine the quotient \\( \left |\frac{ m_t}{\sqrt{v_t}} \right|\\).
-It is well known that:  (\\{E(g^2)}-{E(g)}^2 \geq 0\\)). 
+
+It is well known that:  (\\{E(g^2)}-{E(g)}^2 \geq 0\\). 
 Swappings sides we get:  
 ######  b.1
 
