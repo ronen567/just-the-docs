@@ -181,6 +181,9 @@ RMS[g]_t = \sqrt{E[g^{2}]_t}
 
 #1
 
+RMS[g]_t = \sqrt{E[g{2}]_t}
+
+
 RMS[g]_t = \sqrt{E[g{^2}]_t}
 
 RMS[g]_t = \sqrt{ E[g{^2}]_t }
@@ -191,7 +194,7 @@ RMS[g]_t = \sqrt{ E[g{ ^{2} }]_t }
 
 RMS[g]_t = \sqrt{ E[g{ ^ 2 }]_t }
 
-RMS[g]_t = \sqrt { E[g{ ^ 2 }]_t }
+RMS[g]_t = \sqrt { E[g{  2 }]_t }
 
 
 
