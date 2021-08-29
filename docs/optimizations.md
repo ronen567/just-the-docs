@@ -22,8 +22,13 @@ Next chapters of this post are:
 - Gradient Descent Prinicipals
 - Illustrative Examples
 - Review of Gradient Descent Variants:
+
+- Momentum Basic Algorithms
+- 
 **Momentum**
 **Nesterov momentum**
+Adaptive Learning Rate:
+
 **Adagrad**
 **Adadelta**
 **RMSprop**
@@ -101,44 +106,110 @@ The next paragraphs describe the principles of the various Gradient Descent algo
 
 # Momentum
 
-The Momentum algorithm update formula, adds another term to the Gradient Descent correction factor. This term, denoted by \\(v \\), corresponds to past gradient, calculated at previopus update iterations.
-Here's the momentum formula:
+Polyak, B.T. Some methods of speeding up the convergence of iteration methods. USSR Computational Mathematics and Mathematical Physics, 4(5):1–17, 1964
+Goodfellow, Bengio, Courville, Deep Learning
+
+The idea of Momentum algorithm is to accelerate convergence of Gradient Descent by allowing a faster move when in a low gradient zone, and decrease otherwise, i.e. when gradient changes directions. 
+
+This is achieved by depending the update step size not only on the current gradient, but also an an average of past iterations' gradients - see shown in the momentum formula:
 
 ### Eq. 2: Momentum
 
-Eq. 2a
 
-\\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w f(w_{t-1}) \\)
+Eq. 2a: \\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w f(w_{t-1}) \\)
 
-Eq. 2b
+Eq. 2b: \\( w_t = w_{t-1}+v_t \\)
 
-\\( w_t = w_{t-1}+v_t \\)
+
+Eq. 2a presents the new term denoted by \\( v_t \\), which accumulates weighted past iterations updates, \\( v_{t-1}\\) with currecnt iteration update  \\(\alpha \cdot \bigtriangledown_w f(w_{t-1}) \\). The hyperparameter \\( \beta \\), determines the past updates' decay rate - the larger it is comparing to \\(\alpha\\), the more weight is given to past updates to affect the direction and magnitue of the current iteration's update. 
+
+To illustrate the momentum's effect, let's examine the case where the gradient observed \\(g\\)is constant - same magnitude and direction, for all successive iterations. In this case, the update rate converges to a constant rate equals to: 
+
+\\(\Delta w_t = \frac{\alpha \cdot g}{1-\beta}\\) 
+
+(this is the formula of a converging geometric series - see mathematical developement below. (*))
+
+In this case, plugging the typical \\(\beta=0.9\\) to the equation above, the update size of the momentum algorithm is 10 times larger than the plain Gradient Descent.
+
+### Gradient Descent Flow Diagram
+
+![gradient decent diagram](../assets/images/gd_optimizations/momentum-gradient-descent-flow.png)
 
 Where:
 
 - Learning rate \\( \alpha \epsilon(0,1) \\) 
-- \\( \beta \\) is typically 0.9.
-- 
-As Eq. 2 shows, the updated value w, is dependent not only on the recent gradient, but also on \\(v\\), an exponentially decaying moving average of past gradients. Accordingly, update step size will be increased if sign of \\( v_t \\) is same as the current gradient's, and decreased otherwise, i.e. when gradient has changed direction with regard to averaged gradient direction. 
+- \\( \beta \\) is usually set to 0.9.
 
-This allows a faster move, i.e. larger update step size, when in low gradient zone,in which updates are small but in the same direction, and a slower update in areas where the direction of the update is oscillating.
 
 Just to note:
 The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian physics (mechanics), the momentum is the product of velocity and mass (denoted by m), so assume m=1.
 
 \\(w_t=w_{t-1}-\frac{\alpha}{RMS[g]_{t-1} }\cdot g_t\\)
 
+
+
+ (*) Here's the mathematical development which show the update rate for the constant gradient scenario:
+ 
+ We assume \\(\triangledown f(w_t)\\) is the same for all t. Let's follow the update steps from the first iteration on:
+ 
+
+\\(\Delta w_1=\alpha\cdot\triangledown f(w)\\) 
+
+\\(\Delta w_2=\beta \cdot \alpha\cdot\triangledown f(w) + \alpha\cdot\triangledown f(w)\\) 
+
+\\(\Delta w_3=\beta^2 \cdot \alpha\cdot\triangledown f(w) +\beta \cdot \alpha\cdot\triangledown f(w) + \alpha\cdot\triangledown f(w)\\) 
+
+.
+.
+.
+
+\\(\Delta w_t=\beta^{t-1} \cdot \alpha\cdot\triangledown f(w) +\beta^{t-2} \cdot \alpha\cdot\triangledown f(w) + ... \beta \cdot \alpha\cdot\triangledown f(w) +\alpha\cdot\triangledown f(w)\\) 
+ 
+
+The expression for \\(\Delta w_t\\) is a sum of converging geometric series with \\(a_1=\alpha \cdot \triangledown f(w)\\) and \\(q=\beta,\;\beta<1\\) 
+
+Accordingly:
+
+\\(\Delta w_t = \frac{\alpha \cdot g}{1-\beta}\\)
+
+### Q.E.D
+
+
+
+
+
+
 # Nesterov momentum
 
 ref: On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
 chine Learning, 2013, Sutskever et al
 
-Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm.  but with a slight difference: rather than \\(\beta(w(t)-w(t-1)) \\), it is now \\(\beta(w(t+1)-w(t)) \\), i.e. it uses the Gradeint Descent value calculated at (t+1). Accordingly, the new value is calculated in 2 steps:
+Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm, with a slight algorithmic modification in the gradient formula: 
+
+In the plain momentum algorithm, the  gradient at step t is calculated as shown in Eq. 2a, i.e.:
+
+ #### Normal Gradient's formula
+ 
+ \\(g_t = \bigtriangledown f(w_{t-1})\\)
+ 
+Nesterov modifies that to, calculating the gradient not for \\(f(w_{t-1})\\) but applying a momentum correction factor, which in the plain momentum was supposed to be applied only in next iteration. Here it is:
+
+ #### Nesterov Gradient's formula
+
+ \\(g_t = \bigtriangledown f(w_{t-1}+\beta \cdot v_{t-1}\\)
+
+So here is the Nesterov Momentum update formula, followed by a flow diagram of the Nesterov Momentum algorithm.
+
 
 ### Eq. 3: Nesterov momentum
+
 #### 3.a: \\(v_t=\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1} + \beta \cdot v_{t-1} ) \\)
 
 #### 3.b: \\(w_{t}=w_{t-1}+ v_t \\)
+
+
+
+
 
 
 # Adagrad
