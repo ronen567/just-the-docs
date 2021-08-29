@@ -131,7 +131,7 @@ To illustrate the momentum's effect, let's examine the case where the gradient o
 
 In this case, plugging the typical \\(\beta=0.9\\) to the equation above, the update size of the momentum algorithm is 10 times larger than the plain Gradient Descent.
 
-### Gradient Descent Flow Diagram
+### Momentum Gradient Descent Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/momentum-gradient-descent-flow.png)
 
@@ -196,7 +196,7 @@ Nesterov modifies that to, calculating the gradient not for \\(f(w_{t-1})\\) but
 
  #### Nesterov Gradient's formula
 
- \\(g_t = \bigtriangledown f(w_{t-1}+\beta \cdot v_{t-1}\\)
+ \\(g_t = \bigtriangledown f(w_{t-1}+\beta \cdot v_{t-1})\\)
 
 So here is the Nesterov Momentum update formula, followed by a flow diagram of the Nesterov Momentum algorithm.
 
@@ -209,12 +209,15 @@ So here is the Nesterov Momentum update formula, followed by a flow diagram of t
 
 
 
+### Nesterov Momentum Flow Diagram
 
+![gradient decent diagram](../assets/images/gd_optimizations/nesterov-momentum-gradient-descent-flow.png)
 
 
 # Adagrad
 
-"Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011), Duchi et. al.
+Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)
+
 
 Adagrad (Adaptive Gradient) algorithm modifies the value of learning rate, based on past gradients. 
 
