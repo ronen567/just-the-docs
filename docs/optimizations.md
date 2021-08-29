@@ -297,11 +297,9 @@ Now, as for answering the second drawback, i.e. avoiding the learning rate hyper
 
 **where:**
 
-\\(\rho\\) is a constant controlling the decay of the average.
+-\\(\rho\\) is a constant controlling the decay of the average.
 
-**and**:
-
-\\( \Delta w{_t}{^2} = \Delta w_t \odot \Delta w_t \\) , i.e. an element-wise square. 
+-\\( \Delta w{_t}{^2} = \Delta w_t \odot \Delta w_t \\) , i.e. an element-wise square. 
 
 
 #### Root Square of Exponentially decaying sum of squared past update values
@@ -317,9 +315,9 @@ Having the numerator and denominator RMS expressions, here is the iteration upda
 
 ### Eq. 5: Adadelta
 
-\\(\Delta w_t=\frac{(RMS[\Delta w]_{t-1}}{RMS[g]_t} 
+\\(\Delta w_t=\frac{(RMS[\Delta w]_{t-1}}{RMS[g]_t}\\)
 
-\\(\w_t=w_{t-1} + \Delta w_t
+\\(\w_t=w_{t-1} + \Delta w_t\\)
 
 
 ### Adadelta Flow Diagram
@@ -329,7 +327,9 @@ Having the numerator and denominator RMS expressions, here is the iteration upda
 
 # RMSprop
 
-RMSprop was presented in a Coursera course lecture.
+## Ref: 
+Hinton with Srivastava & Swersky, 2012, Overview of mini-batch gradient descent, RMSprop was presented in a Coursera course lecture.
+
 
 RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to solve AdaGrad drwaback regarding the continual decay of learning rate. It does so by replacing the denominator of AdaGrad (Eq. 4), by an exponentially decaying average of squared gradients \\(E(g^2) \\), exactly as done by AdaDelta. Unlike AdaDelta, RMSprop leaves AdaGrad's global learning rate coefficient in place, so the updating formula becomes:
 
@@ -340,17 +340,19 @@ RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to
 \\(\frac{\alpha}{RMS[g^2]_{t-1}} \cdot g_t\\)
 
 
-
 Where:
 
-\\(g_t = \bigtriangledown f(w_{t-1}) \\)
+-\\(g_t = \bigtriangledown f(w_{t-1}) \\)
 
-and:
-
-\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
+-\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
 
 Recommended values for the global learning rate \\(\alpha \\) and the decay constant \\(\gamma \\) hyperparameters are 0.001 and 0.9 respectively.
+
+### RmsProp Flow Diagram
+
+![gradient decent diagram](../assets/images/gd_optimizations/adadelta-gradient-descent-flow.png)
+
 
 
 
