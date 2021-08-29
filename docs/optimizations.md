@@ -106,6 +106,7 @@ The next paragraphs describe the principles of the various Gradient Descent algo
 
 # Momentum
 
+## Ref:
 Polyak, B.T. Some methods of speeding up the convergence of iteration methods. USSR Computational Mathematics and Mathematical Physics, 4(5):1–17, 1964
 Goodfellow, Bengio, Courville, Deep Learning
 
@@ -181,7 +182,8 @@ Accordingly:
 
 # Nesterov momentum
 
-ref: On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
+## Ref:
+On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
 chine Learning, 2013, Sutskever et al
 
 Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm, with a slight algorithmic modification in the gradient formula: 
@@ -216,51 +218,53 @@ So here is the Nesterov Momentum update formula, followed by a flow diagram of t
 
 # Adagrad
 
+## Ref:
 Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)
 
 
 Adagrad (Adaptive Gradient) algorithm modifies the value of learning rate, based on past gradients. 
 
-The parameter update expression is:
+The Adagrad update formula is:
 
 ### Eq. 4: Adagrad
 
-\\(w_{t}=w_{t-1}-\frac{\alpha}{\epsilon + \sqrt{G_{t-1}} \odot g_{t-1}}\\)
+\\(w_{t}=w_{t-1}-\frac{\alpha}{\sqrt{g(t) \odot g(t)}+ \epsilon  }\cdot g_t \\)
 
-Where:
-\\(\alpha \\) is the "Global Learning Rate".
-\\(g(t)=\bigtriangledown_w J(w_t) \\)
+***Where:***
+
+-\\(\alpha \\) is the "Global Learning Rate".
+
+-\\(g(t)=\bigtriangledown_w J(w_t) \\)
 
 - \\(\odot\\) stands for "elementwise multiplication".
 
--G_{t} is a diagonal matrix, where the (i,i) element is the square of the ith gradient of f(w), i.e.\\(\bigtriangledown_{w_{i}} f(w)\\)
-
--\\(G_{t,(i,i)}=\sum_{}^{t} \bigtriangledown_{w_{i}} f(w) \\)
-
 -\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
 
-Adagrad gives lower learning rates to parameters with higher gradients, and higher rates, thus faster convergance to smoth pathes. Still, it has 2 drawbacks:
-- "Global Learning Rate" value should be selected. 
-- Since sum of squared gradients grows increasingly, the the adaptive learning rate coefficient can excessively decrease as training continues.
+Adagrad results with a lower learning rates for higher gradients, and higher rates, thus faster convergance, for moderate data changes. 
 
+### Adagrad Flow Diagram
+
+![gradient decent diagram](../assets/images/gd_optimizations/adagrad-gradient-descent-flow.png)
+
+
+Still, Adagrad has 2 drawbacks:
+- The algorithm still requires a manual selection of the "Global Learning Rate", denoted by \\(\alpha\\).
+- The adaptive learning rate coefficient can excessively decrease as training continues. This is as a result of the increasingly growing sum of squared gradients.
+
+AdaDelta aims to answer these 2 challenges.
 
 # AdaDelta
 
-ADADELTA: An Adaptive Learning Rate Method, Zeiler
+## Ref: 
+Zeiler, ADADELTA: An Adaptive Learning Rate Method
 
-AdaDelta's idea was derived from AdaGrad, which parameter updating term is (See Eq. 4):
+AdaDelta aims to improve the 2 Adagrad's drawbacks: 
+1. The continual decay of learning rate. 
+2. The need to select a global learning rate.
 
-\\(\Delta{w_{t}}=-\frac{\alpha}{\epsilon + \sqrt{G_{t}} \odot g(t)} \\)
 
-Where:
 
-\\(g_t = \bigtriangledown f(w_t) \\)
-
-AdaDelta aims to improve the 2 drawbacks of that updating term: 
-1. the continual decay of learning rate. 
-2. the need to select a global learning rate.
-
-To improve the first drawback, Avagard's denominator is replaced by root of exponentially decaying average of squared gradients \\(E(g^2) \\), denoted by RMS (Root Mean Square_:
+As for the first drawback, Avagard's denominator squared gradient summation is replaced here by an exponentially decaying average of the squared gradients.
 
 The exponentially decaying average of squared gradients equation is:
 
@@ -269,28 +273,23 @@ The exponentially decaying average of squared gradients equation is:
 \\(\gamma E(g^2)_{t-1}+(1-\gamma)g^2_t\\)
 
 
-
-
-Using that we now denote:
+We take the root mean square of this squared gradients summation, denoting it by RMS (Root Mean Square), so:
 
 \\(RMS[g]_t = \sqrt{E[g^{2}]_t + \epsilon} \\)
 
 **where**:
 
-\\(\gamma\\) is a constant controlling the decay of the gradients average.
+-\\(\gamma\\) is a exponential decay constant.
 
-**and**: 
+-\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an element-wise square. 
 
-\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an element-wise square. 
-
-**and also**:
-\\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). 
+-\\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). 
 
 
 
-To improve the second drawback, i.e. avoid the need to determine a global learning rate, the numerator is taken the RMS of an exponentially decaying average of the past updates:
+Now, as for answering the second drawback, i.e. avoiding the learning rate hyperparameter selection, the algorithm replaces \\(\alpha\\) by the root suare of the exponentially decaying sum of squared past update values, i.e :
 
-The exponentially decaying average of the past updates is:
+#### Exponentially decaying sum of squared past update values
 
 \\(E[\Delta w^2]_{t} = \\)
 
@@ -305,7 +304,7 @@ The exponentially decaying average of the past updates is:
 \\( \Delta w{_t}{^2} = \Delta w_t \odot \Delta w_t \\) , i.e. an element-wise square. 
 
 
-Using that we now denote:
+#### Root Square of Exponentially decaying sum of squared past update values
 
 \\(RMS[\Delta w]_t=\sqrt{E[\Delta w^{2}]_t}\\)
 
@@ -314,16 +313,18 @@ Using that we now denote:
 Note: Algorithm uses \\(RMS[\Delta w]_{t-1}\\) for the calculation of \\(\Delta w_t\\)
 
 
-Having the numerator and denominator blocks, here the update algorithm:
+Having the numerator and denominator RMS expressions, here is the iteration update formula, followed by AdaDelta's flow diagram.
+
+### Eq. 5: Adadelta
+
+\\(\Delta w_t=\frac{(RMS[\Delta w]_{t-1}}{RMS[g]_t} 
+
+\\(\w_t=w_{t-1} + \Delta w_t
 
 
-### Eq. 5: AdaDelta
+### Adadelta Flow Diagram
 
-
-1. ***for t=1:T do:***
-2. \\(g_t = \bigtriangledown f(w_t) \\)
-3. \\(\Delta w_t = -\frac{RMS[\Delta w]_{t-1}}{RMS[g]_t}\\)
-4. \\(w_{t+1} = w_t + \Delta w_t\\)
+![gradient decent diagram](../assets/images/gd_optimizations/adadelta-gradient-descent-flow.png)
 
 
 # RMSprop
