@@ -222,7 +222,7 @@ So here is the Nesterov Momentum update formula, followed by a flow diagram of t
 Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)
 
 
-Adagrad (Adaptive Gradient) algorithm modifies the value of learning rate, based on past gradients. 
+Adagrad (Adaptive Gradient) algorithm divides the learning rate, by the aquare root of squared past gradients sum, as shown if Eq. 4. 
 
 The Adagrad update formula is:
 
@@ -264,9 +264,9 @@ AdaDelta aims to improve the 2 Adagrad's drawbacks:
 
 
 
-As for the first drawback, Avagard's denominator squared gradient summation is replaced here by an exponentially decaying average of the squared gradients.
+As for the first drawback, Avagard divides the learning rate by the square root of accumulated sum of all past squared gradient. This accumulated sum grows increasingly. Adadelta solves that by accumulating the suare gradeint summation over an exponentially decaying window.
 
-The exponentially decaying average of squared gradients equation is:
+The equation for exponentially decaying accumulation of squared gradients is as follows:
 
 \\(E(g^2)_t=\\)
 
@@ -287,7 +287,7 @@ We take the root mean square of this squared gradients summation, denoting it by
 
 
 
-Now, as for answering the second drawback, i.e. avoiding the learning rate hyperparameter selection, the algorithm replaces \\(\alpha\\) by the root suare of the exponentially decaying sum of squared past update values, i.e :
+Now, as for answering the second drawback, i.e. avoiding the learning rate hyperparameter selection, the algorithm replaces \\(\alpha\\) by the root suare of the exponentially decaying windowed sum of squared past update values, i.e :
 
 #### Exponentially decaying sum of squared past update values
 
@@ -351,7 +351,7 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 
 ### RmsProp Flow Diagram
 
-![gradient decent diagram](../assets/images/gd_optimizations/adadelta-gradient-descent-flow.png)
+![gradient decent diagram](../assets/images/gd_optimizations/rmsprop-gradient-descent-flow.png)
 
 
 
