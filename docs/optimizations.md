@@ -235,7 +235,7 @@ The Adagrad update formula is:
 
 -\\(\alpha \\) is the "Global Learning Rate".
 
--\\(g(t)=\bigtriangledown_w J(w_t) \\)
+-\\(g(t)=\bigtriangledown_w J(w_{t-1}) \\)
 
 - \\(\odot\\) stands for "elementwise multiplication".
 
@@ -369,7 +369,7 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 
 
 # Adam
-
+## Ref: 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
 Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\), and root squared sum of gradients, (aka second raw moment aka uncentered variance), denoted by \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
@@ -387,7 +387,7 @@ Adam incorporates a moment estimation, calculated as an exponantial decay moving
 
 where:
 
--\\( g_t = \bigtriangledown f(w_t) \\)
+-\\( g_t = \bigtriangledown f(w_{t-1}) \\)
 
 -\\(\beta_1 \epsilon [0,1) \\) is the exponential decay rate.
 
@@ -428,6 +428,11 @@ Finally Adam's update forula is:
 Where proposed hyperparameter values are:
 
 \\(\alpha=0.001 \\),\\(\beta_1=0.9 \\),\\(\beta_2=0.999 \\),\\(\epsilon=10^{-8} \\)
+
+
+### Adam Flow Diagram
+
+![gradient decent diagram](../assets/images/gd_optimizations/adam-gradient-descent-flow.png)
 
 
 #### Inspection of updates bounderies and behavior.
@@ -502,11 +507,10 @@ Finally, plugging b.2 into #5 we get:
 \\(\Delta_t \leq \alpha \\)
 
 # Adamax
+## Ref: 
+ Kingma and Ba, ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015,
 
-ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
-
-
-A variant of Adam, proposed in same paper, suggests to replace Adam's  second raw moment \\( v_t \\) , by \\( u_t \\), an :
+A variant of Adam, proposed in same paper, suggests to replace Adam's second raw moment \\( v_t \\) , by \\( u_t \\):
 
 \\( u_t = max(\beta_2 \cdot  u_{t-1}, \left | g_t \right | \\)
 
@@ -524,6 +528,8 @@ Where proposed hyperparameter values are:
 \\(\beta_1=0.9 \\)
 
 \\(\beta_2=0.999 \\)
+
+
 
 
 
