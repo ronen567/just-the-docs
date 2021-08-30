@@ -222,7 +222,8 @@ So here is the Nesterov Momentum update formula, followed by a flow diagram of t
 Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)
 
 
-Adagrad (Adaptive Gradient) algorithm divides the learning rate, by the aquare root of squared past gradients sum, as shown if Eq. 4. 
+Adagrad (Adaptive Gradient) algorithm implements an adaptive learning rate. To achieve this feature, Adagrad divides the constant learning rate coefficient, by the root sum squared of past gradients, as shown if Eq. 4. 
+Adagrad adaptive mechanism aims to resul with a lower learning rates for higher gradients, and higher rates for more moderate data changes. 
 
 The Adagrad update formula is:
 
@@ -238,9 +239,8 @@ The Adagrad update formula is:
 
 - \\(\odot\\) stands for "elementwise multiplication".
 
--\\(\epsilon \\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\).
+-\\(\epsilon \\) is a small constant used to maintain stability, commonly set to \\(10^{-7} \\).
 
-Adagrad results with a lower learning rates for higher gradients, and higher rates, thus faster convergance, for moderate data changes. 
 
 ### Adagrad Flow Diagram
 
@@ -249,7 +249,7 @@ Adagrad results with a lower learning rates for higher gradients, and higher rat
 
 Still, Adagrad has 2 drawbacks:
 - The algorithm still requires a manual selection of the "Global Learning Rate", denoted by \\(\alpha\\).
-- The adaptive learning rate coefficient can excessively decrease as training continues. This is as a result of the increasingly growing sum of squared gradients.
+- The adaptive learning rate continuously and excessively shrinks as training continues. as the squared gradients sum is growing with no limit over all time.
 
 AdaDelta aims to answer these 2 challenges.
 
@@ -263,17 +263,14 @@ AdaDelta aims to improve the 2 Adagrad's drawbacks:
 2. The need to select a global learning rate.
 
 
+AdaDelta replaces AdaGrad's denominator, which accumulates the squared gradients over all time, by a windowed root sum squared, as shown in the equations which follow:
 
-As for the first drawback, Avagard divides the learning rate by the square root of accumulated sum of all past squared gradient. This accumulated sum grows increasingly. Adadelta solves that by accumulating the suare gradeint summation over an exponentially decaying window.
-
-The equation for exponentially decaying accumulation of squared gradients is as follows:
-
+1. Exponentionally decaying sum squared past gradients: 
 \\(E(g^2)_t=\\)
 
-\\(\gamma E(g^2)_{t-1}+(1-\gamma)g^2_t\\)
+\\(\sqrt{\gamma E(g^2)_{t-1}+(1-\gamma)g^2_t}\\)
 
-
-We take the root mean square of this squared gradients summation, denoting it by RMS (Root Mean Square), so:
+2. Taking the square root:
 
 \\(RMS[g]_t = \sqrt{E[g^{2}]_t + \epsilon} \\)
 
@@ -283,17 +280,23 @@ We take the root mean square of this squared gradients summation, denoting it by
 
 -\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an element-wise square. 
 
--\\(\epsilon\\) is a small value used to maintain stability, commonly set to \\(10^{-7} \\). 
+-\\(\epsilon\\) is a small constant used to maintain stability, commonly set to \\(10^{-7} \\). 
 
 
+AdaDelta's numerator is windowed root squared of past deltas, i.e. past root sum squared updates as presented in the next equations:
 
-Now, as for answering the second drawback, i.e. avoiding the learning rate hyperparameter selection, the algorithm replaces \\(\alpha\\) by the root suare of the exponentially decaying windowed sum of squared past update values, i.e :
-
-#### Exponentially decaying sum of squared past update values
+#### 1. Exponentially decaying sum of squared past updates
 
 \\(E[\Delta w^2]_{t} = \\)
 
 \\(\rho E[\Delta w^2]_{t-1}+(1-\rho)\Delta w_t^2\\)
+
+
+#### 2. Exponentially decaying root sum squared past updates
+
+\\(RMS[\Delta w]_t=\sqrt{E[\Delta w^{2}]_t + \epsilon}\\)
+
+
 
 **where:**
 
@@ -301,14 +304,9 @@ Now, as for answering the second drawback, i.e. avoiding the learning rate hyper
 
 -\\( \Delta w{_t}{^2} = \Delta w_t \odot \Delta w_t \\) , i.e. an element-wise square. 
 
+-\\(\epsilon\\) is a small constant used to start first iteration where \\(\Delta w^2=0\\), and ensures progress continue even if previous updates become small. commonly set to \\(10^{-7} \\). 
 
-#### Root Square of Exponentially decaying sum of squared past update values
-
-\\(RMS[\Delta w]_t=\sqrt{E[\Delta w^{2}]_t}\\)
-
-
-
-Note: Algorithm uses \\(RMS[\Delta w]_{t-1}\\) for the calculation of \\(\Delta w_t\\)
+-Note: Algorithm uses \\(RMS[\Delta w]_{t-1}\\) for the calculation of \\(\Delta w_t\\). 
 
 
 Having the numerator and denominator RMS expressions, here is the iteration update formula, followed by AdaDelta's flow diagram.
@@ -320,31 +318,47 @@ Having the numerator and denominator RMS expressions, here is the iteration upda
 \\(\w_t=w_{t-1} + \Delta w_t\\)
 
 
+The numerator acts as an acceleration term, just as in momentum. The denominator regulates the learning rate.  
+
+An interesting side effect which results from the numerator \\(RMS[\Delta w]_{t-1}\\) one update step lag behind the denominator \\({RMS[g]_t}\\): this lag makes the algorithm more robust to sudden gradients, which increase the denominator thus reduce learning rate, before the lagging numerator reacts.
+
+Zeiler reported tests set the hyperparameters to \\(\rho=0.95\\) and \\(\epsilon=1e{-6}\\)
+
+
+Keras defaults are \\(\rho=0.95\\) and \\(\epsilon=1e{-7}\\)
+
+**+ Note:** Keras AdaDelta API does include a learning_rate parameter, with a default value ***learning_rate=0.001**. This contradicts the AdaDelta algorithm! However that, this is just a result of unifying ptimizers apis, while learning_rate is not effective in keras AdaDelta code.
+
 ### Adadelta Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/adadelta-gradient-descent-flow.png)
 
 
+
 # RMSprop
 
 ## Ref: 
-Hinton with Srivastava & Swersky, 2012, Overview of mini-batch gradient descent, RMSprop was presented in a Coursera course lecture.
+Hinton , Unpublished, RMSprop was presented in a Coursera course lecture.
+Hinton with Srivastava & Swersky, 2012, Lecture University of Toronto, Overview of mini-batch gradient descent
 
 
 RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to solve AdaGrad drwaback regarding the continual decay of learning rate. It does so by replacing the denominator of AdaGrad (Eq. 4), by an exponentially decaying average of squared gradients \\(E(g^2) \\), exactly as done by AdaDelta. Unlike AdaDelta, RMSprop leaves AdaGrad's global learning rate coefficient in place, so the updating formula becomes:
 
 ### Eq. 6: RMSprop
+E(g^2)_t = \rho \cdot E(g^2)_{t-1} + (1-\rho) \cdot g^2_{t}
 
 \\(w_{t}= w_{t-1}-\\)
 
-\\(\frac{\alpha}{RMS[g^2]_{t-1}} \cdot g_t\\)
+\\(\frac{\alpha}{\sqrt{E(g^2)_t + \epsilon}} \cdot g_t\\)
 
 
 Where:
 
--\\(g_t = \bigtriangledown f(w_{t-1}) \\)
+-\\(g_t = \bigtriangledown f(w_{t-1}) \\) (Note that like in most of optimizers, the gradient is expected to be averaged over a mini batch)
 
 -\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
+
+-\\(\epsilon\\) is a small constant used to maintain stability, commonly set to \\(10^{-6}\;or\;10^{-7} \\). 
 
 
 Recommended values for the global learning rate \\(\alpha \\) and the decay constant \\(\gamma \\) hyperparameters are 0.001 and 0.9 respectively.
@@ -354,62 +368,58 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 ![gradient decent diagram](../assets/images/gd_optimizations/rmsprop-gradient-descent-flow.png)
 
 
-
-
 # Adam
 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
-Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of both past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\) , and of squared gradients, (aka second raw moment or uncentered variance), denoted  \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
-Adam's update step size is bounded, where for common scenarios bound is learning rate coefficient, i.e.  \\( \left | \Delta w_t  \right | \leq \alpha\\) . 
+Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\), and root squared sum of gradients, (aka second raw moment aka uncentered variance), denoted by \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
+Adam's update step size is upper bounded -  for common scenarios, upper bound is the learning rate coefficient, i.e. \\( \left | \Delta w_t  \right | \leq \alpha\\) 
 
 The step size is also invariant to scaling of the gradient.
 
-Let's see all that.
+Let's see all that!
 
-Here is the moment estimate at time t, calculated as an exponantial decay moving average of past gradients.
+Adam incorporates a moment estimation, calculated as an exponantial decay moving average of past gradients, as follows:
 
 ##### moment estimate 
 
 \\(m_t=\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_{t} \\)
 
 where:
-\\( g_t = \bigtriangledown f(w_t) \\)
-\\(\beta_1 \epsilon [0,1) \\) is a hyper parameter which controls the exponential decay rate of the moving average.
 
-Here's the second raw moment estimate at time t, calculated as an exponantial decay moving average of past squared gradients.
+-\\( g_t = \bigtriangledown f(w_t) \\)
+
+-\\(\beta_1 \epsilon [0,1) \\) is the exponential decay rate.
+
+Adam's denominator incorporates an exponantial decay root sum squared of past gradients, denoted by \\(v_t\\):
 
 ##### Second raw moment estimate
 
 \\(v_t=\beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2 \\)
 
-\\( g_t = g_t \odot g_t\\) is an elementwise square.
-\\(\beta_2 \epsilon \left [0,1 \right ) \\) is a hyper parameter which controls the exponential decay rate of the moving average.
+where:
 
-Now let's consider the initialization bias issue and its correction: moving averages \((m_t\)) and \((v_t\)) vectors are initialized to all 0s. That leads Eq.7 and Eq. 8 to bias towards zero, especially in the first iteration steps. To compensate that, Adam sets bias correction to the first and second raw  moments and second raw moment estimates.
+-\\( g_t = g_t \odot g_t\\) is an elementwise square.
+
+-\\(\beta_2 \epsilon \left [0,1 \right ) \\) is the exponential decay rate.
+
+###  initialization bias Correction
+
+The initializations of \\(m_0 \leftarrow 0\\) and \\(v_t\leftarrow 0\\) lead  \\(m_t \\) and  \\(v_t \\) to bias towards zero, especially in early iterations. To compensate that, Adam sets a bias correction factor of the form \\(frac{1}{1-\beta^t}\\), with \\(0.9 \le \beta < 1\\). This factor is large for small, and approaches 1 as  \\(t \rightarrow \infty \\)
+
+Bias corrected values are denoted by  \\(\hat{m_t} \\) and \\(hat{v_t} \\). Here are the equations:
 
 ##### Bias corrected moment estimate 
 
 \\(\hat{m}_t=\frac{m_t}{1-\beta_1^t} \\)
 
-Where:
--With \\(\beta_1^t\\) we denote \\(\beta_1\\) to the power of t 
-
--\\( 1-\beta_1^t \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
 
 ##### Bias corrected second raw moment estimate 
 
 \\(\hat{v}_t=\frac{v_t}{1-\beta_2^t} \\)
 
-Where:
-
--With \\(\beta_2^t\\) we denote \\(\beta_2\\) to the power of t 
-
--\\(1-\beta_2^t \\) is small for small values of t, which leads to increasing \\(\hat{v}_t \\) value for initial steps.
-
 
 Finally Adam's update forula is:
-
 
 ### Eq. 7: Adam  
 
