@@ -530,7 +530,9 @@ Where proposed hyperparameter values are:
 \\(\beta_2=0.999 \\)
 
 
+### Adamx Flow Diagram
 
+![gradient decent diagram](../assets/images/gd_optimizations/adamx-gradient-descent-flow.png)
 
 
 # NAdam
@@ -559,9 +561,9 @@ Adopting this formula, NAdam modified Adam's formula as presented below. The mod
 
 3. \\(n_t=\nu \cdot n_{t-1}  + (1-\nu) g_t^2\\)
 
-4. \\(\hat{m} = \frac{\mu \cdot m_t}{1-\mu^{t+1}} + \frac{(1-\mu) \cdot g_t}{1-\mu^t}\\)
+4. \\(\hat{m_t} = \frac{\mu \cdot m_t}{1-\mu^{t+1}} + \frac{(1-\mu) \cdot g_t}{1-\mu^t}\\)
 
-5. \\(\hat{n}=\frac{\nu \cdot n_t}{1-\nu^t}\\)
+5. \\(\hat{n_t}=\frac{\nu \cdot n_t}{1-\nu^t}\\)
 
 6. \\(w_t = w_{t-1} - \frac{\alpha \cdot \hat{m_t}}{\sqrt{\hat{n_t}}+\epsilon}\\)
 
@@ -579,6 +581,9 @@ Here is Adam's oroginal equation for the biased corrected momentum:
 
  Nadam replaced usage of current \\({m_t}\\) by a "look ahead" \\(\mu\\).
 
+### NAdam Flow Diagram
+
+![gradient decent diagram](../assets/images/gd_optimizations/nadam-gradient-descent-flow.png)
 
 
 
