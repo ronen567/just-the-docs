@@ -315,7 +315,7 @@ Having the numerator and denominator RMS expressions, here is the iteration upda
 
 \\(\Delta w_t=\frac{(RMS[\Delta w]_{t-1}}{RMS[g]_t}\\)
 
-\\(\w_t=w_{t-1} + \Delta w_t\\)
+\\(w_t=w_{t-1} + \Delta w_t\\)
 
 
 The numerator acts as an acceleration term, just as in momentum. The denominator regulates the learning rate.  
