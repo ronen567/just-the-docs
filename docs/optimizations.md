@@ -192,20 +192,20 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
 
-#### 2D Contour 
+#### Momentum Moderate gradient: 2D Contour 
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_converge.gif)
 
 
-#### 3D  azimuth 0 elevation 0  
+#### Momentum Moderate gradient: 3D azimuth 0 elevation 0  
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_converge_azim_0_elev_0.gif)
 
 
-#### 3D  azimuth 30 elevation 0 
+#### Momentum Moderate gradient: 3D  azimuth 30 elevation 0 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_converge_azim_30_elev_0.gif)
 
 
-#### 3D  azimuth 30 elevation 90 
+#### Momentum Moderate gradient: 3D  azimuth 30 elevation 90 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_converge_azim_30_elev_90.gif)
 
 
@@ -218,20 +218,21 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_stable.gif)
 
-#### 2D Contour 
+#### Momentum Steeper gradient: 2D Contour 
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_stable.gif)
 
 
-#### 3D  azimuth 0 elevation 0  
+#### Momentum Steeper gradient: 3D  azimuth 0 elevation 0  
+
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_stable_azim_0_elev_0.gif)
 
 
-#### 3D  azimuth 30 elevation 0 
+#### Momentum Steeper gradient: 3D  azimuth 30 elevation 0 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_stable_azim_30_elev_0.gif)
 
 
-#### 3D  azimuth 30 elevation 90
+#### Momentum Steeper gradient: 3D  azimuth 30 elevation 90
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_stable_azim_30_elev_90.gif)
 
 
@@ -242,36 +243,23 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
 
-#### 2D Contour 
+#### Momentum More Steeper gradient: 2D Contour 
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_steep.gif)
 
 
-#### 3D  azimuth 0 elevation 0  
+#### Momentum More Steeper gradient: 3D  azimuth 0 elevation 0  
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_steep_azim_0_elev_0.gif)
 
 
-#### 3D  azimuth 30 elevation 0 
+#### Momentum More Steeper gradient: 3D  azimuth 30 elevation 0 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_steep_azim_30_elev_0.gif)
 
 
-#### 3D  azimuth 30 elevation 90
+#### Momentum More Steeper gradient: 3D  azimuth 30 elevation 90
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_steep_azim_30_elev_90.gif)
 
 
-
-
-w1 and w2 gradients, Steeper w2 gradient, Even more steeper w2 gradient  for  variableLoss function
-3. Large gradient Loss function
-
-Here below are plots
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
 
 # Nesterov momentum
 
@@ -307,6 +295,93 @@ So here is the Nesterov Momentum update formula, followed by a flow diagram of t
 ### Nesterov Momentum Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/nesterov-momentum-gradient-descent-flow.png)
+
+
+## Demo - Nesterov over various Loss Function scenarios
+
+Plots here below present optimization execution results for 3 2D Loss functions, with weights \\(w = [w_1, w_2] \\):
+
+1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+15 \cdot w_2^2)\\)
+
+3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+20 \cdot w_2^2)\\)
+
+
+
+### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
+
+#### Nesterov Moderate gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nesterov_sgd_converge.gif)
+
+
+#### Nesterov Moderate gradient: 3D azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_converge_azim_0_elev_0.gif)
+
+
+#### Momentum Moderate gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_converge_azim_30_elev_0.gif)
+
+
+#### Nesterov Moderate gradient: 3D  azimuth 30 elevation 90 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_converge_azim_30_elev_90.gif)
+
+
+
+
+### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_stable.gif)
+
+#### Nesterov Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nesterov_sgd_stable.gif)
+
+
+#### Nesterov Steeper gradient: 3D  azimuth 0 elevation 0  
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_stable_azim_0_elev_0.gif)
+
+
+#### Nesterov Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_stable_azim_30_elev_0.gif)
+
+
+#### Nesterov Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_stable_azim_30_elev_90.gif)
+
+
+
+### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
+
+#### Nesterov More Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nesterov_sgd_steep.gif)
+
+
+#### Nesterov More Steeper gradient: 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_steep_azim_0_elev_0.gif)
+
+
+#### Nesterov More Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_steep_azim_30_elev_0.gif)
+
+
+#### Nesterov More Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_steep_azim_30_elev_90.gif)
+
 
 
 # Adagrad
@@ -345,6 +420,94 @@ Still, Adagrad has 2 drawbacks:
 - The adaptive learning rate continuously and excessively shrinks as training continues. as the squared gradients sum is growing with no limit over all time.
 
 AdaDelta aims to answer these 2 challenges.
+
+## Demo - AdaGrad over various Loss Function scenarios
+
+Plots here below present optimization execution results for 3 2D Loss functions, with weights \\(w = [w_1, w_2] \\):
+
+1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+15 \cdot w_2^2)\\)
+
+3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+20 \cdot w_2^2)\\)
+
+
+
+### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
+
+#### AdaGrad Moderate gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_sgd_converge.gif)
+
+
+#### AdaGrad Moderate gradient: 3D azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_converge_azim_0_elev_0.gif)
+
+
+#### AdaGrad Moderate gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_converge_azim_30_elev_0.gif)
+
+
+#### AdaGrad Moderate gradient: 3D  azimuth 30 elevation 90 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_converge_azim_30_elev_90.gif)
+
+
+
+
+### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_stable.gif)
+
+#### AdaGrad Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_sgd_stable.gif)
+
+
+#### AdaGrad Steeper gradient: 3D  azimuth 0 elevation 0  
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_stable_azim_0_elev_0.gif)
+
+
+#### AdaGrad Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_stable_azim_30_elev_0.gif)
+
+
+#### AdaGrad Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_stable_azim_30_elev_90.gif)
+
+
+
+### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
+
+#### AdaGrad More Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_sgd_steep.gif)
+
+
+#### AdaGrad More Steeper gradient: 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_steep_azim_0_elev_0.gif)
+
+
+#### AdaGrad More Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_steep_azim_30_elev_0.gif)
+
+
+#### AdaGrad More Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_steep_azim_30_elev_90.gif)
+
+
+
 
 # AdaDelta
 
@@ -418,13 +581,16 @@ An interesting side effect which results from the numerator \\(RMS[\Delta w]_{t-
 Zeiler reported tests set the hyperparameters to \\(\rho=0.95\\) and \\(\epsilon=1e{-6}\\)
 
 
-Keras defaults are \\(\rho=0.95\\) and \\(\epsilon=1e{-7}\\)
-
-**+ Note:** Keras AdaDelta API does include a learning_rate parameter, with a default value ***learning_rate=0.001**. This contradicts the AdaDelta algorithm! However that, this is just a result of unifying ptimizers apis, while learning_rate is not effective in keras AdaDelta code.
-
 ### Adadelta Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/adadelta-gradient-descent-flow.png)
+
+## Note on Keras AdaDelta API
+
+Trying to run AdaDelta with Keras, i found exceptionally long convergence time. Furthermore, Keras AdaDelta API does include a learning_rate parameter, with a default value ***learning_rate=0.001**. This contradicts the AdaDelta algorithm! Setting a very large learning_rate indeed effects the learning rate, make it much faster, though not fast enough. 
+Following this, I don't attach AdaDelta plots.
+
+TBD - Need to review the code
 
 
 
@@ -459,6 +625,92 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 ### RmsProp Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/rmsprop-gradient-descent-flow.png)
+
+## Demo - RMSprop over various Loss Function scenarios
+
+Plots here below present optimization execution results for 3 2D Loss functions, with weights \\(w = [w_1, w_2] \\):
+
+1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+15 \cdot w_2^2)\\)
+
+3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+20 \cdot w_2^2)\\)
+
+
+
+### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
+
+#### RMSprop Moderate gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_sgd_converge.gif)
+
+
+#### RMSprop Moderate gradient: 3D azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_converge_azim_0_elev_0.gif)
+
+
+#### RMSprop Moderate gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_converge_azim_30_elev_0.gif)
+
+
+#### RMSprop Moderate gradient: 3D  azimuth 30 elevation 90 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_converge_azim_30_elev_90.gif)
+
+
+
+
+### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_stable.gif)
+
+#### RMSprop Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_sgd_stable.gif)
+
+
+#### RMSprop Steeper gradient: 3D  azimuth 0 elevation 0  
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_stable_azim_0_elev_0.gif)
+
+
+#### RMSprop Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_stable_azim_30_elev_0.gif)
+
+
+#### RMSprop Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_stable_azim_30_elev_90.gif)
+
+
+
+### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
+
+#### RMSprop More Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_sgd_steep.gif)
+
+
+#### RMSprop More Steeper gradient: 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_steep_azim_0_elev_0.gif)
+
+
+#### RMSprop More Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_steep_azim_30_elev_0.gif)
+
+
+#### RMSprop More Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_steep_azim_30_elev_90.gif)
+
 
 
 # Adam
@@ -599,6 +851,94 @@ Finally, plugging b.2 into #5 we get:
 
 \\(\Delta_t \leq \alpha \\)
 
+
+## Demo - Adam over various Loss Function scenarios
+
+Plots here below present optimization execution results for 3 2D Loss functions, with weights \\(w = [w_1, w_2] \\):
+
+1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+15 \cdot w_2^2)\\)
+
+3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+20 \cdot w_2^2)\\)
+
+
+
+### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
+
+#### Adam Moderate gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_sgd_converge.gif)
+
+
+#### Adam Moderate gradient: 3D azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_converge_azim_0_elev_0.gif)
+
+
+#### Adam Moderate gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_converge_azim_30_elev_0.gif)
+
+
+#### Adam Moderate gradient: 3D  azimuth 30 elevation 90 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_converge_azim_30_elev_90.gif)
+
+
+
+
+### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_stable.gif)
+
+#### Adam Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_sgd_stable.gif)
+
+
+#### Adam Steeper gradient: 3D  azimuth 0 elevation 0  
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_stable_azim_0_elev_0.gif)
+
+
+#### Adam Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_stable_azim_30_elev_0.gif)
+
+
+#### Adam Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_stable_azim_30_elev_90.gif)
+
+
+
+### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
+
+#### Adam More Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_sgd_steep.gif)
+
+
+#### Adam More Steeper gradient: 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_steep_azim_0_elev_0.gif)
+
+
+#### Adam More Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_steep_azim_30_elev_0.gif)
+
+
+#### Adam More Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_steep_azim_30_elev_90.gif)
+
+
+
 # Adamax
 #### Ref: 
  Kingma and Ba, ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015,
@@ -623,9 +963,94 @@ Where proposed hyperparameter values are:
 \\(\beta_2=0.999 \\)
 
 
-### Adamx Flow Diagram
+### Adamax Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/adamx-gradient-descent-flow.png)
+
+## Demo - Adamax over various Loss Function scenarios
+
+Plots here below present optimization execution results for 3 2D Loss functions, with weights \\(w = [w_1, w_2] \\):
+
+1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+15 \cdot w_2^2)\\)
+
+3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+20 \cdot w_2^2)\\)
+
+
+
+### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
+
+#### Adamax Moderate gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_sgd_converge.gif)
+
+
+#### Adamax Moderate gradient: 3D azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_converge_azim_0_elev_0.gif)
+
+
+#### Adamax Moderate gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_converge_azim_30_elev_0.gif)
+
+
+#### Adamax Moderate gradient: 3D  azimuth 30 elevation 90 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_converge_azim_30_elev_90.gif)
+
+
+
+
+### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_stable.gif)
+
+#### Adamax Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_sgd_stable.gif)
+
+
+#### Adamax Steeper gradient: 3D  azimuth 0 elevation 0  
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_stable_azim_0_elev_0.gif)
+
+
+#### Adamax Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_stable_azim_30_elev_0.gif)
+
+
+#### Adamax Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_stable_azim_30_elev_90.gif)
+
+
+
+### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+#### SGD 2D Contour (reference)
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
+
+#### Adamax More Steeper gradient: 2D Contour 
+
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_sgd_steep.gif)
+
+
+#### Adamax More Steeper gradient: 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_steep_azim_0_elev_0.gif)
+
+
+#### Adamax More Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_steep_azim_30_elev_0.gif)
+
+
+#### Adamax More Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_steep_azim_30_elev_90.gif)
 
 
 # NAdam
@@ -680,279 +1105,92 @@ Here is Adam's oroginal equation for the biased corrected momentum:
 ![gradient decent diagram](../assets/images/gd_optimizations/nadam-gradient-descent-flow.png)
 
 
-# Illustrative Optimization Algorithm Plots
+## Demo - NAdam over various Loss Function scenarios
 
-This chapter present plotted results of the various optimization algorithms, running on an 2D quadric Loss function over 3 scenarios:
-1. Moderate Loss function
-2. Steeper Gradient Loss function
-3. Large gradient Loss function
+Plots here below present optimization execution results for 3 2D Loss functions, with weights \\(w = [w_1, w_2] \\):
 
-Just to note, that this exercise does not mean to evaluate the quality pf the various algorithms. Still it is interesting to see the behavior. The learning rate coefficient used is very large, actually too large, but idea was to watch behavior in extreme scenarios.
+1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
+2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+15 \cdot w_2^2)\\)
 
-## 1. Moderate Loss function
+3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+20 \cdot w_2^2)\\)
 
 
 
-### SGD
+### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
-#### 2D Contour
+#### SGD 2D Contour (reference)
 
-#### 3D  azimuth 0 elevation 0
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
 
-#### 3D  azimuth 30 elevation 0
+#### NAdam Moderate gradient: 2D Contour 
 
-#### 3D  azimuth 90 elevation 0
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_sgd_converge.gif)
 
-### Momentum
 
-#### 2D Contour
+#### NAdam Moderate gradient: 3D azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_converge_azim_0_elev_0.gif)
 
-#### 3D  azimuth 0 elevation 0
 
-#### 3D  azimuth 30 elevation 0
+#### NAdam Moderate gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_converge_azim_30_elev_0.gif)
 
-#### 3D  azimuth 90 elevation 0
 
-### Nesterov
+#### NAdam Moderate gradient: 3D  azimuth 30 elevation 90 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_converge_azim_30_elev_90.gif)
 
-#### 2D Contour
 
-#### 3D  azimuth 0 elevation 0
 
-#### 3D  azimuth 30 elevation 0
 
-#### 3D  azimuth 90 elevation 0
+### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
 
 
-### AdaGrad
-#### 2D Contour
+#### SGD 2D Contour (reference)
 
-#### 3D  azimuth 0 elevation 0
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_stable.gif)
 
-#### 3D  azimuth 30 elevation 0
+#### NAdam Steeper gradient: 2D Contour 
 
-#### 3D  azimuth 90 elevation 0
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_sgd_stable.gif)
 
 
-### AdaDelta
-#### 2D Contour
+#### NAdam Steeper gradient: 3D  azimuth 0 elevation 0  
 
-#### 3D  azimuth 0 elevation 0
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_stable_azim_0_elev_0.gif)
 
-#### 3D  azimuth 30 elevation 0
 
-#### 3D  azimuth 90 elevation 0
+#### NAdam Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_stable_azim_30_elev_0.gif)
 
-### RmsProps
-#### 2D Contour
 
-#### 3D  azimuth 0 elevation 0
+#### NAdam Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_stable_azim_30_elev_90.gif)
 
-#### 3D  azimuth 30 elevation 0
 
-#### 3D  azimuth 90 elevation 0
 
-### Adam
-#### 2D Contour
+### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
 
-#### 3D  azimuth 0 elevation 0
+#### SGD 2D Contour (reference)
 
-#### 3D  azimuth 30 elevation 0
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
 
-#### 3D  azimuth 90 elevation 0
-## Adamx
-#### 2D Contour
+#### NAdam More Steeper gradient: 2D Contour 
 
-#### 3D  azimuth 0 elevation 0
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_sgd_steep.gif)
 
-#### 3D  azimuth 30 elevation 0
 
-#### 3D  azimuth 90 elevation 0
+#### NAdam More Steeper gradient: 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_steep_azim_0_elev_0.gif)
 
-# NAdam
-#### 2D Contour
 
-#### 3D  azimuth 0 elevation 0
+#### NAdam More Steeper gradient: 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_steep_azim_30_elev_0.gif)
 
-#### 3D  azimuth 30 elevation 0
 
-#### 3D  azimuth 90 elevation 0
+#### MomeNAdamntum More Steeper gradient: 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_steep_azim_30_elev_90.gif)
 
 
-
-## 2. Steeper Gradient Loss function
-
-### 1. SGD
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-### 1. Momentum
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-
-### 2. Nesterov
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-
-### 3. AdaGrad
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-
-### 4. AdaDelta
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-### 5. RmsProps
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-### 6. Adam
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-### 7. Adamx
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-### 8. NAdam
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-## 3. Large gradient Loss function
-
-### Momentum
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-### Nesterov
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-
-### AdaGrad
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-
-### AdaDelta
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-### RmsProps
-
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-### Adam
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-## Adamx
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
-
-# NAdam
-#### 2D Contour
-
-#### 3D  azimuth 0 elevation 0
-
-#### 3D  azimuth 30 elevation 0
-
-#### 3D  azimuth 90 elevation 0
 
 
 
