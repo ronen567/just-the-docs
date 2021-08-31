@@ -7,35 +7,34 @@ nav_order: 4
 # Introduction
 
 
-**Gradient Descent** Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. The optimization algorithm is activated on the cost function J, during the training phase, searching for the sets of weights which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
+**Gradient Descent** Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. 
+It is activated during the training phase, searches for the optimal set of weights - the set which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
 
-Diagram below presents DNN's functionality during training phase: The Gradient Descent module, (located on top-right),  is fed with 
-\\( \bigtriangledown_w J\\) , the cost function gradient, according to which it calculates the updated \\(w_t\\).
+**Gradient Descent in the context of DNN**
+The block diagram below, presents DNN's functional modules during the training phase. The 3 main modules are the Forwad Propogation, Back Propogation, and the Optimization module denoted as "Gradient Descent", (located on top-right). The Gradient Descent calculates a new set of optimized weights, denoted by \\(W_t \\), where t is the iteration index. For this calculation, the module is fed with \\( \bigtriangledown_w J\\) , the cost function gradient.
 
-**Figure 0: Deep Neural Network Block Diagram - Training Phase
+### Figure 0: Deep Neural Network Block Diagram - Training Phase
 
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
 
-Next chapters of this post are:
+**Next chapters of this post are:**
 
 - Gradient Descent Prinicipals
-- Illustrative Examples
 - Review of Gradient Descent Variants:
+  **Momentum**
+  **Nesterov momentum**
+  **Adagrad**
+  **Adadelta**
+  **RMSprop**
+  **Adam**
+  **Adamax**
+  **NAdam*
+ - Resultant plot of the various algorithm, running over 3 scenarios: 
+  **Moderate Loss function**
+  **Steeper Gradient Loss function**
+  **Large gradient Loss function**
 
-- Momentum Basic Algorithms
-- 
-**Momentum**
-**Nesterov momentum**
-Adaptive Learning Rate:
-
-**Adagrad**
-**Adadelta**
-**RMSprop**
-**Adam**
-**Adamax**
-**FTR**
-**NAdam*
 
 # Gradient Descent Principals
 
@@ -70,27 +69,27 @@ To illustrate Gradient Desent graphically, let's take \\(f(w) = (w-w_1) ^2 \\) .
 
 \\(x_{t} = x_{t-1}-\alpha \cdot \frac{d}{dx}f(x) \\)
 
-**Figure 1: Gradient Descent 1D
+### Figure 1: Gradient Descent 1D**
 
 
 ![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro.gif)
 
 Figure 2 is a contour graph which illustrates gradient descent convergence for a 2 variable function of the type \\(f(x) = a \cdot (x-w_1)^2 + b \cdot (x-w_1)^2\\)
 
-**Figure 2: Gradient Descent 2D - Easy Convergence
+### Figure 2: Gradient Descent 2D - Easy Convergence
 
 ![gradient decent example](../assets/images/gd_optimizations/2d.gif)
 
 
 Now look at Figure 3, which is similar to Figure 2, except that the gradient is steepper in w2 direction. The resultant step size in the w2 direction at the begining is too large, which leads to some overshoots, but the algorithm converges eventually.
 
-**Figure 3: Gradient Descent - Slight Oscilations
+### Figure 3: Gradient Descent - Slight Oscilations
 
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_asymetric.gif) 
 
 Figure 4 however, presents an even steepper gradient in w2 direction. Now we get oscilations in w2 direction, which never converge. 
 
-**Figure 4: Gradient Descent - Oscilations
+### Figure 4: Gradient Descent - Oscilations
 ![gradient decent example](../assets/images/gd_optimizations/2d_contour_sgd_oscilations.gif)
 
 A smaller learning rate would solve this, make the algorithm smoothly converge. A smaller learning rate would have slowed down convergance in all scenarios. This is a tradeoff. Chosing alpha is one of the chalenges of Gradient Descent, and it normally requires some trial and error iterations to find a suitable value. Overshoot is a one of the Gradient Descent performance issues, between them are:
@@ -106,7 +105,7 @@ The next paragraphs describe the principles of the various Gradient Descent algo
 
 # Momentum
 
-## Ref:
+#### Ref:
 Polyak, B.T. Some methods of speeding up the convergence of iteration methods. USSR Computational Mathematics and Mathematical Physics, 4(5):1–17, 1964
 Goodfellow, Bengio, Courville, Deep Learning
 
@@ -173,16 +172,77 @@ Accordingly:
 
 \\(\Delta w_t = \frac{\alpha \cdot g}{1-\beta}\\)
 
-### Q.E.D
+#### Q.E.D
+
+## Demo - Momentum over various Loss Function scenarios
+
+Plots here below present optimization execution results for 3 Loss functions:
+
+1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+
+3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+
+
+### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### SGD (reference) \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 2D Contour \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 0 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 30 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 90 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+
+
+### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+
+#### SGD (reference) \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 2D Contour \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 0 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 30 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 90 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+
+### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+#### SGD (reference) \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 2D Contour \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 0 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 30 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 90 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
 
 
 
 
+w1 and w2 gradients, Steeper w2 gradient, Even more steeper w2 gradient  for  variableLoss function
+3. Large gradient Loss function
 
+Here below are plots
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
 
 # Nesterov momentum
 
-## Ref:
+#### Ref:
 On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
 chine Learning, 2013, Sutskever et al
 
@@ -218,7 +278,7 @@ So here is the Nesterov Momentum update formula, followed by a flow diagram of t
 
 # Adagrad
 
-## Ref:
+### Ref:
 Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)
 
 
@@ -255,7 +315,7 @@ AdaDelta aims to answer these 2 challenges.
 
 # AdaDelta
 
-## Ref: 
+#### Ref: 
 Zeiler, ADADELTA: An Adaptive Learning Rate Method
 
 AdaDelta aims to improve the 2 Adagrad's drawbacks: 
@@ -337,7 +397,7 @@ Keras defaults are \\(\rho=0.95\\) and \\(\epsilon=1e{-7}\\)
 
 # RMSprop
 
-## Ref: 
+#### Ref: 
 Hinton , Unpublished, RMSprop was presented in a Coursera course lecture.
 Hinton with Srivastava & Swersky, 2012, Lecture University of Toronto, Overview of mini-batch gradient descent
 
@@ -369,7 +429,7 @@ Recommended values for the global learning rate \\(\alpha \\) and the decay cons
 
 
 # Adam
-## Ref: 
+#### Ref: 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
 Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\), and root squared sum of gradients, (aka second raw moment aka uncentered variance), denoted by \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
@@ -507,7 +567,7 @@ Finally, plugging b.2 into #5 we get:
 \\(\Delta_t \leq \alpha \\)
 
 # Adamax
-## Ref: 
+#### Ref: 
  Kingma and Ba, ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015,
 
 A variant of Adam, proposed in same paper, suggests to replace Adam's second raw moment \\( v_t \\) , by \\( u_t \\):
@@ -536,6 +596,7 @@ Where proposed hyperparameter values are:
 
 
 # NAdam
+#### Ref:
 INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016, Timothy Dozat
 
 The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm, incorporating the Nesterov momentum principal into it. The prinicipal is of using a next step update, already in current iteration. According to this principal, Nesterov formula for gradient was this:
@@ -584,6 +645,283 @@ Here is Adam's oroginal equation for the biased corrected momentum:
 ### NAdam Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/nadam-gradient-descent-flow.png)
+
+
+# Illustrative Optimization Algorithm Plots
+
+This chapter present plotted results of the various optimization algorithms, running on an 2D quadric Loss function over 3 scenarios:
+1. Moderate Loss function
+2. Steeper Gradient Loss function
+3. Large gradient Loss function
+
+Just to note, that this exercise does not mean to evaluate the quality pf the various algorithms. Still it is interesting to see the behavior. The learning rate coefficient used is very large, actually too large, but idea was to watch behavior in extreme scenarios.
+
+
+## 1. Moderate Loss function
+
+
+
+### SGD
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### Momentum
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### Nesterov
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
+### AdaGrad
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
+### AdaDelta
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### RmsProps
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### Adam
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+## Adamx
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+# NAdam
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
+
+## 2. Steeper Gradient Loss function
+
+### 1. SGD
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### 1. Momentum
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
+### 2. Nesterov
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
+### 3. AdaGrad
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
+### 4. AdaDelta
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### 5. RmsProps
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### 6. Adam
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+### 7. Adamx
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### 8. NAdam
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+## 3. Large gradient Loss function
+
+### Momentum
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### Nesterov
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
+### AdaGrad
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
+### AdaDelta
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+### RmsProps
+
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+### Adam
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+## Adamx
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+# NAdam
+#### 2D Contour
+
+#### 3D  azimuth 0 elevation 0
+
+#### 3D  azimuth 30 elevation 0
+
+#### 3D  azimuth 90 elevation 0
+
+
 
 
 
