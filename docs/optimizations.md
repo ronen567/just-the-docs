@@ -176,54 +176,87 @@ Accordingly:
 
 ## Demo - Momentum over various Loss Function scenarios
 
-Plots here below present optimization execution results for 3 Loss functions:
+Plots here below present optimization execution results for 3 2D Loss functions, with weights \\(w = [w_1, w_2] \\):
 
-1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+1. Moderate gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
-2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+2. Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+15 \cdot w_2^2)\\)
 
-3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+3. More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w_1^2+20 \cdot w_2^2)\\)
 
 
 
-### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
-#### SGD (reference) \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+#### SGD 2D Contour (reference)
 
-#### 2D Contour \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
 
-#### 3D  azimuth 0 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+#### 2D Contour 
 
-#### 3D  azimuth 30 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_converge.gif)
 
-#### 3D  azimuth 90 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_converge_azim_0_elev_0.gif)
+
+
+#### 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_converge_azim_30_elev_0.gif)
+
+
+#### 3D  azimuth 30 elevation 90 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_converge_azim_30_elev_90.gif)
+
 
 
 
 ### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
 
-#### SGD (reference) \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
 
-#### 2D Contour \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+#### SGD 2D Contour (reference)
 
-#### 3D  azimuth 0 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_stable.gif)
 
-#### 3D  azimuth 30 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+#### 2D Contour 
 
-#### 3D  azimuth 90 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_stable.gif)
+
+
+#### 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_stable_azim_0_elev_0.gif)
+
+
+#### 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_stable_azim_30_elev_0.gif)
+
+
+#### 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_stable_azim_30_elev_90.gif)
+
 
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
 
-#### SGD (reference) \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+#### SGD 2D Contour (reference)
 
-#### 2D Contour \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
 
-#### 3D  azimuth 0 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+#### 2D Contour 
 
-#### 3D  azimuth 30 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_steep.gif)
 
-#### 3D  azimuth 90 elevation 0  \\(J(w)=\frac{1}{2} \cdot (w1^2+w2^2)\\)
+
+#### 3D  azimuth 0 elevation 0  
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_steep_azim_0_elev_0.gif)
+
+
+#### 3D  azimuth 30 elevation 0 
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_steep_azim_30_elev_0.gif)
+
+
+#### 3D  azimuth 30 elevation 90
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_steep_azim_30_elev_90.gif)
 
 
 
