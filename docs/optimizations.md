@@ -20,23 +20,19 @@ The block diagram below, presents DNN's functional modules during the training p
 
 **Next chapters of this post are:**
 
-- Gradient Descent Prinicipals
-- Review of Gradient Descent Variants:
-  **Momentum**
-  **Nesterov momentum**
-  **Adagrad**
-  **Adadelta**
-  **RMSprop**
-  **Adam**
-  **Adamax**
-  **NAdam*
- - Resultant plot of the various algorithm, running over 3 scenarios: 
-  **Moderate Loss function**
-  **Steeper Gradient Loss function**
-  **Large gradient Loss function**
+1. Gradient Descent Overview: A brief overview on Gradient Descent algorithm with a graphgical illustrative examples.
+2. Review of Gradient Descent Variants: An overview of gradient descent algorithm variants with animated demos. The review covers the following algorithms:
+  a. **Momentum**
+  b. **Nesterov momentum**
+  c. **Adagrad**
+  d. **Adadelta**
+  e. **RMSprop**
+  f. **Adam**
+  g. **Adamax**
+  h. **NAdam**
 
 
-# Gradient Descent Principals
+# Gradient Descent Overview
 
 Gradient Descent finds a minimum of either a function or a set of data points, by striding along the gradient's opposite direction, untill it reaches the point where gradient is  - this where the minima is.
 
@@ -99,9 +95,14 @@ A smaller learning rate would solve this, make the algorithm smoothly converge. 
 
 - ***Oscillations***: this phenomenon can occure not only when gradient changes significantly in high curvuturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
 
-This post reviews some of the most popular Gradient Descent variants which aim to answer Gradient Descent issues.
 
-The next paragraphs describe the principles of the various Gradient Descent algoritms. Following that are graphical illustrations of these algorithms when applied on a 3 "cost functions" presented above, i.e. "easy convergence, "slightly oscilated" and "oscilated".
+# Review of Gradient Descent Variants
+
+This post reviews some of the most popular Gradient Descent variantsת which aim to improve Gradient Descent behavior. It's hard to compare between all those algorithms, and decide on the best. Results are very much dependent on nature of the learning task, which implicates on the nature of the Loss function. Anyway, rougly speaking, the reviewed algorithm can be divided into 2 categories:
+- Momentum algorithms - convergence is accelerated if gradient points to the same direction over the update iterations or slowed-down if direction changes. Unlike the second category, these algorithms may tend to be less stable, though can sometimes be very fast. In this category we have **Momentum** and **Nesterov**.
+- Adaptive learning rate algorithms - the learning rate is regulated accrding to the root sum squared past gradients. Those algorithms are considerably more stable. Some of these algorithms incorporate momentum to accelerate convergance. In this category we have AdaGrad, AdaDelta, RmsProp, Adam, Adamax and NAdam.
+
+So here they are:
 
 # Momentum
 
