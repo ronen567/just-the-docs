@@ -194,19 +194,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_converge.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_converge.gif)
 
 
 #### 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_converge_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_converge_azim_0_elev_0.gif)
 
 
 #### 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_converge_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_converge_azim_30_elev_0.gif)
 
 
 #### 3D  azimuth 30 elevation 90 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_converge_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_converge_azim_30_elev_90.gif)
 
 
 
@@ -220,19 +220,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_stable.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_stable.gif)
 
 
 #### 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_stable_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_stable_azim_0_elev_0.gif)
 
 
 #### 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_stable_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_stable_azim_30_elev_0.gif)
 
 
 #### 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_stable_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_stable_azim_30_elev_90.gif)
 
 
 
@@ -244,19 +244,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_steep.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_steep.gif)
 
 
 #### 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_steep_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_steep_azim_0_elev_0.gif)
 
 
 #### 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_steep_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_steep_azim_30_elev_0.gif)
 
 
 #### 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_steep_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_steep_azim_30_elev_90.gif)
 
 
 
