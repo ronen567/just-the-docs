@@ -189,6 +189,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
+Here, in the begining,  momentum runs much faster than the reference SGD, but then, due to the excessive speed which was not regulated fastly enough, it suffers from oscilative overshooting arround the minima, till it coverges eventually.
+
 #### SGD 2D Contour (reference)
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
@@ -213,6 +215,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
+
+Now, with the steeper gradient, momentum algorithm diverges quite chaoticly in the beginning, making some wrong direction updates, i.e. with a postive sign. Eventually, after some overshoots and oscilations, the algorithm coverges. though SGD does clearly better in this scenario. Clearly, the learning rate is much too large for momentum in this setup.
 
 
 #### SGD 2D Contour (reference)
@@ -239,6 +243,10 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+
+Similar to the less steep gradient scenario, momentum algorithm diverges quite chaoticly in the begining, and making some wrong direction updates, i.e. with a postive sign. Eventually, after some overshoots and oscilations,  the algorithm coverges. though SGD does clearly better in this scenario. Clearly, the learning rate is much too large for momentum in this setup.
+
 
 #### SGD 2D Contour (reference)
 
@@ -312,6 +320,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
+Here, in the begining, Nesterove runs much faster than the reference SGD, but then, due to the excessive speed which was not regulated fastly enough, it suffers from oscilative overshooting arround the minima. It converges faster than Nesterov in same conditions, but there is no gain over plain SGD, which converges more or less in the same time, but runs much more smoothly and stable.
+
 #### SGD 2D Contour (reference)
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
@@ -337,6 +347,7 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
 
+In this scenario, Nesterov is not stable and it never converges. Clearly, the learning rate is much too large for Nesterov in this setup. Clearly, plain SGD is superior here.
 
 #### SGD 2D Contour (reference)
 
@@ -349,6 +360,10 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+
+Similar to previous scenario, Nesterov is not stable and it doesn't  converge. Clearly, the learning rate is much too large for Nesterov in this setup. Clearly, plain SGD is superior here.
+
 
 #### SGD 2D Contour (reference)
 
