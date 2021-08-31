@@ -346,19 +346,6 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nesterov_sgd_stable.gif)
 
 
-#### Nesterov Steeper gradient: 3D  azimuth 0 elevation 0  
-
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_stable_azim_0_elev_0.gif)
-
-
-#### Nesterov Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_stable_azim_30_elev_0.gif)
-
-
-#### Nesterov Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_stable_azim_30_elev_90.gif)
-
-
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
 
@@ -369,18 +356,6 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 #### Nesterov More Steeper gradient: 2D Contour 
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nesterov_sgd_steep.gif)
-
-
-#### Nesterov More Steeper gradient: 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_steep_azim_0_elev_0.gif)
-
-
-#### Nesterov More Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_steep_azim_30_elev_0.gif)
-
-
-#### Nesterov More Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_steep_azim_30_elev_90.gif)
 
 
 
@@ -441,19 +416,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### AdaGrad Moderate gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_sgd_converge.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_converge.gif)
 
 
 #### AdaGrad Moderate gradient: 3D azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_converge_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_converge_azim_0_elev_0.gif)
 
 
 #### AdaGrad Moderate gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_converge_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_converge_azim_30_elev_0.gif)
 
 
 #### AdaGrad Moderate gradient: 3D  azimuth 30 elevation 90 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_converge_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_converge_azim_30_elev_90.gif)
 
 
 
@@ -467,20 +442,20 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### AdaGrad Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_sgd_stable.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_stable.gif)
 
 
 #### AdaGrad Steeper gradient: 3D  azimuth 0 elevation 0  
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_stable_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_stable_azim_0_elev_0.gif)
 
 
 #### AdaGrad Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_stable_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_stable_azim_30_elev_0.gif)
 
 
 #### AdaGrad Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_stable_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_stable_azim_30_elev_90.gif)
 
 
 
@@ -492,19 +467,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### AdaGrad More Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_sgd_steep.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_steep.gif)
 
 
 #### AdaGrad More Steeper gradient: 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_steep_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_steep_azim_0_elev_0.gif)
 
 
 #### AdaGrad More Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_steep_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_steep_azim_30_elev_0.gif)
 
 
 #### AdaGrad More Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_sgd_steep_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_steep_azim_30_elev_90.gif)
 
 
 
@@ -646,19 +621,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### RMSprop Moderate gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_sgd_converge.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_converge.gif)
 
 
 #### RMSprop Moderate gradient: 3D azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_converge_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_converge_azim_0_elev_0.gif)
 
 
 #### RMSprop Moderate gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_converge_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_converge_azim_30_elev_0.gif)
 
 
 #### RMSprop Moderate gradient: 3D  azimuth 30 elevation 90 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_converge_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_converge_azim_30_elev_90.gif)
 
 
 
@@ -672,20 +647,20 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### RMSprop Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_sgd_stable.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_stable.gif)
 
 
 #### RMSprop Steeper gradient: 3D  azimuth 0 elevation 0  
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_stable_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_stable_azim_0_elev_0.gif)
 
 
 #### RMSprop Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_stable_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_stable_azim_30_elev_0.gif)
 
 
 #### RMSprop Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_stable_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_stable_azim_30_elev_90.gif)
 
 
 
@@ -697,19 +672,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### RMSprop More Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_sgd_steep.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_rmsprop_steep.gif)
 
 
 #### RMSprop More Steeper gradient: 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_steep_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_steep_azim_0_elev_0.gif)
 
 
 #### RMSprop More Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_steep_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_steep_azim_30_elev_0.gif)
 
 
 #### RMSprop More Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_sgd_steep_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_rmsprop_steep_azim_30_elev_90.gif)
 
 
 
@@ -872,19 +847,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### Adam Moderate gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_sgd_converge.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_converge.gif)
 
 
 #### Adam Moderate gradient: 3D azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_converge_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_converge_azim_0_elev_0.gif)
 
 
 #### Adam Moderate gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_converge_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_converge_azim_30_elev_0.gif)
 
 
 #### Adam Moderate gradient: 3D  azimuth 30 elevation 90 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_converge_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_converge_azim_30_elev_90.gif)
 
 
 
@@ -898,20 +873,20 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### Adam Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_sgd_stable.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_stable.gif)
 
 
 #### Adam Steeper gradient: 3D  azimuth 0 elevation 0  
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_stable_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_stable_azim_0_elev_0.gif)
 
 
 #### Adam Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_stable_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_stable_azim_30_elev_0.gif)
 
 
 #### Adam Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_stable_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_stable_azim_30_elev_90.gif)
 
 
 
@@ -923,19 +898,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### Adam More Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_sgd_steep.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adam_steep.gif)
 
 
 #### Adam More Steeper gradient: 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_steep_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_steep_azim_0_elev_0.gif)
 
 
 #### Adam More Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_steep_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_steep_azim_30_elev_0.gif)
 
 
 #### Adam More Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_sgd_steep_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adam_steep_azim_30_elev_90.gif)
 
 
 
@@ -987,19 +962,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### Adamax Moderate gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_sgd_converge.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_converge.gif)
 
 
 #### Adamax Moderate gradient: 3D azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_converge_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_converge_azim_0_elev_0.gif)
 
 
 #### Adamax Moderate gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_converge_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_converge_azim_30_elev_0.gif)
 
 
 #### Adamax Moderate gradient: 3D  azimuth 30 elevation 90 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_converge_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_converge_azim_30_elev_90.gif)
 
 
 
@@ -1013,20 +988,20 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### Adamax Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_sgd_stable.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_stable.gif)
 
 
 #### Adamax Steeper gradient: 3D  azimuth 0 elevation 0  
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_stable_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_stable_azim_0_elev_0.gif)
 
 
 #### Adamax Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_stable_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_stable_azim_30_elev_0.gif)
 
 
 #### Adamax Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_stable_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_stable_azim_30_elev_90.gif)
 
 
 
@@ -1038,19 +1013,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### Adamax More Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_sgd_steep.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adamax_steep.gif)
 
 
 #### Adamax More Steeper gradient: 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_steep_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_steep_azim_0_elev_0.gif)
 
 
 #### Adamax More Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_steep_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_steep_azim_30_elev_0.gif)
 
 
 #### Adamax More Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_sgd_steep_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_steep_azim_30_elev_90.gif)
 
 
 # NAdam
@@ -1125,19 +1100,19 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### NAdam Moderate gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_sgd_converge.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_converge.gif)
 
 
 #### NAdam Moderate gradient: 3D azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_converge_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_converge_azim_0_elev_0.gif)
 
 
 #### NAdam Moderate gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_converge_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_converge_azim_30_elev_0.gif)
 
 
 #### NAdam Moderate gradient: 3D  azimuth 30 elevation 90 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_converge_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_converge_azim_30_elev_90.gif)
 
 
 
@@ -1151,20 +1126,20 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### NAdam Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_sgd_stable.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_stable.gif)
 
 
 #### NAdam Steeper gradient: 3D  azimuth 0 elevation 0  
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_stable_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_stable_azim_0_elev_0.gif)
 
 
 #### NAdam Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_stable_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_stable_azim_30_elev_0.gif)
 
 
 #### NAdam Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_stable_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_stable_azim_30_elev_90.gif)
 
 
 
@@ -1172,23 +1147,23 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 #### SGD 2D Contour (reference)
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_steep.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_steep.gif)
 
 #### NAdam More Steeper gradient: 2D Contour 
 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_sgd_steep.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nadam_steep.gif)
 
 
 #### NAdam More Steeper gradient: 3D  azimuth 0 elevation 0  
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_steep_azim_0_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_steep_azim_0_elev_0.gif)
 
 
 #### NAdam More Steeper gradient: 3D  azimuth 30 elevation 0 
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_steep_azim_30_elev_0.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_steep_azim_30_elev_0.gif)
 
 
 #### MomeNAdamntum More Steeper gradient: 3D  azimuth 30 elevation 90
-![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_sgd_steep_azim_30_elev_90.gif)
+![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nadam_steep_azim_30_elev_90.gif)
 
 
 
