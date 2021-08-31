@@ -375,7 +375,7 @@ Similar to previous scenario, Nesterov is not stable and it doesn't  converge. C
 
 
 
-# Adagrad
+# AdaGrad
 
 ### Ref:
 Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)
@@ -426,6 +426,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
+AdaGrad is the first in the adaptive learning rate algorithms category list. It shows here much stability on one and, but it is excetionally slow, due to the contimuesly growing denominator. As the plot shows, even after 180 frames it is still far from reaching convergence point, while plain SGD is completed within less than 40 frames.
+
 #### SGD 2D Contour (reference)
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
@@ -451,6 +453,7 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
 
+Similar to the previous Adagrad test case, due to the well known continuesly growing denominator issue, learning rate is slow, and becomes slower in later iterations.  
 
 #### SGD 2D Contour (reference)
 
@@ -476,6 +479,9 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+Similar to the previous Adagrad test cases, due to the well known continuesly growing denominator issue, learning rate is slow, and becomes slower in later iterations.  Here, due to larger gradients, it seems to be even slower.
+
 
 #### SGD 2D Contour (reference)
 
@@ -631,6 +637,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
+RMSprop is a member of the adaptive learning rate algorithms category. As such, it is solidly stable, even in case of steep gradients. As can be expected, it runs slower than plain SGD, but keeps the speed and stability in all scenarios examined.
+
 #### SGD 2D Contour (reference)
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
@@ -656,6 +664,7 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
 
+As depicted by next plots, RMSprop shows invariance to gradient changes. Performance is much the same in all examined scenarios.
 
 #### SGD 2D Contour (reference)
 
@@ -681,6 +690,9 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+Even in the more steeper gradient, plot shows similar convergence like in the 2 previous cases.
+
 
 #### SGD 2D Contour (reference)
 
@@ -857,6 +869,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
+Adam is a member of the adaptive learning rate algorithms category. Still, it differs from RMSprop mainly by the momentum component it deploys. In this moderate gradient scenario, the contribution of the momentum is not evident, but in the more steeper scenarios which follow it certainly is.
+
 #### SGD 2D Contour (reference)
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_sgd_converge.gif)
@@ -879,9 +893,9 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 
-
 ### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
 
+Here Adam's mementum effect is evident. The algorithm runs fastly towards the minima, but then overshoots a little.
 
 #### SGD 2D Contour (reference)
 
@@ -907,6 +921,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+Same as in the previous case, the algorithm runs fastly towards the minima, suffers from an overshoot  which is then corrected.
 
 #### SGD 2D Contour (reference)
 
@@ -971,6 +987,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+
 
 #### SGD 2D Contour (reference)
 
