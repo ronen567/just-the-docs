@@ -940,7 +940,7 @@ Where proposed hyperparameter values are:
 
 ### Adamax Flow Diagram
 
-![gradient decent diagram](../assets/images/gd_optimizations/adamx-gradient-descent-flow.png)
+![gradient decent diagram](../assets/images/gd_optimizations/adamax-gradient-descent-flow.png)
 
 ## Demo - Adamax over various Loss Function scenarios
 
