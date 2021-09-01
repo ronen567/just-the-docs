@@ -74,7 +74,8 @@ Gradient Descent is an iterative algorithm, where each iteration's output is fed
 \\(\mathbf{\bigtriangledown_w f(w_{t-1})}\\) is the gradient of f(w) with respect to w, evaluated by plugging in the most current w, i.e. \\(w=w_{t-1}\\).
 
 
-Let's have a clear picture of the algorithm, as depicted by the below Gradient Decsent algorithm flow diagram:
+
+To provide a clearer picture of Gradient Descent functionality, here below is the algorithm's flow diagram, followed by illustrative graphical animations Gradient Descent executed over various test cases.
 
 ### Gradient Descent Flow Diagram
 
@@ -309,7 +310,7 @@ Here, in the begining,  momentum runs much faster than the reference SGD, but th
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_converge.gif)
 
 
-#### Momentum Moderate gradient: (camera position: 3D azimuth 0 elevation 0)
+#### Momentum Moderate gradient, 3D surface  (camera position: azimuth 0 elevation 0)
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_momentum_sgd_converge_azim_0_elev_0.gif)
 
 
