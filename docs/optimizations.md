@@ -4,7 +4,7 @@ title: Optimization Algorithms
 nav_order: 4
 ---
 
-# Deep Neural Networks' Optimization Algorithms - An overview of Gradient Decent and its variants
+# Optimization Algorithms - An overview of Gradient Descent and its variants
 
 ## Introduction
 
@@ -31,13 +31,13 @@ The block diagram below, presents DNN's functional modules during the training p
   f. **Adam**
   g. **Adamax**
   h. **NAdam**
-  [Custom foo description](##NAdam)
-    [Custom foo description](## NAdam)
+  [Custom foo description](##nadam)
+  [Custom foo description](##nesterov-momentum)
 
   
 
 
-## Gradient Descent Overview
+## gradient Descent Overview
 
 Gradient Descent finds a minimum of either a function or a set of data points, by striding along the gradient's opposite direction, untill it reaches the point where gradient is  - this where the minima is.
 
