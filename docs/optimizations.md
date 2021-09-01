@@ -771,7 +771,7 @@ Finally Adam's update forula is:
 
 ### Eq. 7: Adam  
 
-\\(w_{t}= w_{t-1}-\frac{\alpha \cdot \hat{m}_t}{\sqrt(\hat{v}_t)+\epsilon} \\)
+\\(w_{t}= w_{t-1}-\frac{\alpha \cdot \hat{m}_t}{\sqrt{\hat{v}_t}+\epsilon} \\)
 
 Where proposed hyperparameter values are:
 
@@ -952,7 +952,7 @@ Same as in the previous case, the algorithm runs fastly towards the minima, suff
 
 A variant of Adam, proposed in same paper, suggests to replace Adam's second raw moment \\( v_t \\) , by \\( u_t \\):
 
-\\( u_t = max(\beta_2 \cdot  u_{t-1}, \left | g_t \right | \\)
+\\( u_t = max(\beta_2 \cdot  u_{t-1}, \left | g_t \right |) \\)
 
 Bias correction is not needed for \\( u_t \\) anymore. The numerator is same as in Adam. Consequently, the Aadamax update formula is:
 
@@ -969,10 +969,22 @@ Where proposed hyperparameter values are:
 
 \\(\beta_2=0.999 \\)
 
+Here below is a plot of Adamax \\(L_{\infty}\\) denominator vs Adam  \\(L2_\\) denominator, with a quadratic loss function. According to the plot, Adamax updates would run slower, for quadratic loss functions :
+
+
+### Adam vs Adamax \\(\Delta w_t \\) denominators for quadratic loss function:
+
+![gradient decent diagram](../assets/images/gd_optimizations/adamax_vs_adam_denominator.png)
+
 
 ### Adamax Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/adamax-gradient-descent-flow.png)
+
+
+
+
+
 
 ## Demo - Adamax over various Loss Function scenarios
 
@@ -988,7 +1000,7 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
-
+Adamax conversion is slower than Adam's in the same setup. Difference between the algorithms is in the learning rate regulation component where Adam uses an \\(L2_\\) norm while Adamx uses an \\(L_{\infty}\\) norm. For the demonstrated quadratic loss function, the later decreases slower.
 
 #### SGD 2D Contour (reference)
 
@@ -1015,6 +1027,7 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+15 \cdot w2^2)\\)
 
+Similarly to what noted in the moderate gradient case, Adamax proves to be slow but highly stable. 
 
 #### SGD 2D Contour (reference)
 
@@ -1040,6 +1053,9 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
+
+Still in this test case, Adamax is slower than Adam. but is highly stable, we no overshoot near the minima.
+
 
 #### SGD 2D Contour (reference)
 
