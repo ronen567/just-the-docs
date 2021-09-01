@@ -32,6 +32,9 @@ The block diagram below, presents DNN's functional modules during the training p
   g. **Adamax**
   h. **NAdam**
   [Custom foo description](##NAdam)
+    [Custom foo description](## NAdam)
+
+  
 
 
 ## Gradient Descent Overview
