@@ -4,11 +4,12 @@ title: Optimization Algorithms
 nav_order: 4
 ---
 
-# Introduction
+# Deep Neural Networks' Optimization Algorithms - An overview of Gradient Decent and its variants
 
+## Introduction
 
 **Gradient Descent** Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. 
-It is activated during the training phase, searches for the optimal set of weights - the set which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
+It is activated during the training phase, searches for the optimal set of weights - i.e. for the set which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
 
 **Gradient Descent in the context of DNN**
 The block diagram below, presents DNN's functional modules during the training phase. The 3 main modules are the Forwad Propogation, Back Propogation, and the Optimization module denoted as "Gradient Descent", (located on top-right). The Gradient Descent calculates a new set of optimized weights, denoted by \\(W_t \\), where t is the iteration index. For this calculation, the module is fed with \\( \bigtriangledown_w J\\) , the cost function gradient.
@@ -30,9 +31,10 @@ The block diagram below, presents DNN's functional modules during the training p
   f. **Adam**
   g. **Adamax**
   h. **NAdam**
+  [Custom foo description](##NAdam)
 
 
-# Gradient Descent Overview
+## Gradient Descent Overview
 
 Gradient Descent finds a minimum of either a function or a set of data points, by striding along the gradient's opposite direction, untill it reaches the point where gradient is  - this where the minima is.
 
@@ -144,7 +146,7 @@ A smaller learning rate would have solved this, make the algorithm smoothly conv
 - ***Oscillations***: this phenomenon can occure not only when gradient changes significantly in high curvuturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
 
 
-# Review of Gradient Descent Variants
+## Review of Gradient Descent Variants - Preface
 
 This post reviews some of the most popular Gradient Descent variantsת which aim to improve Gradient Descent behavior. It's hard to compare between all those algorithms, and decide on the best. Results are very much dependent on nature of the learning task, which implicates on the nature of the Loss function. Anyway, rougly speaking, the reviewed algorithm can be divided into 2 categories:
 - Momentum algorithms - convergence is accelerated if gradient points to the same direction over the update iterations or slowed-down if direction changes. Unlike the second category, these algorithms may tend to be less stable, though can sometimes be very fast. In this category we have **Momentum** and **Nesterov**.
@@ -152,7 +154,7 @@ This post reviews some of the most popular Gradient Descent variantsת which aim
 
 So here they are:
 
-# Momentum
+## Momentum
 
 #### Ref:
 Polyak, B.T. Some methods of speeding up the convergence of iteration methods. USSR Computational Mathematics and Mathematical Physics, 4(5):1–17, 1964
@@ -318,7 +320,7 @@ Similar to the less steep gradient scenario, momentum algorithm diverges quite c
 
 
 
-# Nesterov momentum
+## Nesterov momentum
 
 #### Ref:
 On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
@@ -406,7 +408,6 @@ In this scenario, Nesterov is not stable and it never converges. Clearly, the le
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nesterov_sgd_stable.gif)
 
 
-
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
 
 
@@ -423,7 +424,7 @@ Similar to previous scenario, Nesterov is not stable and it doesn't  converge. C
 
 
 
-# AdaGrad
+## AdaGrad
 
 ### Ref:
 Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)
@@ -554,7 +555,7 @@ Similar to the previous Adagrad test cases, due to the well known continuesly gr
 
 
 
-# AdaDelta
+## AdaDelta
 
 #### Ref: 
 Zeiler, ADADELTA: An Adaptive Learning Rate Method
@@ -639,7 +640,7 @@ TBD - Need to review the code
 
 
 
-# RMSprop
+## RMSprop
 
 #### Ref: 
 Hinton , Unpublished, RMSprop was presented in a Coursera course lecture.
@@ -764,7 +765,7 @@ Even in the more steeper gradient, plot shows similar convergence like in the 2 
 
 
 
-# Adam
+## Adam
 #### Ref: 
 ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
 
@@ -994,7 +995,7 @@ Same as in the previous case, the algorithm runs fastly towards the minima, suff
 
 
 
-# Adamax
+## Adamax
 #### Ref: 
  Kingma and Ba, ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015,
 
@@ -1126,7 +1127,7 @@ Still in this test case, Adamax is slower than Adam. but is highly stable, we no
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adamax_steep_azim_30_elev_90.gif)
 
 
-# NAdam
+## NAdam
 #### Ref:
 INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016, Timothy Dozat
 
