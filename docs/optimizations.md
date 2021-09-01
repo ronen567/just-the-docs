@@ -31,14 +31,15 @@ The block diagram below, presents DNN's functional modules during the training p
   f. **Adam**
   g. **Adamax**
   h. **NAdam**
-  [Custom foo description](##nadam)
-  [Custom foo description](##nesterov-momentum)
+  [Custom foo description](#nadam)
+  [Custom foo description](#nesterov-momentum)
+  [Custom foo description](#dd)
 
   
 
 
-## gradient Descent Overview
-
+## Gradient Descent Overview
+## dd
 Gradient Descent finds a minimum of either a function or a set of data points, by striding along the gradient's opposite direction, untill it reaches the point where gradient is  - this where the minima is.
 
 Gradient Descent is an iterative algorithm, at which the output at each iteration equals the output of the previous iteration, minus an update, as shown in Eq. 1
