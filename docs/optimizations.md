@@ -1153,7 +1153,7 @@ Adopting this formula, NAdam modified Adam's formula as presented below. The mod
 
 3. \\(n_t=\nu \cdot n_{t-1}  + (1-\nu) g_t^2\\)
 
-4. \\(\hat{m_t} = \frac{\mu \cdot m_t}{1-\mu^{t+1}} + \frac{(1-\mu) \cdot g_t}{1-\mu^t}\\)
+4. (*) \\(\hat{m_t} = \frac{\mu \cdot m_t}{1-\mu^{t+1}} + \frac{(1-\mu) \cdot g_t}{1-\mu^t}\\)
 
 5. \\(\hat{n_t}=\frac{\nu \cdot n_t}{1-\nu^t}\\)
 
@@ -1162,16 +1162,14 @@ Adopting this formula, NAdam modified Adam's formula as presented below. The mod
 Where:
 \\(\mu\\) and \\(\nu\\) are the exponentially decaying coefficients
 
-
-Here is Adam's oroginal equation for the biased corrected momentum:
-
+(*) NAdam and Adam differ only in the equation for \\(\hat{m_t}\\), where NAdam utilizes a "look ahead" component \\(\mu\\). Here's a reference for Adam's corresponding formula :
 
 ****Adam's Original Formula:****
 
-4. \\(\hat{m} = \frac{m_t}{1-\mu^{t+1}} \\)
+\\(\hat{m} = \frac{m_t}{1-\mu^{t+1}} \\)
 
 
- Nadam replaced usage of current \\({m_t}\\) by a "look ahead" \\(\mu\\).
+ 
 
 ### NAdam Flow Diagram
 
