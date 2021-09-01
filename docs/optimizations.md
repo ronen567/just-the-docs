@@ -19,10 +19,10 @@ The block diagram below, presents DNN's functional modules during the training p
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
 
-**Next chapters of this post are:**
+**Table of Contents**
 
-1. Gradient Descent Overview: A brief overview on Gradient Descent algorithm with a graphgical illustrative examples.
-2. Review of Gradient Descent Variants: An overview of gradient descent algorithm variants with animated demos. The review covers the following algorithms:
+1. [Gradient Descent Overview](#gradient-descent-overview): A brief overview on Gradient Descent algorithm with a graphgical illustrative examples.
+2. [Review of Gradient Descent Variants](#review-of-gradient-descent-variants): An overview of gradient descent algorithm variants with animated demos. The review covers the following algorithms:
   a. **Momentum**
   b. **Nesterov momentum**
   c. **Adagrad**
@@ -31,53 +31,113 @@ The block diagram below, presents DNN's functional modules during the training p
   f. **Adam**
   g. **Adamax**
   h. **NAdam**
-  [Custom foo description](#nadam)
-  [Custom foo description](#nesterov-momentum)
-  [Custom foo description](#dd)
-
+  
+  
+  [Momentum](#Momentum)
+  
+  [Nesterov momentum](#Nesterov momentum)
+  
+  [Adagrad](#adagrad)
+  
+  [Adadelta](#adadelta)
+  
+  [RMSprop](#rmsprop)
+  
+  [Adam](#adam)
+  
+  [Adamax](#adamax)
+  
+  [NAdam](#nadam)
+ 
   
 
 
 ## Gradient Descent Overview
-## dd
+
 Gradient Descent finds a minimum of either a function or a set of data points, by striding along the gradient's opposite direction, untill it reaches the point where gradient is  - this where the minima is.
 
-Gradient Descent is an iterative algorithm, at which the output at each iteration equals the output of the previous iteration, minus an update, as shown in Eq. 1
+Gradient Descent is an iterative algorithm, where each iteration's output is fed back as an input of the next iteration, as shown in Eq. 1, the Gradient Descent Equation.
+
 
 ### Eq. 1: Gradient Descent Equation 
 
-A new \\(w_t\\) is calculated based on \\(w_{t-1}\\): 
-
-\\(w_t = w_{t-1}-\alpha \cdot \bigtriangledown f(w_{t-1} \\)
+\\(w_t = w_{t-1}-\alpha \cdot \bigtriangledown_w f(w_{t-1}) \\)
 
 **Where**:
-**t** is the iteration step index, 0<t.
 
-\\(w is the parameter (or vector of parameters) searched for.
+\\(\textbf{t}\\) is step index
 
-\\(\alpha\\) is a hyperparameter known as the "learning rate".
+\\(\mathbf{w_t}\\) is the optimized parameter at step t.
 
-The Gradient Decsent iterative algorithm runs as follows:
+\\(\mathbf{\alpha}\\) is the "learning rate".
+
+\\(\mathbf{\bigtriangledown_w f(w_{t-1})}\\) is the gradient of f(w) with respect to w, evaluated by plugging in the most current w, i.e. \\(w=w_{t-1}\\).
+
+
+Let's have a clear picture of the algorithm, as depicted by the below Gradient Decsent algorithm flow diagram:
 
 ### Gradient Descent Flow Diagram
 
 ![gradient decent diagram](../assets/images/gd_optimizations/gradient-descent-flow.png)
 
-The termination criteria can vary between implementations: In  the above, the update step size is compared to a an absolute threshold value. Criteria can be number of iterations, variation of update size wrt to previous updates, etc.
+**Note** (*): The termination criteria in the above diagram is \\(|\Delta w_t| < \epsilon\\), where \\(\epsilon\\) is a small constant. Sometimes the termination is the number of update step, or a combination of both. 
 
 **Illustrative Examples**
 
-To illustrate Gradient Desent graphically, let's take \\(f(w) = (w-w_1) ^2 \\) .  Figure 1 illustrates gradient descent convergence for this single variable function, for which the gradient's dimenssion is 1, so the update formula here is:
+To illustrate Gradient Desent graphically, let's take a quadratic equation of the type: \\(\mathbf{f(w) = (w-w1) ^2} \\) .  
+Let's suppose this quadratic equation is a DNN's (Deep Neural Network) loss function, and it is required to find the parameter, (aka weight), which minimizes it.  In this case, the answer is obviously \\(w=w_1\\), but consider that algorithm is not aware of the deterministic function, but it is just fed with a set of data points.
 
-\\(x_{t} = x_{t-1}-\alpha \cdot \frac{d}{dx}f(x) \\)
+Anyways, the below **Figure 1** illustrates gradient descent convergence based on our given quadratic equation.
 
-### Figure 1: Gradient Descent 1D**
+### Figure 1: Gradient Descent 1D. Convergance is at \\(w=w1\\)
 
 
 ![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro.gif)
 
-Figure 2 is a contour graph which illustrates gradient descent convergence for a 2 variable function of the type \\(f(x) = a \cdot (x-w_1)^2 + b \cdot (x-w_1)^2\\)
+ BTW, since it's a 1D equation - it has a single variable - the gradient degenerates to a simple derivative like so:
 
+\\(x_{t} = x_{t-1}-\alpha \cdot \frac{d}{dx}f(x) \\)
+
+
+The Gradient Descent convergance is sometimes complicated, anyway, it is not always a smooth and straight forward. Here's a list of issues often show up:
+
+***Overshooting***: Overshooting is the phenomena of missing the desired convergance point, as a result of a too large steps along the gradient direction. Reason for that large step is a too large learning rate for the given topology. The problem could be prevented by selecting an as small as desired learning rate. But here's te trade-off - that would be on the expese of convergance speed. We will get to that later on, and present solutions for this issue.
+ 
+
+***Local Minimun trap***: Getting trapped in a local minimum, not reaching the global minima. 
+
+- ***Oscillations***: this phenomenon can occure not only when gradient changes significantly in high curvaturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
+
+
+
+
+Let's take now a more complicated example - a quadratic function with **2** variables like so:
+
+\\(mathbf{f(w) = a \cdot (w^1-w1)^2 + b \cdot (w^2-w1)^2}\\)
+
+Now it is required to find a set of parameters \\([w^1, w^2]\\) which minimizes the function, with Gradeint Descent according to Eq. 1.
+
+
+
+
+3 test cases are examined, to illustrate phenomanas typical to Gradient Descent behavior:
+
+1. Easy Convergance - the algorithm is smoothly converged.
+2. Slight Oscliation - the output is slightly oscilative, but eventually converges.
+3. Oscliation - the output is very oscilative, and does not converge.
+
+
+
+Each of the 3 test cases is depicted by a set of animated plots, which includes a 2D contour plot and a 3D surface plot with shots taken from 3 camera positions.
+
+Overshoot is a one of the Gradient Descent performance issues, between them are:
+- ***Overshooting***: As depicted by Figures 3 and 4, high curvatures may lead to overshooting. Overshooting is a result of moving too fast along the gradient direction, while it changes signs. 
+
+- ***Local Minimun trap***: Getting trapped in a local minimum, not reaching the global minima.
+
+- ***Oscillations***: this phenomenon can occure not only when gradient changes significantly in high curvaturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
+
+ 
 ### Figure 2: Gradient Descent 2D - Easy Convergence
 
 #### 2a: 2D Contour
@@ -118,9 +178,6 @@ Now look at Figure 3, which is similar to Figure 2, except that the gradient is 
 ![gradient decent example](../assets/images/gd_optimizations/demo/3d_contour_sgd_stable_azim_30_elev_90.gif)
 
 
-
-
-
 Figure 4 however, presents an even steepper gradient in w2 direction. Now we get oscilations in w2 direction, which never converge. 
 
 ### Figure 4: Gradient Descent - Oscilations
@@ -142,12 +199,10 @@ Figure 4 however, presents an even steepper gradient in w2 direction. Now we get
 ![gradient decent example](../assets/images/gd_optimizations/demo/3d_contour_sgd_steep_azim_30_elev_90.gif)
 
 
-A smaller learning rate would have solved this, make the algorithm smoothly converge. However, a smaller learning rate would have slowed down convergance in all scenarios. This is a tradeoff. Chosing alpha is one of the chalenges of Gradient Descent, and it normally requires some trial and error iterations to find a suitable value. Overshoot is a one of the Gradient Descent performance issues, between them are:
-- ***Overshooting***: As depicted by Figures 3 and 4, high curvutures may lead to overshooting. Overshooting is a result of moving too fast along the gradient direction, while it changes signs. 
+** Some Conclusions**:
 
-- ***Local Minimun trap***: Getting trapped in a local minimum, not reaching the global minima.
+No doubt a smaller learning rate would have solved the overshoots and oscilations, making the algorithm smoothly converge. However, a smaller learning rate would have slowed down convergance. This is a tradeoff. So how smallshould the learning rate be? Chosing learning rate for Gradient Descent is one of the chalenges of Gradient Descent, and it normally requires some trial and error iterations to tune. But situation is not that bad! There are more variants of plain Gradient Descent which improve accelerate convergance and, most importantly, dynamically adapt the learning rate thus providing a stabilized and converging functionality.
 
-- ***Oscillations***: this phenomenon can occure not only when gradient changes significantly in high curvuturs as depicted by Figure 4, but also when no matter the direction it  navigating in a plateau, where gradient is negligible but still may have slight differences which lead to oscliations
 
 
 ## Review of Gradient Descent Variants - Preface
