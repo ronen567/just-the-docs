@@ -123,7 +123,7 @@ Saddle points are points where gradient is 0, though are not minimum. The algori
 ![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro_overshoot.gif)
 
 
-Overshooting is the phenomena of passing over the desired convergence point, as a result of a too large steps along the gradient direction. Reason for that large step is a too large learning rate for the given topology. The problem could be prevented by selecting an as small as desired learning rate. But here's te trade-off - that would be on the expese of convergence speed. We will get to that later on, and present solutions for this issue. Anyway, overshoots usually lead to oscliations, following a back and forth update steps.
+Overshooting is the phenomena of passing over the desired convergence point, as a result of a too large steps along the gradient direction. Reason for that large step is a too large learning rate for the given topology. The problem could be prevented by selecting an as small as desired learning rate. But here's te trade-off - that would be on the expese of convergence speed. We will get to that later on, and present solutions for this issue. Anyway, overshoots may lead to back and forth oscliations - like in the illustration animation above, depending on the topology.
 
 
 ***Oscillations***: 
