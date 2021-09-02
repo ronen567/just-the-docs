@@ -28,9 +28,9 @@ This post present Gradient along with other Gradient Descent variants which aim 
 1. [Gradient Descent Overview](#gradient-descent-overview): A brief overview on Gradient Descent algorithm with a graphgical illustrative examples.
 2. [Review of Gradient Descent Variants](#review-of-gradient-descent-variants): An overview of gradient descent variants + animated demos. The review covers the following algorithms:
   
-  a. [Momentum](#Momentum)
+  a. [Momentum](#momentum)
   
-  b. [Nesterov momentum](#Nesterov-momentum)
+  b. [Nesterov momentum](#nesterov-momentum)
   
   c. [Adagrad](#adagrad)
   
