@@ -11,17 +11,17 @@ nav_order: 4
 **Gradient Descent** 
 
 Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. 
-It does so, during the training phase, by searching for the set of weights which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the model's predicted output). 
+It does so, during the training phase, by searching for the set of weights which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the modeled predicted output). 
 
 **Gradient Descent in the context of DNN**
 
-The block diagram below presents the operation of DNN modules during the training phase. The 3 main modules presented are the **Forwad Propogation**, **Back Propogation**, and the  **"Gradient Descent"** module. (A detail descritions of **Forwad Propogation** and **Back Propogation** are given in dedicated posts). 
+The block diagram which follows, presents DNN modules, as orgenized during the training phase. The 3 main modules presented are the **Forwad Propogation**, **Back Propogation**, and the  **"Gradient Descent"** module. (A detail descritions of **Forwad Propogation** and **Back Propogation** are given in dedicated posts). 
 
 ### Figure 0: Deep Neural Network Block Diagram - Training Phase
 
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
-This post present Gradient along with other Gradient Descent variants which aim to improve optimization convergence.
+That was a brief description on what Geadient Descent is, and how it is utilized in the context of DNNs. The rest of this post post presents the Gradient Descent algorithm, along with other Gradient Descent variants, which aim to improve optimization convergence.
 
 **Table of Contents**
 
@@ -79,7 +79,7 @@ To provide a clearer picture of Gradient Descent functionality, here below is th
 
 **Note** (*): The termination criteria in the above diagram is \\(|\Delta w_t| < \epsilon\\), where \\(\epsilon\\) is a small constant. Sometimes the termination is the number of update step, or a combination of both. 
 
-### Illustrative 1D Examples
+### An Illustrative 1D Examples
 
 To illustrate Gradient Desent graphically, we take a quadratic equation of the type: 
 
@@ -100,9 +100,9 @@ So we did:  the below **Figure 1** illustrates gradient descent convergence base
 \\(x_{t} = x_{t-1}-\alpha \cdot \frac{d}{dx}f(x) \\)
 
 
-### The Gradient Descent Convergence Issues
+### The Gradient Descent Challenges
 
-Below is a list of Gradient Descent convergence issues:
+Below is a list of Gradient Descent convergence challenge
 
 ***Local Minimun trap***: 
 
@@ -133,6 +133,9 @@ Overshooting is the phenomena of passing over the desired convergence point, as 
 
 This phenomenon can occure not only when gradient changes significantly in high curvaturs as depicted by Figure 4, but in a plateau, where gradient is negligible, but still may have slight sporadic differences which lead to oscliations.
 
+Throughout the rest of this post, the challenges will be graphically illustrated for both Gradient Descent, and the other presented Gradient Descent variants, which aim to solve some of the challengs.
+
+Anyway, let's start examining Gradient Descent under easy to converge conditions, and also various convergence challenged conditions.
 
 ### Illustrative Examples of 2D Gradient Descent Varoius Scenarios
 
