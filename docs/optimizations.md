@@ -262,7 +262,6 @@ The algorithms' reviews follow.
 ## Momentum
 
 **Ref:**
-
 **Polyak, B.T. Some methods of speeding up the convergence of iteration methods. USSR Computational Mathematics and Mathematical Physics, 4(5):1–17, 1964**
 
 **Goodfellow, Bengio, Courville, Deep Learning**
@@ -430,7 +429,6 @@ Similar to the less steep gradient scenario, momentum algorithm diverges quite c
 ## Nesterov Momentum
 
 **Ref:**
-
 **On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
 chine Learning, 2013, Sutskever et al**
 
@@ -535,7 +533,6 @@ Similar to previous scenario, Nesterov is not stable and it doesn't  converge. C
 ## AdaGrad
 
 **Ref:**
-
 **Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)**
 
 
@@ -667,7 +664,6 @@ Similar to the previous Adagrad test cases, due to the well known continuesly gr
 ## AdaDelta
 
 **Ref:**
-
 **Zeiler, ADADELTA: An Adaptive Learning Rate Method**
 
 AdaDelta aims to improve the 2 Adagrad's drawbacks: 
@@ -753,7 +749,6 @@ TBD - Need to review the code
 ## RMSprop
 
 **Ref:** 
-
 **Hinton , Unpublished, RMSprop was presented in a Coursera course lecture.**
 **Hinton with Srivastava & Swersky, 2012, Lecture University of Toronto, Overview of mini-batch gradient descent**
 
@@ -879,7 +874,6 @@ Even in the more steeper gradient, plot shows similar convergence like in the 2 
 ## Adam
 
 **Ref: **
-
 **ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba**
 
 Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\), and root squared sum of gradients, (aka second raw moment aka uncentered variance), denoted by \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
@@ -1111,7 +1105,6 @@ Same as in the previous case, the algorithm runs fastly towards the minimum, suf
 ## Adamax
 
 **Ref: **
-
 **Kingma and Ba, ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015,**
 
 A variant of Adam, proposed in same paper, suggests to replace Adam's second raw moment \\( v_t \\) , by \\( u_t \\):
@@ -1245,7 +1238,6 @@ Still in this test case, Adamax is slower than Adam. but is highly stable, we no
 ## NAdam
 
 **Ref:**
-
 **Timothy Dozat, INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016**
 
 The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm, incorporating the Nesterov momentum principal into it. The prinicipal is of using a next step update, already in current iteration. According to this principal, Nesterov formula for gradient was this:
