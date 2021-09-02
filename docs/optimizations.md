@@ -21,7 +21,7 @@ The block diagram below presents the operation of DNN modules during the trainin
 
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
-This post present Gradient along with other Gradient Descent variants which aim to improve optimization convergance.
+This post present Gradient along with other Gradient Descent variants which aim to improve optimization convergence.
 
 **Table of Contents**
 
@@ -30,7 +30,7 @@ This post present Gradient along with other Gradient Descent variants which aim 
   
   a. [Momentum](#Momentum)
   
-  b. [Nesterov momentum](#Nesterov momentum)
+  b. [Nesterov momentum](#Nesterov-momentum)
   
   c. [Adagrad](#adagrad)
   
@@ -87,22 +87,22 @@ To illustrate Gradient Desent graphically, we take a quadratic equation of the t
 
 This quadratic equation mimics a DNN's (Deep Neural Network) loss function. Having that, it is required to find the set of parameters {w}, (In this 1D example, it's a single parameter), which minimizes the cost function, thus optimizing the DNN.
 
-To do that, the iterative flow described in the above flow diagram should be implemented on the give quadratic equation, till convergance is achieved. 
+To do that, the iterative flow described in the above flow diagram should be implemented on the give quadratic equation, till convergence is achieved. 
 So we did:  the below **Figure 1** illustrates gradient descent convergence based on our given quadratic equation.
 
-### Figure 1: Gradient Descent 1D. Convergance is at \\(w=w1\\)
+### Figure 1: Gradient Descent 1D. Convergence is at \\(w=w1\\)
 
 
-![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro.gif)
+![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro_converge.gif)
 
  BTW, since it's a 1D equation - it has a single variable - the gradient degenerates to a simple derivative like so:
 
 \\(x_{t} = x_{t-1}-\alpha \cdot \frac{d}{dx}f(x) \\)
 
 
-### The Gradient Descent Convergance Issues
+### The Gradient Descent Convergence Issues
 
-Below is a list of Gradient Descent convergance issues:
+Below is a list of Gradient Descent convergence issues:
 
 ***Local Minimun trap***: 
 
@@ -123,7 +123,7 @@ Saddle points are points where gradient is 0, though are not minimum. The algori
 ![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro_overshoot.gif)
 
 
-Overshooting is the phenomena of passing over the desired convergance point, as a result of a too large steps along the gradient direction. Reason for that large step is a too large learning rate for the given topology. The problem could be prevented by selecting an as small as desired learning rate. But here's te trade-off - that would be on the expese of convergance speed. We will get to that later on, and present solutions for this issue. Anyway, overshoots usually lead to oscliations, following a back and forth update steps.
+Overshooting is the phenomena of passing over the desired convergence point, as a result of a too large steps along the gradient direction. Reason for that large step is a too large learning rate for the given topology. The problem could be prevented by selecting an as small as desired learning rate. But here's te trade-off - that would be on the expese of convergence speed. We will get to that later on, and present solutions for this issue. Anyway, overshoots usually lead to oscliations, following a back and forth update steps.
 
 
 ***Oscillations***: 
@@ -145,7 +145,7 @@ It is required to find a set of parameters \\([w^1, w^2]\\) which minimizes the 
 
 Gradient Descent was executed on the above function, for 3 test case scenarios, to illustrate typical Grand Descent patterns of behavior:
 
-1. **Easy Convergance** - the algorithm is smoothly converged.
+1. **Easy Convergence** - the algorithm is smoothly converged.
 2. **Slightly Oscliative** - the output is slightly oscilative, but eventually converges.
 3. **Oscliative** - the output is very oscilative, and does not converge.
 
@@ -216,7 +216,7 @@ Figure 4 however, presents an even steepper gradient in w2 direction. Now we get
 
 **Some Conclusions**:
 
-No doubt a smaller learning rate would have solved the overshoots and oscilations, making the algorithm smoothly converge. However, a smaller learning rate would have slowed down convergance. This is a tradeoff. So how smallshould the learning rate be? Chosing learning rate for Gradient Descent is one of the chalenges of Gradient Descent, and it normally requires some trial and error iterations to tune. But situation is not that bad! There are more variants of plain Gradient Descent which improve accelerate convergance and, most importantly, dynamically adapt the learning rate thus providing a stabilized and converging functionality.
+No doubt a smaller learning rate would have solved the overshoots and oscilations, making the algorithm smoothly converge. However, a smaller learning rate would have slowed down convergence. This is a tradeoff. So how smallshould the learning rate be? Chosing learning rate for Gradient Descent is one of the chalenges of Gradient Descent, and it normally requires some trial and error iterations to tune. But situation is not that bad! There are more variants of plain Gradient Descent which improve accelerate convergence and, most importantly, dynamically adapt the learning rate thus providing a stabilized and converging functionality.
 
 
 
@@ -224,15 +224,17 @@ No doubt a smaller learning rate would have solved the overshoots and oscilation
 
 This post reviews some of the most popular Gradient Descent variantsת which aim to improve Gradient Descent behavior. It's hard to compare between all those algorithms, and decide on the best. Results are very much dependent on nature of the learning task, which implicates on the nature of the Loss function. Anyway, rougly speaking, the reviewed algorithm can be divided into 2 categories:
 - Momentum algorithms - convergence is accelerated if gradient points to the same direction over the update iterations or slowed-down if direction changes. Unlike the second category, these algorithms may tend to be less stable, though can sometimes be very fast. In this category we have **Momentum** and **Nesterov**.
-- Adaptive learning rate algorithms - the learning rate is regulated accrding to the root sum squared past gradients. Those algorithms are considerably more stable. Some of these algorithms incorporate momentum to accelerate convergance. In this category we have AdaGrad, AdaDelta, RmsProp, Adam, Adamax and NAdam.
+- Adaptive learning rate algorithms - the learning rate is regulated accrding to the root sum squared past gradients. Those algorithms are considerably more stable. Some of these algorithms incorporate momentum to accelerate convergence. In this category we have AdaGrad, AdaDelta, RmsProp, Adam, Adamax and NAdam.
 
 So here they are:
 
 ## Momentum
 
-#### Ref:
-Polyak, B.T. Some methods of speeding up the convergence of iteration methods. USSR Computational Mathematics and Mathematical Physics, 4(5):1–17, 1964
-Goodfellow, Bengio, Courville, Deep Learning
+**Ref:**
+
+**Polyak, B.T. Some methods of speeding up the convergence of iteration methods. USSR Computational Mathematics and Mathematical Physics, 4(5):1–17, 1964**
+
+**Goodfellow, Bengio, Courville, Deep Learning**
 
 The idea of Momentum algorithm is to accelerate convergence of Gradient Descent by allowing a faster move when in a low gradient zone, and decrease otherwise, i.e. when gradient changes directions. 
 
@@ -394,11 +396,12 @@ Similar to the less steep gradient scenario, momentum algorithm diverges quite c
 
 
 
-## Nesterov momentum
+## Nesterov Momentum
 
-#### Ref:
-On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
-chine Learning, 2013, Sutskever et al
+**Ref:**
+
+**On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
+chine Learning, 2013, Sutskever et al**
 
 Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm, with a slight algorithmic modification in the gradient formula: 
 
@@ -500,8 +503,9 @@ Similar to previous scenario, Nesterov is not stable and it doesn't  converge. C
 
 ## AdaGrad
 
-### Ref:
-Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)
+**Ref:**
+
+**Duchi et. al., "Adaptive Subgradient Methods for Onlie Learning and Stochastic Optimization, Journal Of Machine Learning Reaserch 12 (2011)**
 
 
 Adagrad (Adaptive Gradient) algorithm implements an adaptive learning rate. To achieve this feature, Adagrad divides the constant learning rate coefficient, by the root sum squared of past gradients, as shown if Eq. 4. 
@@ -631,8 +635,9 @@ Similar to the previous Adagrad test cases, due to the well known continuesly gr
 
 ## AdaDelta
 
-#### Ref: 
-Zeiler, ADADELTA: An Adaptive Learning Rate Method
+**Ref:**
+
+**Zeiler, ADADELTA: An Adaptive Learning Rate Method**
 
 AdaDelta aims to improve the 2 Adagrad's drawbacks: 
 1. The continual decay of learning rate. 
@@ -716,9 +721,10 @@ TBD - Need to review the code
 
 ## RMSprop
 
-#### Ref: 
-Hinton , Unpublished, RMSprop was presented in a Coursera course lecture.
-Hinton with Srivastava & Swersky, 2012, Lecture University of Toronto, Overview of mini-batch gradient descent
+**Ref:** 
+
+**Hinton , Unpublished, RMSprop was presented in a Coursera course lecture.**
+**Hinton with Srivastava & Swersky, 2012, Lecture University of Toronto, Overview of mini-batch gradient descent**
 
 
 RMSprop (RMS Propagation)like AdaDelta, is an improvement of AdaGrad. It aims to solve AdaGrad drwaback regarding the continual decay of learning rate. It does so by replacing the denominator of AdaGrad (Eq. 4), by an exponentially decaying average of squared gradients \\(E(g^2) \\), exactly as done by AdaDelta. Unlike AdaDelta, RMSprop leaves AdaGrad's global learning rate coefficient in place, so the updating formula becomes:
@@ -840,8 +846,10 @@ Even in the more steeper gradient, plot shows similar convergence like in the 2 
 
 
 ## Adam
-#### Ref: 
-ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba
+
+**Ref: **
+
+**ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015, Kingma and Ba**
 
 Adam (Adaptive Moment Estimation) was designed to combine the advantages of AdaGrad and RmsProp. It incorporates exponential decay moving averages of past gradients, aka moment (aka first raw moment), denoted by \\(m_t\\), and root squared sum of gradients, (aka second raw moment aka uncentered variance), denoted by \\(v_t \\). Adam also incorporates initialization bias correction, to compensate the moments' bias to zero at early iterations. 
 Adam's update step size is upper bounded -  for common scenarios, upper bound is the learning rate coefficient, i.e. \\( \left | \Delta w_t  \right | \leq \alpha\\) 
@@ -1070,8 +1078,10 @@ Same as in the previous case, the algorithm runs fastly towards the minimum, suf
 
 
 ## Adamax
-#### Ref: 
- Kingma and Ba, ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015,
+
+**Ref: **
+
+**Kingma and Ba, ADAM: A METHOD FOR STOCHASTIC OPTIMIZATION, ICLR 2015,**
 
 A variant of Adam, proposed in same paper, suggests to replace Adam's second raw moment \\( v_t \\) , by \\( u_t \\):
 
@@ -1123,7 +1133,7 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
 
-Adamax conversion is slower than Adam's in the same setup. Difference between the algorithms is in the learning rate regulation component where Adam uses an \\(L2_\\) norm while Adamx uses an \\(L_{\infty}\\) norm. For the demonstrated quadratic loss function, the later decreases slower.
+Adamax convergence is slower than Adam's in the same setup. Difference between the algorithms is in the learning rate regulation component where Adam uses an \\(L2_\\) norm while Adamx uses an \\(L_{\infty}\\) norm. For the demonstrated quadratic loss function, the later decreases slower.
 
 #### SGD 2D Contour (reference)
 
@@ -1202,8 +1212,10 @@ Still in this test case, Adamax is slower than Adam. but is highly stable, we no
 
 
 ## NAdam
-#### Ref:
-INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016, Timothy Dozat
+
+**Ref:**
+
+**Timothy Dozat, INCORPORATING NESTEROV MOMENTUM INTO ADAM, ICLR 2016**
 
 The NAdam (Nesterov-accelerated Adaptive Moment Estimation) extends Adam algorithm, incorporating the Nesterov momentum principal into it. The prinicipal is of using a next step update, already in current iteration. According to this principal, Nesterov formula for gradient was this:
 
@@ -1230,18 +1242,23 @@ Adopting this formula, NAdam modified Adam's formula as presented below. The mod
 
 4. (*) \\(\hat{m_t} = \frac{\mu \cdot m_t}{1-\mu^{t+1}} + \frac{(1-\mu) \cdot g_t}{1-\mu^t}\\)
 
-5. \\(\hat{n_t}=\frac{\nu \cdot n_t}{1-\nu^t}\\)
+5. (*) \\(\hat{n_t}=\frac{\nu \cdot n_t}{1-\nu^t}\\)
 
 6. \\(w_t = w_{t-1} - \frac{\alpha \cdot \hat{m_t}}{\sqrt{\hat{n_t}}+\epsilon}\\)
 
-Where:
-\\(\mu\\) and \\(\nu\\) are the exponentially decaying coefficients
+**Where**:
 
-(*) NAdam and Adam differ only in the equation for \\(\hat{m_t}\\), where NAdam utilizes a "look ahead" component \\(\mu\\). Here's a reference for Adam's corresponding formula :
+\\(\mu\\) and \\(\nu\\) are the exponentially decaying coefficients, relate to \\(\beta_1\\) and \\(\beta_2\\) respectively. Typicaly \\(\mu=0.975\\) and \\(\mu=0.999\\)
 
-****Adam's Original Formula:****
 
-\\(\hat{m} = \frac{m_t}{1-\mu^{t+1}} \\)
+
+(*) NAdam and Adam differ in equations #4 and #5 for \\(\hat{m_t}\\) and \\(\hatnm_t}\\), where NAdam utilizes "look ahead" factors for both.
+
+****Adam's Original Formulas:****
+
+\\(\hat{m_t} = \frac{m_t}{1-\beta_1^{t+1}} \\)
+
+\\(\hat{v_t}=\frac{v_t}{1-\beta_2^t}\\)
 
 
  
@@ -1264,6 +1281,8 @@ Plots here below present optimization execution results for 3 2D Loss functions,
 
 
 ### Moderate gradient \\(J(w)=\frac{1}{2} \cdot (w_1^2+w_2^2)\\)
+
+For the steeper scenarios tested, NAdam shows a faster convergence with smaller overshoots.
 
 #### SGD 2D Contour (reference)
 
