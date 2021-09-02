@@ -153,7 +153,7 @@ Anyway, let's start examining Gradient Descent under easy to converge conditions
 
 Let's take now a more complicated example - a quadratic function with **2** variables like so:
 
-\\(mathbf{f(w) = a \cdot (w^1-w1)^2 + b \cdot (w^2-w1)^2}\\)
+\\(\mathbf{f(w) = a \cdot (w^1-w1)^2 + b \cdot (w^2-w1)^2}\\)
 
 It is required to find a set of parameters \\([w^1, w^2]\\) which minimizes the function, with Gradeint Descent according to Eq. 1, as described in the above flow diagram.
 
