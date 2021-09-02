@@ -156,7 +156,7 @@ Gradient Descent was executed on the above function, for 3 test case scenarios, 
 Each of the 3 test cases is depicted by a set of animated plots attached below, which includes a 2D contour plot and a 3D surface plot with shots taken from 3 camera positions.
 
  
-### Figure 2: Gradient Descent 2D - Easy Convergence
+### Figure 2: Gradient Descent - Easy Convergence
 
 #### 2a: 2D Contour
 
@@ -177,7 +177,7 @@ Each of the 3 test cases is depicted by a set of animated plots attached below, 
 
 Now look at Figure 3, which is similar to Figure 2, except that the gradient is steepper in w2 direction. The resultant step size in the w2 direction at the begining is too large, which leads to some overshoots, but the algorithm converges eventually.
 
-### Figure 3: Gradient Descent - Slight Oscilative
+### Figure 3: Gradient Descent - Slightly Oscilative
 
 #### 3a: 2D Contour
 
@@ -226,10 +226,38 @@ No doubt a smaller learning rate would have solved the overshoots and oscilation
 ## Review of Gradient Descent Variants - Preface
 
 This post reviews some of the most popular Gradient Descent variantsת which aim to improve Gradient Descent behavior. It's hard to compare between all those algorithms, and decide on the best. Results are very much dependent on nature of the learning task, which implicates on the nature of the Loss function. Anyway, rougly speaking, the reviewed algorithm can be divided into 2 categories:
-- Momentum algorithms - convergence is accelerated if gradient points to the same direction over the update iterations or slowed-down if direction changes. Unlike the second category, these algorithms may tend to be less stable, though can sometimes be very fast. In this category we have **Momentum** and **Nesterov**.
-- Adaptive learning rate algorithms - the learning rate is regulated accrding to the root sum squared past gradients. Those algorithms are considerably more stable. Some of these algorithms incorporate momentum to accelerate convergence. In this category we have AdaGrad, AdaDelta, RmsProp, Adam, Adamax and NAdam.
 
-So here they are:
+**Momentum algorithms**
+
+With momentum category algorithms, updates are incremented over plain Gradient Descent if gradient direction is consistent over a series of update iterations, or decremented, in case gradient direction changes. Algorithms of this category may sometimes show less stability, though can sometimes be very fast, all depends on the specific application and also the various related parameters.
+
+Reviewed algorithms of this category:
+
+[Momentum](#momentum)
+  
+[Nesterov momentum](#nesterov-momentum)
+  
+
+ 
+**Adaptive learning rate algorithms**
+
+In this categoryg, the learning rate is adapted mostly accrding to the root sum squared past gradients, but not always. Those algorithms are considerably more stable. Some of these algorithms incorporate momentum as well, to accelerate convergence. In this category we have
+
+[Adagrad](#adagrad)
+  
+[Adadelta](#adadelta)
+  
+[RMSprop](#rmsprop)
+ 
+[Adam](#adam)
+  
+[Adamax](#adamax)
+  
+[NAdam](#nadam)
+
+
+So next are the algorithms' reviews:
+
 
 ## Momentum
 
