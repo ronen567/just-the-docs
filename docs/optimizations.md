@@ -256,7 +256,7 @@ In this categoryg, the learning rate is adapted mostly accrding to the root sum 
 [NAdam](#nadam)
 
 
-So next are the algorithms' reviews:
+The algorithms' reviews follow.
 
 
 ## Momentum
