@@ -131,7 +131,7 @@ Overshooting is the phenomena of passing over the desired convergence point, as 
 ![gradient decent example](../assets/images/gd_optimizations/sgd_1d_intro_oscilations.gif)
 
 
-This phenomenon can occure not only when gradient changes significantly in high curvaturs as depicted by Figure 4, but in a plateau, where gradient is negligible, but still may have slight sporadic differences which lead to oscliations.
+This phenomenon can occure not only when gradient changes significantly in high curvaturs as depicted by Figure 4, but in a plateau, where gradient is negligible, but still may have slight sporadic differences which lead to oscliations. The attached animation is of none converging oscilations.
 
 Throughout the rest of this post, the challenges will be graphically illustrated for both Gradient Descent, and the other presented Gradient Descent variants, which aim to solve some of the challengs.
 
