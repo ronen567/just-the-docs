@@ -24,7 +24,7 @@ The block diagram which follows, presents DNN modules, as orgenized during the t
 **Gradient Descent** 
 
 
-(A detail descritions of **Forwad Propogation** and **Back Propogation** are given in dedicated posts.)
+(**Forwad Propogation** and **Back Propogation** are covered to details in dedicated posts.)
 
 As depicted by the flow diagram, Gradient Descent is located between the other 2 modules, where at each update cycle it updates the Forward Propogation module with the weights which were calculated, based on gradients supplied by Back Propogation module.
 
