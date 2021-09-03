@@ -289,7 +289,7 @@ Eq. 2b: \\( w_t = w_{t-1}+v_t \\)
 
 Eq. 2a presents a new term denoted by \\( v_t \\), which accumulates weighted past iterations updates. The hyperparameter \\( \beta \\), determines the decay rate of past updates' - the larger  \\( \beta \\) is comparing to \\(\alpha\\), the more weight given to past updates.
 
-With the effect of momentum, learning is accelerated in case direction of current gradient is the same as that of past averaged updates, and is slowed down in case it is in the oposite direction. This effect aims to provide acceleration for consistent direction curvatures - high, low, and also noisey. It aims to provide a damping effect when direction changes, e.g. to decrease overshoots.
+With the effect of momentum, update steps are  increamented in case direction of current gradient is the same as that of past averaged updates, and decremented  in case it is in the oposite direction. This effect aims to provide learning acceleration for consistent direction curvatures - high, low, and also noisey. It aims to provide a damping effect when direction changes, e.g. to decrease overshoots. Practically, its behavior should be carefully examined for high curvatures, where step size increment might lead to overshoots.
 
 In the effort to understand the momentum behaior, let's examine the special test case where the gradient \\(g\\) is constant - same magnitude and direction, for all successive iterations. It is easy to show - (the full proof, is given at the end of this paragraph), the in that case, after gaining acceleration. the update rate converges to a constant rate equals to: 
 
