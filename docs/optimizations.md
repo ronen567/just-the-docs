@@ -76,13 +76,13 @@ Eq. 1 present Gradient Descent update equation. It is followed by a flow diagram
 
 **Where**:
 
-\\(\textbf{t}\\) is step index
+- \\(\textbf{t}\\) is step index
 
-\\(\mathbf{w_t}\\) is the optimized parameter at step t.
+- \\(\mathbf{w_t}\\) is the optimized parameter at step t.
 
-\\(\mathbf{\alpha}\\) is the "learning rate".
+- \\(\mathbf{\alpha}\\) is the "learning rate".
 
-\\(\mathbf{\bigtriangledown_w f(w_{t-1})}\\) is the gradient of f(w) with respect to w, evaluated by plugging in the most current w, i.e. \\(w=w_{t-1}\\).
+- \\(\mathbf{\bigtriangledown_w f(w_{t-1})}\\) is the gradient of f(w) with respect to w, evaluated by plugging in the most current w, i.e. \\(w=w_{t-1}\\).
 
 
 
@@ -455,6 +455,11 @@ Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm, 
 #### 3.b: \\(w_{t}=w_{t-1} + v_t \\)
 
 
+### Nesterov Momentum Flow Diagram
+
+![gradient decent diagram](../assets/images/gd_optimizations/nesterov-momentum-gradient-descent-flow.png)
+
+
 Nesterov equations (Eq. 3) are quite alike Momentum (Eq. 2), actually the same. The difference is just within the gradient calculation. The 2 diagrams below, are assumed to crystallize Nesterov functionality vs Momentum's in the wider DNN context. 
 
 ###Momentum functionality in the wider DNN context
@@ -464,11 +469,6 @@ Nesterov equations (Eq. 3) are quite alike Momentum (Eq. 2), actually the same. 
 ###Nesterov functionality in the wider DNN context
 
 ![gradient decent diagram](../assets/images/gd_optimizations/nesterov-training-flow.png)
-
-
-### Nesterov Momentum Flow Diagram
-
-![gradient decent diagram](../assets/images/gd_optimizations/nesterov-momentum-gradient-descent-flow.png)
 
 
 ## Demo - Nesterov over various Loss Function scenarios
@@ -556,13 +556,13 @@ The Adagrad update formula is:
 
 ***Where:***
 
--\\(\alpha \\) is the "Global Learning Rate".
+- \\(\alpha \\) is the "Global Learning Rate".
 
--\\(g(t)=\bigtriangledown_w J(w_{t-1}) \\)
+- \\(g(t)=\bigtriangledown_w J(w_{t-1}) \\)
 
 - \\(\odot\\) stands for "elementwise multiplication".
 
--\\(\epsilon \\) is a small constant used to maintain stability, commonly set to \\(10^{-7} \\).
+- \\(\epsilon \\) is a small constant used to maintain stability, commonly set to \\(10^{-7} \\).
 
 
 ### Adagrad Flow Diagram
@@ -693,11 +693,11 @@ AdaDelta replaces AdaGrad's denominator, which accumulates the squared gradients
 
 **where**:
 
--\\(\gamma\\) is a exponential decay constant.
+- \\(\gamma\\) is a exponential decay constant.
 
--\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an element-wise square. 
+- \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an element-wise square. 
 
--\\(\epsilon\\) is a small constant used to maintain stability, commonly set to \\(10^{-7} \\). 
+- \\(\epsilon\\) is a small constant used to maintain stability, commonly set to \\(10^{-7} \\). 
 
 
 AdaDelta's numerator is windowed root squared of past deltas, i.e. past root sum squared updates as presented in the next equations:
@@ -717,11 +717,11 @@ AdaDelta's numerator is windowed root squared of past deltas, i.e. past root sum
 
 **where:**
 
--\\(\rho\\) is a constant controlling the decay of the average.
+- \\(\rho\\) is a constant controlling the decay of the average.
 
--\\( \Delta w{_t}{^2} = \Delta w_t \odot \Delta w_t \\) , i.e. an element-wise square. 
+- \\( \Delta w{_t}{^2} = \Delta w_t \odot \Delta w_t \\) , i.e. an element-wise square. 
 
--\\(\epsilon\\) is a small constant used to start first iteration where \\(\Delta w^2=0\\), and ensures progress continue even if previous updates become small. commonly set to \\(10^{-7} \\). 
+- \\(\epsilon\\) is a small constant used to start first iteration where \\(\Delta w^2=0\\), and ensures progress continue even if previous updates become small. commonly set to \\(10^{-7} \\). 
 
 -Note: Algorithm uses \\(RMS[\Delta w]_{t-1}\\) for the calculation of \\(\Delta w_t\\). 
 
@@ -774,11 +774,11 @@ E(g^2)_t = \rho \cdot E(g^2)_{t-1} + (1-\rho) \cdot g^2_{t}
 
 Where:
 
--\\(g_t = \bigtriangledown f(w_{t-1}) \\) (Note that like in most of optimizers, the gradient is expected to be averaged over a mini batch)
+- \\(g_t = \bigtriangledown f(w_{t-1}) \\) (Note that like in most of optimizers, the gradient is expected to be averaged over a mini batch)
 
--\\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
+- \\(g^2_{t} = g_{t} \odot g_{t} \\) , i.e. an elementwise square. 
 
--\\(\epsilon\\) is a small constant used to maintain stability, commonly set to \\(10^{-6}\;or\;10^{-7} \\). 
+- \\(\epsilon\\) is a small constant used to maintain stability, commonly set to \\(10^{-6}\;or\;10^{-7} \\). 
 
 
 Recommended values for the global learning rate \\(\alpha \\) and the decay constant \\(\gamma \\) hyperparameters are 0.001 and 0.9 respectively.
@@ -900,9 +900,9 @@ Adam incorporates a moment estimation, calculated as an exponantial decay moving
 
 where:
 
--\\( g_t = \bigtriangledown f(w_{t-1}) \\)
+- \\( g_t = \bigtriangledown f(w_{t-1}) \\)
 
--\\(\beta_1 \epsilon [0,1) \\) is the exponential decay rate.
+- \\(\beta_1 \epsilon [0,1) \\) is the exponential decay rate.
 
 Adam's denominator incorporates an exponantial decay root sum squared of past gradients, denoted by \\(v_t\\):
 
@@ -912,9 +912,9 @@ Adam's denominator incorporates an exponantial decay root sum squared of past gr
 
 where:
 
--\\( g_t = g_t \odot g_t\\) is an elementwise square.
+- \\( g_t = g_t \odot g_t\\) is an elementwise square.
 
--\\(\beta_2 \epsilon \left [0,1 \right ) \\) is the exponential decay rate.
+- \\(\beta_2 \epsilon \left [0,1 \right ) \\) is the exponential decay rate.
 
 ###  initialization bias Correction
 
@@ -1129,11 +1129,11 @@ Bias correction is not needed for \\( u_t \\) anymore. The numerator is same as 
 
 Where proposed hyperparameter values are:
 
-\\(\alpha=0.002 \\)
+- \\(\alpha=0.002 \\)
 
-\\(\beta_1=0.9 \\)
+- \\(\beta_1=0.9 \\)
 
-\\(\beta_2=0.999 \\)
+- \\(\beta_2=0.999 \\)
 
 Here below is a plot of Adamax \\(L_{\infty}\\) denominator vs Adam  \\(L2_\\) denominator, with a quadratic loss function. According to the plot, Adamax updates would run slower, for quadratic loss functions :
 
