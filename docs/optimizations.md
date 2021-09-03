@@ -8,31 +8,35 @@ nav_order: 4
 
 ## Introduction
 
-**Gradient Descent** 
+**introduction to Gradient Descent** 
 
-Gradient Descent is the most popular optimization algorithm used to find the optimized set of weights in Deep Neural Networks. 
-It does so, during the training phase, by searching for the set of weights which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the modeled predicted output). 
+Gradient Descent is an optimization algorithm. In the context of Deep Neural Networks - it is the most popular algorithm used to find the optimized set of network's weights. 
+This optimization is part of the training phase functionality, where the selected optimized set of weights is the one which minimizes the cost function. (cost function is a function which expresses the error between the expected DNN output and the modeled predicted output). 
 
-**Gradient Descent in the context of DNN**
+The block diagram which follows, presents the DNN modules, as they are arranged during the training phase. The 3 main modules in this setup arrangement are:
 
-The block diagram which follows, presents DNN modules, as orgenized during the training phase. The 3 main modules presented are:
+-**Forwad Propogation**
 
-**Forwad Propogation** 
+-**Back Propogation** 
 
-**Back Propogation** 
-
-**Gradient Descent** 
+-**Gradient Descent** 
 
 
-(**Forwad Propogation** and **Back Propogation** are covered to details in dedicated posts.)
-
-As depicted by the flow diagram, Gradient Descent is located between the other 2 modules, where at each update cycle it updates the Forward Propogation module with the weights which were calculated, based on gradients supplied by Back Propogation module.
 
 ### Figure 0: Deep Neural Network Block Diagram - Training Phase
 
 ![Training-Phase](../assets/images/gd_optimizations/Training-Phase.png)
 
+As depicted by the diagram, the following occurs at each update cycle:
+1. **Forwad Propogation**,  based on the new set of updated coefficients (=weights), produces a new set of predicted output.
+2. **Back Propogation**, based on the new predicted output, generates a new set of gradients.
+3. **Gradient Descent** based on the new gardients. a new set of weights
+
+
+
 That was a brief description on what Geadient Descent is, and how it is utilized in the context of DNNs. The rest of this post post presents the Gradient Descent algorithm, along with other Gradient Descent variants, which aim to improve optimization convergence.
+
+(**Forwad Propogation** and **Back Propogation** are covered to details in dedicated posts.)
 
 **Table of Contents**
 
@@ -442,29 +446,24 @@ Similar to the less steep gradient scenario, momentum algorithm diverges quite c
 **On the importance of initialization and momentum in deep learning, Proceedings of the 30 th International Conference on Ma-
 chine Learning, 2013, Sutskever et al**
 
-Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm, with a slight algorithmic modification in the gradient formula: 
-
-In the plain momentum algorithm, the  gradient at step t is calculated as shown in Eq. 2a, i.e.:
-
- #### Normal Gradient's formula
- 
- \\(g_t = \bigtriangledown f(w_{t-1})\\)
- 
-Nesterov modifies that to, calculating the gradient not for \\(f(w_{t-1})\\) but applying a momentum correction factor, which in the plain momentum was supposed to be applied only in next iteration. Here it is:
-
- #### Nesterov Gradient's formula
-
- \\(g_t = \bigtriangledown f(w_{t-1}+\beta \cdot v_{t-1})\\)
-
-So here is the Nesterov Momentum update formula, followed by a flow diagram of the Nesterov Momentum algorithm.
-
+Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm, with a slight algorithmic modification, not in the update formula bt in the gradient calculation, as sown in Eq. 3.
 
 ### Eq. 3: Nesterov momentum
 
 #### 3.a: \\(v_t=\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown f(w_{t-1} + \beta \cdot v_{t-1} ) \\)
 
-#### 3.b: \\(w_{t}=w_{t-1}+ v_t \\)
+#### 3.b: \\(w_{t}=w_{t-1} + v_t \\)
 
+
+Nesterov equations (Eq. 3) are quite alike Momentum (Eq. 2), actually the same. The difference is just within the gradient calculation. The 2 diagrams below, are assumed to crystallize Nesterov functionality vs Momentum's in the wider DNN context. 
+
+###Momentum functionality in the wider DNN context
+
+![gradient decent diagram](../assets/images/gd_optimizations/momentum-training-flow.png)
+
+###Nesterov functionality in the wider DNN context
+
+![gradient decent diagram](../assets/images/gd_optimizations/nesterov-training-flow.png)
 
 
 ### Nesterov Momentum Flow Diagram
