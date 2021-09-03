@@ -460,13 +460,13 @@ Nesterov momentum algorithm (aka NAG) is a variation of the momentum algorithm, 
 ![gradient decent diagram](../assets/images/gd_optimizations/nesterov-momentum-gradient-descent-flow.png)
 
 
-Nesterov equations (Eq. 3) are quite alike Momentum (Eq. 2), actually the same. The difference is just within the gradient calculation. The 2 diagrams below, are assumed to crystallize Nesterov functionality vs Momentum's in the wider DNN context. 
+Nesterov equations (Eq. 3) are quite alike Momentum (Eq. 2), actually the same. The difference is just within the gradient calculation. The 2 diagrams below, are assumed to crystallize Nesterov functionality vs Momentum's in the DNN context. 
 
-###Momentum functionality in the wider DNN context
+### Momentum in DNN context
 
 ![gradient decent diagram](../assets/images/gd_optimizations/momentum-training-flow.png)
 
-###Nesterov functionality in the wider DNN context
+### Nesterov in DNN context
 
 ![gradient decent diagram](../assets/images/gd_optimizations/nesterov-training-flow.png)
 
