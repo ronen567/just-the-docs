@@ -277,48 +277,31 @@ The algorithms' reviews follow.
 
 **Goodfellow, Bengio, Courville, Deep Learning**
 
-The idea of Momentum algorithm is to accelerate convergence of Gradient Descent by allowing a faster move when in a low gradient zone, and decrease otherwise, i.e. when gradient changes directions. 
+The Momentum algorithm modifies the formula for updating the parameters, wrt plain Gradient Descent: Rather than depending on the current gradient, Momentum makes the updates depend not only on current gradient, but also on a weighted average of past updates, as shown in Eq. 2 below.
 
-This is achieved by depending the update step size not only on the current gradient, but also an an average of past iterations' gradients - see shown in the momentum formula:
 
-### Eq. 2: Momentum
-
+### Eq. 2: Momentum Update Formula 
 
 Eq. 2a: \\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w f(w_{t-1}) \\)
 
 Eq. 2b: \\( w_t = w_{t-1}+v_t \\)
 
 
-Eq. 2a presents the new term denoted by \\( v_t \\), which accumulates weighted past iterations updates, \\( v_{t-1}\\) with currecnt iteration update  \\(\alpha \cdot \bigtriangledown_w f(w_{t-1}) \\). The hyperparameter \\( \beta \\), determines the past updates' decay rate - the larger it is comparing to \\(\alpha\\), the more weight is given to past updates to affect the direction and magnitue of the current iteration's update. 
+Eq. 2a presents a new term denoted by \\( v_t \\), which accumulates weighted past iterations updates. The hyperparameter \\( \beta \\), determines the decay rate of past updates' - the larger  \\( \beta \\) is comparing to \\(\alpha\\), the more weight given to past updates.
 
-To illustrate the momentum's effect, let's examine the case where the gradient observed \\(g\\)is constant - same magnitude and direction, for all successive iterations. In this case, the update rate converges to a constant rate equals to: 
+With the effect of momentum, learning is accelerated in case direction of current gradient is the same as that of past averaged updates, and is slowed down in case it is in the oposite direction. This effect aims to provide acceleration for consistent direction curvatures - high, low, and also noisey. It aims to provide a damping effect when direction changes, e.g. to decrease overshoots.
 
-\\(\Delta w_t = \frac{\alpha \cdot g}{1-\beta}\\) 
+In the effort to understand the momentum behaior, let's examine the special test case where the gradient \\(g\\) is constant - same magnitude and direction, for all successive iterations. It is easy to show - (the full proof, is given at the end of this paragraph), the in that case, after gaining acceleration. the update rate converges to a constant rate equals to: 
 
-(this is the formula of a converging geometric series - see mathematical developement below. (*))
+\\(\mathbf{\Delta w_t = \frac{\alpha \cdot g}{1-\beta}}\\) 
 
-In this case, plugging the typical \\(\beta=0.9\\) to the equation above, the update size of the momentum algorithm is 10 times larger than the plain Gradient Descent.
+So this may be taken as a thumb rule for the effect of momentum in a constant gradient toplology. 
+Plugging the typical \\(\beta=0.9\\) to the equation above, the update size of the momentum algorithm is 10 times larger than the plain Gradient Descent.
 
-### Momentum Gradient Descent Flow Diagram
+for whoever is interested in the proof for the ubove listed constat update rate formula - here it is:
 
-![gradient decent diagram](../assets/images/gd_optimizations/momentum-gradient-descent-flow.png)
-
-Where:
-
-- Learning rate \\( \alpha \epsilon(0,1) \\) 
-- \\( \beta \\) is usually set to 0.9.
-
-
-Just to note:
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian physics (mechanics), the momentum is the product of velocity and mass (denoted by m), so assume m=1.
-
-\\(w_t=w_{t-1}-\frac{\alpha}{RMS[g]_{t-1} }\cdot g_t\\)
-
-
-
- (*) Here's the mathematical development which show the update rate for the constant gradient scenario:
  
- We assume \\(\triangledown f(w_t)\\) is the same for all t. Let's follow the update steps from the first iteration on:
+We assume \\(\triangledown f(w_t)\\) is the same for all t. Let's follow the update steps from the first iteration on:
  
 
 \\(\Delta w_1=\alpha\cdot\triangledown f(w)\\) 
@@ -341,6 +324,22 @@ Accordingly:
 \\(\Delta w_t = \frac{\alpha \cdot g}{1-\beta}\\)
 
 #### Q.E.D
+
+### Momentum Gradient Descent Flow Diagram
+
+![gradient decent diagram](../assets/images/gd_optimizations/momentum-gradient-descent-flow.png)
+
+Where:
+
+- Learning rate \\( \alpha \epsilon(0,1) \\) 
+- \\( \beta \\) is usually set to 0.9.
+
+
+Just to note:
+The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian physics (mechanics), the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+
+\\(w_t=w_{t-1}-\frac{\alpha}{RMS[g]_{t-1} }\cdot g_t\\)
+
 
 ## Demo - Momentum over various Loss Function scenarios
 
