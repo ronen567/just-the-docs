@@ -302,7 +302,12 @@ In the effort to understand the momentum behaior, let's examine the special test
 So this may be taken as a thumb rule for the effect of momentum in a constant gradient toplology. 
 Plugging the typical \\(\beta=0.9\\) to the equation above, the update size of the momentum algorithm is 10 times larger than the plain Gradient Descent.
 
-for whoever is interested in the proof for the ubove listed constat update rate formula - here it is:
+### Notes on Momentum Performance
+
+Next chapter demonstrates Momentum over 3 test cases: Moderate slop, a steeper slope and a high gradient slope. The more slope became steeper, the poorer Momentum behavior became. The combination of a large learning rate with a large slope may result in an unstable response, or even chaotic as presented in the demo plots which follow. The adaptive learning rate algorithm perform a much better response for such scenarios.
+
+
+**for whoever is interested in the proof for the ubove listed constat update rate formula - here it is:**
 
  
 We assume \\(\triangledown f(w_t)\\) is the same for all t. Let's follow the update steps from the first iteration on:
@@ -340,9 +345,12 @@ Where:
 
 
 Just to note:
-The reason for naming it momentum, is the analogy to Newtonian motion model: \\(v(t) = v(t-1) + a \cdot \Delta T,\;\Delta T=1\\), where the velocity \\(v_t \\) at time t, equals to the sum of velocity at \\({t-1})\\ and accelaration term . In Eq 2, the averaged step size is analogous to velocity,while the gradient is analogous to the acceleration. In the Newtonian physics (mechanics), the momentum is the product of velocity and mass (denoted by m), so assume m=1.
+The reason for naming it momentum, is the analogy to Newtonian motion model: 
+\\(v(t) = v(t-1) + a \cdot \Delta T\\), is equivalent to Gradient Descent Momentum formula, where the velocity increases linarily by acceleration
+ 
+\\( v_t =\beta \cdot v_{t-1} - \alpha \cdot \bigtriangledown_w f(w_{t-1}) \\)
 
-\\(w_t=w_{t-1}-\frac{\alpha}{RMS[g]_{t-1} }\cdot g_t\\)
+Where the gradient is analogous to acceleration, and \\(\Delta T\\) is taken as 1.
 
 
 ## Demo - Momentum over various Loss Function scenarios
@@ -368,6 +376,8 @@ Here, in the begining,  momentum runs much faster than the reference SGD, but th
 #### Momentum Moderate gradient: 2D Contour 
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_converge.gif)
+
+**Momentum Moderate gradient, 3D surface from 3 Camera positions:**
 
 
 #### Momentum Moderate gradient, 3D surface  (camera position: azimuth 0 elevation 0)
@@ -397,6 +407,7 @@ Now, with the steeper gradient, momentum algorithm diverges quite chaoticly in t
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_stable.gif)
 
+**Momentum Steeper gradient, 3D surface from 3 Camera positions:**
 
 #### Momentum Steeper gradient, 3D surface (camera position: azimuth 0 elevation 0)
 
@@ -414,7 +425,6 @@ Now, with the steeper gradient, momentum algorithm diverges quite chaoticly in t
 
 ### More steeper gradient: \\(J(w)=\frac{1}{2} \cdot (w1^2+20 \cdot w2^2)\\)
 
-
 Similar to the less steep gradient scenario, momentum algorithm diverges quite chaoticly in the begining, and making some wrong direction updates, i.e. with a postive sign. Eventually, after some overshoots and oscilations,  the algorithm coverges. though SGD does clearly better in this scenario. Clearly, the learning rate is much too large for momentum in this setup.
 
 
@@ -425,6 +435,8 @@ Similar to the less steep gradient scenario, momentum algorithm diverges quite c
 #### Momentum More Steeper gradient: 2D Contour 
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_momentum_sgd_steep.gif)
+
+**Momentum More Steeper gradient, 3D surface from 3 Camera positions:**
 
 
 #### Momentum More Steeper gradient, 3D surface (camera position:  azimuth 0 elevation 0)
@@ -471,6 +483,10 @@ Nesterov equations (Eq. 3) are quite alike Momentum (Eq. 2), actually the same. 
 ![gradient decent diagram](../assets/images/gd_optimizations/nesterov-training-flow.png)
 
 
+### Notes on Momentum Performance
+
+Next chapter demonstrates Nesterov over 3 test cases: Moderate slop, a steeper slope and a high gradient slope. Similarly to Momentum, The more slope became steeper, the poorer Nesterov behavior became. The combination of a large learning rate with a large slope may result in an unstable response, or even chaotic as presented in the demo plots which follow. The adaptive learning rate algorithm perform a much better response for such scenarios.
+
 ## Demo - Nesterov over various Loss Function scenarios
 
 Plots here below present optimization execution results for 3 2D Loss functions, with weights \\(w = [w_1, w_2] \\):
@@ -495,6 +511,7 @@ Here, in the begining, Nesterove runs much faster than the reference SGD, but th
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_nesterov_sgd_converge.gif)
 
+**Nesterov Moderate gradient, 3D surface from 3 Camera positions:**
 
 #### Nesterov Moderate gradient, 3D surface (camera position: azimuth 0 elevation 0)
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_nesterov_sgd_converge_azim_0_elev_0.gif)
@@ -600,6 +617,7 @@ AdaGrad is the first in the adaptive learning rate algorithms category list. It 
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_converge.gif)
 
+**AdaGrad Moderate gradient, 3D surface from 3 Camera positions:**
 
 #### AdaGrad Moderate gradient, 3D surface (camera position: azimuth 0 elevation 0)
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_converge_azim_0_elev_0.gif)
@@ -628,6 +646,8 @@ Similar to the previous Adagrad test case, due to the well known continuesly gro
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_stable.gif)
 
 
+**Nesterov Steeper gradient, 3D surface from 3 Camera positions:**
+
 #### AdaGrad Steeper gradient, 3D surface (camera position: azimuth 0 elevation 0)
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_stable_azim_0_elev_0.gif)
@@ -655,6 +675,7 @@ Similar to the previous Adagrad test cases, due to the well known continuesly gr
 
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/2d_contour_adagrad_steep.gif)
 
+**AdaGrad More Steeper gradient, 3D surface from 3 Camera positions:**
 
 #### AdaGrad More Steeper gradient, 3D surace (camera position: azimuth 0 elevation 0)
 ![gradient decent diagram](../assets/images/gd_optimizations/demo/3d_contour_adagrad_steep_azim_0_elev_0.gif)
